@@ -81,3 +81,13 @@ export const sliderHeroIntroData = {
         },
     ],
 };
+
+export const heroBasicIntroData = {
+    image: '/hero/hero-1.webp',
+    altText: 'Gourmet steak dinner with wine at candlelit table',
+    subtitle: 'Welcome to our restaurant',
+    title: 'Beef - Restaurant Template',
+    description: 'Made using only the finest coding & design practices there are, Beef - Restaurant is sure to make a perfect main ingredient for creating an irresistible your restaurant website.',
+    buttonText: 'Buy Now',
+    buttonLink: 'https://themeforest.net/item/beef-restaurant-react-nextjs-template/58512774',
+};

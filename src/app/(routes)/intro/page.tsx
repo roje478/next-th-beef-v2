@@ -1,5 +1,5 @@
-import { HeroClassicSliderBlock } from '@/app/blocks/hero';
-import { sliderHeroIntroData } from '@/app/hooks/data-hero';
+import { HeroBasicBlock } from '@/app/blocks/hero';
+import { heroBasicIntroData } from '@/app/hooks/data-hero';
 import HomePagesBlock from '@/app/blocks/homepages/homepages';
 import { homepagesListData } from '@/app/hooks/data-homepages';
 import InnersPagesBlock from '@/app/blocks/innerspages/innerspages';
@@ -14,7 +14,7 @@ const PageIntro = () => {
     return (
         <>
             {/* Hero Intro */}
-            <HeroClassicSliderBlock {...sliderHeroIntroData} />
+            <HeroBasicBlock {...heroBasicIntroData} />
             {/* / Hero Intro */}
 
             <div className="landing-page__content">
