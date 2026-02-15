@@ -22,10 +22,10 @@ const ContactInfo: React.FC<ContactInfoProps> = ({
 	}
 
 	return (
-		<div className={`contact-info ${className}`}>
+		<div className={className}>
 			<Link href={href} aria-label={ariaLabel || text}>
 				<i className={icon} aria-hidden="true"></i>
-				<span>{text}</span>
+				{text}
 			</Link>
 		</div>
 	);

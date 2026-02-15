@@ -27,6 +27,10 @@ export const InfoGeneralData = {
 		phoneAriaLabel: "Call us at",
 		emailIcon: "fa-solid fa-envelope",
 		emailAriaLabel: "Email us at",
+		callToAction: {
+			text: "Buy Now",
+			href: "https://themeforest.net/item/beef-restaurant-react-nextjs-template/58512774",
+		},
 	},
 };
 

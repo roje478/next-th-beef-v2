@@ -23,6 +23,7 @@ export default function LayoutProvider({ children }: { children: React.ReactNode
                         mapUrl={InfoGeneralData.urlMap}
                         phone={InfoGeneralData.phone}
                         email={InfoGeneralData.emailReservations}
+                        callToAction={InfoGeneralData.topbar.callToAction}
                     />
                     <Header />
                 </>

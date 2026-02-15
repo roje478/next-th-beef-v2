@@ -89,10 +89,10 @@ const config: Config = {
 				},
 			},
 			fontFamily: {
-				"josefin-sans": ["Josefin Sans", "sans-serif"],
-				mulish: ["Mulish", "sans-serif"],
-				"sorts-mill-goudy": ["Sorts Mill Goudy", "serif"],
-				"barlow-condensed": ["Barlow Condensed", "sans-serif"],
+				"josefin-sans": ["var(--font-josefin-sans)", "sans-serif"],
+				mulish: ["var(--font-mulish)", "sans-serif"],
+				"sorts-mill-goudy": ["var(--font-sorts-mill-goudy)", "serif"],
+				"barlow-condensed": ["var(--font-barlow-condensed)", "sans-serif"],
 			},
 			fontSize: {
 				// Display sizes (81-120px range)

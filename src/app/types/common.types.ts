@@ -564,6 +564,10 @@ export interface TopbarProps {
     mapUrl: string;
     phone: string;
     email: string;
+    callToAction?: {
+        text: string;
+        href: string;
+    };
 }
 
 export interface SubscriptionFormProps {

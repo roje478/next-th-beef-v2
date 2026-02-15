@@ -1,6 +1,36 @@
 import type { Metadata, Viewport } from "next";
+import { Josefin_Sans, Barlow_Condensed, Sorts_Mill_Goudy, Mulish } from "next/font/google";
 import "./globals.css";
 import LayoutProvider from "./LayoutProvider";
+
+const josefinSans = Josefin_Sans({
+	subsets: ["latin"],
+	weight: ["300", "400", "600", "700"],
+	variable: "--font-josefin-sans",
+	display: "swap",
+});
+
+const barlowCondensed = Barlow_Condensed({
+	subsets: ["latin"],
+	weight: ["400", "500", "600", "700"],
+	variable: "--font-barlow-condensed",
+	display: "swap",
+});
+
+const sortsMillGoudy = Sorts_Mill_Goudy({
+	subsets: ["latin"],
+	weight: ["400"],
+	style: ["normal", "italic"],
+	variable: "--font-sorts-mill-goudy",
+	display: "swap",
+});
+
+const mulish = Mulish({
+	subsets: ["latin"],
+	weight: ["400", "600", "700"],
+	variable: "--font-mulish",
+	display: "swap",
+});
 
 export const metadata: Metadata = {
 	title: "Beef - Premium Restaurant & Steakhouse HTML Template | Tailwind CSS",
@@ -125,8 +155,9 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="en" className={`${josefinSans.variable} ${barlowCondensed.variable} ${sortsMillGoudy.variable} ${mulish.variable}`}>
 			<head>
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
 				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
