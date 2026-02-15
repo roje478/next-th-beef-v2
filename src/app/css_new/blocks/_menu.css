@@ -6,12 +6,12 @@
 	&:after {
 		@apply absolute top-0 right-0 hidden lg:block w-[140px] h-auto bottom-0 bg-contain bg-repeat-y bg-right;
 		content: "";
-		background-image: url("../img/right.png");
+		background-image: url("/img/right.png");
 	}
 	&:before {
 		@apply absolute top-0 hidden lg:block left-0 w-[140px] h-auto bottom-0 bg-contain bg-repeat-y bg-right;
 		content: "";
-		background-image: url("../img/left.png");
+		background-image: url("/img/left.png");
 	}
 	&__container {
 		@apply container mx-auto ;

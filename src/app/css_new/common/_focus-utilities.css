@@ -1,35 +1,12 @@
 /*==================================================
     Focus Ring Utilities
     Standardized focus states for accessibility (WCAG 2.1 Level AA)
+
+    NOTE: Focus ring classes (.focus-ring, .focus-ring-dark, .focus-ring-light,
+    .focus-ring-thick, .focus-ring-compact) are registered as Tailwind plugin
+    components in tailwind.config.ts.
+    This allows @apply to work correctly across all imported CSS files.
 ==================================================*/
-
-/* ===================================
-    Base Focus Ring
-    Use with @apply in component styles
-====================================== */
-@layer utilities {
-    .focus-ring {
-        @apply outline-none ring-2 ring-calico-500 ring-offset-2 ring-offset-coarseWool-900;
-    }
-
-    .focus-ring-dark {
-        @apply outline-none ring-2 ring-calico-500 ring-offset-2 ring-offset-coarseWool-800;
-    }
-
-    .focus-ring-light {
-        @apply outline-none ring-2 ring-calico-500 ring-offset-2 ring-offset-white;
-    }
-
-    /* Thicker ring variant */
-    .focus-ring-thick {
-        @apply outline-none ring-4 ring-calico-500 ring-offset-2 ring-offset-coarseWool-900;
-    }
-
-    /* No offset variant (for compact elements) */
-    .focus-ring-compact {
-        @apply outline-none ring-2 ring-calico-500 ring-offset-0;
-    }
-}
 
 /* ===================================
     Usage Examples:

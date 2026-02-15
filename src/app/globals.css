@@ -6,7 +6,8 @@
 ========================================================================== */
 
 /* =====================================
-    CSS Imports (must be first for Turbopack/Next.js 16+)
+    CSS Imports
+    (All @import must precede @tailwind for postcss-import)
 ===================================== */
 
 /* CSS NEW */
@@ -80,18 +81,10 @@
 @import "./css_new/header/_menumobile.css";
 
 /* =====================================
-    Header Styles
-===================================== 
+    Footer / Hero / Blocks (commented out - legacy)
+=====================================
 @import "./footer/_footer.css";
-
-/* =====================================
-    Hero Styles
-===================================== 
 @import "./hero/_hero.css";
-
-/* =====================================
-    Blocks Styles
-===================================== 
 @import "./blocks/_about.css";
 @import "./blocks/_special-offers.css";
 @import "./blocks/_menu.css";
@@ -113,9 +106,6 @@
 @import "./blocks/_menu-category.css";
 @import "./blocks/_faq.css";
 @import "./blocks/_pricing.css";
-
-/* =====================================
- CSS NEW 
 ===================================== */
 
 /* ----- Base Styles ----- */
@@ -164,32 +154,26 @@
 @import "./css/blocks/blog.css";
 
 /* ----- Swiper CSS ----- */
-@import "swiper/css";
-@import "swiper/css/navigation";
-@import "swiper/css/pagination";
-@import "swiper/css/scrollbar";
-@import "swiper/css/effect-fade";
+@import "swiper/swiper.css";
+@import "swiper/modules/navigation.css";
+@import "swiper/modules/pagination.css";
+@import "swiper/modules/scrollbar.css";
+@import "swiper/modules/effect-fade.css";
 
 /* ----- Landing ----- */
 @import "./css/blocks/landing.css";
 
 /* =====================================
-    Tailwind Css - Base / Components
+    Tailwind Css - Base / Components / Utilities
+    (After all @import for postcss-import compatibility)
 ===================================== */
 @tailwind base;
 @tailwind components;
-
-/* =====================================
-    Tailwind Css - Utilities
-===================================== */
 @tailwind utilities;
 
-@layer utilities {
-    .text-balance {
-        text-wrap: balance;
-    }
-}
-
+/* =====================================
+    Global Styles
+===================================== */
 ::-webkit-scrollbar {
     width: 0;
 }

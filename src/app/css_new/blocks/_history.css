@@ -8,12 +8,12 @@
 	&:after {
 		@apply absolute top-0 right-0 hidden lg:block md:w-history-icon xl:w-history-img bottom-0 bg-contain bg-no-repeat bg-right;
 		content: "";
-		background-image: url("../img/right.png");
+		background-image: url("/img/right.png");
 	}
 	&:before {
 		@apply absolute top-0 hidden lg:block left-0 md:w-history-icon xl:w-history-img bottom-0 bg-contain bg-no-repeat bg-left;
 		content: "";
-		background-image: url("../img/left.png");
+		background-image: url("/img/left.png");
 	}
 	&__container {
 		@apply container mx-auto container-padding;
@@ -33,12 +33,12 @@
 		&:after {
 			@apply absolute top-0 right-1 w-12 h-3 md:-top-4 md:-right-7 md:w-14 md:h-4 bg-contain bg-no-repeat bg-center z-20;
 			content: "";
-			background-image: url("../img/start-point.png");
+			background-image: url("/img/start-point.png");
 		}
 		&:before {
 			@apply hidden sm:block absolute top-0 left-0 md:-top-4 md:-left-7 w-12 h-3 md:w-14 md:h-4 bg-contain bg-repeat-y bg-top z-20;
 			content: "";
-			background-image: url("../img/start-point.png");
+			background-image: url("/img/start-point.png");
 		}
 	}
 	&__list {
@@ -46,12 +46,12 @@
 		&:after {
 			@apply absolute top-0 right-0 bottom-0 w-[1px] h-full bg-contain bg-repeat-y bg-top;
 			content: "";
-			background-image: url("../img/border-list.png");
+			background-image: url("/img/border-list.png");
 		}
 		&:before {
 			@apply hidden sm:block absolute top-0 left-[-1px] bottom-0 w-[1px] h-full bg-contain bg-repeat-y bg-top z-10;
 			content: "";
-			background-image: url("../img/border-list.png");
+			background-image: url("/img/border-list.png");
 		}
 	}
 	&__item {

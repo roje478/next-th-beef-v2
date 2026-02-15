@@ -4,51 +4,40 @@
 ==================================================*/
 
 /* ===================================
-    Screen Reader Only
-    Visually hidden but accessible to screen readers
+    Screen Reader Only - Focusable variant
+    Visually hidden but becomes visible on focus
 ====================================== */
-@layer utilities {
-    .sr-only {
-        position: absolute !important;
-        width: 1px !important;
-        height: 1px !important;
-        padding: 0 !important;
-        margin: -1px !important;
-        overflow: hidden !important;
-        clip: rect(0, 0, 0, 0) !important;
-        white-space: nowrap !important;
-        border: 0 !important;
-    }
+.sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
 
-    /* Allow element to be focusable when navigated to */
-    .sr-only-focusable:not(:focus):not(:focus-within) {
-        position: absolute !important;
-        width: 1px !important;
-        height: 1px !important;
-        padding: 0 !important;
-        margin: -1px !important;
-        overflow: hidden !important;
-        clip: rect(0, 0, 0, 0) !important;
-        white-space: nowrap !important;
-        border: 0 !important;
-    }
+.sr-only-focusable:focus,
+.sr-only-focusable:focus-within {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    padding: inherit !important;
+    margin: inherit !important;
+    overflow: visible !important;
+    clip: auto !important;
+    white-space: normal !important;
+}
 
-    .sr-only-focusable:focus,
-    .sr-only-focusable:focus-within {
-        position: static !important;
-        width: auto !important;
-        height: auto !important;
-        padding: inherit !important;
-        margin: inherit !important;
-        overflow: visible !important;
-        clip: auto !important;
-        white-space: normal !important;
-    }
+/* Not screen reader - hide from assistive tech */
+.not-sr {
+    display: none !important;
+}
 
-    /* Not screen reader - hide from assistive tech */
-    .not-sr {
-        @apply !hidden;
-    }
+.text-balance {
+    text-wrap: balance;
 }
 
 /* ===================================
@@ -56,7 +45,19 @@
     Skip to main content for keyboard users
 ====================================== */
 .skip-link {
-    @apply sr-only-focusable fixed top-0 left-0 z-[9999] bg-calico-500 text-coarseWool-900 px-6 py-3 font-barlow-condensed text-title-5 font-semibold no-underline;
+    @apply fixed top-0 left-0 z-[9999] bg-calico-500 text-coarseWool-900 px-6 py-3 font-barlow-condensed text-title-5 font-semibold no-underline;
+
+    &:not(:focus):not(:focus-within) {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+    }
 
     &:focus {
         @apply focus-ring;
@@ -83,13 +84,19 @@
 ====================================== */
 @media (prefers-contrast: more) {
     .btn {
-        @apply border-2;
+        border-width: 2px;
     }
 
-    .focus-ring,
-    .focus-ring-dark,
+    .focus-ring {
+        box-shadow: 0 0 0 2px #050608, 0 0 0 6px #D9B282;
+    }
+
+    .focus-ring-dark {
+        box-shadow: 0 0 0 2px #0A0D0F, 0 0 0 6px #D9B282;
+    }
+
     .focus-ring-light {
-        @apply ring-4;
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 6px #D9B282;
     }
 }
 

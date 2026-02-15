@@ -21,12 +21,12 @@
 
     &::before {
         @apply left-0 bg-left;
-        background-image: url("../img/left.png");
+        background-image: url("/img/left.png");
     }
 
     &::after {
         @apply right-0 bg-right;
-        background-image: url("../img/right.png");
+        background-image: url("/img/right.png");
     }
 }
 
@@ -61,7 +61,7 @@
         content: "";
         @apply absolute top-0 bottom-0 left-0 h-full w-[140px]
                bg-contain bg-repeat-y bg-left hidden lg:block;
-        background-image: url("../img/left.png");
+        background-image: url("/img/left.png");
     }
 }
 
@@ -70,7 +70,7 @@
         content: "";
         @apply absolute top-0 bottom-0 right-0 h-full w-[140px]
                bg-contain bg-repeat-y bg-right hidden lg:block;
-        background-image: url("../img/right.png");
+        background-image: url("/img/right.png");
     }
 }
 

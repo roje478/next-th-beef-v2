@@ -4,12 +4,12 @@
 	&:after {
 		@apply absolute top-0 right-0 hidden lg:block md:w-[120px] xl:w-[260px] bottom-0 bg-contain bg-no-repeat bg-right z-10;
 		content: "";
-		background-image: url("../img/right.png");
+		background-image: url("/img/right.png");
 	}
 	&:before {
 		@apply absolute top-0 hidden lg:block left-0 md:w-[120px] xl:w-[260px] bottom-0 bg-contain bg-no-repeat bg-left z-20;
 		content: "";
-		background-image: url("../img/left.png");
+		background-image: url("/img/left.png");
 	}
 }
 
