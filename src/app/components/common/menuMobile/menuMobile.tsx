@@ -1,19 +1,11 @@
 "use client";
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { FaAngleRight } from "react-icons/fa6";
 import Link from "next/link";
 import { itemsNavbar } from "@/app/hooks/data-navbar";
 import { NavItem, MenuMobileProps } from "@/app/types/common.types";
 import { MenuMobileData } from "@/app/hooks/data-mobile-menu";
 import { cn } from "@/lib/utils";
 
-/**
- * A full-screen mobile menu with multi-level navigation.
- * It handles its own state for sub-menus and closing animations.
- *
- * @param {MenuMobileProps} props The props for the component.
- * @returns {React.ReactElement} The rendered mobile menu.
- */
 const MenuMobile: React.FC<MenuMobileProps> = ({
 	id,
 	isMobile,
@@ -27,10 +19,6 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
 	const [activeSubMenuId, setActiveSubMenuId] = useState<number | null>(null);
 	const menuContentRef = useRef<HTMLDivElement>(null);
 
-	/**
-	 * Effect to add a delay to the `isMobile` state.
-	 * This allows for CSS exit animations to complete before the component is unmounted or hidden.
-	 */
 	useEffect(() => {
 		let timer: NodeJS.Timeout;
 		if (isMobile) {
@@ -38,7 +26,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
 		} else {
 			timer = setTimeout(() => {
 				setDelayedIsMobile(false);
-			}, 300); // Delay should match the CSS transition duration
+			}, 300);
 		}
 		return () => clearTimeout(timer);
 	}, [isMobile]);
@@ -47,10 +35,6 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
 		setIsMobile(false);
 	}, [setIsMobile]);
 
-	/**
-	 * Effect to handle clicks outside the menu content to close it.
-	 * This improves user experience by allowing an intuitive closing action.
-	 */
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
 			if (
@@ -70,30 +54,19 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
 		};
 	}, [isMobile, handleClose]);
 
-	/**
-	 * Effect to reset the active submenu when the main menu is closed.
-	 * Ensures a clean state next time the menu is opened.
-	 */
 	useEffect(() => {
 		if (!isMobile) {
 			const timer = setTimeout(() => {
 				setActiveSubMenuId(null);
-			}, 300); // Delay matches the closing animation for a smooth transition.
+			}, 300);
 			return () => clearTimeout(timer);
 		}
 	}, [isMobile]);
 
-	/**
-	 * Navigates back to the main menu from a submenu.
-	 */
 	const handleBackClick = () => {
 		setActiveSubMenuId(null);
 	};
 
-	/**
-	 * Sets the active submenu based on the item ID clicked.
-	 * @param {number} itemId The ID of the menu item that triggers the submenu.
-	 */
 	const handleSubMenuTriggerClick = (itemId: number) => {
 		setActiveSubMenuId(itemId);
 	};
@@ -101,7 +74,6 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
 	const activeMenuItem = itemsNavbar.find((item) => item.id === activeSubMenuId);
 	const menuTitle = activeMenuItem ? activeMenuItem.title : defaultMenuTitle;
 
-	// Early return if not in mobile view to avoid rendering an empty component
 	if (!isMobile && !delayedIsMobile) {
 		return null;
 	}
@@ -110,103 +82,87 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
 		<>
 			<nav
 				id={id}
-				className={cn("menu-mobile", { "menu-mobile__open": isMobile })}
+				className={cn(
+					"mm-menu mm-menu--offcanvas mm-menu--theme-light",
+					"fixed top-0 left-0 h-full w-[80%] max-w-[440px] bg-coarseWool-800",
+					"transform -translate-x-full transition-transform duration-300 ease-in-out",
+					{ "translate-x-0": isMobile },
+				)}
 				role="navigation"
 				aria-label="Mobile menu"
 			>
 				<div
 					ref={menuContentRef}
-					className={cn("menu-mobile__content", {
-						"menu-mobile__content__open": delayedIsMobile,
-					})}
+					className="h-full flex flex-col overflow-hidden"
 				>
-					<div className="menu-mobile__header">
-						<div
-							className={cn("menu-mobile__back", {
-								"back-active": activeSubMenuId !== null,
-							})}
+					{/* Navbar */}
+					<div className="mm-navbar flex items-center border-b min-h-[50px]">
+						<button
+							className={cn(
+								"mm-btn mm-btn--prev w-[50px] h-[50px] flex items-center justify-center transition-opacity duration-200",
+								activeSubMenuId !== null
+									? "opacity-100"
+									: "opacity-0 pointer-events-none",
+							)}
 							onClick={handleBackClick}
-							onKeyDown={(e) => e.key === "Enter" && handleBackClick()}
-							role="button"
 							tabIndex={activeSubMenuId !== null ? 0 : -1}
 							aria-label={ariaLabelGoBack}
-						></div>
-						<div className="menu-mobile__title">
+						>
+							<span className="inline-block w-[8px] h-[8px] border-l-2 border-b-2 border-calico-500 transform rotate-45" />
+						</button>
+						<span className="mm-navbar__title flex-1 text-center">
 							<span>{menuTitle}</span>
-						</div>
-						<div
-							className="menu-mobile__close"
+						</span>
+						<button
+							className="mm-btn w-[50px] h-[50px] flex items-center justify-center"
 							onClick={handleClose}
-							onKeyDown={(e) => e.key === "Enter" && handleClose()}
-							role="button"
 							tabIndex={0}
 							aria-label={ariaLabelCloseMenu}
-						></div>
+						>
+							<span className="text-coarseWool-300 text-xl leading-none">
+								&times;
+							</span>
+						</button>
 					</div>
-					<div
-						className={cn("menu-mobile__nav", {
-							"submenu-active": activeSubMenuId !== null,
-						})}
-					>
-						<div className="menu-mobile__nav-content">
-							<ul className="menu-mobile__nav-list">
+
+					{/* Panels container */}
+					<div className="flex-1 overflow-hidden relative">
+						{/* Main panel */}
+						<div
+							className={cn(
+								"absolute inset-0 overflow-y-auto transition-transform duration-300 ease-in-out",
+								activeSubMenuId !== null
+									? "-translate-x-full"
+									: "translate-x-0",
+							)}
+						>
+							<ul>
 								{itemsNavbar.map((item: NavItem) => (
-									<li
-										key={item.id}
-										className={cn("menu-mobile__nav-item", {
-											"nav-item__has-children":
-												item.children && item.children.length > 0,
-											"show-menu": activeSubMenuId === item.id,
-										})}
-									>
+									<li key={item.id} className="mm-listitem border-b">
 										{item.children && item.children.length > 0 ? (
-											<>
-												<div className="menu-mobile__nav-item__title">
-													<Link
-														href={item.link}
-														className="menu-mobile__nav-link"
-														onClick={handleClose}
-													>
-														{item.title}
-													</Link>
-													<div
-														className="menu-mobile__nav-icon"
-														onClick={() => handleSubMenuTriggerClick(item.id)}
-														onKeyDown={(e) =>
-															e.key === "Enter" &&
-															handleSubMenuTriggerClick(item.id)
-														}
-														role="button"
-														tabIndex={0}
-														aria-label={`${ariaLabelSubmenu} ${item.title}`}
-														aria-expanded={activeSubMenuId === item.id}
-													>
-														<FaAngleRight />
-													</div>
-												</div>
-												<div className="menu-mobile__nav-submenu">
-													<ul className="menu-mobile__nav-submenu-list">
-														{item.children.map((childItem) => (
-															<li
-																key={childItem.id}
-																className="menu-mobile__nav-submenu-item"
-															>
-																<Link
-																	href={childItem.link}
-																	className="menu-mobile__nav-link"
-																	onClick={handleClose}
-																>
-																	{childItem.title}
-																</Link>
-															</li>
-														))}
-													</ul>
-												</div>
-											</>
+											<div className="flex items-center">
+												<Link
+													href={item.link}
+													className="mm-listitem__text flex-1 px-5 py-3 block"
+													onClick={handleClose}
+												>
+													{item.title}
+												</Link>
+												<button
+													className="mm-btn mm-btn--next w-[50px] flex items-center justify-center border-l border-coarseWool-500 py-3 self-stretch"
+													onClick={() =>
+														handleSubMenuTriggerClick(item.id)
+													}
+													aria-label={`${ariaLabelSubmenu} ${item.title}`}
+													aria-expanded={activeSubMenuId === item.id}
+												>
+													<span className="inline-block w-[8px] h-[8px] border-r-2 border-t-2 border-calico-500 transform rotate-45" />
+												</button>
+											</div>
 										) : (
 											<Link
 												href={item.link}
-												className="menu-mobile__nav-link"
+												className="mm-listitem__text block px-5 py-3"
 												onClick={handleClose}
 											>
 												{item.title}
@@ -216,14 +172,53 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
 								))}
 							</ul>
 						</div>
+
+						{/* Submenu panels */}
+						{itemsNavbar
+							.filter(
+								(item) => item.children && item.children.length > 0,
+							)
+							.map((item) => (
+								<div
+									key={item.id}
+									className={cn(
+										"absolute inset-0 overflow-y-auto transition-transform duration-300 ease-in-out",
+										activeSubMenuId === item.id
+											? "translate-x-0"
+											: "translate-x-full",
+									)}
+								>
+									<ul>
+										{item.children!.map((child) => (
+											<li
+												key={child.id}
+												className="mm-listitem border-b"
+											>
+												<Link
+													href={child.link}
+													className="mm-listitem__text block px-5 py-3"
+													onClick={handleClose}
+												>
+													{child.title}
+												</Link>
+											</li>
+										))}
+									</ul>
+								</div>
+							))}
 					</div>
 				</div>
 			</nav>
+
+			{/* Overlay */}
 			<div
-				className={cn("menu-mobile__overlay", { active: isMobile })}
+				className={cn(
+					"fixed inset-0 bg-black/50 z-[9998] transition-opacity duration-300",
+					isMobile ? "opacity-100" : "opacity-0 pointer-events-none",
+				)}
 				onClick={handleClose}
 				aria-label={ariaLabelCloseMenu}
-			></div>
+			/>
 		</>
 	);
 };

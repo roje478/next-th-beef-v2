@@ -28,19 +28,29 @@ export const itemsNavbar = [
                 link: '/menu',
             },
             {
-                id: 24,
-                title: 'Full Width',
+                id: 22,
+                title: 'Menu full width',
                 link: '/menu-full-width',
             },
             {
-                id: 22,
-                title: 'Menu Tabs',
+                id: 23,
+                title: 'Menu tabs',
                 link: '/menu-tabs',
             },
             {
-                id: 23,
-                title: 'Menu Sidebar',
+                id: 24,
+                title: 'Menu sidebar',
                 link: '/menu-sidebar',
+            },
+            {
+                id: 25,
+                title: 'Menu category',
+                link: '/menu-category',
+            },
+            {
+                id: 26,
+                title: 'Menu single',
+                link: '/menu-single',
             },
         ],
     },
@@ -56,7 +66,7 @@ export const itemsNavbar = [
             },
             {
                 id: 32,
-                title: 'Chefs',
+                title: 'Team',
                 link: '/chefs',
             },
             {
@@ -69,6 +79,31 @@ export const itemsNavbar = [
                 title: 'Services',
                 link: '/services',
             },
+            {
+                id: 35,
+                title: 'FAQ',
+                link: '/faq',
+            },
+            {
+                id: 36,
+                title: 'Pricing',
+                link: '/pricing',
+            },
+            {
+                id: 37,
+                title: 'Testimonials',
+                link: '/testimonials',
+            },
+            {
+                id: 38,
+                title: 'Events / Private',
+                link: '/events-private-dining',
+            },
+            {
+                id: 39,
+                title: "Chef's Table",
+                link: '/chefs-table',
+            },
         ],
     },
     {
@@ -78,23 +113,23 @@ export const itemsNavbar = [
         children: [
             {
                 id: 41,
-                title: 'Blog Classic',
+                title: 'Blog',
                 link: '/blog',
             },
             {
                 id: 42,
-                title: 'Blog Full Width',
-                link: '/blog-full-width',
+                title: 'Blog + sidebar',
+                link: '/blog-sidebar-right',
             },
             {
                 id: 43,
-                title: 'Blog Full Width with Sidebar',
-                link: '/blog-full-width-with-sidebar',
+                title: 'Blog category',
+                link: '/blog/category',
             },
             {
                 id: 44,
-                title: 'Blog Single',
-                link: '/blog-single',
+                title: 'Blog details',
+                link: '/blog/blog-details',
             },
         ],
     },
@@ -105,7 +140,7 @@ export const itemsNavbar = [
     },
     {
         id: 7,
-        title: 'Others',
+        title: "Other's",
         link: '/',
         children: [
             {
@@ -122,6 +157,21 @@ export const itemsNavbar = [
                 id: 73,
                 title: 'Coming Soon',
                 link: '/coming-soon',
+            },
+            {
+                id: 74,
+                title: 'Search Results',
+                link: '/search-results',
+            },
+            {
+                id: 75,
+                title: 'Privacy Policy',
+                link: '/privacy',
+            },
+            {
+                id: 76,
+                title: 'Terms & Conditions',
+                link: '/terms',
             },
         ],
     },

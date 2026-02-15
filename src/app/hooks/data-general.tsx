@@ -36,10 +36,10 @@ export const InfoGeneralData = {
 
 export const LogoData={
 	urlLogo: "/logo.webp",
-	altLogo: "Logo",
+	altLogo: "Beef Restaurant - Premium Steakhouse",
 	hrefLogo: "/",
-	widthLogo: 120,
-	heightLogo: 120,
+	widthLogo: 180,
+	heightLogo: 77,
 }
 
 export const menuLegalData = [
