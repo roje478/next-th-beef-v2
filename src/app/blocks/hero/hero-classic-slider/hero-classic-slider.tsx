@@ -207,11 +207,16 @@ const HeroClassicSliderBlock = ({
 											{item.title}
 										</motion.h1>
 										{/* Divider */}
-										<div
-											className="divider div-transparent div-stopper wow animate__fadeInUp"
-											data-wow-delay="0.7s"
-										></div>
-										{/*/ Divider */}
+									<motion.div
+										className="divider div-transparent div-stopper"
+										initial={{ opacity: 0, y: 20 }}
+										animate={{
+											opacity: activeSlide === index ? 1 : 0,
+											y: activeSlide === index ? 0 : 20,
+										}}
+										transition={{ delay: 0.6, duration: 0.8 }}
+									/>
+									{/*/ Divider */}
 										<motion.div
 											className="hero-basic__description"
 											initial={

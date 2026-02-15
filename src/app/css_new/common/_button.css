@@ -60,7 +60,7 @@
     /* Pseudo-elements for animated underline */
     &:before,
     &:after {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         height: 1px;
@@ -68,7 +68,9 @@
     }
 
     &:before {
-        transition: width 0s ease, background .4s ease;
+        transition:
+            width 0s ease,
+            background 0.4s ease;
         left: 0;
         right: 0;
         bottom: -8px;
@@ -77,8 +79,8 @@
     &:after {
         right: 2.2%;
         bottom: -8px;
-        background: theme('colors.calico.500');
-        transition: width .4s ease;
+        background: theme("colors.calico.500");
+        transition: width 0.4s ease;
     }
 
     &:hover {
@@ -88,7 +90,7 @@
             @apply bg-calico-600;
             left: 5%;
             width: 90%;
-            transition: width .4s ease;
+            transition: width 0.4s ease;
         }
 
         &:after {
