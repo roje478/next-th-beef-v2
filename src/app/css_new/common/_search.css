@@ -1,0 +1,312 @@
+/*==================================================
+    Search Component
+    Extension: Search form and results styling
+    Justification: Essential discovery feature for premium themes
+==================================================*/
+
+/* ===================================
+    Search Form - Header Integration
+====================================== */
+.search-form {
+    @apply relative w-full;
+}
+
+.search-form__input-group {
+    @apply relative flex items-center;
+}
+
+.search-form__input {
+    @apply w-full bg-coarseWool-800/30 border border-coarseWool-400 rounded-md;
+    @apply text-coarseWool-100 font-josefin-sans text-base;
+    @apply pl-12 pr-4 py-3;
+    @apply transition-all duration-200 ease-out;
+    letter-spacing: 0.25px;
+
+    &::placeholder {
+        @apply text-coarseWool-300;
+    }
+
+    &:hover:not(:focus) {
+        @apply border-coarseWool-300 bg-coarseWool-800/40;
+    }
+
+    &:focus {
+        @apply outline-none border-calico-500 bg-coarseWool-800/50;
+        @apply shadow-sm shadow-calico-500/20;
+    }
+
+    &:focus-visible {
+        @apply ring-2 ring-calico-500 ring-offset-2 ring-offset-coarseWool-900;
+    }
+}
+
+.search-form__icon {
+    @apply absolute left-4 top-1/2 -translate-y-1/2;
+    @apply text-coarseWool-300 text-lg pointer-events-none;
+}
+
+.search-form__submit {
+    @apply absolute right-2 top-1/2 -translate-y-1/2;
+    @apply bg-calico-500 text-coarseWool-900;
+    @apply px-4 py-2 rounded;
+    @apply font-mulish font-bold uppercase tracking-wider text-xs;
+    @apply transition-all duration-200;
+    @apply hover:bg-calico-600;
+
+    &:focus-visible {
+        @apply outline-none ring-2 ring-calico-500 ring-offset-2 ring-offset-coarseWool-900;
+    }
+}
+
+/* ===================================
+    Search Form - Hero Variant (Large)
+====================================== */
+.search-form--hero {
+    @apply max-w-2xl mx-auto lg:pb-9 xl:pb-16;
+
+    .search-form__input {
+        @apply py-4 text-lg pl-14;
+    }
+
+    .search-form__icon {
+        @apply text-2xl left-5;
+    }
+
+    .search-form__submit {
+        @apply px-6 py-3 text-sm right-3;
+    }
+}
+
+/* ===================================
+    Search Form - Compact Variant
+====================================== */
+.search-form--compact {
+    .search-form__input {
+        @apply py-2.5 text-sm pl-10;
+    }
+
+    .search-form__icon {
+        @apply text-base left-3;
+    }
+
+    .search-form__submit {
+        @apply px-3 py-1.5 text-xs;
+    }
+}
+
+/* ===================================
+    Search Results Page
+====================================== */
+.search-results {
+    @apply py-12 md:py-16 bg-coarseWool-900;
+}
+
+.search-results__header {
+    @apply mb-8 md:mb-12;
+}
+
+.search-results__title {
+    @apply text-title-4 md:text-title-2 text-coarseWool-100 font-barlow-condensed uppercase mb-4;
+}
+
+.search-results__meta {
+    @apply text-coarseWool-300 text-base md:text-lg font-josefin-sans pt-4;
+
+    strong {
+        @apply text-calico-500 font-bold;
+    }
+}
+
+.search-results__filters {
+    @apply flex flex-wrap items-center gap-3 mb-8 pb-6 border-b border-coarseWool-600;
+}
+
+.search-results__filter-label {
+    @apply text-coarseWool-100 font-mulish font-semibold uppercase tracking-wider text-xs;
+}
+
+.search-results__filter-btn {
+    @apply px-4 py-2 rounded;
+    @apply bg-transparent border border-coarseWool-500;
+    @apply text-coarseWool-100 font-mulish font-bold uppercase tracking-wider text-xs;
+    @apply transition-all duration-200;
+
+    &:hover {
+        @apply bg-calico-500 border-calico-500 text-coarseWool-900;
+    }
+
+    &--active {
+        @apply bg-calico-500 border-calico-500 text-coarseWool-900;
+    }
+
+    &:focus-visible {
+        @apply outline-none ring-2 ring-calico-500 ring-offset-2 ring-offset-coarseWool-900;
+    }
+}
+
+/* ===================================
+    Search Result Item
+====================================== */
+.search-result {
+    @apply mb-8 pb-8 border-b border-coarseWool-700 last:border-b-0;
+    @apply transition-all duration-200;
+
+    &:hover {
+        @apply border-coarseWool-600;
+    }
+}
+
+.search-result__category {
+    @apply inline-block px-3 py-1 mb-3;
+    @apply bg-coarseWool-700 rounded;
+    @apply text-calico-500 font-mulish font-bold uppercase tracking-wider text-xs;
+}
+
+.search-result__title {
+    @apply text-title-5 md:text-title-4 text-coarseWool-100 font-barlow-condensed uppercase mb-3;
+    @apply transition-colors duration-200;
+
+    a {
+        @apply hover:text-calico-500;
+    }
+}
+
+.search-result__excerpt {
+    @apply text-coarseWool-200 text-base md:text-body leading-relaxed mb-4;
+
+    mark {
+        @apply bg-calico-500/20 text-calico-500 px-1 rounded;
+    }
+}
+
+.search-result__meta {
+    @apply flex flex-wrap items-center gap-4 text-sm text-coarseWool-300;
+}
+
+.search-result__meta-item {
+    @apply flex items-center gap-2;
+
+    i {
+        @apply text-calico-500;
+    }
+}
+
+.search-result__link {
+    @apply inline-flex items-center gap-2;
+    @apply text-calico-500 font-mulish font-bold uppercase tracking-wider text-xs;
+    @apply transition-all duration-200;
+
+    &:hover {
+        @apply text-calico-600 gap-3;
+    }
+
+    &::after {
+        content: '→';
+        @apply transition-all duration-200;
+    }
+}
+
+/* ===================================
+    No Results State
+====================================== */
+.search-results__empty {
+    @apply text-center py-16 md:py-24;
+}
+
+.search-results__empty-icon {
+    @apply text-6xl md:text-7xl text-coarseWool-600 mb-6;
+}
+
+.search-results__empty-title {
+    @apply text-title-4 md:text-title-3 text-coarseWool-100 font-barlow-condensed uppercase mb-4;
+}
+
+.search-results__empty-text {
+    @apply text-coarseWool-200 text-base md:text-body leading-relaxed mb-8;
+    @apply max-w-lg mx-auto;
+}
+
+.search-results__empty-suggestions {
+    @apply text-left max-w-md mx-auto;
+}
+
+.search-results__empty-suggestions-title {
+    @apply text-coarseWool-100 font-mulish font-semibold uppercase tracking-wider text-sm mb-4;
+}
+
+.search-results__empty-suggestions-list {
+    @apply space-y-2;
+
+    li {
+        @apply text-coarseWool-200 text-base;
+
+        &::before {
+            content: '•';
+            @apply text-calico-500 mr-2;
+        }
+    }
+}
+
+/* ===================================
+    Search Modal/Overlay (Optional)
+====================================== */
+.search-overlay {
+    @apply fixed inset-0 z-50 bg-coarseWool-900/95 backdrop-blur-sm;
+    @apply flex items-start justify-center pt-20 px-4;
+    @apply opacity-0 pointer-events-none;
+    @apply transition-opacity duration-300;
+
+    &--active {
+        @apply opacity-100 pointer-events-auto;
+    }
+}
+
+.search-overlay__close {
+    @apply absolute top-6 right-6;
+    @apply w-12 h-12 flex items-center justify-center;
+    @apply bg-coarseWool-800 rounded-full;
+    @apply text-coarseWool-100 text-2xl;
+    @apply transition-all duration-200;
+    @apply hover:bg-calico-500 hover:text-coarseWool-900 hover:rotate-90;
+
+    &:focus-visible {
+        @apply outline-none ring-2 ring-calico-500 ring-offset-2 ring-offset-coarseWool-900;
+    }
+}
+
+.search-overlay__content {
+    @apply w-full max-w-3xl;
+}
+
+/* ===================================
+    Responsive Adjustments
+====================================== */
+@media (max-width: 768px) {
+
+    .search-result__title {
+        @apply text-title-6;
+    }
+}
+
+/*==================================================
+    USAGE EXAMPLES:
+
+    Basic search form:
+    <form class="search-form" role="search">
+        <div class="search-form__input-group">
+            <i class="fa-solid fa-magnifying-glass search-form__icon"></i>
+            <input type="search" class="search-form__input" placeholder="Search..." />
+            <button type="submit" class="search-form__submit">Search</button>
+        </div>
+    </form>
+
+    Hero variant (large):
+    <form class="search-form search-form--hero" role="search">
+        ...
+    </form>
+
+    Compact variant:
+    <form class="search-form search-form--compact" role="search">
+        ...
+    </form>
+==================================================*/

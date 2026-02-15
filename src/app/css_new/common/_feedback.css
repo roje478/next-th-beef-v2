@@ -1,0 +1,285 @@
+/*==================================================
+    Feedback Components
+    Loading states, alerts, and notifications
+==================================================*/
+
+/* ===================================
+    1. Loading Spinner
+    Use for form submissions and async operations
+====================================== */
+.spinner {
+    @apply inline-block w-5 h-5 border-2 border-solid rounded-full animate-spin;
+    border-color: currentColor;
+    border-right-color: transparent;
+}
+
+.spinner--sm {
+    @apply w-4 h-4;
+}
+
+.spinner--lg {
+    @apply w-8 h-8 border-[3px];
+}
+
+.spinner--xl {
+    @apply w-12 h-12 border-4;
+}
+
+/* Spinner color variants */
+.spinner--primary {
+    border-color: theme('colors.calico.500');
+    border-right-color: transparent;
+}
+
+.spinner--light {
+    border-color: theme('colors.coarseWool.100');
+    border-right-color: transparent;
+}
+
+.spinner--dark {
+    border-color: theme('colors.coarseWool.700');
+    border-right-color: transparent;
+}
+
+/* Button loading state */
+.btn--loading {
+    @apply relative pointer-events-none;
+
+    .btn__text {
+        @apply opacity-0;
+    }
+
+    .spinner {
+        @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+    }
+}
+
+/* ===================================
+    2. Alert / Notification Component
+    For form feedback and system messages
+====================================== */
+.alert {
+    @apply relative flex items-start gap-3 p-4 rounded-lg border border-solid mb-4;
+}
+
+.alert__icon {
+    @apply flex-shrink-0 w-5 h-5 mt-0.5;
+}
+
+.alert__content {
+    @apply flex-1 min-w-0;
+}
+
+.alert__title {
+    @apply font-barlow-condensed font-medium text-title-6 mb-1;
+}
+
+.alert__message {
+    @apply text-body-small mb-0;
+}
+
+.alert__close {
+    @apply flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full -mr-1 -mt-1 transition-colors duration-200 ease-out cursor-pointer;
+
+    &:hover {
+        @apply bg-black/10;
+    }
+
+    &:focus-visible {
+        @apply focus-ring;
+    }
+}
+
+/* Alert variants */
+.alert--success {
+    @apply bg-green-500/10 border-green-500/30 text-green-400;
+
+    .alert__title {
+        @apply text-green-300;
+    }
+}
+
+.alert--error {
+    @apply bg-red-500/10 border-red-500/30 text-red-400;
+
+    .alert__title {
+        @apply text-red-300;
+    }
+}
+
+.alert--warning {
+    @apply bg-amber-500/10 border-amber-500/30 text-amber-400;
+
+    .alert__title {
+        @apply text-amber-300;
+    }
+}
+
+.alert--info {
+    @apply bg-blue-500/10 border-blue-500/30 text-blue-400;
+
+    .alert__title {
+        @apply text-blue-300;
+    }
+}
+
+/* Neutral alert (default) */
+.alert--neutral {
+    @apply bg-coarseWool-700/50 border-coarseWool-500 text-coarseWool-200;
+
+    .alert__title {
+        @apply text-coarseWool-100;
+    }
+}
+
+/* ===================================
+    3. Toast Notification
+    For transient messages
+====================================== */
+.toast {
+    @apply fixed z-[9999] flex items-center gap-3 px-4 py-3 rounded-lg shadow-floating bg-coarseWool-800 border border-coarseWool-600 text-coarseWool-100;
+    min-width: 280px;
+    max-width: 420px;
+}
+
+.toast--top-right {
+    @apply top-4 right-4;
+}
+
+.toast--top-center {
+    @apply top-4 left-1/2 -translate-x-1/2;
+}
+
+.toast--bottom-right {
+    @apply bottom-4 right-4;
+}
+
+.toast--bottom-center {
+    @apply bottom-4 left-1/2 -translate-x-1/2;
+}
+
+/* Toast variants (inherit alert colors) */
+.toast--success {
+    @apply bg-green-500/90 border-green-400 text-white;
+}
+
+.toast--error {
+    @apply bg-red-500/90 border-red-400 text-white;
+}
+
+.toast--warning {
+    @apply bg-amber-500/90 border-amber-400 text-coarseWool-900;
+}
+
+.toast--info {
+    @apply bg-blue-500/90 border-blue-400 text-white;
+}
+
+/* ===================================
+    4. Empty State
+    For lists with no content
+====================================== */
+.empty-state {
+    @apply flex flex-col items-center justify-center py-16 px-8 text-center;
+}
+
+.empty-state__icon {
+    @apply w-16 h-16 mb-6 text-coarseWool-500;
+}
+
+.empty-state__title {
+    @apply text-title-4 font-barlow-condensed text-coarseWool-300 mb-2;
+}
+
+.empty-state__message {
+    @apply text-body text-coarseWool-400 mb-6 max-w-md;
+}
+
+/* ===================================
+    5. Skeleton Loader
+    Placeholder for loading content
+====================================== */
+.skeleton {
+    @apply relative overflow-hidden bg-coarseWool-700 rounded;
+
+    &::after {
+        content: "";
+        @apply absolute inset-0;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            theme('colors.coarseWool.600' / 40%),
+            transparent
+        );
+        animation: skeleton-shimmer 1.5s infinite;
+    }
+}
+
+.skeleton--text {
+    @apply h-4 w-full;
+}
+
+.skeleton--title {
+    @apply h-6 w-3/4;
+}
+
+.skeleton--avatar {
+    @apply w-12 h-12 rounded-full;
+}
+
+.skeleton--image {
+    @apply aspect-video w-full;
+}
+
+.skeleton--card {
+    @apply h-48 w-full;
+}
+
+@keyframes skeleton-shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- Loading spinner in button -->
+    <button class="btn btn--loading">
+        <span class="btn__text">Submit</span>
+        <span class="spinner"></span>
+    </button>
+
+    <!-- Standalone spinner -->
+    <div class="spinner spinner--lg spinner--primary"></div>
+
+    <!-- Success alert -->
+    <div class="alert alert--success">
+        <i class="alert__icon fas fa-check-circle"></i>
+        <div class="alert__content">
+            <h6 class="alert__title">Reservation Confirmed</h6>
+            <p class="alert__message">We've sent a confirmation to your email.</p>
+        </div>
+        <button class="alert__close">&times;</button>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast toast--top-right toast--success">
+        <i class="fas fa-check"></i>
+        <span>Your message has been sent!</span>
+    </div>
+
+    <!-- Empty state -->
+    <div class="empty-state">
+        <i class="empty-state__icon fas fa-search"></i>
+        <h4 class="empty-state__title">No Results Found</h4>
+        <p class="empty-state__message">Try adjusting your search criteria.</p>
+        <button class="btn">Clear Filters</button>
+    </div>
+
+    <!-- Skeleton loader -->
+    <div class="skeleton skeleton--card"></div>
+====================================== */

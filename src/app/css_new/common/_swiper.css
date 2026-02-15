@@ -1,0 +1,107 @@
+/* Arrows custom */
+.splide__arrows {
+	@apply relative flex flex-wrap items-center justify-center w-full gap-3 py-6;
+	.splide__arrow {
+		@apply relative z-50 w-[40px] h-[40px] rounded-full bg-transparent text-calico-600 flex items-center justify-center shadow-elevated border-2 border-calico-600 border-solid !top-auto !transform-none;
+		&:hover {
+			@apply cursor-pointer bg-calico-500 border-calico-500;
+		}
+		&:hover:before {
+			@apply !text-coarseWool-900;
+		}
+		&::before {
+			@apply text-sm opacity-100 text-calico-500 font-black;
+			font-family: "Font Awesome 5 Free";
+		}
+		&--prev {
+			@apply left-12;
+			&::before {
+				content: "\f054";
+			}
+		}
+		&--next {
+			@apply right-12;
+			&::before {
+				content: "\f053";
+			}
+		}
+	}
+}
+
+
+/* Dots custom */
+.splide__pagination {
+	@apply !flex flex-wrap !justify-end md:!justify-center gap-1 !bottom-8 sm:!bottom-10;
+	.splide__pagination__page {
+
+			@apply rounded-full !border !border-solid !border-transparent w-[24px] h-[24px] bg-transparent;
+			&:before {
+				@apply flex content-[''] !text-indicator bg-calico-500 rounded-full !text-calico-500 w-[10px] h-[10px] mx-[6px];
+			}
+		
+		&.is-active {
+			
+				@apply !border-calico-500 !bg-transparent transform-none;
+				&:before {
+					@apply !text-indicator !bg-calico-500 ;
+				}
+			
+		}
+	}
+}
+
+/* Dots custom */
+.slick-dots {
+	li {
+		button {
+			@apply rounded-full !border !border-solid !border-transparent;
+			&:before {
+				@apply !text-indicator !text-calico-500;
+			}
+		}
+		&.slick-active {
+			button {
+				@apply !border-calico-500;
+				&:before {
+					@apply !text-indicator !text-calico-500;
+				}
+			}
+		}
+	}
+}
+
+.slick-arrow {
+	@apply !hidden md:!flex relative z-50 !w-[40px] !h-[40px] rounded-full bg-transparent !text-calico-500 items-center justify-center shadow-elevated !border !border-calico-500 !border-solid;
+	&:hover {
+		@apply !bg-calico-500 !cursor-pointer !border-calico-500;
+	}
+	&:hover:before {
+		@apply !text-coarseWool-900;
+	}
+	&::before {
+		@apply !text-calico-500 font-black;
+		font-family: "Font Awesome 5 Free" !important;
+		@apply !text-small;
+	}
+	&.slick-prev {
+		@apply md:-left-20 lg:left-4;
+		&::before {
+			content: "\f053";
+		}
+	}
+	&.slick-next {
+		@apply md:-right-20 lg:right-4;
+		&::before {
+			content: "\f054";
+		}
+	}
+	&.slick-disabled {
+		@apply !opacity-50 !cursor-not-allowed;
+		&::before {
+			@apply !text-calico-500 !opacity-100;
+		}
+		&:hover:before {
+			@apply !text-coarseWool-900;
+		}
+	}
+}

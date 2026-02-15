@@ -1,0 +1,303 @@
+/* --------------------------
+    Enhanced Lightbox
+    Features:
+    - Loading states (spinner, error)
+    - Image captions (title, category, description)
+    - Fullscreen mode
+    - Slideshow controls
+ -------------------------- */
+
+.lightbox {
+	@apply hidden fixed inset-0 w-full h-full bg-black bg-opacity-90 items-center justify-center cursor-[zoom-out] p-8 z-[999];
+
+	&-open {
+		@apply overflow-hidden;
+	}
+
+	&-wrapper {
+		@apply relative flex flex-wrap items-center justify-center w-full h-full max-w-full;
+	}
+
+	&.open {
+		@apply flex;
+	}
+
+	/* Close button */
+	&-close {
+		@apply absolute top-0 right-0 z-50 text-title-3 text-right h-11 w-11 text-coarseWool-100 rounded-full transition-all duration-200 ease-out;
+
+		&:hover,
+		&:focus-visible {
+			@apply cursor-pointer text-calico-500 scale-110;
+		}
+		&:focus-visible {
+			@apply focus-ring;
+		}
+		&:active {
+			@apply scale-100;
+		}
+	}
+
+	/* Content wrapper */
+	&-content {
+		@apply relative w-full xl:w-3/4 p-0 rounded-xl shadow-floating;
+		animation: lightboxImage 0.5s ease;
+
+		img {
+			@apply block w-full h-full cursor-pointer rounded-xl transition-opacity duration-300 ease-out;
+		}
+	}
+
+	/* Loading spinner */
+	&-loader {
+		@apply absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-xl z-10;
+		display: none;
+
+		.spinner {
+			@apply w-12 h-12 border-4 border-calico-500 border-t-transparent rounded-full;
+			animation: spin 1s linear infinite;
+		}
+	}
+
+	/* Error state */
+	&-error {
+		@apply absolute inset-0 flex items-center justify-center bg-black bg-opacity-75 rounded-xl z-10 text-coarseWool-100 text-center p-8;
+		display: none;
+		flex-direction: column;
+		gap: 1rem;
+
+		&::before {
+			content: '\f071';
+			@apply text-4xl text-calico-500;
+			font-family: 'Font Awesome 5 Free';
+			font-weight: 900;
+		}
+	}
+
+	/* Caption section */
+	&-caption {
+		@apply flex flex-col items-start justify-start w-full p-4 gap-2;
+	}
+
+	&-caption-title {
+		@apply text-title-5 font-barlow-condensed text-coarseWool-100 mb-0;
+	}
+
+	&-caption-category {
+		@apply text-caption text-calico-500 italic font-sorts-mill-goudy mb-0;
+	}
+
+	&-caption-description {
+		@apply text-body-small text-coarseWool-200 mb-0;
+	}
+
+	/* Controls container */
+	&-controls {
+		@apply absolute left-0 w-full h-10 flex items-center justify-between gap-3 top-1/2 -translate-y-1/2 px-4;
+	}
+
+	/* Additional controls (fullscreen, play/pause) */
+	&-additional-controls {
+		@apply absolute top-4 right-16 z-50 flex items-center gap-2;
+	}
+
+	/* Arrow buttons */
+	&-arrows {
+		@apply relative z-50 w-11 h-11 rounded-full bg-transparent text-coarseWool-100 flex items-center justify-center shadow-elevated border-2 border-coarseWool-100 border-solid transition-all duration-200 ease-out;
+
+		&:hover {
+			@apply cursor-pointer bg-calico-500 border-calico-500 scale-110;
+		}
+		&:hover::before {
+			@apply !text-coarseWool-900;
+		}
+		&:focus-visible {
+			@apply focus-ring cursor-pointer bg-calico-500 border-calico-500;
+		}
+		&:active {
+			@apply scale-100 bg-calico-600 border-calico-600;
+		}
+		&:active::before {
+			@apply !text-coarseWool-900;
+		}
+
+		&::before {
+			@apply text-sm opacity-100 text-coarseWool-100 font-black;
+			font-family: "Font Awesome 5 Free";
+		}
+
+		&.lightbox-next {
+			@apply left-0;
+			&::before {
+				content: "\f054";
+			}
+		}
+		&.lightbox-prev {
+			@apply right-0;
+			&::before {
+				content: "\f053";
+			}
+		}
+	}
+
+	/* Fullscreen button */
+	&-fullscreen {
+		@apply relative z-50 w-10 h-10 rounded-full bg-transparent text-coarseWool-100 flex items-center justify-center shadow-elevated border-2 border-coarseWool-100 border-solid transition-all duration-200 ease-out;
+
+		&:hover {
+			@apply cursor-pointer bg-calico-500 border-calico-500 scale-110;
+		}
+		&:focus-visible {
+			@apply focus-ring cursor-pointer bg-calico-500 border-calico-500;
+		}
+		&:active {
+			@apply scale-100 bg-calico-600 border-calico-600;
+		}
+
+		i {
+			@apply text-sm text-coarseWool-100 transition-colors duration-200 ease-out;
+		}
+
+		&:hover i {
+			@apply text-coarseWool-900;
+		}
+
+		&:focus-visible i {
+			@apply text-coarseWool-900;
+		}
+
+		&:active i {
+			@apply text-coarseWool-900;
+		}
+
+		.fa-compress {
+			display: none;
+		}
+	}
+
+	/* Play/Pause button */
+	&-play-pause {
+		@apply relative z-50 w-10 h-10 rounded-full bg-transparent text-coarseWool-100 flex items-center justify-center shadow-elevated border-2 border-coarseWool-100 border-solid transition-all duration-200 ease-out;
+
+		&:hover {
+			@apply cursor-pointer bg-calico-500 border-calico-500 scale-110;
+		}
+		&:focus-visible {
+			@apply focus-ring cursor-pointer bg-calico-500 border-calico-500;
+		}
+		&:active {
+			@apply scale-100 bg-calico-600 border-calico-600;
+		}
+
+		i {
+			@apply text-sm text-coarseWool-100 transition-colors duration-200 ease-out;
+		}
+
+		&:hover i {
+			@apply text-coarseWool-900;
+		}
+
+		&:focus-visible i {
+			@apply text-coarseWool-900;
+		}
+
+		&:active i {
+			@apply text-coarseWool-900;
+		}
+
+		.pause-icon {
+			display: none;
+		}
+	}
+}
+
+/* Fullscreen mode adjustments */
+.lightbox:fullscreen {
+	@apply p-4;
+
+	.lightbox-content {
+		@apply w-full max-w-screen-2xl;
+	}
+
+	.lightbox-close {
+		@apply top-4 right-4;
+	}
+
+	.lightbox-additional-controls {
+		@apply top-4 right-20;
+	}
+}
+
+/* Lightbox image animation */
+@keyframes lightboxImage {
+	0% {
+		transform: scale(0.95);
+		opacity: 0;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+/* Spinner animation */
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* Lightbox image fade transition */
+.lightbox-img {
+	transition: opacity 0.3s ease-out;
+}
+
+.lightbox-img.fade-in {
+	@apply opacity-100;
+}
+
+/* Screen reader only (for announcements) */
+.sr-only {
+	@apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap;
+	clip: rect(0, 0, 0, 0);
+	border-width: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	.lightbox {
+		@apply p-4;
+	}
+
+	.lightbox-content {
+		@apply w-full;
+	}
+
+	.lightbox-caption {
+		@apply p-3;
+	}
+
+	.lightbox-caption-title {
+		@apply text-title-6;
+	}
+
+	.lightbox-additional-controls {
+		@apply top-2 right-14 gap-1;
+	}
+
+	.lightbox-fullscreen,
+	.lightbox-play-pause {
+		@apply w-9 h-9;
+
+		i {
+			@apply text-xs;
+		}
+	}
+
+	.lightbox-close {
+		@apply top-2 right-2 w-9 h-9 text-title-4;
+	}
+}

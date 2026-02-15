@@ -1,0 +1,194 @@
+/*==================================================
+    Flex Layout Utilities
+    Common flex patterns to reduce repetition
+==================================================*/
+
+/* ===================================
+    Flex Center (Row)
+====================================== */
+.flex-center {
+    @apply flex items-center justify-center;
+}
+
+.flex-center-col {
+    @apply flex flex-col items-center justify-center;
+}
+
+/* ===================================
+    Flex Start
+====================================== */
+.flex-start {
+    @apply flex items-start justify-start;
+}
+
+.flex-start-col {
+    @apply flex flex-col items-start justify-start;
+}
+
+/* ===================================
+    Flex End
+====================================== */
+.flex-end {
+    @apply flex items-end justify-end;
+}
+
+.flex-end-col {
+    @apply flex flex-col items-end justify-end;
+}
+
+/* ===================================
+    Flex Between (Space Between)
+====================================== */
+.flex-between {
+    @apply flex items-center justify-between;
+}
+
+.flex-between-col {
+    @apply flex flex-col items-start justify-between;
+}
+
+/* ===================================
+    Flex Around (Space Around)
+====================================== */
+.flex-around {
+    @apply flex items-center justify-around;
+}
+
+.flex-around-col {
+    @apply flex flex-col items-center justify-around;
+}
+
+/* ===================================
+    Flex Evenly (Space Evenly)
+====================================== */
+.flex-evenly {
+    @apply flex items-center justify-evenly;
+}
+
+.flex-evenly-col {
+    @apply flex flex-col items-center justify-evenly;
+}
+
+/* ===================================
+    Mixed Alignments
+====================================== */
+.flex-center-start {
+    @apply flex items-center justify-start;
+}
+
+.flex-center-end {
+    @apply flex items-center justify-end;
+}
+
+.flex-start-center {
+    @apply flex items-start justify-center;
+}
+
+.flex-end-center {
+    @apply flex items-end justify-center;
+}
+
+.flex-start-between {
+    @apply flex items-start justify-between;
+}
+
+.flex-end-between {
+    @apply flex items-end justify-between;
+}
+
+/* ===================================
+    Gap Utilities (Common Sizes)
+====================================== */
+.flex-gap-xs {
+    @apply gap-1;
+}
+
+.flex-gap-sm {
+    @apply gap-2;
+}
+
+.flex-gap {
+    @apply gap-4;
+}
+
+.flex-gap-md {
+    @apply gap-6;
+}
+
+.flex-gap-lg {
+    @apply gap-8;
+}
+
+.flex-gap-xl {
+    @apply gap-12;
+}
+
+/* ===================================
+    Flex Wrap
+    Note: Use Tailwind's built-in utilities directly:
+    - flex-wrap
+    - flex-nowrap
+    - flex-wrap-reverse
+====================================== */
+
+/* ===================================
+    Full Width/Height
+====================================== */
+.flex-full {
+    @apply w-full h-full;
+}
+
+.flex-w-full {
+    @apply w-full;
+}
+
+.flex-h-full {
+    @apply h-full;
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- Centered content (column) -->
+    <div class="flex-center-col flex-gap-md">
+        <h2>Title</h2>
+        <p>Content</p>
+    </div>
+
+    <!-- Space between (header layout) -->
+    <div class="flex-between w-full">
+        <span>Logo</span>
+        <span>Menu</span>
+    </div>
+
+    <!-- Centered with gap -->
+    <div class="flex-center flex-gap">
+        <button>Cancel</button>
+        <button>Confirm</button>
+    </div>
+
+    <!-- Start aligned column -->
+    <div class="flex-start-col flex-gap-sm">
+        <label>Name</label>
+        <input type="text">
+    </div>
+
+    <!-- Centered vertically, start horizontally -->
+    <div class="flex-center-start flex-gap">
+        <i class="icon"></i>
+        <span>Text</span>
+    </div>
+
+    <!-- Full width flex container -->
+    <div class="flex-between flex-w-full">
+        <div>Left</div>
+        <div>Right</div>
+    </div>
+
+    <!-- Wrapped flex items -->
+    <div class="flex-center flex-wrap flex-gap">
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+    </div>
+====================================== */

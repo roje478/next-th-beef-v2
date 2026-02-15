@@ -1,0 +1,15 @@
+{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    // Console warnings (allow warn and error for debugging)
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+
+    // React rules
+    "react/no-unescaped-entities": "off",
+    "react/display-name": "off",
+
+    // Next.js rules
+    "@next/next/no-img-element": "warn",
+    "@next/next/no-html-link-for-pages": "error"
+  }
+}

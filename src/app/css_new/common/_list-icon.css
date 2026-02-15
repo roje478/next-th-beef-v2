@@ -1,0 +1,169 @@
+/*==================================================
+    List Icon Component
+    Styled lists with icon markers and decorators
+==================================================*/
+
+/* ===================================
+    Base List Icon
+====================================== */
+.list-icon {
+    @apply w-full flex flex-col items-start justify-start gap-2;
+
+    a, li {
+        @apply w-full flex items-center justify-between py-1
+               text-coarseWool-100 text-subtitle-2 font-josefin-sans
+               transition-colors duration-300;
+
+        &:hover {
+            @apply text-calico-500;
+        }
+    }
+}
+
+/* ===================================
+    Size Variants
+====================================== */
+.list-icon--compact {
+    @apply gap-1;
+
+    a, li {
+        @apply py-0.5 text-sm;
+    }
+}
+
+.list-icon--large {
+    @apply gap-4;
+
+    a, li {
+        @apply py-2 text-base;
+    }
+}
+
+/* ===================================
+    Style Variants
+====================================== */
+.list-icon--bordered {
+    a, li {
+        @apply border-b border-solid border-coarseWool-700;
+
+        &:last-child {
+            @apply border-b-0;
+        }
+    }
+}
+
+.list-icon--spaced {
+    @apply gap-3;
+
+    a, li {
+        @apply py-2;
+    }
+}
+
+/* ===================================
+    Color Variants
+====================================== */
+.list-icon--muted {
+    a, li {
+        @apply text-coarseWool-300;
+
+        &:hover {
+            @apply text-calico-500;
+        }
+    }
+}
+
+.list-icon--light {
+    a, li {
+        @apply text-coarseWool-200;
+
+        &:hover {
+            @apply text-calico-400;
+        }
+    }
+}
+
+/* ===================================
+    With Count/Badge
+====================================== */
+.list-icon__count {
+    @apply text-coarseWool-400 text-sm ml-auto;
+}
+
+/* ===================================
+    Nested Lists
+====================================== */
+.list-icon--nested {
+    .list-icon {
+        @apply pl-4 mt-2 gap-1;
+
+        a, li {
+            @apply text-sm text-coarseWool-300;
+        }
+    }
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- Basic list with icons -->
+    <ul class="list-icon">
+        <li class="icon-decorator--marker icon-decorator--chevron">
+            <span>Category Name</span>
+        </li>
+        <li class="icon-decorator--marker icon-decorator--chevron">
+            <span>Another Category</span>
+        </li>
+    </ul>
+
+    <!-- List with counts -->
+    <ul class="list-icon">
+        <li class="icon-decorator--marker icon-decorator--chevron">
+            <span>Category Name</span>
+            <span class="list-icon__count">12</span>
+        </li>
+        <li class="icon-decorator--marker icon-decorator--chevron">
+            <span>Another Category</span>
+            <span class="list-icon__count">8</span>
+        </li>
+    </ul>
+
+    <!-- Compact list with borders -->
+    <ul class="list-icon list-icon--compact list-icon--bordered">
+        <li class="icon-decorator--dot">
+            <span>Item 1</span>
+        </li>
+        <li class="icon-decorator--dot">
+            <span>Item 2</span>
+        </li>
+    </ul>
+
+    <!-- Recent posts list -->
+    <ul class="list-icon list-icon--spaced">
+        <li class="icon-decorator--marker">
+            <a href="#">
+                <span>Blog Post Title</span>
+            </a>
+        </li>
+    </ul>
+
+    <!-- Tags list -->
+    <div class="list-icon list-icon--compact">
+        <a href="#" class="icon-decorator--marker icon-decorator--chevron">
+            <span>Tag Name</span>
+            <span class="list-icon__count">5</span>
+        </a>
+    </div>
+
+    <!-- Nested categories -->
+    <ul class="list-icon list-icon--nested">
+        <li class="icon-decorator--marker icon-decorator--chevron">
+            <span>Parent Category</span>
+            <ul class="list-icon">
+                <li class="icon-decorator--dot">
+                    <span>Sub Category</span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+====================================== */

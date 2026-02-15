@@ -1,0 +1,157 @@
+/* ===================================
+    Button System v2.0
+    Consolidated & Minimal Design System
+====================================== */
+
+/* ===================================
+    1. Base Button (.btn)
+    Primary button component - outline/ghost style
+    Consolidates: .btn__default, form buttons, blog search button
+====================================== */
+.btn {
+    @apply inline-block not-italic font-normal transition-all duration-200 ease-out
+           border-2 border-solid rounded-full text-button font-josefin-sans
+           text-calico-500 border-calico-500 px-10 py-3 text-center;
+    letter-spacing: 0.5px;
+
+    &:hover {
+        @apply cursor-pointer bg-calico-500 text-coarseWool-900;
+    }
+    &:focus-visible {
+        @apply outline-none ring-2 ring-calico-500 ring-offset-2 ring-offset-coarseWool-900;
+    }
+    &:active {
+        @apply cursor-pointer bg-calico-600 text-coarseWool-900 border-calico-600 scale-[0.97];
+    }
+    &:disabled {
+        @apply opacity-50 cursor-not-allowed pointer-events-none;
+    }
+}
+
+/* Button Modifiers */
+.btn--solid {
+    @apply bg-calico-500 text-coarseWool-900;
+
+    &:hover {
+        @apply bg-calico-400 border-calico-400;
+    }
+    &:active {
+        @apply bg-calico-600 border-calico-600 scale-[0.97];
+    }
+}
+
+.btn--compact {
+    @apply px-6 py-2.5;
+}
+
+/* ===================================
+    2. Link Button (.btn-link)
+    Text link with animated underline effect
+    Use for: "read more", "add order", text links
+====================================== */
+.btn-link {
+    @apply px-4 py-1 not-italic font-normal transition-all duration-300 ease-in-out
+           !text-body-small md:!text-button font-josefin-sans text-calico-500
+           !border-transparent bg-transparent border-b !border-b-calico-500
+           w-fit inline-block capitalize rounded-none mt-8 relative;
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    /* Pseudo-elements for animated underline */
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        height: 1px;
+        width: 0;
+    }
+
+    &:before {
+        transition: width 0s ease, background .4s ease;
+        left: 0;
+        right: 0;
+        bottom: -8px;
+    }
+
+    &:after {
+        right: 2.2%;
+        bottom: -8px;
+        background: theme('colors.calico.500');
+        transition: width .4s ease;
+    }
+
+    &:hover {
+        @apply bg-transparent cursor-pointer !border-b-calico-500 text-calico-500;
+
+        &:before {
+            @apply bg-calico-600;
+            left: 5%;
+            width: 90%;
+            transition: width .4s ease;
+        }
+
+        &:after {
+            left: 5%;
+            width: 90%;
+            background: 0 0;
+            transition: all 0s ease;
+        }
+    }
+
+    &:focus-visible {
+        @apply outline-none ring-2 ring-calico-500 ring-offset-2
+               ring-offset-coarseWool-900 !text-calico-500;
+    }
+    &:active {
+        @apply bg-transparent cursor-pointer !border-b-calico-600 text-calico-600 scale-[0.98];
+    }
+    &:disabled {
+        @apply opacity-50 cursor-not-allowed !text-calico-500;
+    }
+}
+
+/* ===================================
+    3. Scroll-to-Top Button (.btn-scroll-top)
+    Fixed floating button for page scroll
+    Use for: Back to top functionality
+====================================== */
+.btn-scroll-top {
+    @apply p-3 border-2 border-solid rounded-full text-calico-500 border-calico-500
+           fixed bottom-16 right-4 opacity-50 cursor-pointer
+           transition-all duration-200 ease-out z-50 bg-coarseWool-900/80 backdrop-blur-sm;
+
+    &:hover {
+        @apply opacity-100 bg-calico-500 text-coarseWool-900 border-calico-500;
+    }
+    &:focus-visible {
+        @apply opacity-100 ring-2 ring-calico-500 ring-offset-2
+               ring-offset-coarseWool-900 outline-none;
+    }
+    &:active {
+        @apply opacity-100 scale-[0.93] bg-calico-600 border-calico-600 text-coarseWool-900;
+    }
+    &:disabled {
+        @apply opacity-25 cursor-not-allowed pointer-events-none;
+    }
+}
+
+/* ===================================
+    Retrocompatibility Aliases
+    TODO: Remove in v3.0
+====================================== */
+.btn__default {
+    @apply btn;
+}
+
+.btn__solid {
+    @apply btn btn--solid;
+}
+
+.btn__link {
+    @apply btn-link;
+}
+
+.btn-to-top {
+    @apply btn-scroll-top;
+}

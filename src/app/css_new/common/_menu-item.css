@@ -1,0 +1,259 @@
+/*==================================================
+    Menu Item Component
+    Standardized menu dish/item display
+    Consolidates .dish patterns from menu blocks
+==================================================*/
+
+/* ===================================
+    Base Menu Item
+====================================== */
+.menu-item {
+    @apply flex flex-col justify-start items-start w-full mb-6;
+}
+
+.menu-item__content {
+    @apply flex flex-wrap justify-between items-center w-full
+           border-b border-solid border-coarseWool-400 pb-3 mb-3;
+}
+
+.menu-item__title {
+    @apply text-title-5 font-barlow-condensed font-normal mb-0 capitalize;
+}
+
+.menu-item__price {
+    @apply text-title-5 font-barlow-condensed font-normal text-calico-500 mb-0;
+}
+
+.menu-item__description {
+    @apply text-decorative text-decorative--light text-decorative--sm mb-0;
+}
+
+/* ===================================
+    Layout Variants
+====================================== */
+.menu-item--horizontal {
+    @apply flex-row items-center gap-4;
+
+    .menu-item__content {
+        @apply border-b-0 pb-0 mb-0 flex-1;
+    }
+}
+
+.menu-item--with-image {
+    @apply flex-row gap-4;
+
+    .menu-item__image {
+        @apply w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden;
+
+        img {
+            @apply img-cover;
+        }
+    }
+
+    .menu-item__details {
+        @apply flex-1;
+    }
+}
+
+/* ===================================
+    Style Variants
+====================================== */
+.menu-item--bordered {
+    @apply border border-solid border-coarseWool-400 rounded-lg p-4;
+
+    .menu-item__content {
+        @apply border-b-0;
+    }
+}
+
+.menu-item--compact {
+    @apply mb-2;
+
+    .menu-item__content {
+        @apply pb-1 mb-1;
+    }
+
+    .menu-item__title {
+        @apply text-base;
+    }
+
+    .menu-item__price {
+        @apply text-base;
+    }
+}
+
+.menu-item--spacious {
+    @apply mb-6;
+
+    .menu-item__content {
+        @apply pb-3 mb-3;
+    }
+}
+
+/* ===================================
+    Price Alignment Variants
+====================================== */
+.menu-item--price-dots {
+    .menu-item__content {
+        @apply relative;
+
+        &::after {
+            content: '';
+            @apply flex-1 border-b border-dotted border-coarseWool-400 mx-2;
+        }
+    }
+
+    .menu-item__title,
+    .menu-item__price {
+        @apply flex-shrink-0;
+    }
+}
+
+/* ===================================
+    Hover & Focus Effects
+====================================== */
+.menu-item--hoverable {
+    @apply transition-all duration-200 ease-out cursor-pointer;
+
+    &:hover,
+    &:focus-within {
+        .menu-item__title {
+            @apply text-calico-500;
+        }
+
+        .menu-item__price {
+            @apply text-calico-600;
+        }
+    }
+
+    &:focus-visible {
+        @apply focus-ring;
+    }
+}
+
+/* ===================================
+    Badge/Label Support
+====================================== */
+.menu-item__badge {
+    @apply inline-block px-2 py-1 text-xs font-semibold rounded
+           bg-calico-500 text-coarseWool-900 ml-2;
+}
+
+.menu-item__badge--new {
+    @apply bg-green-500;
+}
+
+.menu-item__badge--hot {
+    @apply bg-red-500 text-white;
+}
+
+.menu-item__badge--vegetarian {
+    @apply bg-green-600 text-white;
+}
+
+/* ===================================
+    Retrocompatibility
+    Support for existing .dish class
+====================================== */
+.dish {
+    @apply menu-item;
+
+    &__content {
+        @apply menu-item__content;
+    }
+
+    &__title {
+        @apply menu-item__title;
+    }
+
+    &__price {
+        @apply menu-item__price;
+    }
+
+    &__description {
+        @apply menu-item__description;
+    }
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- Standard menu item -->
+    <div class="menu-item">
+        <div class="menu-item__content">
+            <h4 class="menu-item__title">Grilled Beef Steak</h4>
+            <span class="menu-item__price">$24.99</span>
+        </div>
+        <p class="menu-item__description">
+            Premium aged beef with seasonal vegetables
+        </p>
+    </div>
+
+    <!-- With price dots -->
+    <div class="menu-item menu-item--price-dots">
+        <div class="menu-item__content">
+            <h4 class="menu-item__title">Caesar Salad</h4>
+            <span class="menu-item__price">$12.99</span>
+        </div>
+        <p class="menu-item__description">
+            Fresh romaine with parmesan and croutons
+        </p>
+    </div>
+
+    <!-- With image -->
+    <div class="menu-item menu-item--with-image">
+        <div class="menu-item__image">
+            <img src="dish.jpg" alt="Dish">
+        </div>
+        <div class="menu-item__details">
+            <div class="menu-item__content">
+                <h4 class="menu-item__title">Ribeye Steak</h4>
+                <span class="menu-item__price">$32.99</span>
+            </div>
+            <p class="menu-item__description">
+                12oz certified Angus beef
+            </p>
+        </div>
+    </div>
+
+    <!-- Bordered compact -->
+    <div class="menu-item menu-item--bordered menu-item--compact">
+        <div class="menu-item__content">
+            <h4 class="menu-item__title">Coffee</h4>
+            <span class="menu-item__price">$3.99</span>
+        </div>
+    </div>
+
+    <!-- With badge -->
+    <div class="menu-item">
+        <div class="menu-item__content">
+            <h4 class="menu-item__title">
+                Truffle Pasta
+                <span class="menu-item__badge menu-item__badge--new">New</span>
+            </h4>
+            <span class="menu-item__price">$28.99</span>
+        </div>
+        <p class="menu-item__description">
+            Fresh pasta with black truffle sauce
+        </p>
+    </div>
+
+    <!-- Hoverable -->
+    <div class="menu-item menu-item--hoverable">
+        <div class="menu-item__content">
+            <h4 class="menu-item__title">Salmon Fillet</h4>
+            <span class="menu-item__price">$26.99</span>
+        </div>
+    </div>
+
+    <!-- Using retrocompat .dish class -->
+    <div class="dish">
+        <div class="dish__content">
+            <h4 class="dish__title">Classic Burger</h4>
+            <span class="dish__price">$15.99</span>
+        </div>
+        <p class="dish__description">
+            100% beef patty with all the fixings
+        </p>
+    </div>
+====================================== */

@@ -1,0 +1,132 @@
+/* ==========================================================================
+   Spacing System - Design Tokens
+   Base unit: 4px (0.25rem)
+========================================================================== */
+
+:root {
+  /* =====================================
+     Base Spacing Scale (Tailwind-aligned)
+  ===================================== */
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;   /* 4px */
+  --spacing-2: 0.5rem;    /* 8px */
+  --spacing-3: 0.75rem;   /* 12px */
+  --spacing-4: 1rem;      /* 16px */
+  --spacing-5: 1.25rem;   /* 20px */
+  --spacing-6: 1.5rem;    /* 24px */
+  --spacing-8: 2rem;      /* 32px */
+  --spacing-10: 2.5rem;   /* 40px */
+  --spacing-12: 3rem;     /* 48px */
+  --spacing-14: 3.5rem;   /* 56px */
+  --spacing-16: 4rem;     /* 64px */
+  --spacing-20: 5rem;     /* 80px */
+  --spacing-24: 6rem;     /* 96px */
+  --spacing-28: 7rem;     /* 112px */
+  --spacing-32: 8rem;     /* 128px */
+  --spacing-36: 9rem;     /* 144px */
+  --spacing-40: 10rem;    /* 160px */
+
+  /* =====================================
+     Semantic Component Spacing
+     Use these for consistent component spacing
+  ===================================== */
+  --space-xs: var(--spacing-1);    /* 4px - Tight spacing, icons */
+  --space-sm: var(--spacing-2);    /* 8px - Small elements */
+  --space-md: var(--spacing-4);    /* 16px - Default spacing */
+  --space-lg: var(--spacing-6);    /* 24px - Component gaps */
+  --space-xl: var(--spacing-8);    /* 32px - Section spacing */
+  --space-2xl: var(--spacing-12);  /* 48px - Large sections */
+  --space-3xl: var(--spacing-16);  /* 64px - Major sections */
+  --space-4xl: var(--spacing-20);  /* 80px - Hero spacing */
+  --space-5xl: var(--spacing-28);  /* 112px - Extra large spacing */
+
+  /* =====================================
+     Layout Spacing
+     Consistent gaps for flex and grid layouts
+  ===================================== */
+  --layout-gap: var(--spacing-6);       /* 24px - Default grid/flex gap */
+  --layout-gap-sm: var(--spacing-4);    /* 16px - Compact layouts */
+  --layout-gap-lg: var(--spacing-8);    /* 32px - Spacious layouts */
+  --layout-gap-xl: var(--spacing-10);   /* 40px - Extra spacious layouts */
+
+  /* =====================================
+     Section Spacing
+     Vertical spacing for major page sections
+  ===================================== */
+  --section-padding-y: var(--spacing-16);       /* 64px - Default section padding */
+  --section-padding-y-md: var(--spacing-20);    /* 80px - Medium section padding */
+  --section-padding-y-lg: var(--spacing-24);    /* 96px - Large section padding */
+  --section-padding-y-xl: var(--spacing-28);    /* 112px - Extra large section padding */
+
+  /* =====================================
+     Container Spacing
+     Horizontal padding for container elements
+  ===================================== */
+  --container-padding-x: var(--spacing-4);      /* 16px - Mobile */
+  --container-padding-x-sm: var(--spacing-6);   /* 24px - Small tablet */
+  --container-padding-x-md: var(--spacing-8);   /* 32px - Tablet */
+  --container-padding-x-lg: var(--spacing-12);  /* 48px - Desktop */
+  --container-padding-x-xl: var(--spacing-16);  /* 64px - Large desktop */
+
+  /* =====================================
+     Card Spacing
+     Padding for card and box components
+  ===================================== */
+  --card-padding: var(--spacing-6);       /* 24px - Default card padding */
+  --card-padding-sm: var(--spacing-4);    /* 16px - Compact card */
+  --card-padding-lg: var(--spacing-8);    /* 32px - Spacious card */
+
+  /* =====================================
+     Stack Spacing
+     Vertical rhythm for stacked elements
+  ===================================== */
+  --stack-gap: var(--spacing-4);       /* 16px - Default stack gap */
+  --stack-gap-sm: var(--spacing-2);    /* 8px - Tight stack */
+  --stack-gap-lg: var(--spacing-6);    /* 24px - Loose stack */
+
+  /* =====================================
+     Z-Index System
+     Layering hierarchy for consistent stacking
+
+     Usage: Use Tailwind z-* utilities with these values
+     - z-0 to z-10: Content layers (overlays, decorative)
+     - z-20 to z-40: Components (cards, dropdowns)
+     - z-50: Slider controls, tooltips
+     - z-[99]: Fixed UI elements
+     - z-[100]: Navigation header
+     - z-[999]: Sticky header (scrolled state)
+     - z-[9999]: Accessibility (skip link only)
+  ===================================== */
+  --z-content: 0;           /* Base content */
+  --z-overlay: 10;          /* Overlays, decorative elements */
+  --z-decorative: 20;       /* Pseudo-elements, borders */
+  --z-component: 30;        /* Timeline markers, badges */
+  --z-dropdown: 40;         /* Dropdown menus */
+  --z-control: 50;          /* Slider arrows, controls */
+  --z-fixed: 99;            /* Fixed UI elements */
+  --z-header: 100;          /* Navigation header */
+  --z-sticky: 999;          /* Sticky header active */
+  --z-a11y: 9999;           /* Skip link (accessibility emergency) */
+}
+
+/* =====================================
+   Usage Examples:
+
+   .section {
+     padding-block: var(--section-padding-y);
+   }
+
+   .card {
+     padding: var(--card-padding);
+   }
+
+   .grid {
+     gap: var(--layout-gap);
+   }
+
+   @media (min-width: 768px) {
+     .section {
+       padding-block: var(--section-padding-y-lg);
+     }
+   }
+===================================== */

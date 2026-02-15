@@ -1,0 +1,98 @@
+/*==================================================
+    Feature Blocks
+    Icon-led content blocks for features and highlights
+==================================================*/
+
+/* ===================================
+    Feature Icon Block
+    Use for: Feature listings, service highlights
+====================================== */
+.feature-icon-block {
+    @apply text-center md:text-left;
+}
+
+.feature-icon-block__icon {
+    @apply inline-block text-calico-500 text-4xl mb-4;
+}
+
+.feature-icon-block__title {
+    @apply text-coarseWool-100 !text-title-5 font-barlow-condensed mb-3;
+}
+
+.feature-icon-block__description {
+    @apply text-coarseWool-300 text-body-small leading-relaxed;
+}
+
+/* ===================================
+    Achievement Badge
+    Use for: Awards, certifications, highlights
+====================================== */
+.achievement-badge {
+    @apply inline-flex items-center gap-2 bg-coarseWool-800 px-4 py-2 rounded-full;
+
+    i, .icon, svg {
+        @apply text-calico-500 flex-shrink-0;
+    }
+
+    span, .text {
+        @apply text-coarseWool-100 text-caption;
+    }
+}
+
+/* ===================================
+    Philosophy Point
+    Use for: Value propositions, philosophy lists
+====================================== */
+.philosophy-point {
+    @apply flex gap-4;
+}
+
+.philosophy-point__icon-wrapper {
+    @apply flex-shrink-0 w-8 h-8 rounded-full bg-calico-500 flex items-center justify-center text-coarseWool-900;
+
+    i, .icon, svg {
+        @apply text-sm;
+    }
+}
+
+.philosophy-point__content {
+    @apply flex-1;
+}
+
+.philosophy-point__title {
+    @apply text-coarseWool-100 text-title-6 font-barlow-condensed mb-1;
+}
+
+.philosophy-point__description {
+    @apply text-coarseWool-300 text-body-small;
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- Feature Icon Block -->
+    <div class="feature-icon-block">
+        <div class="feature-icon-block__icon">
+            <i class="fa-solid fa-users" aria-hidden="true"></i>
+        </div>
+        <h3 class="feature-icon-block__title">Intimate Setting</h3>
+        <p class="feature-icon-block__description">Limited to eight guests per evening.</p>
+    </div>
+
+    <!-- Achievement Badge -->
+    <div class="achievement-badge">
+        <i class="fa-solid fa-star" aria-hidden="true"></i>
+        <span>Two Michelin Stars</span>
+    </div>
+
+    <!-- Philosophy Point -->
+    <div class="philosophy-point">
+        <div class="philosophy-point__icon-wrapper">
+            <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+        </div>
+        <div class="philosophy-point__content">
+            <h4 class="philosophy-point__title">Seasonality First</h4>
+            <p class="philosophy-point__description">The menu evolves with nature's rhythm.</p>
+        </div>
+    </div>
+====================================== */

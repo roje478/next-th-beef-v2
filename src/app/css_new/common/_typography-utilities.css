@@ -1,0 +1,225 @@
+/*==================================================
+    Typography Utilities
+    Decorative text styles and typography patterns
+==================================================*/
+
+/* ===================================
+    Decorative Text (Sorts Mill Goudy Italic)
+    Used for subtitles, captions, and decorative elements
+====================================== */
+.text-decorative {
+    @apply font-sorts-mill-goudy italic;
+}
+
+/* Color Variants */
+.text-decorative--accent {
+    @apply text-calico-500;
+}
+
+.text-decorative--muted {
+    @apply text-coarseWool-300;
+}
+
+.text-decorative--light {
+    @apply text-coarseWool-200;
+}
+
+.text-decorative--dark {
+    @apply text-coarseWool-100;
+}
+
+/* Size Variants */
+.text-decorative--sm {
+    @apply text-subtitle-2;
+}
+
+.text-decorative--md {
+    @apply text-subtitle-2 sm:text-subtitle-1;
+}
+
+.text-decorative--lg {
+    @apply text-subtitle-1 sm:text-body;
+}
+
+.text-decorative--xl {
+    @apply text-subtitle-1 sm:text-title-6;
+}
+
+/* ===================================
+    Heading Utilities
+    Standardized heading styles with Barlow Condensed
+====================================== */
+.heading {
+    @apply font-barlow-condensed font-normal capitalize mb-4;
+}
+
+.heading--xl {
+    @apply text-title-1;
+}
+
+.heading--lg {
+    @apply text-title-2;
+}
+
+.heading--md {
+    @apply text-title-3;
+}
+
+.heading--sm {
+    @apply text-title-4;
+}
+
+.heading--xs {
+    @apply text-title-5;
+}
+
+/* Heading with no bottom margin */
+.heading--no-margin {
+    @apply mb-0;
+}
+
+/* Responsive heading sizes */
+.heading--responsive-lg {
+    @apply text-title-3 sm:text-title-2 md:text-title-1;
+}
+
+.heading--responsive-md {
+    @apply text-title-4 sm:text-title-3 md:text-title-2;
+}
+
+.heading--responsive-sm {
+    @apply text-title-5 sm:text-title-4 md:text-title-3;
+}
+
+/* ===================================
+    Text Case Utilities
+====================================== */
+.text-uppercase {
+    @apply uppercase;
+}
+
+.text-capitalize {
+    @apply capitalize;
+}
+
+.text-lowercase {
+    @apply lowercase;
+}
+
+.text-normal-case {
+    @apply normal-case;
+}
+
+/* ===================================
+    Font Weight Utilities
+====================================== */
+.text-thin {
+    @apply font-thin;
+}
+
+.text-light {
+    @apply font-light;
+}
+
+.text-normal {
+    @apply font-normal;
+}
+
+.text-medium {
+    @apply font-medium;
+}
+
+.text-semibold {
+    @apply font-semibold;
+}
+
+.text-bold {
+    @apply font-bold;
+}
+
+/* ===================================
+    Letter Spacing Utilities
+====================================== */
+.text-tracking-tight {
+    letter-spacing: -0.025em;
+}
+
+.text-tracking-normal {
+    letter-spacing: 0;
+}
+
+.text-tracking-wide {
+    letter-spacing: 0.025em;
+}
+
+.text-tracking-wider {
+    letter-spacing: 0.05em;
+}
+
+/* ===================================
+    Line Height Utilities
+====================================== */
+.text-leading-tight {
+    @apply leading-tight;
+}
+
+.text-leading-normal {
+    @apply leading-normal;
+}
+
+.text-leading-relaxed {
+    @apply leading-relaxed;
+}
+
+.text-leading-loose {
+    @apply leading-loose;
+}
+
+/* ===================================
+    Paragraph Utilities
+====================================== */
+.text-lead-centered {
+    @apply text-coarseWool-100 text-lead leading-relaxed max-w-content-md mx-auto;
+}
+
+.text-body-primary {
+    @apply text-coarseWool-200 text-body leading-relaxed;
+}
+
+.text-body-secondary {
+    @apply text-coarseWool-300 text-body-small leading-relaxed;
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- Section Subtitle (Decorative) -->
+    <p class="text-decorative text-decorative--accent text-decorative--md">
+        Our Story
+    </p>
+
+    <!-- Blog Author -->
+    <p class="text-decorative text-decorative--muted text-decorative--sm">
+        By John Doe
+    </p>
+
+    <!-- Menu Description -->
+    <p class="text-decorative text-decorative--light text-decorative--sm">
+        Fresh ingredients, carefully prepared
+    </p>
+
+    <!-- Section Title -->
+    <h2 class="heading heading--responsive-lg">
+        Welcome to Our Restaurant
+    </h2>
+
+    <!-- Card Title -->
+    <h3 class="heading heading--md heading--no-margin">
+        Special Dish
+    </h3>
+
+    <!-- Event Title -->
+    <h4 class="heading heading--sm">
+        Live Music Night
+    </h4>
+====================================== */

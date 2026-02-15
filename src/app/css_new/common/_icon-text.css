@@ -1,0 +1,201 @@
+/*==================================================
+    Icon with Text Component
+    Layout pattern for icons paired with text
+==================================================*/
+
+/* ===================================
+    Base Icon Text
+====================================== */
+.icon-text {
+    @apply inline-flex items-center justify-start gap-3;
+
+    i, .icon, svg {
+        @apply text-base transition-colors duration-300;
+    }
+}
+
+/* ===================================
+    Alignment Variants
+====================================== */
+.icon-text--center {
+    @apply justify-center;
+}
+
+.icon-text--end {
+    @apply justify-end;
+}
+
+.icon-text--between {
+    @apply justify-between;
+}
+
+/* ===================================
+    Gap Variants
+====================================== */
+.icon-text--gap-xs {
+    @apply gap-1;
+}
+
+.icon-text--gap-sm {
+    @apply gap-2;
+}
+
+.icon-text--gap-md {
+    @apply gap-3;
+}
+
+.icon-text--gap-lg {
+    @apply gap-4;
+}
+
+.icon-text--gap-xl {
+    @apply gap-6;
+}
+
+/* ===================================
+    Icon Position (Reverse)
+====================================== */
+.icon-text--reverse {
+    @apply flex-row-reverse;
+}
+
+/* ===================================
+    Vertical Layout
+====================================== */
+.icon-text--vertical {
+    @apply flex-col;
+}
+
+.icon-text--vertical-reverse {
+    @apply flex-col-reverse;
+}
+
+/* ===================================
+    Icon Style Variants
+====================================== */
+.icon-text--icon-accent {
+    i, .icon, svg {
+        @apply text-calico-500;
+    }
+
+    &:hover i,
+    &:hover .icon,
+    &:hover svg {
+        @apply text-calico-600;
+    }
+}
+
+.icon-text--icon-muted {
+    i, .icon, svg {
+        @apply text-coarseWool-400;
+    }
+}
+
+.icon-text--icon-lg {
+    i, .icon, svg {
+        @apply text-lg;
+    }
+}
+
+.icon-text--icon-xl {
+    i, .icon, svg {
+        @apply text-xl;
+    }
+}
+
+.icon-text--icon-2xl {
+    i, .icon, svg {
+        @apply text-2xl;
+    }
+}
+
+/* ===================================
+    Full Width
+====================================== */
+.icon-text--full {
+    @apply w-full;
+}
+
+/* ===================================
+    With Background/Badge
+====================================== */
+.icon-text--badge {
+    i, .icon, svg {
+        @apply w-8 h-8 flex items-center justify-center rounded-full
+               bg-calico-500 text-coarseWool-900;
+    }
+}
+
+.icon-text--badge-outlined {
+    i, .icon, svg {
+        @apply w-8 h-8 flex items-center justify-center rounded-full
+               border-2 border-calico-500 text-calico-500;
+    }
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- Basic icon with text -->
+    <a href="#" class="icon-text">
+        <i class="fab fa-facebook"></i>
+        <span>Facebook</span>
+    </a>
+
+    <!-- Centered with accent icon -->
+    <div class="icon-text icon-text--center icon-text--icon-accent">
+        <i class="fas fa-phone"></i>
+        <span>Call Us: 123-456-7890</span>
+    </div>
+
+    <!-- Large icon, small gap -->
+    <div class="icon-text icon-text--gap-sm icon-text--icon-xl">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>123 Main Street</span>
+    </div>
+
+    <!-- Icon after text (reversed) -->
+    <a href="#" class="icon-text icon-text--reverse">
+        <i class="fas fa-arrow-right"></i>
+        <span>Read More</span>
+    </a>
+
+    <!-- Vertical layout -->
+    <div class="icon-text icon-text--vertical icon-text--center">
+        <i class="fas fa-heart icon-text--icon-2xl"></i>
+        <span>Favorites</span>
+    </div>
+
+    <!-- Full width with space between -->
+    <div class="icon-text icon-text--full icon-text--between">
+        <div class="icon-text">
+            <i class="fas fa-envelope"></i>
+            <span>Email</span>
+        </div>
+        <span class="badge">5</span>
+    </div>
+
+    <!-- With badge style icon -->
+    <div class="icon-text icon-text--badge">
+        <i class="fas fa-check"></i>
+        <span>Completed</span>
+    </div>
+
+    <!-- Social media list -->
+    <div class="flex gap-4">
+        <a href="#" class="icon-text icon-text--icon-accent icon-text--gap-sm">
+            <i class="fab fa-facebook"></i>
+            <span>Facebook</span>
+        </a>
+        <a href="#" class="icon-text icon-text--icon-accent icon-text--gap-sm">
+            <i class="fab fa-twitter"></i>
+            <span>Twitter</span>
+        </a>
+    </div>
+
+    <!-- Team member info -->
+    <div class="icon-text icon-text--icon-muted">
+        <i class="fas fa-briefcase"></i>
+        <span>Chef</span>
+    </div>
+====================================== */

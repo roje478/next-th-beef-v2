@@ -1,0 +1,455 @@
+/* ==========================================================================
+   Unified Padding System - Complete Utilities
+   Standardized spacing for sections, containers, and components
+========================================================================== */
+
+/* ==========================================================================
+   SECTION 1: VERTICAL PADDING (py, pt, pb)
+   For section-level vertical spacing
+========================================================================== */
+
+/* =====================================
+   Standard Section Spacing (Most Common)
+   Use for main content sections
+   Smooth progression: 48px → 64px → 80px → 96px → 112px
+===================================== */
+.section-spacing {
+    @apply py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28;
+}
+
+.section-spacing-top {
+    @apply pt-12 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-28;
+}
+
+.section-spacing-bottom {
+    @apply pb-12 sm:pb-16 md:pb-20 lg:pb-24 xl:pb-28;
+}
+
+/* =====================================
+   Section Spacing with LG Breakpoint (DEPRECATED - Use section-spacing)
+   Kept for backwards compatibility, identical to section-spacing
+   Progression: 48px → 64px → 80px → 96px → 112px
+===================================== */
+.section-spacing-lg {
+    @apply section-spacing;
+}
+
+.section-spacing-lg-top {
+    @apply section-spacing-top;
+}
+
+.section-spacing-lg-bottom {
+    @apply section-spacing-bottom;
+}
+
+/* =====================================
+   Compact Section Spacing
+   Use for nested sections or cards
+   Progression: 32px → 48px → 64px → 64px → 80px
+===================================== */
+.section-spacing-compact {
+    @apply py-8 sm:py-12 md:py-16 lg:py-16 xl:py-20;
+}
+
+.section-spacing-compact-top {
+    @apply pt-8 sm:pt-12 md:pt-16 lg:pt-16 xl:pt-20;
+}
+
+.section-spacing-compact-bottom {
+    @apply pb-8 sm:pb-12 md:pb-16 lg:pb-16 xl:pb-20;
+}
+
+/* =====================================
+   Small Section Spacing
+   Use for minor sections, badges, dividers
+   Progression: 24px → 32px → 48px → 48px → 64px
+===================================== */
+.section-spacing-small {
+    @apply py-6 sm:py-8 md:py-12 lg:py-12 xl:py-16;
+}
+
+.section-spacing-small-top {
+    @apply pt-6 sm:pt-8 md:pt-12 lg:pt-12 xl:pt-16;
+}
+
+.section-spacing-small-bottom {
+    @apply pb-6 sm:pb-8 md:pb-12 lg:pb-12 xl:pb-16;
+}
+
+/* =====================================
+   Hero Spacing
+   Special spacing for hero sections
+===================================== */
+.hero-spacing {
+    @apply py-16 md:py-20 lg:py-24 xl:py-28;
+}
+
+.hero-spacing-top {
+    @apply pt-16 md:pt-20 lg:pt-24 xl:pt-28;
+}
+
+/* ==========================================================================
+   SECTION 2: HORIZONTAL PADDING (px, pl, pr)
+   For container-level horizontal spacing
+========================================================================== */
+
+/* =====================================
+   Standard Container Padding
+   Use for main containers
+   Progression: 16px → 16px → 24px → 48px → 64px
+===================================== */
+.container-padding {
+    @apply px-4 sm:px-4 md:px-6 lg:px-12 xl:px-16;
+}
+
+.container-padding-left {
+    @apply pl-4 sm:pl-4 md:pl-6 lg:pl-12 xl:pl-16;
+}
+
+.container-padding-right {
+    @apply pr-4 sm:pr-4 md:pr-6 lg:pr-12 xl:pr-16;
+}
+
+/* =====================================
+   Extended Container Padding
+   Use for wider containers
+===================================== */
+.container-padding-xl {
+    @apply px-4 md:px-6 lg:px-16 xl:px-24;
+}
+
+.container-padding-2xl {
+    @apply px-4 md:px-8 lg:px-16 xl:px-32;
+}
+
+/* =====================================
+   Compact Horizontal Padding
+   Use for tight layouts
+===================================== */
+.container-padding-compact {
+    @apply px-[18px] md:px-6;
+}
+
+/* =====================================
+   Loose Horizontal Padding
+   Use for spacious layouts
+===================================== */
+.container-padding-loose {
+    @apply px-6 md:px-10 lg:px-16 xl:px-20;
+}
+
+/* =====================================
+   Content Block Padding
+   Use for article/blog content areas
+===================================== */
+.content-padding {
+    @apply px-6 md:px-8 lg:px-16 xl:px-16 2xl:px-36;
+}
+
+/* ==========================================================================
+   SECTION 3: ALL-SIDES PADDING (p)
+   For component-level spacing
+========================================================================== */
+
+/* =====================================
+   Card Padding
+   Use for card components
+   Progression: 12px → 16px → 24px → 32px
+===================================== */
+.card-padding {
+    @apply p-3 sm:p-4 md:p-6 lg:p-8;
+}
+
+.card-padding-compact {
+    @apply p-2 sm:p-3 md:p-4 lg:p-5;
+}
+
+.card-padding-spacious {
+    @apply p-4 sm:p-6 md:p-8 lg:p-10;
+}
+
+/* =====================================
+   Feature/Hero Card Padding
+   Use for large featured cards
+   Progression: 24px → 32px → 48px → 64px → 80px
+===================================== */
+.feature-padding {
+    @apply p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20;
+}
+
+/* =====================================
+   Component Padding
+   Use for small UI components
+===================================== */
+.component-padding {
+    @apply p-4 sm:p-6;
+}
+
+.component-padding-small {
+    @apply p-2 sm:p-3 md:p-4;
+}
+
+/* =====================================
+   Input/Form Padding
+   Use for form elements
+===================================== */
+.input-padding {
+    @apply p-3 md:p-4;
+}
+
+/* ==========================================================================
+   SECTION 4: COMBINED SEMANTIC UTILITIES
+   Combines vertical + horizontal for common patterns
+========================================================================== */
+
+/* =====================================
+   Full Section (vertical + horizontal)
+===================================== */
+.section-container {
+    @apply py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-4 md:px-6 lg:px-12 xl:px-16;
+}
+
+.section-container-lg {
+    @apply py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-4 md:px-6 lg:px-12 xl:px-16;
+}
+
+.section-container-xl {
+    @apply py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-4 md:px-6 lg:px-16 xl:px-24;
+}
+
+/* =====================================
+   Content Block (for article/blog areas)
+===================================== */
+.content-block {
+    @apply py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-6 sm:px-6 md:px-8 lg:px-16 xl:px-16 2xl:px-36;
+}
+
+/* =====================================
+   Card Variants (combined padding + styling)
+===================================== */
+.card-default {
+    @apply p-4 md:p-6 lg:p-8 rounded-lg;
+}
+
+.card-compact {
+    @apply p-3 sm:p-4 md:p-5 rounded-lg;
+}
+
+.card-featured {
+    @apply p-8 md:p-12 lg:p-16 xl:p-20 rounded-lg;
+}
+
+/* =====================================
+   Hero Section (large spacing)
+===================================== */
+.hero-section {
+    @apply py-32 md:py-40 lg:py-48 xl:py-56 px-4 md:px-6 lg:px-12 xl:px-20;
+}
+
+/* ==========================================================================
+   SECTION 5: EDGE CASES & OVERRIDES
+   Use sparingly for special situations
+========================================================================== */
+
+/* =====================================
+   Full Width with Padding
+   For full-width sections with internal padding
+===================================== */
+.full-width-padded {
+    @apply w-full !px-4 md:!px-6 lg:!px-12 xl:!px-24;
+}
+
+/* =====================================
+   Tight Horizontal Spacing
+   For edge cases needing minimal horizontal space
+===================================== */
+.section-tight-h {
+    @apply px-0 md:px-2 lg:px-8 xl:px-16;
+}
+
+/* =====================================
+   No Padding Reset
+   For components that need padding reset
+===================================== */
+.section-no-pad {
+    @apply p-0 m-0;
+}
+
+/* ==========================================================================
+   USAGE EXAMPLES & GUIDELINES
+========================================================================== */
+
+/*
+=====================================
+VERTICAL SPACING EXAMPLES
+=====================================
+
+<!-- Standard section -->
+<section class="section-spacing">
+    <div class="container">...</div>
+</section>
+
+<!-- Section with LG breakpoint -->
+<section class="section-spacing-lg">
+    <div class="container">...</div>
+</section>
+
+<!-- Top padding only -->
+<section class="section-spacing-top">
+    <div class="container">...</div>
+</section>
+
+<!-- Compact section for nested content -->
+<div class="section-spacing-compact">
+    <div class="container">...</div>
+</div>
+
+=====================================
+HORIZONTAL SPACING EXAMPLES
+=====================================
+
+<!-- Standard container -->
+<div class="container container-padding">
+    ...
+</div>
+
+<!-- Wide container -->
+<div class="container container-padding-xl">
+    ...
+</div>
+
+<!-- Content area -->
+<div class="content-padding">
+    ...
+</div>
+
+=====================================
+COMPONENT PADDING EXAMPLES
+=====================================
+
+<!-- Card component -->
+<div class="card-padding rounded-lg bg-white">
+    ...
+</div>
+
+<!-- Featured card -->
+<div class="feature-padding rounded-lg bg-white">
+    ...
+</div>
+
+<!-- Form input -->
+<input class="input-padding rounded border" />
+
+=====================================
+COMBINED UTILITIES EXAMPLES
+=====================================
+
+<!-- Full section with container -->
+<section class="section-container">
+    ...
+</section>
+
+<!-- Article/blog content -->
+<article class="content-block">
+    ...
+</article>
+
+<!-- Hero section -->
+<section class="hero-section">
+    ...
+</section>
+
+<!-- Card with default styling -->
+<div class="card-default bg-white shadow">
+    ...
+</div>
+
+=====================================
+CSS VARIABLE ALTERNATIVE
+=====================================
+
+<!-- Using CSS custom properties -->
+<section style="padding-block: var(--section-padding-y);">
+    <div class="container">...</div>
+</section>
+
+<div style="padding: var(--card-padding);">
+    ...
+</div>
+
+=====================================
+MIGRATION FROM INLINE @apply
+=====================================
+
+BEFORE:
+.my-section {
+    @apply py-16 md:py-20 xl:py-28;
+}
+
+AFTER:
+.my-section {
+    @apply section-spacing;
+}
+
+---
+
+BEFORE:
+.my-container {
+    @apply px-4 md:px-6 lg:px-12 xl:px-16;
+}
+
+AFTER:
+.my-container {
+    @apply container-padding;
+}
+
+---
+
+BEFORE:
+.my-card {
+    @apply p-4 md:p-6 lg:p-8 rounded-lg;
+}
+
+AFTER:
+.my-card {
+    @apply card-default;
+}
+
+*/
+
+/* ==========================================================================
+   SECTION 5: CONTENT WIDTH UTILITIES
+   Standardized max-width values for content containers
+========================================================================== */
+
+/* =====================================
+   Content Width Narrow (600px)
+   Use for: Forms, section titles, centered text content
+===================================== */
+.content-width-narrow {
+    @apply max-w-content mx-auto;
+}
+
+/* =====================================
+   Content Width Medium (720px)
+   Use for: About sections, CTAs, wider text content
+===================================== */
+.content-width-medium {
+    @apply max-w-content-md mx-auto;
+}
+
+/* =====================================
+   Content Width Wide (800px)
+   Use for: Menu sections, history, feature content
+===================================== */
+.content-width-wide {
+    @apply max-w-content-lg mx-auto;
+}
+
+/* =====================================
+   Content Width Full (1200px)
+   Use for: Blog layouts, multi-column content
+===================================== */
+.content-width-full {
+    @apply max-w-container mx-auto;
+}

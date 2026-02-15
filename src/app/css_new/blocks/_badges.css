@@ -1,0 +1,215 @@
+/*==========================
+    Badges - Award Logos Carousel
+===========================*/
+.badges{
+    @apply relative z-10 w-full section-spacing-small;
+    &__item{
+        @apply relative flex flex-wrap items-center justify-center w-full py-8;
+        img{
+            @apply  w-auto h-full max-h-[80px] lg:max-h-[120px];
+        }
+    }
+}
+
+/*==========================
+    Badge Component - Labels & Tags
+    Extension: Reusable badge system for labels, tags, status indicators
+    Justification: Versatile component for menu items, blog posts, products
+===========================*/
+
+/* Base Badge */
+.badge {
+    @apply inline-flex items-center justify-center;
+    @apply px-3 py-1 rounded;
+    @apply font-mulish font-bold uppercase tracking-wider;
+    @apply text-xs leading-none;
+    @apply transition-all duration-200;
+}
+
+/* Badge Variants - Color Schemes */
+.badge--primary {
+    @apply bg-calico-500 text-coarseWool-900;
+}
+
+.badge--secondary {
+    @apply bg-coarseWool-600 text-coarseWool-100;
+}
+
+.badge--success {
+    @apply bg-green-500 text-white;
+}
+
+.badge--warning {
+    @apply bg-yellow-500 text-coarseWool-900;
+}
+
+.badge--danger {
+    @apply bg-red-500 text-white;
+}
+
+.badge--info {
+    @apply bg-blue-500 text-white;
+}
+
+/* Badge Variants - Outline Style */
+.badge--outline {
+    @apply bg-transparent border border-current;
+
+    &.badge--primary {
+        @apply text-calico-500 border-calico-500;
+
+        &:hover {
+            @apply bg-calico-500 text-coarseWool-900;
+        }
+    }
+
+    &.badge--secondary {
+        @apply text-coarseWool-100 border-coarseWool-400;
+
+        &:hover {
+            @apply bg-coarseWool-600 border-coarseWool-600;
+        }
+    }
+}
+
+/* Badge Size Variants */
+.badge--sm {
+    @apply px-2 py-0.5 text-[10px];
+}
+
+.badge--lg {
+    @apply px-4 py-2 text-sm;
+}
+
+/* Badge with Icon */
+.badge--icon {
+    @apply flex items-center gap-1.5;
+
+    i, svg {
+        @apply text-xs;
+    }
+}
+
+/* Special Purpose Badges */
+.badge--new {
+    @apply bg-calico-500 text-coarseWool-900;
+
+    &::before {
+        content: '✨';
+        @apply mr-1;
+    }
+}
+
+.badge--hot {
+    @apply bg-red-500 text-white;
+
+    &::before {
+        content: '🔥';
+        @apply mr-1;
+    }
+}
+
+.badge--seasonal {
+    @apply bg-green-600 text-white;
+}
+
+.badge--vegan {
+    @apply bg-green-500 text-white;
+
+    &::before {
+        content: '🌱';
+        @apply mr-1;
+    }
+}
+
+.badge--spicy {
+    @apply bg-red-600 text-white;
+
+    &::before {
+        content: '🌶️';
+        @apply mr-1;
+    }
+}
+
+.badge--gluten-free {
+    @apply bg-yellow-600 text-white;
+}
+
+.badge--chef-special {
+    @apply bg-calico-600 text-white;
+
+    &::before {
+        content: '👨‍🍳';
+        @apply mr-1;
+    }
+}
+
+.badge--verified {
+    @apply bg-blue-500 text-white;
+
+    &::before {
+        content: '✓';
+        @apply mr-1 font-bold;
+    }
+}
+
+/* Badge Positioning Helpers */
+.badge--absolute {
+    @apply absolute;
+}
+
+.badge--top-left {
+    @apply top-2 left-2;
+}
+
+.badge--top-right {
+    @apply top-2 right-2;
+}
+
+.badge--bottom-left {
+    @apply bottom-2 left-2;
+}
+
+.badge--bottom-right {
+    @apply bottom-2 right-2;
+}
+
+/* Badge Group */
+.badge-group {
+    @apply flex flex-wrap items-center gap-2;
+}
+
+/*==========================
+    USAGE EXAMPLES:
+
+    Basic badge:
+    <span class="badge badge--primary">New</span>
+
+    Outline badge:
+    <span class="badge badge--outline badge--primary">Featured</span>
+
+    Badge with icon:
+    <span class="badge badge--icon badge--success">
+        <i class="fa-solid fa-check"></i>
+        Verified
+    </span>
+
+    Special purpose badges:
+    <span class="badge badge--new">New Dish</span>
+    <span class="badge badge--hot">Hot Item</span>
+    <span class="badge badge--vegan">Vegan</span>
+    <span class="badge badge--spicy">Spicy</span>
+
+    Badge on card/image:
+    <div class="relative">
+        <img src="dish.jpg" alt="Dish">
+        <span class="badge badge--new badge--absolute badge--top-right">New</span>
+    </div>
+
+    Badge group:
+    <div class="badge-group">
+        <span class="badge badge--vegan">Vegan</span>
+        <span class="badge badge--gluten-free">Gluten Free</span>
+        <span class="badge badge--chef-special">Chef's Special</span>
+    </div>
+===========================*/

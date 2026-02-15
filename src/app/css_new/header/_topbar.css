@@ -1,0 +1,41 @@
+/* ===================================
+    Topbar
+====================================== */
+.topbar {
+	@apply absolute top-0 left-0 right-0 z-[100] items-center justify-between hidden w-full p-0 border-b border-coarseWool-200 border-opacity-20 xl:flex;
+	/* Hide topbar on mobile and tablet devices (< 1280px) */
+	@apply hidden xl:flex;
+
+    &__left {
+		@apply inline-flex items-center justify-start gap-8 pl-8;
+	}
+	&__right {
+		@apply inline-flex items-center justify-start gap-8 pr-8;
+		&:has(.topbar__call-to) {
+			@apply pr-0;
+		}
+	}
+	&__email,
+	&__phone,
+	&__address {
+		@apply inline-flex items-center justify-start gap-3 py-3;
+		a {
+			@apply flex flex-wrap items-center justify-start font-normal transition-all duration-200 ease-out font-josefin-sans text-coarseWool-100 text-body;
+
+			& > i{
+				@apply !text-body-small mr-2 transition-none;
+			}
+
+			&:hover {
+				@apply text-calico-500;
+			}
+			&:focus-visible {
+				@apply outline-none ring-2 ring-calico-500 ring-offset-2 ring-offset-coarseWool-900 text-calico-500 rounded;
+			}
+		}
+	}
+	.btn{
+		@apply rounded-none bg-calico-500 text-coarseWool-900 hover:bg-transparent hover:text-calico-500;
+	}
+
+}

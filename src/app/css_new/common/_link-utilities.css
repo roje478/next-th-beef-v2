@@ -1,0 +1,304 @@
+/*==================================================
+    Link Utilities
+    Animated and styled link patterns
+==================================================*/
+
+/* ===================================
+    Animated Underline Link
+====================================== */
+.link-underline-animate {
+    @apply relative inline-block;
+
+    &::before,
+    &::after {
+        content: '';
+        @apply absolute bottom-0 left-0 h-px w-0 block;
+    }
+
+    &::before {
+        transition: width 0s ease, background 0.4s ease;
+    }
+
+    &::after {
+        @apply bg-calico-500;
+        transition: width 0.4s ease;
+    }
+
+    &:hover,
+    &:focus-visible {
+        &::before {
+            @apply bg-calico-600 w-full;
+            transition: width 0.4s ease;
+        }
+
+        &::after {
+            @apply w-full;
+            background: transparent;
+            transition: all 0s ease;
+        }
+    }
+
+    &:focus-visible {
+        @apply focus-ring;
+    }
+}
+
+/* Thickness Variants */
+.link-underline-animate--thin {
+    &::before,
+    &::after {
+        @apply h-px;
+    }
+}
+
+.link-underline-animate--thick {
+    &::before,
+    &::after {
+        height: 2px;
+    }
+}
+
+.link-underline-animate--extra-thick {
+    &::before,
+    &::after {
+        height: 3px;
+    }
+}
+
+/* ===================================
+    Simple Underline (No Animation)
+====================================== */
+.link-underline {
+    @apply underline underline-offset-2 decoration-calico-500 transition-colors duration-300 ease-in-out;
+
+    &:hover,
+    &:focus-visible {
+        @apply decoration-calico-600;
+    }
+
+    &:focus-visible {
+        @apply focus-ring;
+    }
+}
+
+.link-underline--thin {
+    @apply decoration-1;
+}
+
+.link-underline--thick {
+    @apply decoration-2;
+}
+
+/* ===================================
+    Underline on Hover Only
+====================================== */
+.link-hover-underline {
+    @apply no-underline;
+
+    &:hover,
+    &:focus-visible {
+        @apply underline underline-offset-2 decoration-calico-500;
+    }
+
+    &:focus-visible {
+        @apply focus-ring;
+    }
+}
+
+/* ===================================
+    Arrow Link (Text with Arrow)
+====================================== */
+.link-arrow {
+    @apply inline-flex items-center gap-2 transition-all duration-300;
+
+    &::after {
+        content: '\f061'; /* fa-arrow-right */
+        font-family: "Font Awesome 6 Free" !important;
+        @apply text-sm font-black transition-transform duration-300;
+    }
+
+    &:hover::after,
+    &:focus-visible::after {
+        @apply translate-x-1;
+    }
+
+    &:focus-visible {
+        @apply focus-ring;
+    }
+}
+
+.link-arrow--left {
+    &::before {
+        content: '\f060'; /* fa-arrow-left */
+        font-family: "Font Awesome 6 Free" !important;
+        @apply text-sm font-black transition-transform duration-300;
+    }
+
+    &::after {
+        content: none;
+    }
+
+    &:hover::before,
+    &:focus-visible::before {
+        @apply -translate-x-1;
+    }
+}
+
+/* ===================================
+    Link with Icon
+====================================== */
+.link-icon {
+    @apply inline-flex items-center gap-2;
+
+    i, .icon {
+        @apply transition-colors duration-300;
+    }
+
+    &:hover i,
+    &:hover .icon,
+    &:focus-visible i,
+    &:focus-visible .icon {
+        @apply text-calico-500;
+    }
+
+    &:focus-visible {
+        @apply focus-ring;
+    }
+}
+
+/* ===================================
+    Link Button Style
+====================================== */
+.link-button {
+    @apply inline-block px-6 py-2 border border-solid border-calico-500
+           text-calico-500 rounded-full transition-all duration-300;
+
+    &:hover,
+    &:focus-visible {
+        @apply bg-calico-500 text-coarseWool-900;
+    }
+
+    &:focus-visible {
+        @apply focus-ring;
+    }
+}
+
+.link-button--solid {
+    @apply bg-calico-500 text-coarseWool-900;
+
+    &:hover,
+    &:focus-visible {
+        @apply bg-calico-600;
+    }
+
+    &:focus-visible {
+        @apply focus-ring;
+    }
+}
+
+/* ===================================
+    Link Color Variants
+====================================== */
+.link-accent {
+    @apply text-calico-500;
+
+    &:hover,
+    &:focus-visible {
+        @apply text-calico-600;
+    }
+
+    &:focus-visible {
+        @apply focus-ring;
+    }
+}
+
+.link-muted {
+    @apply text-coarseWool-400;
+
+    &:hover,
+    &:focus-visible {
+        @apply text-calico-500;
+    }
+
+    &:focus-visible {
+        @apply focus-ring;
+    }
+}
+
+.link-light {
+    @apply text-coarseWool-200;
+
+    &:hover,
+    &:focus-visible {
+        @apply text-calico-500;
+    }
+
+    &:focus-visible {
+        @apply focus-ring;
+    }
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- Animated underline link -->
+    <a href="#" class="link-underline-animate">
+        Hover for animation
+    </a>
+
+    <!-- Thick animated underline -->
+    <a href="#" class="link-underline-animate link-underline-animate--thick">
+        Bold underline
+    </a>
+
+    <!-- Simple underline -->
+    <a href="#" class="link-underline">
+        Simple underline link
+    </a>
+
+    <!-- Underline on hover only -->
+    <a href="#" class="link-hover-underline">
+        Hover to underline
+    </a>
+
+    <!-- Link with arrow -->
+    <a href="#" class="link-arrow link-accent">
+        Read More
+    </a>
+
+    <!-- Link with left arrow -->
+    <a href="#" class="link-arrow link-arrow--left link-accent">
+        Go Back
+    </a>
+
+    <!-- Link with icon -->
+    <a href="#" class="link-icon link-accent">
+        <i class="fas fa-download"></i>
+        <span>Download Menu</span>
+    </a>
+
+    <!-- Link button style -->
+    <a href="#" class="link-button">
+        View Menu
+    </a>
+
+    <!-- Solid link button -->
+    <a href="#" class="link-button link-button--solid">
+        Reserve Now
+    </a>
+
+    <!-- Muted link with hover -->
+    <a href="#" class="link-muted">
+        Privacy Policy
+    </a>
+
+    <!-- Combined: Arrow link with animated underline -->
+    <a href="#" class="link-arrow link-underline-animate link-accent">
+        Explore Our Services
+    </a>
+
+    <!-- Navigation link -->
+    <a href="#" class="link-accent link-hover-underline">
+        About Us
+    </a>
+====================================== */

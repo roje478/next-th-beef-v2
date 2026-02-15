@@ -1,0 +1,53 @@
+/*==================================================
+    Grid Utilities
+    Responsive grid patterns
+==================================================*/
+
+/* ===================================
+    Two Column Grid
+====================================== */
+.grid-two-cols {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12;
+}
+
+.grid-two-cols--items-center {
+    @apply items-center;
+}
+
+.grid-two-cols--gap-compact {
+    @apply gap-6 lg:gap-8;
+}
+
+/* ===================================
+    Three Column Grid
+====================================== */
+.grid-three-cols {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12;
+}
+
+.grid-three-cols--gap-compact {
+    @apply gap-6 lg:gap-8;
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- Two Column Grid -->
+    <div class="grid-two-cols">
+        <div>Column 1</div>
+        <div>Column 2</div>
+    </div>
+
+    <!-- Two Column Grid (centered items) -->
+    <div class="grid-two-cols grid-two-cols--items-center">
+        <div>Column 1</div>
+        <div>Column 2</div>
+    </div>
+
+    <!-- Three Column Grid -->
+    <div class="grid-three-cols">
+        <div>Column 1</div>
+        <div>Column 2</div>
+        <div>Column 3</div>
+    </div>
+====================================== */

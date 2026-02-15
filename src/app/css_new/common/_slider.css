@@ -1,0 +1,178 @@
+/* ===================================
+   Splide Slider Styles
+   Unified styling for Splide.js carousels
+====================================== */
+
+/* Arrows custom */
+.slider-nav-arrows {
+	@apply hidden md:flex relative w-full flex-wrap items-center justify-center gap-3 py-6;
+	.slider-arrow {
+		@apply relative z-50 w-10 h-10 rounded-full bg-transparent text-calico-500 flex items-center justify-center shadow-elevated !top-[20%] border-2 border-calico-500 border-solid transition-transform duration-300 ease-in-out;
+		transform: translateY(-50%);
+		&:hover,
+		&:focus-visible {
+			@apply bg-calico-500 cursor-pointer border-calico-500 scale-110;
+		}
+		&:hover:before,
+		&:focus-visible:before {
+			@apply text-coarseWool-900;
+		}
+		&:focus-visible {
+			@apply focus-ring;
+		}
+		&:active {
+			@apply scale-100 bg-calico-600 border-calico-600;
+		}
+		&:active:before {
+			@apply text-coarseWool-900;
+		}
+		&::before {
+			@apply text-sm text-calico-500 opacity-100 font-black;
+			font-family: "Font Awesome 5 Free";
+		}
+		&.slick-prev {
+			@apply left-0;
+			&::before {
+				content: "\f054";
+			}
+		}
+		&.slick-next {
+			@apply right-0;
+			&::before {
+				content: "\f053";
+			}
+		}
+	}
+}
+
+/* ===================================
+   Splide Arrows
+====================================== */
+.splide__arrows {
+	@apply flex items-center justify-between;
+}
+
+.splide__arrow {
+	@apply hidden md:flex relative z-50 w-10 h-10 rounded-full bg-transparent text-calico-500 items-center justify-center shadow-elevated border border-calico-500 border-solid transition-all duration-200 ease-out;
+
+	&:hover {
+		@apply bg-calico-500 cursor-pointer border-calico-500 scale-110;
+	}
+	&:hover svg {
+		@apply fill-coarseWool-900;
+	}
+	&:focus-visible {
+		@apply focus-ring;
+	}
+	&:active {
+		@apply scale-100 bg-calico-600 border-calico-600;
+	}
+	&:active svg {
+		@apply fill-coarseWool-900;
+	}
+	&:disabled {
+		@apply opacity-50 cursor-not-allowed pointer-events-none;
+	}
+
+	svg {
+		@apply w-3 h-3 fill-calico-500 transition-colors duration-200 ease-out;
+	}
+
+	&--prev {
+		@apply md:-left-20 lg:left-4;
+	}
+	&--next {
+		@apply md:-right-20 lg:right-4;
+	}
+}
+
+/* ===================================
+   Splide Pagination (Dots)
+====================================== */
+.splide__pagination {
+	@apply flex items-center justify-center gap-2 mt-4;
+}
+
+.splide__pagination__page {
+	@apply w-3 h-3 rounded-full bg-transparent border border-solid border-calico-500/90 transition-all duration-200 ease-out;
+
+	&:hover {
+		@apply border-calico-500 bg-calico-500/90;
+	}
+	&:focus-visible {
+		@apply outline-none ring-2 ring-calico-500 ring-offset-2 ring-offset-coarseWool-900;
+	}
+	&:active {
+		@apply scale-90;
+	}
+	&.is-active {
+		@apply bg-calico-500 border-calico-500;
+	}
+}
+
+/* Dots custom */
+.slick-dots {
+	li {
+		button {
+			@apply rounded-full border border-solid border-transparent transition-all duration-300 ease-in-out;
+			&:before {
+				@apply text-indicator text-calico-500;
+			}
+			&:focus-visible {
+				@apply outline-none ring-2 ring-calico-500 ring-offset-2 ring-offset-coarseWool-900;
+			}
+			&:active {
+				@apply scale-90;
+			}
+		}
+		&.slick-active {
+			button {
+				@apply border-calico-500;
+				&:before {
+					@apply text-indicator text-calico-500;
+				}
+			}
+		}
+	}
+}
+
+.slick-arrow {
+	@apply hidden md:flex relative z-50 w-10 h-10 rounded-full bg-transparent text-calico-500 items-center justify-center shadow-elevated border border-calico-500 border-solid transition-transform duration-300 ease-in-out;
+	&:hover {
+		@apply bg-calico-500 cursor-pointer border-calico-500 scale-110;
+	}
+	&:hover:before {
+		@apply text-coarseWool-900;
+	}
+	&:focus-visible {
+		@apply focus-ring;
+	}
+	&:active {
+		@apply scale-100 bg-calico-600 border-calico-600;
+	}
+	&:active:before {
+		@apply text-coarseWool-900;
+	}
+	&::before {
+		@apply text-calico-500 text-small font-black;
+		font-family: "Font Awesome 5 Free";
+	}
+	&.slick-prev {
+		@apply md:-left-20 lg:left-4;
+		&::before {
+			content: "\f053";
+		}
+	}
+	&.slick-next {
+		@apply md:-right-20 lg:right-4;
+		&::before {
+			content: "\f054";
+		}
+	}
+	&.slick-disabled {
+		@apply opacity-50 cursor-not-allowed pointer-events-none;
+		&::before {
+			@apply text-calico-500 opacity-100;
+		}
+	}
+}

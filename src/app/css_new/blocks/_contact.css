@@ -1,0 +1,18 @@
+/*==========================
+    Contact / 
+===========================*/
+.contact {
+	@apply flex flex-col items-center justify-center section-spacing;
+	&__container {
+		@apply container mx-auto container-padding;
+		.section-title {
+			@apply max-w-content text-center mx-auto mb-8;
+			p:last-of-type {
+				@apply mb-0;
+			}
+		}
+	}
+	&__form {
+		@apply w-full sm:w-10/12 mx-auto;
+	}
+}

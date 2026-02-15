@@ -1,0 +1,241 @@
+/**
+ * Menu Category Page Styles
+ *
+ * Extension of existing menu and blog patterns for category listing view.
+ * Reuses spacing, typography, and color tokens from the premium system.
+ *
+ * New components:
+ * - .menu-category__content: Main content area for category items
+ * - .menu-category__grid: Grid layout for menu items
+ * - .menu-category__item: Individual menu item card with image
+ * - .menu-category__item-image: Card image container
+ * - .menu-category__item-content: Card content wrapper
+ *
+ * All components extend existing patterns without introducing new visual tokens.
+ */
+
+/* ========================================================================
+   Menu Category Content Area
+   ======================================================================== */
+
+/**
+ * Main content wrapper for category page
+ * Extends .post__details pattern from blog system
+ * Needs proper padding to work within .blog__posts container
+ */
+ .menu-category-page{
+    .blog__posts{
+        @apply py-6 !bg-transparent;
+        .menu-category__content{
+            @apply bg-coarseWool-700;
+        }
+    }
+ }
+.menu-category__content {
+    @apply w-full;
+    @apply px-6 py-12;
+}
+
+@media (min-width: 768px) {
+    .menu-category__content {
+        @apply px-8 py-16;
+    }
+}
+
+@media (min-width: 1024px) {
+    .menu-category__content {
+        @apply px-6 py-20;
+    }
+}
+
+@media (min-width: 1280px) {
+    .menu-category__content {
+        @apply px-24 py-24;
+    }
+}
+
+/* ========================================================================
+   Menu Category Grid
+   ======================================================================== */
+
+/**
+ * Grid layout for menu item cards
+ * Uses responsive grid with consistent gaps
+ * Extends existing grid patterns from gallery and blog components
+ */
+.menu-category__grid {
+    @apply grid;
+    @apply grid-cols-1;
+    @apply gap-6;
+    @apply mt-12;
+}
+
+@media (min-width: 640px) {
+    .menu-category__grid {
+        @apply grid-cols-2;
+    }
+}
+
+@media (min-width: 1024px) {
+    .menu-category__grid {
+        @apply grid-cols-2;
+        @apply gap-6;
+    }
+}
+
+/* ========================================================================
+   Menu Item Card
+   ======================================================================== */
+
+/**
+ * Individual menu item card container
+ * Combines image + content in vertical layout
+ * Extends card patterns from existing components
+ */
+.menu-category__item {
+    @apply relative;
+    @apply bg-coarseWool-800;
+    @apply overflow-hidden;
+    @apply transition-all;
+    @apply duration-300;
+}
+
+.menu-category__item:hover {
+    @apply shadow-lg;
+}
+
+/* Card Image Container
+   ========================================================================
+   Extends .sidebar__post__image pattern for aspect ratio consistency
+*/
+.menu-category__item-image {
+    @apply relative;
+    @apply overflow-hidden;
+    @apply w-full;
+    @apply aspect-[4/3];
+}
+
+.menu-category__item-image img {
+    @apply w-full;
+    @apply h-full;
+    @apply object-cover;
+    @apply transition-transform;
+    @apply duration-500;
+}
+
+.menu-category__item:hover .menu-category__item-image img {
+    @apply scale-105;
+}
+
+/* Card Content Wrapper
+   ========================================================================
+   Provides consistent padding and background
+*/
+.menu-category__item-content {
+    @apply p-6;
+    @apply bg-coarseWool-800;
+    .dish{
+        @apply mb-0;
+    }
+}
+
+@media (min-width: 768px) {
+    .menu-category__item-content {
+        @apply p-8;
+    }
+}
+
+/* Dish Component Integration
+   ========================================================================
+   The .dish component (already defined in _menu.css) is reused here
+   No additional styles needed - existing patterns handle all styling
+
+   Structure:
+   - .dish (container)
+   - .dish__content (title + price wrapper)
+   - .dish__title (dish name)
+   - .dish__price (price value)
+   - .dish__description (ingredients/description)
+
+   All styling comes from existing .dish definitions in _menu.css
+*/
+
+/* ========================================================================
+   Sidebar Enhancements for Menu Category
+   ======================================================================== */
+
+/**
+ * Active state for category navigation
+ * Extends existing .sidebar__categories pattern
+ */
+.sidebar__categories a.active {
+    @apply text-calico-500;
+    @apply pl-3;
+    @apply border-l-2;
+    @apply border-calico-500;
+}
+
+.sidebar__categories a.active::after {
+    @apply text-calico-500;
+}
+
+/**
+ * Price display in sidebar posts
+ * Extends existing typography system
+ */
+.sidebar__post__content .sidebar-price {
+    @apply text-calico-500;
+    @apply font-barlow-condensed;
+    @apply text-title-5;
+    @apply font-semibold;
+    @apply mt-1;
+    @apply mb-0;
+}
+
+/* ========================================================================
+   Responsive Adjustments
+   ======================================================================== */
+
+/**
+ * Mobile optimization
+ * Maintains readability and touch targets on small screens
+ */
+@media (max-width: 639px) {
+    .menu-category__grid {
+        @apply gap-6;
+    }
+
+    .menu-category__item-content {
+        @apply p-5;
+    }
+}
+
+/**
+ * Large desktop optimization
+ * Increases grid columns for better content density
+ */
+@media (min-width: 1280px) {
+    .menu-category__grid {
+        @apply gap-6;
+    }
+}
+
+/* ========================================================================
+   Print Styles
+   ======================================================================== */
+
+@media print {
+    .menu-category__grid {
+        @apply grid-cols-1;
+        @apply gap-4;
+    }
+
+    .menu-category__item-image {
+        @apply aspect-auto;
+        @apply h-32;
+    }
+
+    .menu-category__item-content {
+        @apply p-3;
+    }
+}

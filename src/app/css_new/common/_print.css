@@ -1,0 +1,159 @@
+/*==================================================
+    Print Styles
+    Optimized for menu and reservation printing
+==================================================*/
+
+@media print {
+    /* ===================================
+        1. Global Print Resets
+    ====================================== */
+    *,
+    *::before,
+    *::after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    html {
+        font-size: 12pt;
+    }
+
+    body {
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.5;
+    }
+
+    /* ===================================
+        2. Hide Non-Essential Elements
+    ====================================== */
+    .header,
+    .footer,
+    .topbar,
+    .btn-scroll-top,
+    .lightbox,
+    .mm-menu,
+    .slider-nav-arrows,
+    .slick-dots,
+    .splide__pagination,
+    .social_icons,
+    nav,
+    aside,
+    .no-print {
+        display: none !important;
+    }
+
+    /* ===================================
+        3. Page Break Control
+    ====================================== */
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+
+    img, figure {
+        page-break-inside: avoid;
+    }
+
+    p, blockquote, li {
+        orphans: 3;
+        widows: 3;
+    }
+
+    /* ===================================
+        4. Link Handling
+    ====================================== */
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        font-weight: normal;
+    }
+
+    a[href^="#"]::after,
+    a[href^="javascript"]::after {
+        content: "";
+    }
+
+    /* ===================================
+        5. Content Optimization
+    ====================================== */
+    .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Menu items - ensure readability */
+    .menu-item,
+    .dish {
+        border-bottom: 1px solid #ccc !important;
+        padding-bottom: 0.5em !important;
+        margin-bottom: 0.5em !important;
+    }
+
+    .menu-item__title,
+    .dish__title {
+        font-weight: bold !important;
+    }
+
+    .menu-item__price,
+    .dish__price {
+        font-weight: bold !important;
+    }
+
+    /* Section titles */
+    .section-title {
+        border-bottom: 2px solid #000 !important;
+        margin-bottom: 1em !important;
+        padding-bottom: 0.5em !important;
+    }
+
+    /* ===================================
+        6. Image Handling
+    ====================================== */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Hide decorative images */
+    .hero-slider,
+    .hero-basic,
+    .hero-inner,
+    [class*="__background"],
+    .overlayer {
+        display: none !important;
+    }
+
+    /* ===================================
+        7. Print-Specific Classes
+    ====================================== */
+    .print-only {
+        display: block !important;
+    }
+
+    .print-break-before {
+        page-break-before: always;
+    }
+
+    .print-break-after {
+        page-break-after: always;
+    }
+
+    .print-avoid-break {
+        page-break-inside: avoid;
+    }
+}
+
+/* Hide print-only elements on screen */
+@media screen {
+    .print-only {
+        display: none !important;
+    }
+}

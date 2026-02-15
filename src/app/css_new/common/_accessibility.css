@@ -1,0 +1,121 @@
+/*==================================================
+    Accessibility Utilities
+    WCAG 2.1 Level AA compliant utilities
+==================================================*/
+
+/* ===================================
+    Screen Reader Only
+    Visually hidden but accessible to screen readers
+====================================== */
+@layer utilities {
+    .sr-only {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+    }
+
+    /* Allow element to be focusable when navigated to */
+    .sr-only-focusable:not(:focus):not(:focus-within) {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+    }
+
+    .sr-only-focusable:focus,
+    .sr-only-focusable:focus-within {
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        padding: inherit !important;
+        margin: inherit !important;
+        overflow: visible !important;
+        clip: auto !important;
+        white-space: normal !important;
+    }
+
+    /* Not screen reader - hide from assistive tech */
+    .not-sr {
+        @apply !hidden;
+    }
+}
+
+/* ===================================
+    Skip Link
+    Skip to main content for keyboard users
+====================================== */
+.skip-link {
+    @apply sr-only-focusable fixed top-0 left-0 z-[9999] bg-calico-500 text-coarseWool-900 px-6 py-3 font-barlow-condensed text-title-5 font-semibold no-underline;
+
+    &:focus {
+        @apply focus-ring;
+    }
+}
+
+/* ===================================
+    Reduced Motion
+    Respect user's motion preferences
+====================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ===================================
+    High Contrast Mode Support
+====================================== */
+@media (prefers-contrast: more) {
+    .btn {
+        @apply border-2;
+    }
+
+    .focus-ring,
+    .focus-ring-dark,
+    .focus-ring-light {
+        @apply ring-4;
+    }
+}
+
+/* ===================================
+    Live Regions
+    For dynamic content announcements
+====================================== */
+.aria-live-polite {
+    @apply sr-only;
+}
+
+.aria-live-assertive {
+    @apply sr-only;
+}
+
+/* ===================================
+    Usage Examples:
+
+    Screen reader only text:
+    <span class="sr-only">Opens in new window</span>
+
+    Skip link (place after <body>):
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    Live region for announcements:
+    <div class="aria-live-polite" aria-live="polite" aria-atomic="true">
+        Slide 1 of 5
+    </div>
+====================================== */

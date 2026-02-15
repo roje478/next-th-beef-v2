@@ -1,0 +1,200 @@
+/* =====================================
+    Custom Animate.css - Only Used Animations
+
+    This file replaces the full animate.css import to reduce bundle size.
+    Only includes animations actually used in the theme.
+===================================== */
+
+/* Base animation class */
+.animate__animated {
+    animation-duration: 1s;
+    animation-duration: var(--animate-duration);
+    animation-fill-mode: both;
+}
+
+/* Fade In Up - Main animation used throughout theme */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 40px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__fadeInUp {
+    animation-name: fadeInUp;
+}
+
+/* Fade In Left - Used in some sections */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translate3d(-40px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__fadeInLeft {
+    animation-name: fadeInLeft;
+}
+
+/* Fade In Right - Used in some sections */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translate3d(40px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__fadeInRight {
+    animation-name: fadeInRight;
+}
+
+/* Fade In Down - Top entrance animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -40px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__fadeInDown {
+    animation-name: fadeInDown;
+}
+
+/* Zoom In - Scale entrance animation */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale3d(0.85, 0.85, 0.85);
+    }
+    to {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.animate__zoomIn {
+    animation-name: zoomIn;
+}
+
+/* Slide In Left - Horizontal entrance */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__slideInLeft {
+    animation-name: slideInLeft;
+}
+
+/* Slide In Right - Horizontal entrance */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__slideInRight {
+    animation-name: slideInRight;
+}
+
+/* WOW.js delay utilities - used with data-wow-delay */
+.wow {
+    visibility: hidden;
+}
+
+.wow.animate__animated {
+    visibility: visible;
+}
+
+/* Animation duration variables */
+:root {
+    --animate-duration: 1s;
+    --animate-delay: 1s;
+    --animate-repeat: 1;
+}
+
+/* Duration utilities */
+.animate__delay-1s {
+    animation-delay: 1s;
+    animation-delay: var(--animate-delay);
+}
+
+.animate__delay-2s {
+    animation-delay: calc(1s * 2);
+    animation-delay: calc(var(--animate-delay) * 2);
+}
+
+.animate__delay-3s {
+    animation-delay: calc(1s * 3);
+    animation-delay: calc(var(--animate-delay) * 3);
+}
+
+/* Faster animations */
+.animate__faster {
+    animation-duration: calc(1s / 2);
+    animation-duration: calc(var(--animate-duration) / 2);
+}
+
+.animate__fast {
+    animation-duration: calc(1s * 0.8);
+    animation-duration: calc(var(--animate-duration) * 0.8);
+}
+
+/* Slower animations */
+.animate__slow {
+    animation-duration: calc(1s * 2);
+    animation-duration: calc(var(--animate-duration) * 2);
+}
+
+.animate__slower {
+    animation-duration: calc(1s * 3);
+    animation-duration: calc(var(--animate-duration) * 3);
+}
+
+/* Infinite repeat */
+.animate__infinite {
+    animation-iteration-count: infinite;
+}
+
+/* Repeat utilities */
+.animate__repeat-1 {
+    animation-iteration-count: 1;
+    animation-iteration-count: var(--animate-repeat);
+}
+
+.animate__repeat-2 {
+    animation-iteration-count: calc(1 * 2);
+    animation-iteration-count: calc(var(--animate-repeat) * 2);
+}
+
+.animate__repeat-3 {
+    animation-iteration-count: calc(1 * 3);
+    animation-iteration-count: calc(var(--animate-repeat) * 3);
+}

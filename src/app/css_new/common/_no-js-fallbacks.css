@@ -1,0 +1,262 @@
+/* ==========================================================================
+   NO-JS FALLBACKS
+   Ensures graceful degradation when JavaScript is disabled or fails to load.
+
+   Usage: Add class="no-js" to <html> element, then remove it via JS:
+   <script>document.documentElement.classList.remove('no-js')</script>
+========================================================================== */
+
+/* ==========================================================================
+   1. WOW.JS ANIMATION FALLBACK
+   Elements with .wow class are hidden by default (visibility: hidden).
+   Without JS, they remain hidden forever. This ensures visibility.
+========================================================================== */
+.no-js .wow {
+    visibility: visible !important;
+    animation-name: none !important;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+}
+
+/* Also handle elements that might have animate.css classes directly */
+.no-js .animate__animated {
+    animation-name: none !important;
+    animation-duration: 0s !important;
+    opacity: 1 !important;
+}
+
+/* ==========================================================================
+   2. MOBILE MENU FALLBACK
+   Without Mmenu.js, the mobile menu is completely inaccessible.
+   Show a basic navigation for no-JS users on mobile.
+========================================================================== */
+
+/* Hide the JS-dependent mmenu navigation */
+.no-js #menu {
+    display: none !important;
+}
+
+/* Fallback mobile navigation - hidden by default when JS works */
+.mobile-nav-fallback {
+    display: none;
+}
+
+/* Show fallback nav only without JS on mobile */
+.no-js .mobile-nav-fallback {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: theme('colors.coarseWool.900');
+    border-bottom: 1px solid theme('colors.coarseWool.500');
+}
+
+@media (min-width: 1024px) {
+    .no-js .mobile-nav-fallback {
+        display: none;
+    }
+}
+
+.mobile-nav-fallback__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.mobile-nav-fallback__link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    color: theme('colors.coarseWool.100');
+    background-color: theme('colors.coarseWool.700');
+    border-radius: 0.25rem;
+}
+
+.mobile-nav-fallback__link:hover {
+    color: theme('colors.calico.500');
+}
+
+/* Add top padding to body when fallback nav is visible */
+.no-js body {
+    padding-top: 60px;
+}
+
+@media (min-width: 1024px) {
+    .no-js body {
+        padding-top: 0;
+    }
+}
+
+/* ==========================================================================
+   3. TAB CONTENT FALLBACK
+   Only first tab is visible without JS. Show all tabs stacked.
+========================================================================== */
+.no-js .tabs-content__item {
+    display: block !important;
+    margin-bottom: 2rem;
+}
+
+/* Add visual separator between tab sections */
+.no-js .tabs-content__item:not(:last-child) {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid theme('colors.coarseWool.500');
+}
+
+/* Hide the tab navigation since it won't work */
+.no-js .tabs {
+    display: none;
+}
+
+/* Show category titles as section headers instead */
+.no-js .tabs-content .menu__category-header {
+    display: block;
+}
+
+/* ==========================================================================
+   4. CAROUSEL/SLIDER FALLBACK
+   Carousels show all slides stacked without JS.
+   Ensure first slide is prominent and others are accessible.
+========================================================================== */
+
+/* Slick Carousel - Show all slides in a grid */
+.no-js .slick-slider {
+    display: grid !important;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .no-js .slick-slider {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.no-js .slick-slide {
+    display: block !important;
+}
+
+/* Hide carousel navigation elements */
+.no-js .slick-arrow,
+.no-js .slick-dots,
+.no-js .slider-nav-arrows {
+    display: none !important;
+}
+
+/* Hero slider - Show only first slide */
+.no-js .slider-hero .slick-slide:not(:first-child) {
+    display: none !important;
+}
+
+.no-js .slider-hero .slick-slide:first-child {
+    display: block !important;
+}
+
+/* Thumbnail navigation - hide it */
+.no-js .slider-thumbnail {
+    display: none !important;
+}
+
+/* Splide Carousel Fallback */
+.no-js .splide__list {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 1rem;
+    transform: none !important;
+}
+
+.no-js .splide__slide {
+    display: block !important;
+    flex-shrink: 0;
+}
+
+.no-js .splide__arrows,
+.no-js .splide__pagination {
+    display: none !important;
+}
+
+/* Badges carousel - show in a centered grid */
+.no-js #badges__splide .splide__list {
+    justify-content: center;
+}
+
+.no-js #badges__splide .splide__slide {
+    width: auto;
+}
+
+/* Special offers - show first 2-3 items */
+.no-js .special-offers__content .slick-slide:nth-child(n+4) {
+    display: none !important;
+}
+
+/* ==========================================================================
+   5. STICKY HEADER FALLBACK
+   Header won't become sticky without JS. Ensure it's still usable.
+========================================================================== */
+.no-js .header {
+    position: relative;
+}
+
+/* ==========================================================================
+   6. SCROLL-TO-TOP BUTTON
+   Hide since it won't work without JS
+========================================================================== */
+.no-js #myBtn {
+    display: none !important;
+}
+
+/* ==========================================================================
+   7. LIGHTBOX FALLBACK
+   Make gallery images link to full-size version
+========================================================================== */
+.no-js [data-lightbox] {
+    cursor: default;
+}
+
+/* Hide lightbox icon overlay */
+.no-js .gallery-block__item-icon {
+    display: none;
+}
+
+/* ==========================================================================
+   8. DROPDOWN MENU FALLBACK
+   Ensure dropdowns work via CSS :hover/:focus
+========================================================================== */
+.no-js .dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: theme('colors.coarseWool.700');
+    border-radius: 0.5rem;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    transition: opacity 0.2s, visibility 0.2s;
+}
+
+.no-js .dropdown:hover .dropdown-menu,
+.no-js .dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==========================================================================
+   NOSCRIPT MESSAGE
+   Styles for the <noscript> warning message
+========================================================================== */
+.noscript-warning {
+    background-color: theme('colors.calico.500');
+    color: theme('colors.coarseWool.900');
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.noscript-warning a {
+    text-decoration: underline;
+    font-weight: 600;
+}

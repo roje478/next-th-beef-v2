@@ -1,0 +1,116 @@
+/* ==========================
+    Gallery Block - Masonry Variant
+    Uses masonry-layout library
+    Maintains visual coherence with existing gallery
+=========================== */
+
+/* Masonry variant modifier */
+.gallery-block--masonry {
+	@apply flex overflow-x-hidden flex-col;
+}
+
+/* Masonry container wrapper */
+.gallery-block__masonry-container {
+	@apply container mx-auto flex flex-col flex-wrap justify-start items-center relative z-20 w-full;
+}
+
+/* Masonry grid container */
+.gallery-block__masonry-grid {
+	@apply container-fluid xl:px-0 pb-6 md:pb-9 lg:pb-12;
+	/* Masonry JS controls layout - no CSS grid here */
+	/* Using container-fluid (max-width: 1420px) for better 4-column layout */
+}
+
+/* Grid sizer and item base width - Desktop first approach */
+.gallery-block__masonry-item,
+.gallery-block__masonry-sizer {
+	@apply mb-2 xl:mb-6;
+	width: calc(25% - 20.5px); /* 4 columns with 24px gutter (24px * 3 / 4) */
+}
+
+/* Tablet Landscape: 3 columns */
+@media (max-width: 1024px) {
+	.gallery-block__masonry-item,
+	.gallery-block__masonry-sizer {
+		width: calc(33.333% - 20.5px); /* 3 columns with 24px gutter (24px * 2 / 3) */
+	}
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 768px) {
+	.gallery-block__masonry-item,
+	.gallery-block__masonry-sizer {
+		width: calc(33% - 20.5px); /* 2 columns with 24px gutter (24px / 2) */
+	}
+}
+
+/* Mobile: 1 column */
+@media (max-width: 640px) {
+	.gallery-block__masonry-item,
+	.gallery-block__masonry-sizer {
+		width: calc(50% - 20.5px); /* Single column, full width */
+	}
+}
+
+/* Masonry gutter sizer */
+.gallery-block__masonry-gutter-sizer {
+	@apply w-6;
+}
+
+/* Item content wrapper - reuses existing item structure */
+.gallery-block__masonry-item .gallery-block__item {
+	@apply mb-0 overflow-hidden cursor-pointer;
+	/* Inherit hover, focus, and icon behavior from base .gallery-block__item */
+}
+
+/* Flexible height for masonry items - override fixed heights */
+.gallery-block__masonry-item .gallery-block__item-image {
+	@apply !h-auto !max-h-none !min-h-0 relative overflow-hidden;
+	/* Let natural image aspect ratio dictate height */
+
+	img {
+		@apply h-auto transition-transform duration-500 ease-out;
+		/* Maintain aspect ratio */
+	}
+}
+
+/* Zoom effect on hover */
+.gallery-block__masonry-item .gallery-block__item:hover .gallery-block__item-image img,
+.gallery-block__masonry-item .gallery-block__item:focus-within .gallery-block__item-image img {
+	@apply scale-110;
+}
+
+/* Info overlay - appears on hover */
+.gallery-block__masonry-item .gallery-block__item-info {
+	@apply absolute bottom-0 left-0 right-0 bg-gradient-to-t from-coarseWool-900/95 via-coarseWool-900/80 to-transparent text-coarseWool-100 opacity-0 transition-opacity duration-300 ease-in-out;
+	@apply flex flex-col justify-end items-start text-left p-6 pb-8;
+	min-height: 40%;
+
+	h4 {
+		@apply text-title-3 font-barlow-condensed mb-1 font-normal text-coarseWool-100 leading-tight;
+	}
+
+	p {
+		@apply text-calico-500 text-body-small font-sorts-mill-goudy font-normal mb-0 italic tracking-wide;
+	}
+}
+
+/* Show info overlay on hover/focus */
+.gallery-block__masonry-item .gallery-block__item:hover .gallery-block__item-info,
+.gallery-block__masonry-item .gallery-block__item:focus-within .gallery-block__item-info {
+	@apply opacity-100;
+}
+
+/* Hide icon overlay for masonry variant (using info instead) */
+.gallery-block__masonry-item .gallery-block__item-icon {
+	@apply hidden;
+}
+
+/* Loading state - prevents layout shift */
+.gallery-block__masonry-grid.is-loading {
+	@apply opacity-0;
+}
+
+.gallery-block__masonry-grid.is-ready {
+	@apply opacity-100 transition-opacity duration-300;
+}

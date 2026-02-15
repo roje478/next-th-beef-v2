@@ -1,0 +1,225 @@
+/*==================================================
+    Decorative Utilities
+    Decorative elements for sections (side images, ornaments)
+==================================================*/
+
+/* ===================================
+    Decorated Section (Side Images)
+    Left and right decorative images
+====================================== */
+.decorated-section {
+    @apply relative;
+}
+
+.decorated-section--sides {
+    &::before,
+    &::after {
+        content: "";
+        @apply absolute top-0 bottom-0 h-full w-[140px]
+               bg-contain bg-repeat-y hidden lg:block;
+    }
+
+    &::before {
+        @apply left-0 bg-left;
+        background-image: url("../img/left.png");
+    }
+
+    &::after {
+        @apply right-0 bg-right;
+        background-image: url("../img/right.png");
+    }
+}
+
+/* Width Variants */
+.decorated-section--narrow {
+    &::before,
+    &::after {
+        @apply w-[100px];
+    }
+}
+
+.decorated-section--wide {
+    &::before,
+    &::after {
+        @apply w-[180px] xl:block;
+    }
+}
+
+/* Visibility Variants */
+.decorated-section--xl-only {
+    &::before,
+    &::after {
+        @apply lg:hidden xl:block;
+    }
+}
+
+/* ===================================
+    Left Only / Right Only
+====================================== */
+.decorated-section--left-only {
+    &::before {
+        content: "";
+        @apply absolute top-0 bottom-0 left-0 h-full w-[140px]
+               bg-contain bg-repeat-y bg-left hidden lg:block;
+        background-image: url("../img/left.png");
+    }
+}
+
+.decorated-section--right-only {
+    &::after {
+        content: "";
+        @apply absolute top-0 bottom-0 right-0 h-full w-[140px]
+               bg-contain bg-repeat-y bg-right hidden lg:block;
+        background-image: url("../img/right.png");
+    }
+}
+
+/* ===================================
+    Custom Images
+    Override with inline styles or custom classes
+====================================== */
+.decorated-section--custom-left {
+    &::before {
+        content: "";
+        @apply absolute top-0 bottom-0 left-0 h-full w-[140px]
+               bg-contain bg-repeat-y bg-left hidden lg:block;
+        /* Add background-image via inline style or custom class */
+    }
+}
+
+.decorated-section--custom-right {
+    &::after {
+        content: "";
+        @apply absolute top-0 bottom-0 right-0 h-full w-[140px]
+               bg-contain bg-repeat-y bg-right hidden lg:block;
+        /* Add background-image via inline style or custom class */
+    }
+}
+
+/* ===================================
+    Ornamental Dividers
+====================================== */
+.ornament-top {
+    @apply relative;
+
+    &::before {
+        content: "";
+        @apply absolute top-0 left-1/2 -translate-x-1/2 w-16 h-1
+               bg-calico-500;
+    }
+}
+
+.ornament-bottom {
+    @apply relative;
+
+    &::after {
+        content: "";
+        @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1
+               bg-calico-500;
+    }
+}
+
+.ornament-center {
+    @apply relative;
+
+    &::before {
+        content: "";
+        @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+               w-16 h-px bg-calico-500;
+    }
+}
+
+/* ===================================
+    Corner Decorations
+====================================== */
+.corner-decoration {
+    @apply relative;
+
+    &::before,
+    &::after {
+        content: "";
+        @apply absolute w-8 h-8 border-solid;
+    }
+
+    &::before {
+        @apply top-0 left-0 border-t-2 border-l-2 border-calico-500;
+    }
+
+    &::after {
+        @apply bottom-0 right-0 border-b-2 border-r-2 border-calico-500;
+    }
+}
+
+.corner-decoration--all {
+    position: relative;
+
+    &::before {
+        content: "";
+        @apply absolute top-0 left-0 w-8 h-8
+               border-t-2 border-l-2 border-solid border-calico-500;
+    }
+
+    &::after {
+        content: "";
+        @apply absolute top-0 right-0 w-8 h-8
+               border-t-2 border-r-2 border-solid border-calico-500;
+    }
+}
+
+.corner-decoration--all::before {
+    content: "";
+    @apply absolute bottom-0 left-0 w-8 h-8
+           border-b-2 border-l-2 border-solid border-calico-500;
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- Section with side decorations -->
+    <section class="decorated-section decorated-section--sides">
+        <div class="container">
+            <!-- Section content -->
+        </div>
+    </section>
+
+    <!-- Narrow decorations -->
+    <section class="decorated-section decorated-section--sides decorated-section--narrow">
+        <div class="container">
+            <!-- Content -->
+        </div>
+    </section>
+
+    <!-- Left decoration only -->
+    <section class="decorated-section decorated-section--left-only">
+        <div class="container">
+            <!-- Content -->
+        </div>
+    </section>
+
+    <!-- Custom decoration images (inline styles) -->
+    <section class="decorated-section">
+        <div class="decorated-section--custom-left" style="background-image: url('/img/custom-left.png')">
+            <!-- Content -->
+        </div>
+    </section>
+
+    <!-- With ornamental top divider -->
+    <section class="ornament-top py-12">
+        <div class="container">
+            <h2>Section Title</h2>
+        </div>
+    </section>
+
+    <!-- Corner decorations -->
+    <div class="corner-decoration p-8">
+        <h3>Highlighted Content</h3>
+        <p>Important information</p>
+    </div>
+
+    <!-- Combined: sides + ornament -->
+    <section class="decorated-section decorated-section--sides ornament-top">
+        <div class="container">
+            <!-- Content -->
+        </div>
+    </section>
+====================================== */

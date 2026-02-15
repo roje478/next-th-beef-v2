@@ -1,0 +1,103 @@
+/*==========================
+    Special Offers
+===========================*/
+.special-offers {
+	&__container {
+		@apply container mx-auto section-spacing;
+	}
+	.section-title {
+		@apply max-w-content text-center mx-auto before:hidden;
+	}
+	&__item {
+		@apply grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-6 xl:gap-8 md:px-6 xl:px-0;
+		&-image {
+			@apply col-span-3 p-0 xl:p-6;
+			img {
+				@apply object-cover object-center w-full h-full rounded shadow-floating;
+			}
+		}
+		&-info {
+			@apply flex flex-col justify-center col-span-3 py-0 pb-6 sm:py-4 xl:p-6 z-50;
+			h3 {
+				@apply !text-title-4 md:!text-title-3 font-barlow-condensed border-b border-solid border-coarseWool-500 w-full flex flex-wrap items-center justify-between pb-4 capitalize;
+				span {
+					@apply text-calico-500;
+				}
+			}
+			p {
+				&:first-of-type {
+					@apply italic text-subtitle-1 font-sorts-mill-goudy;
+				}
+				&:last-of-type {
+					@apply mb-0;
+				}
+			}
+		}
+	}
+	.slider-nav-arrows {
+		@apply pb-0 lg:pt-12;
+	}
+}
+
+/*==========================
+    Special Offers - full width
+===========================*/
+.special-offers-2 {
+	@apply relative overflow-hidden;
+	&__container {
+		@apply w-full mx-auto;
+	}
+	&__slider {
+		@apply w-full;
+	}
+
+	&__item {
+		@apply relative overflow-hidden !w-full h-full !inline-flex section-spacing 2xl:min-h-[891px] justify-end px-6 md:pr-9 lg:pr-20;
+
+		.overlayer {
+			@apply absolute;
+			background: theme('colors.black');
+			background: linear-gradient(
+				0deg,
+				theme('colors.black' / 80%) 0%,
+				transparent 100%
+			);
+		}
+		&-image {
+			@apply absolute top-0 left-0 bottom-0 right-0 overflow-hidden w-full h-full;
+			img {
+				@apply !w-auto !h-full md:!w-full !object-cover !object-center;
+			}
+		}
+		&-info {
+			/* Positioned offsets (top/right) create floating card effect over slider images */
+			@apply w-full h-fit md:w-card-info lg:w-card-info-lg flex flex-col justify-center component-padding pb-4 sm:pb-6 bg-coarseWool-900/90 md:rounded-lg relative shadow-floating z-50 card--animated-corners;
+			.tag {
+				@apply italic text-calico-500 font-sorts-mill-goudy;
+			}
+			h3 {
+				@apply !text-title-4 lg:!text-title-4 xl:!text-title-3 font-barlow-condensed border-b border-solid border-coarseWool-400 w-full flex flex-wrap items-center justify-between md:pb-4 lg:pb-6 capitalize text-coarseWool-100;
+				span {
+					@apply text-calico-500;
+				}
+			}
+			p {
+				@apply  text-coarseWool-200 block;
+
+				&:first-of-type {
+					@apply block !text-base lg:!text-subtitle-2 font-sorts-mill-goudy italic text-coarseWool-200;
+				}
+				&:last-of-type {
+					@apply mb-0;
+				}
+			}
+			.btn {
+				@apply z-50 relative mt-4 mb-4;
+			}
+			/* Animated corner borders moved to _card.css utility: card--animated-corners */
+		}
+	}
+	.slick-dots {
+		@apply !bottom-12 text-right md:text-center pr-4 sm:pr-6;
+	}
+}

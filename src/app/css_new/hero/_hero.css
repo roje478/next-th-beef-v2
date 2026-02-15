@@ -1,0 +1,237 @@
+/*==================================================
+    Hero - Carousel - Front
+==================================================*/
+.hero-slider {
+	@apply relative h-screen md:max-h-screen overflow-hidden;
+	&__images {
+		@apply relative z-0 w-full h-full;
+	}
+	.slider-hero {
+		&__item {
+			@apply relative z-0 h-screen md:max-h-screen overflow-hidden;
+			img {
+				@apply object-cover object-center w-full h-full scale-105;
+			}
+		}
+		&__item-content {
+			@apply absolute top-0 bottom-0 left-0 right-0 z-50 flex items-center justify-start w-full h-full;
+			background-image: linear-gradient(
+				to top,
+				theme('colors.coarseWool.900' / 50%),
+				theme('colors.coarseWool.900' / 80%) 40%
+			);
+		}
+		&__item-info {
+			/* ml-[9-10%] offsets content from left edge for asymmetric hero layout */
+			@apply relative h-full flex flex-col items-center justify-center text-center mx-auto xl:ml-[10%] max-w-2xl xl:max-w-3xl z-50 px-4 md:px-0 pb-20 md:pb-10 lg:pb-0;
+			.subtitle {
+				@apply text-subtitle-1 text-calico-500 mb-0 font-sorts-mill-goudy capitalize;
+			}
+			.title {
+				@apply text-coarseWool-0 mb-2 uppercase !text-title-2 md:!text-display-2 lg:!text-display-1 xl:!text-display font-barlow-condensed;
+			}
+			p {
+				@apply text-lead text-coarseWool-100 mb-6;
+			}
+		}
+		.slick-active {
+			.subtitle,
+			.title,
+			p:nth-child(3),
+			.btn {
+				transform: translateY(16px);
+				opacity: 0;
+				animation: showContent 0.4s 0.2s ease-out 1 forwards;
+			}
+			.title {
+				animation-delay: 0.35s;
+			}
+			.subtitle {
+				animation-delay: 0.2s;
+			}
+			p:nth-child(3) {
+				animation-delay: 0.5s;
+			}
+			.btn {
+				animation-delay: 0.65s;
+			}
+		}
+		.splide__pagination {
+			@apply  !bottom-[18%] md:bottom-0 md:top-0 md:right-0 w-full md:w-12 flex flex-wrap md:flex-col items-center !justify-center gap-4 ;
+		}
+	}
+	.thumbnail {
+		@apply h-auto absolute z-50 flex items-center justify-end w-full sm:w-thumb md:w-thumb-lg right-0 md:right-2 bottom-4 px-4 md:px-0;
+	}
+	.slider-thumbnail {
+		@apply relative w-full lg:px-6;
+
+		&__item {
+			@apply relative z-0 h-[110px] lg:h-[220px] flex-shrink-0 p-0  rounded-2xl !border-calico-500 !border-[1px];
+			&-image {
+				@apply relative w-full h-full bg-coarseWool-700 rounded-2xl shadow-elevated transition-all duration-300 ease-in-out overflow-hidden;
+				img {
+					@apply object-cover object-center w-full h-full rounded-2xl hover:cursor-pointer opacity-40;
+				}
+				&:hover{
+					img {
+						@apply opacity-100;
+					}
+				}
+			}
+			&.is-active {
+				.slider-thumbnail__item-image {
+					img {
+						@apply opacity-100;
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes showContent {
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+/*==================================================
+    Hero - Basic - Front
+==================================================*/
+.hero-basic {
+	@apply flex flex-wrap items-center justify-center h-screen sm:min-h-screen md:min-h-screen bg-coarseWool-900 overflow-hidden relative;
+
+	&__background {
+		@apply absolute top-0 bottom-0 left-0 right-0 z-0 block w-full h-full;
+		img {
+			@apply object-cover object-center w-full h-full;
+		}
+	}
+	&__container {
+		@apply relative z-20 grid grid-cols-12 pt-8 mx-auto md:pt-12 lg:pt-16 w-full h-full pl-6 md:pl-20 xl:pl-48;
+		background-image: linear-gradient(
+			to left,
+			theme('colors.coarseWool.900' / 20%),
+			theme('colors.coarseWool.900' / 60%) 70%
+		);
+	}
+	&__content {
+		@apply col-span-11 sm:col-span-10 md:col-span-8 xl:col-span-6 flex flex-col items-start justify-center w-full h-full;
+	}
+	&__subtitle {
+		@apply mb-0 italic capitalize font-sorts-mill-goudy text-subtitle-1 text-calico-500;
+	}
+	&__title {
+		@apply !text-title-2 md:!text-title-1 xl:!text-display-1 uppercase mb-4 text-white;
+	}
+	&__description {
+		@apply flex flex-col flex-wrap items-start justify-start mb-6 text-coarseWool-0 w-10/12;
+		p{
+			@apply !text-lead ;
+		}
+	}
+	&.hero-center{
+		.hero-basic__container{
+			@apply px-0 flex flex-wrap !justify-center !items-center ;
+		}
+		.hero-basic__content{
+			@apply mx-auto text-center !items-center xl:max-w-[75%];
+		}
+		.hero-basic__title{
+			@apply text-center;
+		}
+		.hero-basic__subtitle{
+			@apply text-center;
+		}
+		.hero-basic__description{
+			@apply justify-center items-center;
+		}
+	}
+}
+
+/*==================================================
+    Hero - Inner
+==================================================*/
+.hero-inner{
+	@apply relative z-0 w-full h-64 md:h-96 lg:h-[640px] lg:min-h-[640px] bg-coarseWool-900 overflow-hidden;
+	&__background {
+		@apply absolute top-0 bottom-0 left-0 right-0 z-0 block w-full h-full;
+		img {
+			@apply object-cover object-center w-full h-full opacity-25;
+		}
+	}
+	&__container {
+		@apply relative z-20 flex flex-col items-center justify-center w-full h-full pt-20;
+	}
+	&__content {
+		@apply flex flex-col items-center justify-center w-full h-full px-6 lg:px-0;
+	}
+	&__title {
+		@apply uppercase mb-2 text-coarseWool-0 font-barlow-condensed !text-title-3 md:!text-title-2 lg:!text-display-2 font-normal text-center;
+	}
+	&__breadcrumbs{
+		@apply flex items-center justify-center;
+		p{
+			@apply uppercase text-coarseWool-300 font-mulish font-bold text-xs mb-0 tracking-widest;
+			a{
+				@apply text-coarseWool-300 font-mulish font-bold text-xs mb-0;
+				&:hover{
+					@apply text-calico-500;
+				}
+			}
+		}
+	}
+}
+
+/*==================================================
+    Breadcrumb Component
+    Extension: Structured breadcrumb navigation for hero sections
+    Justification: Provides semantic navigation with visual separators
+==================================================*/
+.breadcrumb__list {
+	@apply flex items-center justify-center gap-0 list-none p-0 m-0;
+}
+
+.breadcrumb__item {
+	@apply uppercase text-coarseWool-300 font-mulish font-bold tracking-widest;
+	@apply flex items-center;
+	/* Responsive font size: smaller on mobile, standard on desktop */
+	@apply text-[10px] md:text-xs;
+
+	/* Elegant separator between items (except last) */
+	&:not(:last-child)::after {
+		content: '•';
+		/* Responsive spacing: tighter on mobile, comfortable on desktop */
+		@apply mx-2 md:mx-4 text-calico-500 opacity-40;
+		/* Responsive separator size */
+		@apply text-sm md:text-base;
+	}
+
+	a {
+		@apply text-coarseWool-300 transition-colors duration-200;
+		&:hover {
+			@apply text-calico-500;
+		}
+	}
+
+	/* Current page (no link) */
+	&[aria-current="page"] {
+		@apply text-coarseWool-100;
+	}
+}
+
+/*==================================================
+    Hero - Blog
+==================================================*/
+.blog-details{
+	.hero-inner__title{
+		@apply text-coarseWool-0 !text-title-5 md:!text-title-4 lg:!text-title-1 mb-4 md:mb-6;
+		/* Mobile-specific improvements */
+		@apply leading-tight;
+	}
+	.hero-inner__breadcrumbs{
+		@apply mt-2 md:mt-0;
+	}
+}

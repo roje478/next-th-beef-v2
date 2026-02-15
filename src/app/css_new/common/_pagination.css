@@ -1,0 +1,194 @@
+/*==================================================
+    Pagination Component
+    Extension: Numbered pagination for blog lists, menu archives, search results
+    Justification: Essential navigation component missing from theme
+==================================================*/
+
+.pagination {
+    @apply flex items-center justify-center gap-2 list-none p-0 m-0;
+    @apply mt-12 md:mt-16;
+}
+
+.pagination__item {
+    @apply inline-flex;
+}
+
+.pagination__link {
+    /* Base styling */
+    @apply inline-flex items-center justify-center;
+    @apply min-w-[44px] h-11 px-4;
+    @apply font-mulish font-bold uppercase tracking-wider;
+    @apply text-xs md:text-sm;
+    @apply text-coarseWool-100;
+    @apply bg-transparent;
+    @apply border border-coarseWool-500;
+    @apply rounded-none;
+    @apply transition-all duration-200;
+
+    /* Hover state */
+    &:hover:not(.pagination__link--active):not(.pagination__link--disabled) {
+        @apply bg-calico-500 border-calico-500 text-coarseWool-900;
+    }
+
+    /* Focus state - accessibility */
+    &:focus-visible {
+        @apply outline-none ring-2 ring-calico-500 ring-offset-2 ring-offset-coarseWool-900;
+    }
+
+    /* Active/current page */
+    &--active {
+        @apply bg-calico-500 border-calico-500 text-coarseWool-900;
+        @apply cursor-default;
+        @apply pointer-events-none;
+    }
+
+    /* Disabled state (for prev/next at boundaries) */
+    &--disabled {
+        @apply opacity-40;
+        @apply cursor-not-allowed;
+        @apply pointer-events-none;
+    }
+}
+
+/* Previous/Next arrow buttons */
+.pagination__prev,
+.pagination__next {
+    @apply pagination__link;
+
+    /* Icon spacing */
+    svg,
+    i {
+        @apply text-base;
+    }
+}
+
+.pagination__prev {
+    /* Optional: Add left arrow icon styling */
+    &::before {
+        content: '←';
+        @apply mr-2;
+    }
+}
+
+.pagination__next {
+    /* Optional: Add right arrow icon styling */
+    &::after {
+        content: '→';
+        @apply ml-2;
+    }
+}
+
+/* Ellipsis for skipped pages */
+.pagination__ellipsis {
+    @apply inline-flex items-center justify-center;
+    @apply min-w-[44px] h-11 px-4;
+    @apply text-coarseWool-300;
+    @apply pointer-events-none;
+}
+
+/*==================================================
+    Pagination Variants
+==================================================*/
+
+/* Compact variant - for sidebars or narrow spaces */
+.pagination--compact {
+    @apply gap-1 mt-8;
+
+    .pagination__link {
+        @apply min-w-[36px] h-9 px-3 text-xs;
+    }
+}
+
+/* Simple variant - minimal styling */
+.pagination--simple {
+    .pagination__link {
+        @apply border-0 bg-coarseWool-600;
+
+        &:hover:not(.pagination__link--active):not(.pagination__link--disabled) {
+            @apply bg-calico-500;
+        }
+
+        &--active {
+            @apply bg-calico-500;
+        }
+    }
+}
+
+/* Rounded variant */
+.pagination--rounded {
+    .pagination__link {
+        @apply rounded-md;
+    }
+}
+
+/*==================================================
+    Responsive Adjustments
+==================================================*/
+
+/* Mobile: Hide intermediate page numbers, keep first/last/current */
+@media (max-width: 640px) {
+    .pagination__item:not(.pagination__item--first):not(.pagination__item--last):not(.pagination__item--current):not(.pagination__item--prev):not(.pagination__item--next) {
+        @apply hidden;
+    }
+}
+
+/*==================================================
+    Accessibility Enhancements
+==================================================*/
+
+/* Screen reader only text for navigation context */
+.pagination__sr-label {
+    @apply sr-only;
+}
+
+/* Improved touch targets for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .pagination__link {
+        @apply min-h-[48px] min-w-[48px];
+    }
+}
+
+/*==================================================
+    USAGE EXAMPLES:
+
+    Basic pagination:
+    <nav class="pagination" aria-label="Pagination">
+        <ul class="pagination">
+            <li class="pagination__item pagination__item--prev">
+                <a href="#" class="pagination__prev" aria-label="Previous page">
+                    <span class="pagination__sr-label">Previous</span>
+                </a>
+            </li>
+            <li class="pagination__item">
+                <a href="#" class="pagination__link" aria-label="Go to page 1">1</a>
+            </li>
+            <li class="pagination__item pagination__item--current">
+                <span class="pagination__link pagination__link--active" aria-current="page" aria-label="Current page, page 2">2</span>
+            </li>
+            <li class="pagination__item">
+                <a href="#" class="pagination__link" aria-label="Go to page 3">3</a>
+            </li>
+            <li class="pagination__item">
+                <span class="pagination__ellipsis">…</span>
+            </li>
+            <li class="pagination__item">
+                <a href="#" class="pagination__link" aria-label="Go to page 10">10</a>
+            </li>
+            <li class="pagination__item pagination__item--next">
+                <a href="#" class="pagination__next" aria-label="Next page">
+                    <span class="pagination__sr-label">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    Compact variant:
+    <nav class="pagination pagination--compact" aria-label="Pagination">
+        ...
+    </nav>
+
+    Simple variant:
+    <nav class="pagination pagination--simple" aria-label="Pagination">
+        ...
+    </nav>
+==================================================*/

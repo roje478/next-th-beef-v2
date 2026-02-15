@@ -1,0 +1,131 @@
+/*==================================================
+    Background Utilities
+    Background images, parallax effects, and patterns
+==================================================*/
+
+/* ===================================
+    Parallax Background
+    Fixed background with parallax effect
+====================================== */
+.bg-parallax {
+    @apply bg-center bg-cover bg-no-repeat relative;
+
+    @screen md {
+        background-attachment: fixed;
+    }
+}
+
+/* Position Variants */
+.bg-parallax--top {
+    @screen md {
+        background-position: center 0%;
+    }
+}
+
+.bg-parallax--bottom {
+    @screen md {
+        background-position: center 100%;
+    }
+}
+
+.bg-parallax--left {
+    @screen md {
+        background-position: left center;
+    }
+}
+
+.bg-parallax--right {
+    @screen md {
+        background-position: right center;
+    }
+}
+
+/* ===================================
+    Fixed Background (No Parallax)
+====================================== */
+.bg-fixed {
+    @apply bg-center bg-cover bg-no-repeat relative;
+    background-attachment: fixed;
+}
+
+.bg-fixed--top {
+    background-position: center 0%;
+}
+
+.bg-fixed--bottom {
+    background-position: center 100%;
+}
+
+/* ===================================
+    Background Cover & Contain
+    Note: Use Tailwind's built-in utilities directly:
+    - bg-cover (for object-fit: cover)
+    - bg-contain (for object-fit: contain)
+    - bg-center, bg-top, bg-bottom (for positioning)
+    - bg-no-repeat, bg-repeat (for repeat behavior)
+
+    Combine as needed:
+    - bg-cover bg-center bg-no-repeat
+    - bg-contain bg-top bg-no-repeat
+====================================== */
+
+/* ===================================
+    Background Patterns
+====================================== */
+.bg-pattern {
+    @apply bg-repeat;
+}
+
+.bg-pattern--x {
+    @apply bg-repeat-x;
+}
+
+.bg-pattern--y {
+    @apply bg-repeat-y;
+}
+
+/* ===================================
+    Background with Overlay Ready
+    Combine with .overlay utilities
+====================================== */
+.bg-with-overlay {
+    @apply relative overflow-hidden;
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- Hero section with parallax -->
+    <section class="bg-parallax" style="background-image: url('/img/hero.jpg')">
+        <div class="overlay overlay--dark overlay--medium overlay--z-10"></div>
+        <div class="hero__content">...</div>
+    </section>
+
+    <!-- CTA with parallax (bottom positioned) -->
+    <section class="bg-parallax bg-parallax--bottom" style="background-image: url('/img/cta.jpg')">
+        <div class="overlay overlay--dark overlay--heavy"></div>
+        <div class="cta__content">...</div>
+    </section>
+
+    <!-- Testimonials with fixed background -->
+    <section class="bg-fixed" style="background-image: url('/img/testimonials.jpg')">
+        <div class="overlay overlay--dark overlay--light"></div>
+        <div class="testimonials__content">...</div>
+    </section>
+
+    <!-- Menu section with parallax -->
+    <section class="bg-parallax bg-with-overlay" style="background-image: url('/img/menu-bg.jpg')">
+        <div class="overlay overlay--dark overlay--medium"></div>
+        <div class="menu__content">...</div>
+    </section>
+
+    <!-- Standard background cover -->
+    <div class="bg-cover" style="background-image: url('/img/about.jpg')">
+        <div class="content">...</div>
+    </div>
+
+    <!-- Background pattern (repeating) -->
+    <div class="bg-pattern" style="background-image: url('/img/pattern.png')">
+        <div class="content">...</div>
+    </div>
+====================================== */

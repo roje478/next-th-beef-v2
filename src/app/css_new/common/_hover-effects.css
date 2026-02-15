@@ -1,0 +1,250 @@
+/* =====================================
+    Hover Effects Library
+    Reusable hover interactions for premium UX
+===================================== */
+
+/* =====================================
+    Lift Effect - Subtle elevation on hover
+===================================== */
+.hover-lift {
+    @apply transition-all duration-300 ease-out;
+    will-change: transform, box-shadow;
+}
+
+.hover-lift:hover,
+.hover-lift:focus-within {
+    @apply transform -translate-y-1;
+}
+
+/* Lift with shadow enhancement */
+.hover-lift--shadow {
+    @apply transition-all duration-300 ease-out;
+}
+
+.hover-lift--shadow:hover,
+.hover-lift--shadow:focus-within {
+    @apply transform -translate-y-2 shadow-elevated;
+}
+
+/* =====================================
+    Glow Effect - Subtle glow on hover
+===================================== */
+.hover-glow {
+    @apply transition-all duration-300 ease-out;
+    position: relative;
+}
+
+.hover-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    box-shadow: 0 0 20px rgba(209, 178, 130, 0.4);
+    pointer-events: none;
+}
+
+.hover-glow:hover::before,
+.hover-glow:focus-within::before {
+    opacity: 1;
+}
+
+/* =====================================
+    Scale Effect - Zoom on hover
+===================================== */
+.hover-scale {
+    @apply transition-transform duration-300 ease-out;
+    will-change: transform;
+}
+
+.hover-scale:hover,
+.hover-scale:focus-within {
+    @apply transform scale-105;
+}
+
+/* Scale down variant */
+.hover-scale--sm {
+    @apply transition-transform duration-300 ease-out;
+}
+
+.hover-scale--sm:hover,
+.hover-scale--sm:focus-within {
+    transform: scale(1.02);
+}
+
+/* =====================================
+    Brightness Effect - Image hover
+===================================== */
+.hover-brighten {
+    @apply transition-all duration-300 ease-out;
+}
+
+.hover-brighten:hover,
+.hover-brighten:focus-within {
+    filter: brightness(1.1);
+}
+
+/* Darken variant */
+.hover-darken {
+    @apply transition-all duration-300 ease-out;
+}
+
+.hover-darken:hover,
+.hover-darken:focus-within {
+    filter: brightness(0.9);
+}
+
+/* =====================================
+    Underline Effect - Elegant text hover
+===================================== */
+.hover-underline {
+    position: relative;
+    @apply transition-colors duration-200 ease-out;
+}
+
+.hover-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.3s ease-out;
+}
+
+.hover-underline:hover::after,
+.hover-underline:focus::after {
+    width: 100%;
+}
+
+/* Animated underline (from center) */
+.hover-underline--center::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* =====================================
+    Tilt Effect - 3D subtle rotation
+===================================== */
+.hover-tilt {
+    @apply transition-transform duration-300 ease-out;
+    transform-style: preserve-3d;
+}
+
+.hover-tilt:hover,
+.hover-tilt:focus-within {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg);
+}
+
+/* =====================================
+    Shimmer Effect - Shine animation
+===================================== */
+.hover-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.hover-shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s ease-out;
+}
+
+.hover-shimmer:hover::before,
+.hover-shimmer:focus-within::before {
+    left: 150%;
+}
+
+/* =====================================
+    Border Grow Effect
+===================================== */
+.hover-border-grow {
+    position: relative;
+    @apply transition-colors duration-300 ease-out;
+}
+
+.hover-border-grow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid theme('colors.calico.500');
+    border-radius: inherit;
+    transform: scale(1);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.hover-border-grow:hover::before,
+.hover-border-grow:focus-within::before {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+/* =====================================
+    Accessibility - Reduced Motion
+===================================== */
+@media (prefers-reduced-motion: reduce) {
+    .hover-lift,
+    .hover-lift--shadow,
+    .hover-scale,
+    .hover-scale--sm,
+    .hover-tilt,
+    .hover-border-grow {
+        transition: none !important;
+        transform: none !important;
+    }
+
+    .hover-lift:hover,
+    .hover-lift--shadow:hover,
+    .hover-scale:hover,
+    .hover-scale--sm:hover,
+    .hover-tilt:hover {
+        transform: none !important;
+    }
+
+    .hover-shimmer::before,
+    .hover-glow::before,
+    .hover-underline::after {
+        transition: none !important;
+    }
+}
+
+/* =====================================
+    Performance Optimization
+===================================== */
+
+/* Enable GPU acceleration for smoother animations */
+.hover-lift,
+.hover-lift--shadow,
+.hover-scale,
+.hover-scale--sm,
+.hover-tilt {
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* Remove will-change after transition */
+.hover-lift,
+.hover-scale,
+.hover-scale--sm,
+.hover-tilt {
+    transition: transform 0.3s ease-out;
+}
+
+.hover-lift:not(:hover):not(:focus-within),
+.hover-scale:not(:hover):not(:focus-within),
+.hover-tilt:not(:hover):not(:focus-within) {
+    will-change: auto;
+}

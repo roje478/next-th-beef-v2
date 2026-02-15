@@ -1,0 +1,190 @@
+/*==================================================
+    Border Utilities
+    Accent borders and decorative border patterns
+==================================================*/
+
+/* ===================================
+    Border Accent Base
+====================================== */
+.border-accent {
+    @apply border-solid;
+}
+
+/* ===================================
+    Directional Borders with Padding
+====================================== */
+.border-accent--left {
+    @apply border-l-4 pl-4;
+}
+
+.border-accent--right {
+    @apply border-r-4 pr-4;
+}
+
+.border-accent--top {
+    @apply border-t-4 pt-4;
+}
+
+.border-accent--bottom {
+    @apply border-b pb-4;
+}
+
+/* ===================================
+    Thickness Variants
+====================================== */
+.border-accent--thin {
+    border-width: 1px;
+}
+
+.border-accent--medium {
+    border-width: 2px;
+}
+
+.border-accent--thick {
+    border-width: 4px;
+}
+
+/* Thin variants with direction */
+.border-accent--left.border-accent--thin {
+    @apply border-l pl-4;
+}
+
+.border-accent--right.border-accent--thin {
+    @apply border-r pr-4;
+}
+
+.border-accent--top.border-accent--thin {
+    @apply border-t pt-4;
+}
+
+.border-accent--bottom.border-accent--thin {
+    @apply border-b pb-4;
+}
+
+/* ===================================
+    Color Variants
+====================================== */
+.border-accent--primary {
+    @apply border-calico-500;
+}
+
+.border-accent--secondary {
+    @apply border-coarseWool-300;
+}
+
+.border-accent--tertiary {
+    @apply border-coarseWool-400;
+}
+
+.border-accent--dark {
+    @apply border-coarseWool-600;
+}
+
+.border-accent--light {
+    @apply border-coarseWool-200;
+}
+
+/* ===================================
+    Spacing Variants (Padding)
+====================================== */
+.border-accent--spacing-sm {
+    &.border-accent--left {
+        @apply pl-2;
+    }
+    &.border-accent--right {
+        @apply pr-2;
+    }
+    &.border-accent--top {
+        @apply pt-2;
+    }
+    &.border-accent--bottom {
+        @apply pb-2;
+    }
+}
+
+.border-accent--spacing-lg {
+    &.border-accent--left {
+        @apply pl-6;
+    }
+    &.border-accent--right {
+        @apply pr-6;
+    }
+    &.border-accent--top {
+        @apply pt-6;
+    }
+    &.border-accent--bottom {
+        @apply pb-6;
+    }
+}
+
+/* ===================================
+    Horizontal Borders (Top & Bottom)
+====================================== */
+.border-accent--horizontal {
+    @apply border-t border-b border-solid py-4;
+}
+
+.border-accent--horizontal.border-accent--primary {
+    @apply border-t-calico-500 border-b-calico-500;
+}
+
+.border-accent--horizontal.border-accent--secondary {
+    @apply border-t-coarseWool-300 border-b-coarseWool-300;
+}
+
+/* ===================================
+    Vertical Borders (Left & Right)
+====================================== */
+.border-accent--vertical {
+    @apply border-l border-r border-solid px-4;
+}
+
+.border-accent--vertical.border-accent--primary {
+    @apply border-l-calico-500 border-r-calico-500;
+}
+
+.border-accent--vertical.border-accent--secondary {
+    @apply border-l-coarseWool-300 border-r-coarseWool-300;
+}
+
+/* ===================================
+    Full Border
+====================================== */
+.border-accent--full {
+    @apply border border-solid p-4;
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- Blog Excerpt with Left Border -->
+    <div class="border-accent border-accent--left border-accent--secondary">
+        <p>Excerpt text with decorative left border...</p>
+    </div>
+
+    <!-- Comment Text with Left Border -->
+    <p class="border-accent border-accent--left border-accent--secondary">
+        Comment content with accent border
+    </p>
+
+    <!-- Menu Dish Separator (Bottom Border) -->
+    <div class="border-accent border-accent--bottom border-accent--tertiary border-accent--thin">
+        <h4>Dish Name</h4>
+        <p class="price">$24.99</p>
+    </div>
+
+    <!-- Title with Horizontal Borders -->
+    <h3 class="border-accent--horizontal border-accent--primary border-accent--thick">
+        Special Event
+    </h3>
+
+    <!-- Highlighted Section with Full Border -->
+    <div class="border-accent--full border-accent--primary">
+        <p>Important announcement</p>
+    </div>
+
+    <!-- Thin Left Border with Small Spacing -->
+    <blockquote class="border-accent border-accent--left border-accent--thin border-accent--primary border-accent--spacing-sm">
+        "Quote text here"
+    </blockquote>
+====================================== */

@@ -1,0 +1,215 @@
+/* ==========================================================================
+
+	Template Name: Beef Template
+	Note: This is style css.
+
+========================================================================== */
+
+/* =====================================
+    CSS Imports (must be first for Turbopack/Next.js 16+)
+===================================== */
+
+/* CSS NEW */
+/* =====================================
+    Default Styles
+===================================== */
+@import "./css_new/default/_spacing.css";
+@import "./css_new/default/_base.css";
+@import "./css_new/default/_404.css";
+@import "./css_new/default/_confirmation.css";
+@import "./css_new/default/_coming-soon.css";
+
+/* =====================================
+    Animate.css - Custom (only used animations)
+    Replaces full animate.css to reduce bundle size
+===================================== */
+@import "./css_new/default/_animate-custom.css";
+
+/* =====================================
+    Common Styles
+===================================== */
+@import "./css_new/common/_section-utilities.css";
+@import "./css_new/common/_section-variants.css";
+@import "./css_new/common/_divider.css";
+@import "./css_new/common/_button.css";
+@import "./css_new/common/_card.css";
+@import "./css_new/common/_overlay.css";
+@import "./css_new/common/_focus-utilities.css";
+@import "./css_new/common/_accessibility.css";
+@import "./css_new/common/_icon-decorators.css";
+@import "./css_new/common/_typography-utilities.css";
+@import "./css_new/common/_border-utilities.css";
+@import "./css_new/common/_image-utilities.css";
+@import "./css_new/common/_flex-utilities.css";
+@import "./css_new/common/_grid-utilities.css";
+@import "./css_new/common/_list-icon.css";
+@import "./css_new/common/_icon-text.css";
+@import "./css_new/common/_feature-blocks.css";
+@import "./css_new/common/_title-utilities.css";
+@import "./css_new/common/_link-utilities.css";
+@import "./css_new/common/_background-utilities.css";
+@import "./css_new/common/_menu-item.css";
+@import "./css_new/common/_decorative-utilities.css";
+@import "./css_new/common/_transition-utilities.css";
+@import "./css_new/common/_socialicon.css";
+@import "./css_new/common/_slider.css";
+@import "./css_new/common/_swiper.css";
+@import "./css_new/common/_section-title.css";
+@import "./css_new/common/_opening-hours.css";
+@import "./css_new/common/_text-cols.css";
+@import "./css_new/common/_form.css";
+@import "./css_new/common/_search.css";
+@import "./css_new/common/_tabs.css";
+@import "./css_new/common/_pagination.css";
+@import "./css_new/common/_rating.css";
+@import "./css_new/common/_newsletter.css";
+@import "./css_new/common/_lightbox.css";
+@import "./css_new/common/_feedback.css";
+@import "./css_new/common/_print.css";
+@import "./css_new/common/_no-js-fallbacks.css";
+@import "./css_new/common/_hover-effects.css";
+@import "./css_new/common/_course-timeline.css";
+@import "./css_new/common/_chef-quote.css";
+@import "./css_new/common/_reservation-card.css";
+
+/* =====================================
+    Header Styles
+===================================== */
+@import "./css_new/header/_header.css";
+@import "./css_new/header/_topbar.css";
+@import "./css_new/header/_menumobile.css";
+
+/* =====================================
+    Header Styles
+===================================== 
+@import "./footer/_footer.css";
+
+/* =====================================
+    Hero Styles
+===================================== 
+@import "./hero/_hero.css";
+
+/* =====================================
+    Blocks Styles
+===================================== 
+@import "./blocks/_about.css";
+@import "./blocks/_special-offers.css";
+@import "./blocks/_menu.css";
+@import "./blocks/_services.css";
+@import "./blocks/_cta.css";
+@import "./blocks/_gallery.css";
+@import "./blocks/_gallery-masonry.css";
+@import "./blocks/_team.css";
+@import "./blocks/_testimonials.css";
+@import "./blocks/_testimonials-v2.css";
+@import "./blocks/_badges.css";
+@import "./blocks/_contact.css";
+@import "./blocks/_history.css";
+@import "./blocks/_events.css";
+@import "./blocks/_location.css";
+@import "./blocks/_blog.css";
+@import "./blocks/_landing.css";
+@import "./blocks/_menu-sidebar.css";
+@import "./blocks/_menu-category.css";
+@import "./blocks/_faq.css";
+@import "./blocks/_pricing.css";
+
+/* =====================================
+ CSS NEW 
+===================================== */
+
+/* ----- Base Styles ----- */
+@import "./css/base.css";
+
+/* ----- Common Components ----- */
+@import "./css/components/common/topbar.css";
+@import "./css/components/common/header.css";
+@import "./css/components/common/nav-mobile.css";
+@import "./css/components/common/footer.css";
+@import "./css/components/common/socialicon.css";
+@import "./css/components/common/button.css";
+@import "./css/components/common/swiper-controls.css";
+@import "./css/components/common/opening-hours.css";
+@import "./css/components/common/block-title.css";
+@import "./css/components/common/divider.css";
+@import "./css/components/common/dish-item.css";
+@import "./css/components/common/tabs.css";
+@import "./css/components/common/form.css";
+
+/* ----- Slider ----- */
+@import "./css/components/slider/dots.css";
+
+/* ----- Blocks ----- */
+@import "./css/blocks/hero.css";
+@import "./css/blocks/about.css";
+@import "./css/blocks/special-offers/special-offers.css";
+@import "./css/blocks/special-offers/special-offers-two.css";
+@import "./css/blocks/badges.css";
+@import "./css/blocks/WeekSpecial.css";
+@import "./css/blocks/ServicesList.css";
+@import "./css/blocks/cta.css";
+@import "./css/blocks/team.css";
+@import "./css/blocks/menu.css";
+@import "./css/blocks/gallery/basic-gallery.css";
+@import "./css/blocks/gallery/masonry-gallery.css";
+@import "./css/blocks/gallery/lightbox.css";
+@import "./css/blocks/testimonials.css";
+@import "./css/blocks/contact.css";
+@import "./css/blocks/events.css";
+@import "./css/blocks/history.css";
+@import "./css/blocks/location.css";
+@import "./css/blocks/error404.css";
+@import "./css/blocks/confirmation.css";
+@import "./css/blocks/coming-soon.css";
+@import "./css/blocks/blog.css";
+
+/* ----- Swiper CSS ----- */
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+@import "swiper/css/scrollbar";
+@import "swiper/css/effect-fade";
+
+/* ----- Landing ----- */
+@import "./css/blocks/landing.css";
+
+/* =====================================
+    Tailwind Css - Base / Components
+===================================== */
+@tailwind base;
+@tailwind components;
+
+/* =====================================
+    Tailwind Css - Utilities
+===================================== */
+@tailwind utilities;
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
+}
+
+body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
+        rgb(var(--background-start-rgb));
+}

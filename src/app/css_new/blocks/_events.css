@@ -1,0 +1,272 @@
+/*==========================
+   Events / Block
+===========================*/
+.events-block{
+    @apply section-spacing;
+    &__container{
+        @apply container mx-auto container-padding-compact;
+    }
+    &__list{
+        @apply grid grid-cols-12 gap-6 px-0;
+    }
+    &__item{
+        @apply col-span-12 md:col-span-6 lg:col-span-4 bg-coarseWool-900 rounded-xl shadow-subtle transition-shadow duration-200 ease-out;
+        &-image{
+            @apply relative rounded-t-xl overflow-hidden;
+            img{
+                @apply block w-full h-full object-cover rounded-t-xl;
+            }
+        }
+        &-info{
+            @apply text-center p-8;
+            &__subtitle{
+                @apply text-calico-500 !font-sorts-mill-goudy !text-xl !capitalize;
+            }
+            &__title{
+                @apply text-white font-barlow-condensed font-normal capitalize !text-title-3 border-b border-t border-solid border-calico-500 w-full pt-4 pb-5;
+            }
+            p{
+                @apply mb-0;
+            }
+        }
+        &:hover,
+        &:focus-within {
+            @apply shadow-elevated;
+        }
+
+        &:focus-within {
+            @apply outline-2 outline-calico-500 outline-offset-2;
+        }
+    }
+}
+
+/*==========================
+   Events Page - Introduction Section
+===========================*/
+.events-intro {
+    @apply section-spacing bg-coarseWool-900;
+    &__container {
+        @apply container mx-auto container-padding;
+        .section-title {
+            @apply max-w-content text-center mx-auto;
+            p:last-of-type {
+                @apply mb-0;
+            }
+        }
+    }
+}
+
+/*==========================
+   Events Page - Venue Spaces Section
+===========================*/
+.venue-spaces {
+    @apply section-spacing bg-coarseWool-900 px-0;
+    &__container {
+        @apply container mx-auto container-padding;
+        .section-title {
+            @apply max-w-content text-center mx-auto mb-12;
+        }
+    }
+
+    .gallery-block__list{
+        @apply px-0 ;
+    }
+
+    /* Venue Details List - Full Width on Top */
+    &__details {
+        @apply mb-12;
+        &-title {
+            @apply text-title-3 font-barlow-condensed font-normal text-coarseWool-100 mb-6;
+        }
+        &-grid {
+            @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+        }
+    }
+
+    /* Individual Venue Card */
+    &__item {
+        @apply bg-coarseWool-800 rounded-lg p-6;
+        @apply transition-all duration-300 ease-out;
+        &:hover {
+            @apply shadow-subtle bg-coarseWool-700;
+        }
+        &-header {
+            @apply flex items-start gap-4 mb-4;
+        }
+        &-icon {
+            @apply flex-shrink-0 w-14 h-14 rounded-lg bg-calico-500;
+            @apply text-white flex items-center justify-center;
+            i {
+                @apply text-2xl;
+            }
+        }
+        &-info {
+            @apply flex-1;
+        }
+        &-title {
+            @apply text-title-4 font-barlow-condensed font-normal text-coarseWool-100 mb-1;
+        }
+        &-capacity {
+            @apply text-sm font-sorts-mill-goudy text-calico-500;
+        }
+        &-description {
+            @apply text-body text-coarseWool-300 mb-3;
+        }
+        &-features {
+            @apply flex flex-wrap gap-6;
+            li {
+                @apply text-sm text-coarseWool-300 flex items-center gap-2;
+                i {
+                    @apply text-calico-500;
+                }
+            }
+        }
+    }
+
+}
+
+/*==========================
+   Events Page - Enhanced Services Section
+===========================*/
+.events-services {
+    @apply section-spacing bg-coarseWool-800;
+    &__container {
+        @apply container mx-auto container-padding;
+        .section-title {
+            @apply max-w-content text-center mx-auto mb-12;
+        }
+    }
+
+    /* Split Layout: Two Columns */
+    &__split {
+        @apply grid grid-cols-12 gap-0 sm:gap-8 lg:gap-12 mb-12;
+    }
+
+    &__column {
+        @apply col-span-12 lg:col-span-6 flex flex-col gap-0 sm:gap-6;
+        &-header {
+            @apply flex flex-col sm:flex-row justify-center items-center gap-4 mb-4 pb-4 border-b-2 border-solid border-calico-500;
+        }
+        &-icon {
+            @apply flex-shrink-0 w-14 h-14 rounded-full bg-calico-500 text-coarseWool-900;
+            @apply flex items-center justify-center;
+            i {
+                @apply text-2xl;
+            }
+            &--secondary {
+                @apply bg-transparent border-2 border-solid border-calico-500 text-calico-500;
+            }
+        }
+        &-title {
+            @apply text-title-4 md:text-title-3 font-barlow-condensed font-normal text-coarseWool-100 pb-0 mb-0;
+        }
+    }
+
+    /* Service Card */
+    &__card {
+        @apply flex flex-col sm:flex-row gap-4 py-4 sm:p-6 bg-coarseWool-800 rounded-lg;
+        @apply transition-all duration-300 ease-out;
+        &:hover {
+            @apply bg-coarseWool-700 shadow-subtle;
+            .events-services__card-icon {
+                @apply bg-calico-500 text-coarseWool-900;
+            }
+        }
+        &-icon {
+            @apply flex-shrink-0 w-12 h-12 rounded-full border-2 border-solid border-calico-500 text-calico-500;
+            @apply flex items-center justify-center transition-all duration-300 ease-out;
+            i {
+                @apply text-xl;
+            }
+        }
+        &-content {
+            @apply flex-1;
+        }
+        &-title {
+            @apply text-title-5 font-barlow-condensed font-normal text-coarseWool-100 mb-2;
+        }
+        &-description {
+            @apply text-body text-coarseWool-200 mb-3;
+        }
+        &-list {
+            @apply flex flex-col gap-1;
+            li {
+                @apply text-sm text-coarseWool-300 flex items-start gap-2;
+                @apply before:content-['•'] before:text-calico-500 before:font-bold;
+            }
+        }
+    }
+
+    /* Bottom CTA Banner */
+    &__banner {
+        @apply relative rounded-xl overflow-hidden p-8 lg:p-12;
+        @apply border-2 border-solid border-calico-500 bg-coarseWool-800;
+        &-content {
+            @apply relative z-10 text-center max-w-3xl mx-auto;
+        }
+        &-title {
+            @apply text-title-3 font-barlow-condensed font-normal text-coarseWool-100 mb-4;
+        }
+        &-text {
+            @apply text-body text-coarseWool-300 mb-6;
+        }
+    }
+}
+
+/*==========================
+   Events Page - Contact Form
+===========================*/
+.events-contact-form {
+    @apply w-full mt-8;
+    .form {
+        @apply w-full;
+        &__body {
+            @apply w-full;
+        }
+        &_row {
+            @apply grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 w-full;
+            .form_field{
+                @apply col-span-1;
+            }
+            &:has(.form_field__name) {
+                @apply grid-cols-1;
+            }
+            &:has(.form_field__message) {
+                @apply grid-cols-1;
+            }
+        }
+        &_field {
+            @apply flex flex-col w-full;
+            label {
+                @apply text-coarseWool-100 text-body font-josefin-sans mb-2;
+            }
+        }
+        &_footer {
+            @apply w-full flex justify-center mt-6;
+            .form_field{
+                @apply flex items-center;
+                
+            }
+        }
+    }
+    /* Event form specific input styles */
+    input.input,
+    select.input,
+    textarea.input {
+        @apply w-full bg-coarseWool-800 border border-coarseWool-600 text-calico-500;
+        @apply px-4 py-3 rounded-lg;
+        @apply transition-all duration-200 ease-out;
+        &:focus {
+            @apply border-calico-500 outline-none ring-1 ring-calico-500;
+        }
+        &::placeholder {
+            @apply text-coarseWool-200;
+        }
+    }
+    select.input {
+        @apply cursor-pointer;
+        option {
+            @apply bg-coarseWool-800 text-coarseWool-100;
+        }
+    }
+}

@@ -1,0 +1,153 @@
+/* ===================================
+    01. Google font
+====================================== */
+
+/* Note: Fonts are loaded via <link> in HTML head for better performance */
+/* See index.html and other pages for preconnect + stylesheet links */
+
+
+/* ===================================
+    02. Icons Fontawesome
+====================================== */
+
+/* Note: Font Awesome is loaded via <link> in HTML head for better control */
+/* See index.html for Font Awesome stylesheet link */
+
+
+/* ===================================
+    02. Reset
+====================================== */
+html {font-size: 18px;}
+body {@apply text-small; -webkit-font-smoothing: antialiased; font-smoothing: antialiased; color: theme('colors.coarseWool.100');}
+body, html {-moz-osx-font-smoothing: grayscale; position: relative;}
+a, a:active, a:focus {color: theme('colors.coarseWool.100'); text-decoration: none;}
+a:hover, a:active{color: var(--base-color); text-decoration: none;}
+a:focus, a:active, button:focus, button:active,.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {outline: none; box-shadow: none;}
+img {max-width:100%; height:auto;}
+video {background-size: cover; display: table-cell; vertical-align: middle; width: 100%;}
+/* Base input styles - Minimal reset only (detailed styles in _form.css .input class) */
+input, textarea, select {
+	@apply text-small;
+	width: 100%;
+	max-width: 100%;
+	color: inherit;
+	-webkit-appearance: none;
+}
+
+textarea {
+	resize: vertical; /* Allow vertical resize only */
+}
+
+input[type="submit"] {
+	width: auto;
+}
+
+/* Remove default focus outlines - proper focus styles handled by .input class */
+input[type="button"]:focus,
+input:focus,
+textarea:focus,
+select:focus,
+.form-control:focus,
+.btn.focus,
+.btn:focus {
+	outline: none;
+	box-shadow: none;
+}
+select::-ms-expand{display:none;}
+iframe {border: 0;}
+p {@apply mb-6;}
+b, strong {@apply font-semibold;}
+.last-paragraph-no-margin p:last-of-type {margin-bottom:0}
+.alt-font strong {@apply font-bold;}
+ul, ol, dl {list-style-position: outside; @apply mb-6;}
+
+/* Global transition defaults removed - use explicit Tailwind classes instead:
+   - duration-200: Fast UI (icons, menus)
+   - duration-300: Standard interactions (hover, focus)
+   - duration-500: Slow animations (modals)
+   Use: transition-colors, transition-opacity, transition-transform for specific properties
+*/
+.no-transition *, .swiper-container *, .mfp-container *, .portfolio-wrapper *, .parallax, .rev-slider *, .header-searchbar *, .header-social-icon *, .dropdropdown-menu * {transition: none !important;}
+::selection {color: theme('colors.black'); background: theme('colors.coarseWool.100');}
+::-moz-selection {color: theme('colors.black'); background: theme('colors.coarseWool.100');}
+::-webkit-input-placeholder {color: theme('colors.coarseWool.300'); text-overflow: ellipsis;}
+::-moz-placeholder {color: theme('colors.coarseWool.300'); text-overflow: ellipsis; opacity:1;} 
+:-ms-input-placeholder {color: theme('colors.coarseWool.300'); text-overflow: ellipsis; opacity:1;}
+
+/* ===================================
+    Smooth Scroll (respects reduced motion)
+====================================== */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* ===================================
+    Custom Scrollbar (webkit browsers)
+====================================== */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: theme('colors.coarseWool.800');
+}
+
+::-webkit-scrollbar-thumb {
+    background: theme('colors.coarseWool.500');
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.coarseWool.400');
+}
+
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.coarseWool.500') theme('colors.coarseWool.800');
+}
+
+/* base color variable*/
+:root {--base-color: theme('colors.calico.500');}
+
+/* ===================================
+    02. Reset
+====================================== */
+
+body{
+    @apply !bg-coarseWool-900 text-coarseWool-100 text-body font-josefin-sans font-light;
+}
+
+/* ===================================
+    03. Typography
+====================================== */
+/* heading */
+h1, h2, h3, h4, h5, h6 {
+    @apply m-0 mb-6 tracking-tight font-barlow-condensed;
+}
+h1, h2, h3 {
+    @apply tracking-tight;
+}
+h4, h5, h6 {
+    @apply tracking-normal;
+}
+
+h1 {@apply !text-title-1;}
+h2 {@apply !text-title-2;}
+h3 {@apply !text-title-3;}
+h4 {@apply !text-title-4;}
+h5 {@apply !text-title-5;}
+h6 {@apply !text-title-6;}
+
+p{
+    @apply font-light tracking-tight text-body font-josefin-sans;
+}
+
+/* ===================================
+    04. Overlayer
+    Note: Overlayer classes moved to _overlay.css
+    Retrocompatibility aliases maintained in _overlay.css
+====================================== */

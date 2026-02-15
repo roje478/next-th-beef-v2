@@ -1,0 +1,293 @@
+/* ===================================
+    Pricing Page Styles
+    Premium restaurant pricing component
+    Based on: card system + section utilities
+====================================== */
+
+/* ===================================
+    1. Pricing Intro Section
+    Reuses: section-title + spacing system
+====================================== */
+.pricing-intro {
+    @apply relative pt-16 md:pt-20 lg:pt-24 bg-coarseWool-900;
+
+    &__container {
+        @apply container mx-auto px-4;
+    }
+}
+
+/* ===================================
+    2. Pricing Grid Layout
+    3-column responsive grid for pricing tiers
+====================================== */
+.pricing-grid {
+    @apply relative py-16 md:py-20 lg:py-24 bg-coarseWool-900;
+
+    &__container {
+        @apply container mx-auto px-4 xl:px-0;
+    }
+
+    &__grid {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+/* ===================================
+    3. Pricing Card Component
+    Card-based pricing tier display
+    Extends: card system with pricing-specific modifiers
+====================================== */
+.pricing-card {
+    @apply relative flex flex-col bg-coarseWool-800 border-2 border-solid border-coarseWool-700
+           rounded-lg overflow-hidden transition-all duration-300 ease-out;
+
+    /* Base hover effect */
+    &:hover,
+    &:focus-within {
+        @apply border-calico-500 shadow-lg shadow-coarseWool-900/60;
+    }
+
+    /* Featured variant - highlighted middle tier */
+    &--featured {
+        @apply border-calico-500 shadow-md shadow-coarseWool-900/40 scale-100 lg:scale-105 z-10;
+
+        &:hover,
+        &:focus-within {
+            @apply shadow-xl shadow-coarseWool-900/70 lg:scale-110;
+        }
+    }
+
+    /* Header section */
+    &__header {
+        @apply flex flex-col items-center text-center bg-coarseWool-700 py-8 px-6
+               border-b-2 border-solid border-coarseWool-600;
+
+        .pricing-card--featured & {
+            @apply bg-calico-500 border-calico-600;
+        }
+    }
+
+    /* Badge for featured tier */
+    &__badge {
+        @apply inline-block font-josefin-sans text-body-small font-normal tracking-widest
+               uppercase bg-calico-500 text-coarseWool-900 px-4 py-1 rounded-full mb-4;
+
+        .pricing-card--featured & {
+            @apply bg-coarseWool-900 text-calico-500;
+        }
+    }
+
+    /* Tier name */
+    &__name {
+        @apply font-barlow-condensed font-normal text-title-2 text-coarseWool-0 mb-2;
+
+        .pricing-card--featured & {
+            @apply text-coarseWool-900;
+        }
+    }
+
+    /* Price display */
+    &__price {
+        @apply flex items-baseline justify-center gap-2 font-sorts-mill-goudy italic;
+
+        &-currency {
+            @apply text-title-4 text-calico-500;
+
+            .pricing-card--featured & {
+                @apply text-coarseWool-900;
+            }
+        }
+
+        &-amount {
+            @apply text-display-2 text-calico-500 font-normal leading-none;
+
+            .pricing-card--featured & {
+                @apply text-coarseWool-900;
+            }
+        }
+
+        &-period {
+            @apply text-body text-coarseWool-200;
+
+            .pricing-card--featured & {
+                @apply text-coarseWool-800;
+            }
+        }
+    }
+
+    /* Body section */
+    &__body {
+        @apply flex-1 p-8;
+    }
+
+    /* Features list */
+    &__features {
+        @apply flex flex-col gap-4;
+    }
+
+    &__feature {
+        @apply flex items-start gap-3 text-body text-coarseWool-200;
+
+        /* Checkmark icon */
+        &-icon {
+            @apply flex-shrink-0 w-5 h-5 text-calico-500 mt-0.5;
+
+            i {
+                @apply text-body;
+            }
+        }
+
+        &-text {
+            @apply flex-1;
+        }
+    }
+
+    /* Footer section */
+    &__footer {
+        @apply p-8 pt-0;
+    }
+
+    &__cta {
+        @apply w-full;
+    }
+}
+
+/* ===================================
+    4. Private Events Section
+    Grid layout for event packages
+====================================== */
+.pricing-events {
+    @apply relative py-16 md:py-20 bg-coarseWool-800;
+
+    &__container {
+        @apply container mx-auto px-4 xl:px-0;
+    }
+
+    &__grid {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+/* ===================================
+    5. Event Card Component
+    Simplified card for event packages
+====================================== */
+.event-card {
+    @apply relative flex flex-col bg-coarseWool-700 border border-solid border-coarseWool-600
+           rounded-lg p-6 transition-all duration-300 ease-out;
+
+    &:hover,
+    &:focus-within {
+        @apply border-calico-500 shadow-md shadow-coarseWool-900/40;
+    }
+
+    &__icon {
+        @apply w-12 h-12 mb-4 text-calico-500;
+    }
+
+    &__title {
+        @apply font-barlow-condensed font-normal text-title-3 text-coarseWool-0 mb-2;
+    }
+
+    &__price {
+        @apply font-sorts-mill-goudy italic text-title-5 text-calico-500 mb-4;
+    }
+
+    &__description {
+        @apply text-body text-coarseWool-200 mb-6 flex-1;
+
+        p {
+            @apply mb-3;
+
+            &:last-child {
+                @apply mb-0;
+            }
+        }
+    }
+
+    &__cta {
+        @apply w-full;
+    }
+
+    /* Custom pricing variant */
+    &--custom {
+        .event-card__icon {
+            @apply w-9 h-9;
+            i{
+                @apply !text-2xl;
+            }
+        }
+        .event-card__price {
+            @apply text-body font-sans not-italic tracking-wider uppercase;
+        }
+    }
+}
+
+/* ===================================
+    6. Pricing FAQ Section
+    Compact FAQ for pricing-related questions
+    Reuses: faq-accordion component structure
+====================================== */
+.pricing-faq {
+    @apply relative py-16 md:py-20 bg-coarseWool-900;
+
+    &__container {
+        @apply container mx-auto px-4;
+        max-width: 900px;
+    }
+
+    &__grid {
+        @apply grid grid-cols-1 gap-4;
+    }
+}
+
+/* ===================================
+    7. Pricing CTA Section
+    Reuses: existing CTA patterns
+====================================== */
+.pricing-cta {
+    @apply relative py-16 md:py-20 bg-coarseWool-800 text-center;
+
+    &__container {
+        @apply container mx-auto px-4;
+        max-width: 800px;
+    }
+
+    &__title {
+        @apply font-barlow-condensed font-normal text-title-1 text-coarseWool-0 mb-4;
+    }
+
+    &__description {
+        @apply text-body text-coarseWool-200 mb-8;
+    }
+
+    &__actions {
+        @apply flex flex-col sm:flex-row items-center justify-center gap-4;
+    }
+}
+
+/* ===================================
+    Justification for New Components:
+
+    1. .pricing-card
+       - Reusable pattern for any pricing display
+       - Extends card system with pricing-specific elements
+       - Featured modifier for highlighted tier (common pattern)
+       - Maintains consistency: borders, spacing, transitions
+
+    2. .event-card
+       - Simplified card for event packages
+       - Different content structure than pricing-card
+       - Reuses same visual tokens (colors, spacing, typography)
+
+    3. All visual tokens (colors, typography, spacing)
+       come from existing system via @apply
+
+    4. No new animations, only existing transitions
+    5. Mobile-first responsive, consistent with theme
+    6. Accessible: proper focus states, semantic HTML expected
+====================================== */

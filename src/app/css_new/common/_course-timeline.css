@@ -1,0 +1,61 @@
+/* ===================================
+    Course Timeline Component
+    Used for: Chef's Table tasting menu sequence
+====================================== */
+
+.course-timeline {
+    @apply relative;
+
+    &__list {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-9 xl:gap-12;
+    }
+
+    &__item {
+        @apply relative;
+    }
+
+    &__card {
+        @apply bg-coarseWool-800 rounded-lg overflow-hidden transition-all duration-300;
+        @apply hover:transform hover:translate-y-[-8px] hover:shadow-2xl;
+    }
+
+    &__image {
+        @apply relative w-full h-64 overflow-hidden;
+
+        img {
+            @apply w-full h-full object-cover transition-transform duration-500;
+        }
+    }
+
+    &__card:hover &__image img {
+        @apply scale-110;
+    }
+
+    &__content {
+        @apply p-6 lg:p-8;
+    }
+
+    &__number {
+        @apply text-calico-500 text-subtitle-1 font-sorts-mill-goudy italic mb-2;
+    }
+
+    &__name {
+        @apply text-coarseWool-100 !text-title-4 font-barlow-condensed mb-3;
+    }
+
+    &__description {
+        @apply text-coarseWool-300 text-body-small leading-relaxed mb-4;
+    }
+
+    &__pairing {
+        @apply flex items-center gap-2 pt-4 border-t border-coarseWool-600;
+
+        .icon {
+            @apply text-calico-500 text-sm;
+        }
+
+        .text {
+            @apply text-coarseWool-200 text-caption italic font-sorts-mill-goudy;
+        }
+    }
+}

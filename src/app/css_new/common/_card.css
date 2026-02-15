@@ -1,0 +1,236 @@
+/* ===================================
+    Card System - Reusable Utilities
+    Extracted common patterns from components
+====================================== */
+
+/* ===================================
+    1. Animated Corner Borders
+    Used by: services, special-offers
+    Impact: Reduces 60 lines of duplication
+====================================== */
+.card--animated-corners {
+    @apply relative;
+
+    &::before,
+    &::after {
+        content: "";
+        @apply absolute inset-0 z-10 pointer-events-none;
+        border: 1px solid theme('colors.calico.500');
+        border-radius: 8px;
+        transform: scale(0.6);
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        opacity: 0;
+    }
+
+    &::before {
+        transform-origin: left top;
+        border-right: 0;
+        border-bottom: 0;
+    }
+
+    &::after {
+        transform-origin: right bottom;
+        border-top: 0;
+        border-left: 0;
+    }
+
+    &:hover::before,
+    &:hover::after,
+    &:focus-within::before,
+    &:focus-within::after {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ===================================
+    2. Image Scale on Hover
+    Used by: team cards
+    Impact: Reduces 20 lines of duplication
+====================================== */
+.card__image--scalable {
+    @apply relative overflow-hidden;
+
+    img {
+        @apply w-full h-full object-cover transition-all duration-300 ease-in-out scale-105;
+    }
+}
+
+/* Apply scale effect to parent card hover */
+.card:hover .card__image--scalable img,
+.card:focus-within .card__image--scalable img {
+    @apply scale-110;
+}
+
+/* ===================================
+    3. Split Horizontal Layout
+    Used by: blog posts, menu categories
+    Impact: Reduces 40 lines of duplication
+====================================== */
+.card--split-horizontal {
+    @apply grid grid-cols-12 gap-0;
+
+    .card__media {
+        @apply col-span-12 md:col-span-5 lg:col-span-6 relative overflow-hidden order-1;
+    }
+
+    .card__body {
+        @apply col-span-12 md:col-span-7 lg:col-span-6 order-2;
+    }
+
+    /* Alternating layout for even items */
+    &:nth-child(even) {
+        .card__media {
+            @apply order-1 md:order-2;
+        }
+        .card__body {
+            @apply order-2 md:order-1;
+        }
+    }
+}
+
+/* ===================================
+    4. Base Card Structure (Optional)
+    Foundation for future card unification
+====================================== */
+.card {
+    @apply relative flex flex-col w-full h-full;
+
+    &__media {
+        @apply relative overflow-hidden;
+
+        img {
+            @apply w-full h-full object-cover;
+        }
+    }
+
+    &__body {
+        @apply flex flex-col;
+    }
+
+    &__title {
+        @apply font-barlow-condensed font-normal text-title-4 mb-2;
+    }
+
+    &__subtitle {
+        @apply font-sorts-mill-goudy italic text-body;
+    }
+
+    &__description {
+        @apply text-body text-coarseWool-200;
+
+        p:last-of-type {
+            @apply mb-0;
+        }
+    }
+
+    &__footer {
+        @apply flex items-center justify-between mt-auto;
+    }
+}
+
+/* ===================================
+    5. Card Height Utilities
+    Standardized responsive height scales
+====================================== */
+.card-h-sm {
+    @apply max-h-52 sm:max-h-64;
+}
+
+.card-h-md {
+    @apply max-h-64 sm:max-h-80 md:max-h-96;
+}
+
+.card-h-lg {
+    @apply max-h-80 sm:max-h-96 md:max-h-[32rem];
+}
+
+.card-h-auto {
+    @apply h-auto;
+}
+
+/* ===================================
+    6. Shadow Utilities
+    Unified shadow scale for consistency
+====================================== */
+
+/* Subtle shadow - resting state for cards */
+.shadow-subtle {
+    @apply shadow-md shadow-coarseWool-900/40;
+}
+
+/* Elevated shadow - hover/focus states */
+.shadow-elevated {
+    @apply shadow-lg shadow-coarseWool-900/60;
+}
+
+/* Floating shadow - modals, lightbox, overlays */
+.shadow-floating {
+    @apply shadow-xl shadow-coarseWool-900/70;
+}
+
+/* ===================================
+    7. Card Modifiers
+    Common styling variations
+====================================== */
+
+/* Bordered card with hover effect */
+.card--bordered {
+    @apply border border-solid border-coarseWool-400 transition-all duration-200 ease-out;
+
+    &:hover,
+    &:focus-within {
+        @apply border-calico-500 shadow-elevated;
+    }
+}
+
+/* Card with shadow */
+.card--shadowed {
+    @apply shadow-subtle;
+}
+
+/* Rounded corners */
+.card--rounded {
+    @apply rounded-lg;
+}
+
+/* Overlay info on hover (team card style) */
+.card--overlay {
+    .card__overlay {
+        @apply opacity-0 flex flex-col items-center justify-center absolute inset-0 z-10 w-full h-full
+               bg-calico-500 bg-opacity-75 transition-all duration-300 ease-in-out;
+    }
+
+    &:hover .card__overlay,
+    &:focus-within .card__overlay {
+        @apply opacity-100;
+    }
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- Animated corners (services, special offers) -->
+    <div class="card--animated-corners">
+        Content here
+    </div>
+
+    <!-- Image scale hover (team cards) -->
+    <div class="card">
+        <div class="card__image--scalable">
+            <img src="..." alt="...">
+        </div>
+    </div>
+
+    <!-- Split horizontal (blog, menu) -->
+    <div class="card--split-horizontal">
+        <div class="card__media">...</div>
+        <div class="card__body">...</div>
+    </div>
+
+    <!-- Combined modifiers -->
+    <div class="card card--bordered card--rounded card--shadowed">
+        <div class="card__media card__image--scalable">...</div>
+        <div class="card__body">...</div>
+    </div>
+====================================== */

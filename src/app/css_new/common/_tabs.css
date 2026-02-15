@@ -1,0 +1,60 @@
+/* ===================================
+    Tab´s
+====================================== */
+.tabs {
+    @apply flex flex-wrap items-center justify-center mt-0 mb-6 sm:mb-8 md:mb-14 mx-auto w-fit p-2 rounded-full md:border-2 border-solid border-coarseWool-400 gap-2 bg-coarseWool-900;
+
+    &__link {
+        @apply px-6 py-2 not-italic font-normal transition-all duration-200 ease-out text-button font-barlow-condensed !text-coarseWool-100 bg-coarseWool-700 md:bg-transparent rounded-full w-5/12 sm:w-3/12 md:w-fit inline-block capitalize m-0 relative text-center;
+        letter-spacing: 1px;
+        text-decoration: none;
+        &:hover{
+            @apply cursor-pointer bg-coarseWool-600;
+        }
+        &:focus-visible {
+            @apply outline-none ring-2 ring-calico-500 ring-offset-2 ring-offset-coarseWool-900;
+        }
+        &:active {
+            @apply scale-[0.97] bg-coarseWool-500;
+        }
+        &:disabled,
+        &[aria-disabled="true"] {
+            @apply opacity-50 cursor-not-allowed pointer-events-none;
+        }
+        &::after {
+            @apply hidden absolute z-10 -bottom-[18px] left-[calc(50%-7px)] w-[14px] h-[14px] transform rotate-45 bg-coarseWool-900 border-b-2 border-r-2 border-coarseWool-400 content-[''];
+        }
+        &.active{
+            @apply cursor-pointer bg-calico-500 !text-coarseWool-900 ;
+            &::after {
+                @apply hidden md:block;
+            }
+        }
+
+    }
+}
+
+.tabs-content{
+    @apply w-full md:px-4 lg:px-16 xl:px-6 pb-10 overflow-hidden transition-opacity duration-300 ease-in-out;
+    &__item {
+        @apply hidden w-full;
+        animation: fadeEffect 0.3s ease-in-out;
+
+        .menu__category-dishes .section-title__title{
+            @apply !text-title-1;
+        }
+    }
+    &__item.active {
+        @apply block transition-opacity duration-300 ease-in-out;
+    }
+}
+
+/* Simplified: fade only, no horizontal slide */
+@keyframes fadeEffect {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}

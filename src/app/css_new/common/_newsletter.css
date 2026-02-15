@@ -1,0 +1,440 @@
+/* ============================================
+   NEWSLETTER COMPONENT
+   Reusable newsletter subscription forms
+============================================= */
+
+/* ============================================
+   BASE NEWSLETTER FORM
+============================================= */
+
+.newsletter-form {
+    @apply w-full;
+}
+
+.newsletter-form__wrapper {
+    @apply relative flex flex-col sm:flex-row gap-3;
+}
+
+.newsletter-form__input {
+    @apply flex-1;
+    @apply bg-coarseWool-800/50 border-2 border-coarseWool-600 rounded-md;
+    @apply text-coarseWool-100 font-josefin-sans text-base;
+    @apply px-6 py-4;
+    @apply transition-all duration-300;
+    @apply placeholder:text-coarseWool-400;
+
+    &:focus {
+        @apply outline-none border-calico-500 bg-coarseWool-800;
+    }
+
+    &:hover {
+        @apply border-coarseWool-500;
+    }
+}
+
+.newsletter-form__button {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply bg-calico-500 hover:bg-calico-600;
+    @apply text-coarseWool-900 font-mulish font-bold uppercase tracking-wider;
+    @apply px-8 py-4;
+    @apply rounded-md;
+    @apply transition-all duration-300;
+    @apply whitespace-nowrap;
+    @apply text-sm;
+
+    &:hover {
+        @apply bg-calico-600;
+    }
+
+    &:focus {
+        @apply outline-none;
+        @apply ring-2 ring-calico-500 ring-offset-2 ring-offset-coarseWool-900;
+    }
+
+    i {
+        @apply transition-transform duration-300;
+    }
+
+    &:hover i {
+        @apply transform translate-x-1;
+    }
+}
+
+.newsletter-form__privacy {
+    @apply flex items-center justify-center gap-2;
+    @apply text-coarseWool-300 text-sm;
+    @apply mt-3;
+
+    i {
+        @apply text-calico-500;
+    }
+}
+
+/* ============================================
+   NEWSLETTER FORM VARIANTS
+============================================= */
+
+/* Hero variant - Large prominent form */
+.newsletter-form--hero {
+    .newsletter-form__wrapper {
+        @apply max-w-content-lg mx-auto;
+    }
+
+    .newsletter-form__input {
+        @apply py-5 px-8 text-lg;
+    }
+
+    .newsletter-form__button {
+        @apply py-5 px-10 text-base;
+    }
+}
+
+/* Inline variant - Horizontal always */
+.newsletter-form--inline {
+    .newsletter-form__wrapper {
+        @apply flex-col md:flex-row;
+    }
+}
+
+/* Compact variant - Smaller for sidebars/footer */
+.newsletter-form--compact {
+    .newsletter-form__input {
+        @apply py-3 px-4 text-sm;
+    }
+
+    .newsletter-form__button {
+        @apply py-3 px-6 text-xs;
+    }
+
+    .newsletter-form__privacy {
+        @apply text-xs;
+    }
+}
+
+/* Footer variant - Light on dark */
+.newsletter-form--footer {
+    .newsletter-form__input {
+        @apply bg-coarseWool-900 border-coarseWool-700;
+        @apply text-coarseWool-100;
+
+        &:focus {
+            @apply border-calico-500;
+        }
+    }
+}
+
+/* Light variant - For light backgrounds */
+.newsletter-form--light {
+    .newsletter-form__input {
+        @apply bg-white border-coarseWool-300;
+        @apply text-coarseWool-900;
+        @apply placeholder:text-coarseWool-500;
+
+        &:focus {
+            @apply border-calico-500 bg-white;
+        }
+    }
+
+    .newsletter-form__button {
+        @apply shadow-lg;
+    }
+
+    .newsletter-form__privacy {
+        @apply text-coarseWool-600;
+    }
+}
+
+/* ============================================
+   NEWSLETTER SECTION STYLES
+============================================= */
+
+/* Newsletter widget in sidebar */
+.newsletter-widget {
+    @apply bg-coarseWool-800 border border-coarseWool-700 rounded-lg;
+    @apply p-6;
+}
+
+.newsletter-widget__title {
+    @apply text-title-5 mb-3;
+}
+
+.newsletter-widget__description {
+    @apply text-body-small text-coarseWool-300 mb-6;
+}
+
+/* Newsletter popup/modal */
+.newsletter-popup {
+    @apply fixed inset-0 z-50;
+    @apply flex items-center justify-center;
+    @apply bg-coarseWool-900/90 backdrop-blur-sm;
+    @apply opacity-0 pointer-events-none;
+    @apply transition-opacity duration-300;
+
+    &.active {
+        @apply opacity-100 pointer-events-auto;
+    }
+}
+
+.newsletter-popup__content {
+    @apply bg-coarseWool-800 border-2 border-calico-500 rounded-lg;
+    @apply p-8 md:p-12;
+    @apply max-w-content mx-4;
+    @apply relative;
+    @apply transform scale-95;
+    @apply transition-transform duration-300;
+
+    .newsletter-popup.active & {
+        @apply scale-100;
+    }
+}
+
+.newsletter-popup__close {
+    @apply absolute top-4 right-4;
+    @apply w-10 h-10;
+    @apply flex items-center justify-center;
+    @apply bg-coarseWool-700 hover:bg-coarseWool-600;
+    @apply text-coarseWool-200 hover:text-white;
+    @apply rounded-full;
+    @apply transition-all duration-200;
+    @apply cursor-pointer;
+
+    &:hover {
+        @apply transform rotate-90;
+    }
+}
+
+.newsletter-popup__title {
+    @apply text-title-3 mb-4;
+}
+
+.newsletter-popup__description {
+    @apply text-body text-coarseWool-200 mb-6;
+}
+
+/* ============================================
+   NEWSLETTER SUCCESS/ERROR STATES
+============================================= */
+
+.newsletter-form--success {
+    .newsletter-form__wrapper {
+        @apply hidden;
+    }
+}
+
+.newsletter-form__success-message {
+    @apply bg-green-500/10 border-2 border-green-500 rounded-md;
+    @apply p-6 text-center;
+    @apply hidden;
+
+    .newsletter-form--success & {
+        @apply block;
+    }
+}
+
+.newsletter-form__success-icon {
+    @apply text-4xl text-green-500 mb-3;
+}
+
+.newsletter-form__success-title {
+    @apply text-title-5 text-green-500 mb-2;
+}
+
+.newsletter-form__success-text {
+    @apply text-body-small text-coarseWool-200;
+}
+
+.newsletter-form--error {
+    .newsletter-form__input {
+        @apply border-red-500;
+    }
+}
+
+.newsletter-form__error-message {
+    @apply text-red-400 text-sm mt-2;
+    @apply flex items-start gap-2;
+    @apply hidden;
+
+    .newsletter-form--error & {
+        @apply flex;
+    }
+
+    &::before {
+        content: '⚠';
+        @apply inline-block text-red-400 flex-shrink-0;
+    }
+}
+
+/* ============================================
+   NEWSLETTER BENEFITS GRID
+============================================= */
+
+.newsletter-benefits {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.newsletter-benefit {
+    @apply flex items-start gap-4;
+}
+
+.newsletter-benefit__icon {
+    @apply flex-shrink-0;
+    @apply w-12 h-12;
+    @apply flex items-center justify-center;
+    @apply bg-calico-500/10 text-calico-500;
+    @apply rounded-full;
+    @apply text-xl;
+}
+
+.newsletter-benefit__content {
+    @apply flex-1;
+}
+
+.newsletter-benefit__title {
+    @apply text-title-6 mb-2;
+}
+
+.newsletter-benefit__description {
+    @apply text-body-small text-coarseWool-300;
+}
+
+/* ============================================
+   RESPONSIVE BEHAVIOR
+============================================= */
+
+@media (max-width: 640px) {
+    /* Stack form elements on mobile */
+    .newsletter-form__wrapper {
+        @apply flex-col;
+    }
+
+    .newsletter-form__button {
+        @apply w-full;
+    }
+
+    /* Reduce padding on mobile */
+    .newsletter-popup__content {
+        @apply p-6;
+    }
+
+    /* Adjust hero form on mobile */
+    .newsletter-form--hero {
+        .newsletter-form__input {
+            @apply py-4 px-6 text-base;
+        }
+
+        .newsletter-form__button {
+            @apply py-4 px-8;
+        }
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+============================================= */
+
+/* Focus visible for keyboard navigation */
+.newsletter-form__input:focus-visible {
+    @apply ring-2 ring-calico-500 ring-offset-2 ring-offset-coarseWool-900;
+}
+
+/* Screen reader only text */
+.newsletter-form__sr-only {
+    @apply sr-only;
+}
+
+/* Loading state for button */
+.newsletter-form__button--loading {
+    @apply opacity-50 pointer-events-none;
+
+    &::after {
+        content: '';
+        @apply inline-block w-4 h-4 ml-2;
+        @apply border-2 border-coarseWool-900 border-t-transparent;
+        @apply rounded-full;
+        @apply animate-spin;
+    }
+}
+
+/* ============================================
+   USAGE EXAMPLES IN COMMENTS:
+
+   1. Basic Newsletter Form:
+   <form class="newsletter-form" action="#" method="post">
+       <div class="newsletter-form__wrapper">
+           <input
+               type="email"
+               class="newsletter-form__input"
+               placeholder="Enter your email address"
+               aria-label="Email address"
+               required
+           >
+           <button type="submit" class="newsletter-form__button">
+               Subscribe
+               <i class="fa-solid fa-arrow-right"></i>
+           </button>
+       </div>
+       <p class="newsletter-form__privacy">
+           <i class="fa-solid fa-lock"></i>
+           We respect your privacy. Unsubscribe at any time.
+       </p>
+   </form>
+
+   2. Hero Newsletter Form (Large):
+   <form class="newsletter-form newsletter-form--hero">
+       <!-- Same structure as basic -->
+   </form>
+
+   3. Compact Newsletter Form (Sidebar):
+   <div class="newsletter-widget">
+       <h3 class="newsletter-widget__title">Stay Updated</h3>
+       <p class="newsletter-widget__description">
+           Get the latest news and offers
+       </p>
+       <form class="newsletter-form newsletter-form--compact">
+           <!-- Form fields -->
+       </form>
+   </div>
+
+   4. Footer Newsletter Form:
+   <form class="newsletter-form newsletter-form--footer newsletter-form--compact">
+       <!-- Form fields -->
+   </form>
+
+   5. Newsletter Popup:
+   <div class="newsletter-popup" id="newsletter-popup">
+       <div class="newsletter-popup__content">
+           <button class="newsletter-popup__close" aria-label="Close">
+               <i class="fa-solid fa-times"></i>
+           </button>
+           <h3 class="newsletter-popup__title">Join Our Newsletter</h3>
+           <p class="newsletter-popup__description">
+               Get exclusive offers and updates
+           </p>
+           <form class="newsletter-form">
+               <!-- Form fields -->
+           </form>
+       </div>
+   </div>
+
+   6. Success State:
+   <form class="newsletter-form newsletter-form--success">
+       <div class="newsletter-form__success-message">
+           <div class="newsletter-form__success-icon">✓</div>
+           <h4 class="newsletter-form__success-title">Thank You!</h4>
+           <p class="newsletter-form__success-text">
+               You've been subscribed successfully.
+           </p>
+       </div>
+   </form>
+
+   7. Error State:
+   <form class="newsletter-form newsletter-form--error">
+       <div class="newsletter-form__wrapper">
+           <!-- Form fields -->
+       </div>
+       <p class="newsletter-form__error-message">
+           Please enter a valid email address.
+       </p>
+   </form>
+
+============================================= */

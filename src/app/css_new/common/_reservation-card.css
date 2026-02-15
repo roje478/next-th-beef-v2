@@ -1,0 +1,38 @@
+/* ===================================
+    Reservation Card Component
+    Used for: Chef's Table booking information
+====================================== */
+
+.reservation-card {
+    @apply bg-coarseWool-800 rounded-lg p-8 lg:p-12;
+    @apply max-w-content-md mx-auto text-center;
+    @apply border border-coarseWool-600;
+
+    &__title {
+        @apply text-calico-500 text-subtitle-1 font-sorts-mill-goudy italic mb-6;
+    }
+
+    &__details {
+        @apply space-y-4 mb-8;
+    }
+
+    &__detail {
+        @apply flex items-center justify-center gap-3;
+
+        .icon {
+            @apply text-calico-500 text-xl w-6 text-center;
+        }
+
+        .text {
+            @apply text-coarseWool-100 text-body;
+        }
+    }
+
+    &__cta {
+        @apply pt-6 border-t border-coarseWool-600 space-y-4;
+    }
+
+    &__note {
+        @apply text-coarseWool-300 text-body-small mt-6 italic;
+    }
+}

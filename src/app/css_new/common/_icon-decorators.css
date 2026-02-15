@@ -1,0 +1,180 @@
+/*==================================================
+    Icon Decorator Utilities
+    FontAwesome pseudo-element decorators for lists, links, and text
+
+    Note: !important on font-family is required to override
+    inherited fonts in pseudo-elements (::before, ::after)
+==================================================*/
+
+/* ===================================
+    Base Decorator Styles
+====================================== */
+.icon-decorator-before::before,
+.icon-decorator-after::after {
+    font-family: "Font Awesome 6 Free" !important;
+    @apply text-sm font-black;
+}
+
+/* ===================================
+    Marker Icons (::before)
+====================================== */
+.icon-decorator--marker::before {
+    content: '\f7a5'; /* fa-diamond */
+    @apply text-calico-500 mr-2;
+    font-family: "Font Awesome 6 Free" !important;
+}
+
+.icon-decorator--dot::before {
+    content: '\f111'; /* fa-circle */
+    @apply text-calico-500 text-xs mr-2;
+    font-family: "Font Awesome 6 Free" !important;
+}
+
+.icon-decorator--check::before {
+    content: '\f00c'; /* fa-check */
+    @apply text-calico-500 mr-2;
+    font-family: "Font Awesome 6 Free" !important;
+}
+
+.icon-decorator--star::before {
+    content: '\f005'; /* fa-star */
+    @apply text-calico-500 mr-2;
+    font-family: "Font Awesome 6 Free" !important;
+}
+
+.icon-decorator--arrow-right::before {
+    content: '\f061'; /* fa-arrow-right */
+    @apply text-calico-500 mr-2;
+    font-family: "Font Awesome 6 Free" !important;
+}
+
+/* ===================================
+    Chevron Icons (::after)
+====================================== */
+.icon-decorator--chevron::after {
+    content: '\f105'; /* fa-chevron-right */
+    @apply text-coarseWool-400 ml-auto;
+    font-family: "Font Awesome 6 Free" !important;
+}
+
+.icon-decorator--chevron-down::after {
+    content: '\f078'; /* fa-chevron-down */
+    @apply text-coarseWool-400 ml-2;
+    font-family: "Font Awesome 6 Free" !important;
+}
+
+.icon-decorator--angle::after {
+    content: '\f105'; /* fa-angle-right */
+    @apply text-coarseWool-400 ml-auto text-base;
+    font-family: "Font Awesome 6 Free" !important;
+}
+
+/* ===================================
+    Text Decorators
+====================================== */
+.icon-decorator--comma::after {
+    content: ',';
+    @apply inline-flex w-auto text-coarseWool-100;
+    font-family: inherit !important;
+}
+
+.icon-decorator--separator::after {
+    content: '|';
+    @apply inline-flex text-coarseWool-400 mx-2;
+    font-family: inherit !important;
+}
+
+.icon-decorator--bullet::after {
+    content: '•';
+    @apply inline-flex text-coarseWool-400 mx-2;
+    font-family: inherit !important;
+}
+
+/* ===================================
+    Color Variants
+====================================== */
+.icon-decorator--accent::before,
+.icon-decorator--accent::after {
+    @apply text-calico-500;
+}
+
+.icon-decorator--muted::before,
+.icon-decorator--muted::after {
+    @apply text-coarseWool-400;
+}
+
+.icon-decorator--light::before,
+.icon-decorator--light::after {
+    @apply text-coarseWool-200;
+}
+
+/* ===================================
+    Size Variants
+====================================== */
+.icon-decorator--sm::before,
+.icon-decorator--sm::after {
+    @apply text-xs;
+}
+
+.icon-decorator--lg::before,
+.icon-decorator--lg::after {
+    @apply text-base;
+}
+
+.icon-decorator--xl::before,
+.icon-decorator--xl::after {
+    @apply text-lg;
+}
+
+/* ===================================
+    Spacing Variants
+====================================== */
+.icon-decorator--spacing-sm::before {
+    @apply mr-1;
+}
+
+.icon-decorator--spacing-lg::before {
+    @apply mr-3;
+}
+
+.icon-decorator--spacing-sm::after {
+    @apply ml-1;
+}
+
+.icon-decorator--spacing-lg::after {
+    @apply ml-3;
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- List with markers and chevrons -->
+    <ul class="list-icon">
+        <li class="icon-decorator--marker icon-decorator--chevron">
+            <span>Category Item</span>
+        </li>
+        <li class="icon-decorator--dot icon-decorator--chevron">
+            <span>Another Item</span>
+        </li>
+    </ul>
+
+    <!-- Comma-separated tags -->
+    <a href="#" class="icon-decorator--comma">Tag 1</a>
+    <a href="#" class="icon-decorator--comma">Tag 2</a>
+    <a href="#" class="icon-decorator--comma">Tag 3</a>
+
+    <!-- Checklist items -->
+    <div class="icon-decorator--check">
+        <span>Completed task</span>
+    </div>
+
+    <!-- Navigation links with chevrons -->
+    <a href="#" class="icon-decorator--marker icon-decorator--chevron">
+        <span>Read More</span>
+    </a>
+
+    <!-- Sidebar categories -->
+    <a href="#" class="icon-decorator--marker icon-decorator--chevron icon-decorator--accent">
+        <span>Category Name</span>
+    </a>
+====================================== */

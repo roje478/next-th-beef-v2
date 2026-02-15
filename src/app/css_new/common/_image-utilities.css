@@ -1,0 +1,226 @@
+/*==================================================
+    Image Utilities
+    Object-fit, positioning, and image treatment patterns
+==================================================*/
+
+/* ===================================
+    Image Cover (Object Fit)
+====================================== */
+.img-cover {
+    @apply w-full h-full object-cover object-center;
+}
+
+/* Position Variants */
+.img-cover--top {
+    @apply object-top;
+}
+
+.img-cover--bottom {
+    @apply object-bottom;
+}
+
+.img-cover--left {
+    @apply object-left;
+}
+
+.img-cover--right {
+    @apply object-right;
+}
+
+.img-cover--left-top {
+    @apply object-left-top;
+}
+
+.img-cover--right-top {
+    @apply object-right-top;
+}
+
+.img-cover--left-bottom {
+    @apply object-left-bottom;
+}
+
+.img-cover--right-bottom {
+    @apply object-right-bottom;
+}
+
+/* ===================================
+    Image Contain
+====================================== */
+.img-contain {
+    @apply w-full h-full object-contain object-center;
+}
+
+.img-contain--top {
+    @apply object-top;
+}
+
+.img-contain--bottom {
+    @apply object-bottom;
+}
+
+/* ===================================
+    Animated Images (Transitions)
+====================================== */
+.img-cover--animated,
+.img-contain--animated {
+    @apply transition-all duration-300 ease-in-out;
+}
+
+/* ===================================
+    Image Scale on Hover
+    Note: Already exists in _card.css as .card__image--scalable
+    Use these for standalone images
+====================================== */
+.img-zoom {
+    @apply relative overflow-hidden;
+
+    img {
+        @apply w-full h-full object-cover transition-transform duration-300 ease-in-out scale-105;
+    }
+
+    &:hover img,
+    &:focus-within img {
+        @apply scale-110;
+    }
+}
+
+.img-zoom--subtle {
+    img {
+        @apply scale-100;
+    }
+
+    &:hover img,
+    &:focus-within img {
+        @apply scale-105;
+    }
+}
+
+.img-zoom--intense {
+    img {
+        @apply scale-105;
+    }
+
+    &:hover img,
+    &:focus-within img {
+        @apply scale-[1.15];
+    }
+}
+
+/* ===================================
+    Image with Overlay
+    Combines with overlay utilities
+====================================== */
+.img-overlay-wrapper {
+    @apply relative overflow-hidden;
+
+    img {
+        @apply w-full h-full object-cover;
+    }
+
+    /* Use with .overlay utilities from _overlay.css */
+}
+
+/* ===================================
+    Aspect Ratio Containers
+====================================== */
+.img-aspect-square {
+    @apply aspect-square;
+}
+
+.img-aspect-video {
+    @apply aspect-video;
+}
+
+.img-aspect-portrait {
+    aspect-ratio: 3/4;
+}
+
+.img-aspect-landscape {
+    aspect-ratio: 4/3;
+}
+
+/* ===================================
+    Rounded Images
+====================================== */
+.img-rounded {
+    @apply rounded-lg;
+}
+
+.img-rounded--sm {
+    @apply rounded;
+}
+
+.img-rounded--lg {
+    @apply rounded-xl;
+}
+
+.img-rounded--full {
+    @apply rounded-full;
+}
+
+/* ===================================
+    Image Filters
+====================================== */
+.img-grayscale {
+    @apply grayscale;
+
+    &:hover {
+        @apply grayscale-0;
+    }
+}
+
+.img-brightness-low {
+    @apply brightness-75;
+
+    &:hover {
+        @apply brightness-100;
+    }
+}
+
+/* ===================================
+    Image Aspect Portrait Wrapper
+    Combines aspect ratio + overflow + rounded
+====================================== */
+.img-aspect-portrait-wrapper {
+    @apply overflow-hidden rounded-lg;
+    aspect-ratio: 4/5;
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- Standard cover image -->
+    <img src="..." class="img-cover" alt="...">
+
+    <!-- Top-aligned portrait (team cards) -->
+    <img src="team.jpg" class="img-cover img-cover--top" alt="Team member">
+
+    <!-- Animated image -->
+    <img src="..." class="img-cover img-cover--animated" alt="...">
+
+    <!-- Zoom on hover -->
+    <div class="img-zoom">
+        <img src="..." alt="...">
+    </div>
+
+    <!-- Image with overlay -->
+    <div class="img-overlay-wrapper">
+        <img src="..." alt="...">
+        <div class="overlay overlay--dark overlay--medium overlay--reveal overlay--centered">
+            <h3>Title</h3>
+        </div>
+    </div>
+
+    <!-- Square aspect ratio -->
+    <div class="img-aspect-square">
+        <img src="..." class="img-cover" alt="...">
+    </div>
+
+    <!-- Rounded image with zoom -->
+    <div class="img-zoom img-rounded">
+        <img src="..." alt="...">
+    </div>
+
+    <!-- Grayscale on load, color on hover -->
+    <img src="..." class="img-cover img-grayscale" alt="...">
+====================================== */

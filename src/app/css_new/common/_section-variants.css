@@ -1,0 +1,341 @@
+/* ==========================================================================
+   Section Block Variants - Modular Layout Options
+   Provides reusable modifiers for common section patterns
+========================================================================== */
+
+/* ==========================================================================
+   CTA BLOCK VARIANTS
+========================================================================== */
+
+/* Minimal - No borders, more compact, ideal for secondary CTAs */
+.cta--minimal {
+    .cta__container {
+        @apply section-spacing-compact;
+    }
+    .cta__body {
+        @apply border-0 pt-2 px-0;
+    }
+}
+
+/* Split - Content divided into two columns for comparisons */
+.cta--split {
+    .cta__content {
+        @apply md:w-full grid grid-cols-1 md:grid-cols-2 gap-8;
+    }
+    .cta__header {
+        @apply col-span-full;
+    }
+}
+
+/* Compact - Smaller version for newsletters, secondary actions */
+.cta--compact {
+    .cta__container {
+        @apply section-spacing-compact;
+    }
+    .cta__content {
+        @apply md:w-full lg:w-10/12;
+    }
+    .cta__body {
+        @apply py-6 md:py-8;
+    }
+}
+
+/* ==========================================================================
+   ABOUT BLOCK VARIANTS
+========================================================================== */
+
+/* Centered - Everything centered without image, ideal for mission statements */
+.about--centered {
+    .about-content__image {
+        @apply hidden;
+    }
+    .about-content__info {
+        @apply col-span-12 text-center items-center;
+    }
+}
+
+/* Image Right - Reverses visual order */
+.about--image-right {
+    .about-content__image {
+        @apply order-2;
+    }
+    .about-content__info {
+        @apply order-1;
+    }
+}
+
+/* Minimal - Text only, no image, compact spacing */
+.about--minimal {
+    .about-content__image {
+        @apply hidden;
+    }
+    .about-content__info {
+        @apply col-span-12 lg:col-span-8 section-spacing-compact;
+    }
+}
+
+/* Full Width - No container restrictions, full image */
+.about--fullwidth {
+    @apply max-w-none;
+    .about-content {
+        @apply max-w-none;
+        &__image {
+            @apply col-span-12 lg:col-span-6;
+        }
+        &__info {
+            @apply col-span-12 lg:col-span-6;
+        }
+    }
+}
+
+/* ==========================================================================
+   SERVICES BLOCK VARIANTS
+========================================================================== */
+
+/* Horizontal - Horizontal list for feature highlights */
+.services--horizontal {
+    .services-illustrations__content {
+        @apply flex flex-wrap items-center justify-between gap-4;
+    }
+    .services-illustrations__card {
+        @apply flex-row gap-4 text-left component-padding;
+        &-illustration {
+            @apply w-16 h-16;
+        }
+    }
+}
+
+/* Centered - Single column, ideal for 1-3 featured services */
+.services--centered {
+    .services-illustrations__content {
+        @apply grid-cols-1 max-w-content-md mx-auto;
+    }
+}
+
+/* Minimal - No cards, flat design for footer/sidebar */
+.services--minimal {
+    .services-illustrations__card {
+        @apply bg-transparent border-0 shadow-none component-padding;
+    }
+}
+
+/* Dense - 6 columns for many items (technologies, partners) */
+.services--dense {
+    .services-illustrations__content {
+        @apply sm:grid-cols-3 lg:grid-cols-6;
+    }
+    .services-illustrations__card {
+        @apply component-padding-small;
+        &-illustration {
+            @apply w-12 h-12;
+        }
+    }
+}
+
+/* ==========================================================================
+   TEAM BLOCK VARIANTS
+========================================================================== */
+
+/* List - Horizontal layout with always visible info */
+.team--list {
+    .team-block__grid {
+        @apply flex flex-col gap-6;
+    }
+    .team-block__team {
+        @apply col-span-full;
+    }
+    .card-team {
+        @apply flex-row max-h-none items-center;
+        &__image {
+            @apply w-48 h-48 flex-shrink-0;
+        }
+        &__info {
+            @apply opacity-100 relative bg-transparent items-start text-left pl-6 inset-auto;
+        }
+    }
+}
+
+/* Minimal - Only small circular avatars */
+.team--minimal {
+    .team-block__description {
+        @apply col-span-full;
+    }
+    .team-block__grid {
+        @apply flex flex-row flex-wrap justify-center gap-4;
+    }
+    .team-block__team {
+        @apply w-auto;
+    }
+    .card-team {
+        @apply max-h-32 w-32 rounded-full overflow-hidden;
+        &__image img {
+            @apply rounded-full;
+        }
+        &__info {
+            @apply hidden;
+        }
+    }
+}
+
+/* Centered - Larger centered cards */
+.team--centered {
+    .team-block__description {
+        @apply col-span-full text-center;
+    }
+    .team-block__grid {
+        @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center;
+    }
+    .team-block__team {
+        @apply col-span-1;
+    }
+}
+
+/* ==========================================================================
+   GALLERY BLOCK VARIANTS
+========================================================================== */
+
+/* Large - 2 columns with large images for portfolio */
+.gallery--large {
+    .gallery-block__list {
+        @apply sm:grid-cols-2;
+    }
+    .gallery-block__item-image {
+        @apply !h-[300px] lg:!h-[500px];
+    }
+}
+
+/* Compact - 6 columns for thumbnails/categories */
+.gallery--compact {
+    .gallery-block__list {
+        @apply sm:grid-cols-6 gap-2;
+    }
+    .gallery-block__item-image {
+        @apply !h-[120px];
+    }
+    .gallery-block__item-info {
+        @apply hidden;
+    }
+}
+
+/* Minimal - No info, only images with minimal spacing */
+.gallery--minimal {
+    .gallery-block__item-info {
+        @apply hidden;
+    }
+    .gallery-block__list {
+        @apply gap-2;
+    }
+}
+
+/* ==========================================================================
+   MENU/DISH BLOCK VARIANTS
+========================================================================== */
+
+/* Centered - Single centered column for featured menu */
+.menu--centered {
+    .menu-block__dishes {
+        @apply grid-cols-1 max-w-content-lg mx-auto;
+    }
+}
+
+/* Compact - Compact list without descriptions for quick menu */
+.menu--compact {
+    .dish__description {
+        @apply hidden;
+    }
+    .dish {
+        @apply pb-1 mb-1;
+    }
+}
+
+/* Cards - Each dish in individual card with background */
+.menu--cards {
+    .dishes__list {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+    }
+    .dish {
+        @apply bg-coarseWool-800 card-padding rounded-lg border-0;
+    }
+}
+
+/* Minimal - No borders for prix fixe/set menus */
+.menu--minimal {
+    .dish {
+        @apply border-0 pb-2 mb-2;
+    }
+}
+
+/* ==========================================================================
+   SPECIAL OFFERS VARIANTS
+========================================================================== */
+
+/* Centered - Image on top, info below (vertical stack) */
+.special-offers--centered {
+    .special-offers__item {
+        @apply flex flex-col;
+        &-image {
+            @apply max-h-[400px];
+        }
+    }
+}
+
+/* Minimal - Info only, small or hidden image */
+.special-offers--minimal {
+    .special-offers__item {
+        @apply grid-cols-1;
+        &-image {
+            @apply max-h-[200px] md:max-h-[240px];
+        }
+    }
+}
+
+/* Overlay - Info positioned over the image */
+.special-offers--overlay {
+    .special-offers__item {
+        @apply relative;
+        &-info {
+            @apply absolute bottom-0 left-0 right-0 bg-coarseWool-900/90 backdrop-blur-sm;
+        }
+    }
+}
+
+/* ==========================================================================
+   USAGE EXAMPLES
+========================================================================== */
+
+/*
+<!-- CTA Minimal -->
+<div class="cta cta--minimal">
+    ...
+</div>
+
+<!-- About Image Right -->
+<div class="about__image-info about--image-right">
+    ...
+</div>
+
+<!-- Services Horizontal -->
+<div class="services-illustrations services--horizontal">
+    ...
+</div>
+
+<!-- Team List View -->
+<div class="team-block team--list">
+    ...
+</div>
+
+<!-- Gallery Large -->
+<div class="gallery-block gallery--large">
+    ...
+</div>
+
+<!-- Menu Compact -->
+<div class="menu-block menu--compact">
+    ...
+</div>
+
+<!-- Special Offers Centered -->
+<div class="special-offers special-offers--centered">
+    ...
+</div>
+*/

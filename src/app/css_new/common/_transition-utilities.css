@@ -1,0 +1,194 @@
+/*==================================================
+    Transition Utilities
+    Standardized transition patterns
+==================================================*/
+
+/* ===================================
+    Standard Transitions
+    Note: Several Tailwind built-in utilities exist:
+    - transition-colors (color transitions)
+    - transition-opacity (opacity transitions)
+    - transition-transform (transform transitions)
+    - transition-all (all properties)
+
+    Combine with duration and easing:
+    - transition-colors duration-300 ease-in-out
+    - transition-opacity duration-500 ease-out
+====================================== */
+.transition-standard {
+    @apply transition-all duration-300 ease-in-out;
+}
+
+/* ===================================
+    Duration Variants
+====================================== */
+.transition-fast {
+    transition-duration: 150ms;
+}
+
+.transition-normal {
+    transition-duration: 300ms;
+}
+
+.transition-slow {
+    transition-duration: 500ms;
+}
+
+/* ===================================
+    Easing Variants
+====================================== */
+.transition-ease-in {
+    transition-timing-function: ease-in;
+}
+
+.transition-ease-out {
+    transition-timing-function: ease-out;
+}
+
+.transition-ease-in-out {
+    transition-timing-function: ease-in-out;
+}
+
+.transition-linear {
+    transition-timing-function: linear;
+}
+
+/* ===================================
+    Combined Utilities
+====================================== */
+.transition-all-fast {
+    @apply transition-all duration-150 ease-in-out;
+}
+
+.transition-all-slow {
+    @apply transition-all duration-500 ease-in-out;
+}
+
+.transition-colors-fast {
+    @apply transition-colors duration-150 ease-in-out;
+}
+
+.transition-opacity-slow {
+    @apply transition-opacity duration-500 ease-in-out;
+}
+
+/* ===================================
+    No Transition
+====================================== */
+.transition-none {
+    transition: none !important;
+}
+
+/* ===================================
+    Hover Transform Utilities
+====================================== */
+.hover-scale {
+    @apply transition-transform duration-300 ease-in-out;
+
+    &:hover {
+        @apply scale-105;
+    }
+}
+
+.hover-scale-sm {
+    @apply transition-transform duration-300 ease-in-out;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+
+.hover-scale-lg {
+    @apply transition-transform duration-300 ease-in-out;
+
+    &:hover {
+        @apply scale-110;
+    }
+}
+
+.hover-lift {
+    @apply transition-transform duration-300 ease-in-out;
+
+    &:hover {
+        @apply -translate-y-1;
+    }
+}
+
+.hover-lift-lg {
+    @apply transition-transform duration-300 ease-in-out;
+
+    &:hover {
+        @apply -translate-y-2;
+    }
+}
+
+/* ===================================
+    Hover Opacity Utilities
+====================================== */
+.hover-opacity {
+    @apply transition-opacity duration-300 ease-in-out;
+
+    &:hover {
+        @apply opacity-80;
+    }
+}
+
+.hover-opacity-low {
+    @apply transition-opacity duration-300 ease-in-out;
+
+    &:hover {
+        @apply opacity-60;
+    }
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- Standard transition -->
+    <button class="transition-standard">
+        Button
+    </button>
+
+    <!-- Color transition only -->
+    <a href="#" class="transition-colors">
+        Link
+    </a>
+
+    <!-- Fast transition -->
+    <div class="transition-all-fast">
+        Content
+    </div>
+
+    <!-- Hover scale effect -->
+    <div class="hover-scale">
+        <img src="..." alt="...">
+    </div>
+
+    <!-- Hover lift effect -->
+    <div class="card hover-lift">
+        Card content
+    </div>
+
+    <!-- Hover opacity -->
+    <img src="..." class="hover-opacity" alt="...">
+
+    <!-- Fade in animation -->
+    <div class="fade-in">
+        Animated content
+    </div>
+
+    <!-- Slide in up -->
+    <div class="slide-in-up">
+        Content slides up
+    </div>
+
+    <!-- Combined: hover scale + opacity -->
+    <div class="hover-scale hover-opacity">
+        Interactive element
+    </div>
+
+    <!-- No transition (override) -->
+    <div class="transition-none">
+        No animation
+    </div>
+====================================== */

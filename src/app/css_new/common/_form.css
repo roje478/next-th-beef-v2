@@ -1,0 +1,234 @@
+/*==================================================
+    Input System - Unified Base Classes
+==================================================*/
+
+/* ===================================
+    Base Input Class
+    Replaces duplicate styles from base.css and form context
+====================================== */
+.input {
+	@apply w-full bg-coarseWool-800/30 border border-coarseWool-400 rounded-md
+	       text-calico-500 font-josefin-sans text-base
+	       px-4 py-3.5 mb-5
+	       transition-all duration-200 ease-out;
+	letter-spacing: 0.25px;
+
+	&::placeholder {
+		@apply text-coarseWool-200 transition-opacity duration-200;
+	}
+
+	&:hover:not(:focus):not(:disabled) {
+		@apply border-coarseWool-300 bg-coarseWool-800/40;
+	}
+
+	&:focus {
+		@apply outline-none border-calico-500 bg-coarseWool-800/50 shadow-sm shadow-calico-500/20;
+
+		&::placeholder {
+			@apply opacity-60;
+		}
+	}
+
+	&:focus-visible {
+		@apply outline-none ring-2 ring-calico-500 ring-offset-2
+		       ring-offset-coarseWool-900 border-calico-500;
+	}
+
+	&:disabled {
+		@apply opacity-50 cursor-not-allowed bg-coarseWool-800/50 border-coarseWool-500;
+	}
+}
+
+/* ===================================
+    Textarea Specific Styles
+====================================== */
+.input-textarea {
+	@apply min-h-[140px] resize-y leading-relaxed;
+}
+
+/* ===================================
+    Input Modifiers
+====================================== */
+
+/* Compact variant - reduced padding */
+.input--compact {
+	@apply px-3 py-2.5 text-sm mb-4;
+}
+
+/* Dark variant - for search bars and special contexts */
+.input--dark {
+	@apply bg-coarseWool-900/80 text-coarseWool-100 border-coarseWool-600;
+
+	&:hover:not(:focus):not(:disabled) {
+		@apply border-coarseWool-500 bg-coarseWool-900;
+	}
+
+	&:focus {
+		@apply border-calico-500 bg-coarseWool-900;
+	}
+
+	&:focus-visible {
+		@apply ring-offset-coarseWool-800;
+	}
+}
+
+/* Search variant - for button groups (no right border-radius) */
+.input--search {
+	@apply rounded-tr-none rounded-br-none mb-0 border-r-0;
+}
+
+/* No margin variant - for special layouts */
+.input--no-margin {
+	@apply mb-0;
+}
+
+/* ===================================
+    Date/Time Input Adjustments
+    Native pickers need different padding
+====================================== */
+input[type="date"].input,
+input[type="time"].input {
+	@apply py-[0.625rem]; /* 10px - adjusted for native picker icons */
+}
+
+/* ===================================
+    Retrocompatibility
+    Support old form_field context (will be deprecated in v3.0)
+====================================== */
+.form_field {
+	input:not([class*="input"]),
+	textarea:not([class*="input"]) {
+		@apply input;
+	}
+
+	textarea:not([class*="input"]) {
+		@apply input-textarea;
+	}
+
+	/* Date inputs in form context */
+	&__date input:not([class*="input"]) {
+		@apply py-[0.625rem];
+	}
+}
+
+
+/*==================================================
+    Form Component Structure
+==================================================*/
+.form {
+	@apply relative w-full flex flex-wrap items-center justify-center pb-6;
+
+	&__body {
+		@apply w-full flex flex-wrap items-center justify-center;
+	}
+
+	&__footer {
+		@apply w-full flex flex-wrap items-center justify-center pt-2;
+	}
+
+	&_row {
+		@apply grid grid-cols-12 gap-5 w-full;
+	}
+
+	&_field {
+		@apply w-full flex flex-col items-start justify-start;
+
+		label {
+			@apply block text-coarseWool-200 text-sm font-josefin-sans mb-2 sr-only;
+		}
+
+		/* Show labels when needed */
+		&--with-label label {
+			@apply not-sr-only;
+		}
+
+		&__name {
+			@apply col-span-12 lg:col-span-9;
+		}
+		&__phone {
+			@apply col-span-12 lg:col-span-3;
+		}
+		&__email {
+			@apply col-span-12 lg:col-span-6;
+		}
+		&__person {
+			@apply col-span-12 lg:col-span-2;
+		}
+		&__date {
+			@apply col-span-12 lg:col-span-2;
+		}
+		&__hours {
+			@apply col-span-12 lg:col-span-2;
+		}
+		&__message {
+			@apply col-span-12;
+		}
+	}
+}
+
+/* ===================================
+    Form Field States
+====================================== */
+.input--error {
+	@apply border-red-500/70 bg-red-500/5;
+
+	&:focus {
+		@apply border-red-500 shadow-sm shadow-red-500/20;
+	}
+}
+
+.input--success {
+	@apply border-green-500/70 bg-green-500/5;
+
+	&:focus {
+		@apply border-green-500 shadow-sm shadow-green-500/20;
+	}
+
+	/* Success icon indicator (optional - can be added via JS) */
+	&[data-validated="true"] {
+		background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%2310b981"%3E%3Cpath fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/%3E%3C/svg%3E');
+		background-repeat: no-repeat;
+		background-position: right 1rem center;
+		background-size: 1.25rem;
+		@apply pr-12;
+	}
+}
+
+/* ===================================
+    Form Field Container
+    Wrapper for input + label + error message
+====================================== */
+.form-field {
+	@apply mb-6;
+}
+
+.form-field__label {
+	@apply block text-coarseWool-100 font-mulish font-semibold uppercase tracking-wider text-xs mb-2;
+}
+
+.form-field__error-message,
+.form_field__error-message {
+	@apply text-red-400 text-sm mt-2 mb-0 font-josefin-sans;
+	@apply flex items-start gap-2;
+
+	/* Error icon */
+	&::before {
+		content: '⚠';
+		@apply inline-block text-red-400 flex-shrink-0;
+	}
+}
+
+.form-field__success-message {
+	@apply text-green-400 text-sm mt-2 mb-0 font-josefin-sans;
+	@apply flex items-start gap-2;
+
+	/* Success icon */
+	&::before {
+		content: '✓';
+		@apply inline-block text-green-400 flex-shrink-0 font-bold;
+	}
+}
+
+.form-field__help-text {
+	@apply text-coarseWool-300 text-sm mt-2 mb-0 font-josefin-sans;
+}

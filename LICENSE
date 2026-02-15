@@ -1,0 +1,146 @@
+===========================================
+BEEF - ELEGANT RESTAURANT TEMPLATE LICENSE
+===========================================
+
+Copyright (c) 2026 [Your Company Name]
+All rights reserved.
+
+This template is licensed under the Envato Market Standard License Terms.
+By purchasing this item, you are granted a license to use it under the following conditions:
+
+-------------------------------------------
+1. REGULAR LICENSE
+-------------------------------------------
+
+The Regular License grants you, the purchaser, an ongoing, non-exclusive, worldwide license to make use of the digital work (Item) you have selected, on the following terms:
+
+1.1. You ARE allowed to:
+   ✓ Use the Item to create a single End Product for yourself or for one client (a "single application").
+   ✓ Modify or manipulate the Item, or combine the Item with other works, to suit your End Product.
+   ✓ Use the Item to create an End Product for a client, and you may transfer that End Product to your client for any fee.
+   ✓ Use the Item in unlimited End Products, but you must purchase a separate license for each final product.
+
+1.2. You ARE NOT allowed to:
+   ✗ Re-distribute the Item as stock, in a tool or template, or with source files.
+   ✗ Re-distribute or make available the Item as-is or with superficial modifications.
+   ✗ Use the Item in any application allowing an end user to customize a digital or physical product to their specific needs.
+   ✗ Use the Item to create End Products that are designed to allow end users to create their own End Products using the Item or derivatives of the Item.
+   ✗ Allow the end user of the End Product to access the Item's source code.
+
+1.3. End Product:
+   - The End Product is a customized implementation of the Item requiring an application of skill and effort.
+   - For example: using the template to create a restaurant website is allowed.
+   - For SaaS applications where end users will have access, you need an Extended License.
+
+-------------------------------------------
+2. EXTENDED LICENSE
+-------------------------------------------
+
+The Extended License grants you the same rights as the Regular License, PLUS:
+
+2.1. You ARE additionally allowed to:
+   ✓ Use the Item to create an End Product where End Users can be charged a fee to access the End Product (SaaS - Software as a Service).
+   ✓ Make unlimited copies of the single End Product as long as the End Product is distributed for free.
+   ✓ The End Product may be sold and End Users charged.
+
+2.2. Examples of Extended License use cases:
+   - A SaaS application where users pay a subscription to access
+   - A restaurant booking platform where multiple restaurants pay to use the system
+   - A multi-tenant application built with this template
+
+-------------------------------------------
+3. GENERAL TERMS
+-------------------------------------------
+
+3.1. This license can be terminated if you breach it and you lose the right to distribute the End Product until the Item has been fully removed from the End Product.
+
+3.2. The author of the Item retains ownership of the Item but grants you the license on these terms. This license is between the author of the Item and you. Envato Pty Ltd is not a party to this license or the one giving you the license.
+
+3.3. You must not permit an end user of the End Product to extract the Item and use it separately from the End Product.
+
+3.4. You may not use the Item in a logo, trademark, or service mark.
+
+-------------------------------------------
+4. TECHNICAL REQUIREMENTS
+-------------------------------------------
+
+4.1. System Requirements:
+   - Node.js >= 20.x
+   - pnpm >= 8.x (recommended package manager)
+   - Modern web browser with JavaScript enabled
+
+4.2. Included in this package:
+   - Full source code (TypeScript/React)
+   - All CSS/SCSS files
+   - All images and assets
+   - Documentation
+   - Example data and configurations
+
+4.3. NOT included:
+   - Backend/Database (this is a frontend template)
+   - Hosting or domain
+   - Images used in live preview (for demonstration only)
+   - Support beyond the support period
+
+-------------------------------------------
+5. SUPPORT & UPDATES
+-------------------------------------------
+
+5.1. Item Support:
+   - 6 months of support included with purchase
+   - Extended support available for additional fee
+   - Support includes: answering questions, bug fixes, providing updates
+
+5.2. Support does NOT include:
+   - Customization services
+   - Installation services
+   - Third-party plugin/library support
+
+5.3. Updates:
+   - Free updates for the lifetime of the item
+   - Security patches provided as needed
+   - Feature updates at author's discretion
+
+-------------------------------------------
+6. WARRANTY DISCLAIMER
+-------------------------------------------
+
+THE ITEM IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE ITEM OR THE USE OR OTHER DEALINGS IN THE ITEM.
+
+-------------------------------------------
+7. THIRD-PARTY LICENSES
+-------------------------------------------
+
+This template includes the following open-source libraries, each with their own licenses:
+
+- Next.js (MIT License)
+- React (MIT License)
+- Tailwind CSS (MIT License)
+- Framer Motion (MIT License)
+- GSAP (Commercial License - Standard "no-charge" GreenSock License)
+- Swiper (MIT License)
+- Radix UI (MIT License)
+- Lucide Icons (ISC License)
+
+For complete license information of each library, please refer to their respective LICENSE files in the node_modules directory.
+
+-------------------------------------------
+8. CONTACT & MORE INFORMATION
+-------------------------------------------
+
+For questions about licensing, please contact:
+- Email: [your-email@example.com]
+- ThemeForest Profile: [your-profile-url]
+
+For the complete Envato Market License Terms, visit:
+https://themeforest.net/licenses/standard
+https://themeforest.net/licenses/extended
+
+-------------------------------------------
+
+Last Updated: February 2026
+Version: 1.0.0
+
+This license agreement is effective from the date of purchase.

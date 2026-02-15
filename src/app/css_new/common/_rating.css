@@ -1,0 +1,417 @@
+/* ============================================
+   RATING COMPONENT
+   Reusable star rating system for reviews, testimonials, and menu items
+============================================= */
+
+/* ============================================
+   BASE RATING COMPONENT
+============================================= */
+
+.rating {
+    @apply inline-flex items-center gap-1;
+    @apply font-mulish;
+}
+
+/* Rating with numerical value */
+.rating__stars {
+    @apply inline-flex items-center gap-0.5;
+}
+
+.rating__value {
+    @apply ml-2 font-semibold text-coarseWool-200;
+}
+
+.rating__count {
+    @apply ml-1 text-coarseWool-400 font-normal;
+}
+
+/* ============================================
+   STAR STYLES
+============================================= */
+
+.rating__star {
+    @apply inline-block;
+    @apply transition-colors duration-200;
+    @apply text-calico-500;
+}
+
+/* Filled star */
+.rating__star--filled {
+    @apply text-calico-500;
+}
+
+/* Half-filled star */
+.rating__star--half {
+    @apply relative;
+
+    &::before {
+        content: '★';
+        @apply absolute left-0 top-0;
+        @apply text-calico-500;
+        @apply overflow-hidden;
+        width: 50%;
+    }
+
+    &::after {
+        content: '★';
+        @apply text-coarseWool-600;
+    }
+}
+
+/* Empty star */
+.rating__star--empty {
+    @apply text-coarseWool-600;
+}
+
+/* ============================================
+   SIZE VARIANTS
+============================================= */
+
+/* Small rating (for compact layouts) */
+.rating--sm {
+    .rating__star {
+        @apply text-sm;
+    }
+
+    .rating__value {
+        @apply text-sm;
+    }
+
+    .rating__count {
+        @apply text-xs;
+    }
+}
+
+/* Default rating */
+.rating--default {
+    .rating__star {
+        @apply text-base;
+    }
+
+    .rating__value {
+        @apply text-base;
+    }
+
+    .rating__count {
+        @apply text-sm;
+    }
+}
+
+/* Large rating (for hero sections, featured reviews) */
+.rating--lg {
+    .rating__star {
+        @apply text-2xl;
+    }
+
+    .rating__value {
+        @apply text-xl;
+    }
+
+    .rating__count {
+        @apply text-base;
+    }
+}
+
+/* Extra large rating (for stats sections) */
+.rating--xl {
+    .rating__star {
+        @apply text-4xl;
+    }
+
+    .rating__value {
+        @apply text-3xl;
+    }
+
+    .rating__count {
+        @apply text-lg;
+    }
+}
+
+/* ============================================
+   LAYOUT VARIANTS
+============================================= */
+
+/* Inline rating (default) */
+.rating--inline {
+    @apply inline-flex items-center;
+}
+
+/* Stacked rating (stars above value) */
+.rating--stacked {
+    @apply flex flex-col items-start gap-2;
+
+    .rating__value {
+        @apply ml-0;
+    }
+}
+
+/* Centered rating */
+.rating--centered {
+    @apply flex flex-col items-center gap-2;
+
+    .rating__value {
+        @apply ml-0;
+    }
+}
+
+/* ============================================
+   COLOR VARIANTS
+============================================= */
+
+/* Gold/Calico (default) */
+.rating--gold {
+    .rating__star--filled,
+    .rating__star--half::before {
+        @apply text-calico-500;
+    }
+}
+
+/* Red variant (for spicy ratings, etc.) */
+.rating--red {
+    .rating__star--filled,
+    .rating__star--half::before {
+        @apply text-red-500;
+    }
+}
+
+/* Green variant (for eco ratings, etc.) */
+.rating--green {
+    .rating__star--filled,
+    .rating__star--half::before {
+        @apply text-green-500;
+    }
+}
+
+/* White variant (for dark backgrounds) */
+.rating--white {
+    .rating__star--filled,
+    .rating__star--half::before {
+        @apply text-white;
+    }
+
+    .rating__star--empty {
+        @apply text-white/30;
+    }
+
+    .rating__value {
+        @apply text-white;
+    }
+
+    .rating__count {
+        @apply text-white/70;
+    }
+}
+
+/* ============================================
+   INTERACTIVE RATING (for forms)
+============================================= */
+
+.rating--interactive {
+    .rating__star {
+        @apply cursor-pointer;
+        @apply hover:text-calico-400;
+        @apply transition-all duration-200;
+
+        &:hover {
+            @apply scale-110;
+        }
+    }
+}
+
+/* ============================================
+   RATING WITH LABEL
+============================================= */
+
+.rating-with-label {
+    @apply flex items-center gap-3;
+}
+
+.rating-with-label__label {
+    @apply font-mulish font-semibold text-coarseWool-200;
+    @apply text-sm uppercase tracking-wider;
+}
+
+/* ============================================
+   RATING BREAKDOWN (for detailed reviews)
+============================================= */
+
+.rating-breakdown {
+    @apply space-y-3;
+}
+
+.rating-breakdown__item {
+    @apply flex items-center gap-4;
+}
+
+.rating-breakdown__label {
+    @apply font-mulish font-semibold text-coarseWool-200;
+    @apply text-sm uppercase tracking-wider;
+    @apply min-w-[80px];
+}
+
+.rating-breakdown__bar {
+    @apply flex-1 bg-coarseWool-700 rounded-full h-2 overflow-hidden;
+}
+
+.rating-breakdown__fill {
+    @apply bg-calico-500 h-full rounded-full;
+    @apply transition-all duration-500 ease-out;
+}
+
+.rating-breakdown__value {
+    @apply font-mulish font-semibold text-coarseWool-200;
+    @apply text-sm min-w-[40px] text-right;
+}
+
+/* ============================================
+   RATING SUMMARY CARD
+============================================= */
+
+.rating-summary {
+    @apply bg-coarseWool-800 border border-coarseWool-600 rounded-lg;
+    @apply p-6 md:p-8;
+}
+
+.rating-summary__header {
+    @apply text-center mb-6;
+}
+
+.rating-summary__score {
+    @apply text-5xl md:text-6xl font-bold text-calico-500;
+    @apply font-barlow-condensed;
+}
+
+.rating-summary__label {
+    @apply text-coarseWool-300 text-sm uppercase tracking-wider;
+    @apply mt-2;
+}
+
+.rating-summary__stars {
+    @apply flex justify-center mt-4;
+}
+
+.rating-summary__count {
+    @apply text-coarseWool-400 text-sm mt-2;
+}
+
+.rating-summary__breakdown {
+    @apply mt-6 pt-6 border-t border-coarseWool-600;
+}
+
+/* ============================================
+   ACCESSIBILITY
+============================================= */
+
+/* Screen reader only text */
+.rating__sr-only {
+    @apply sr-only;
+}
+
+/* Focus states for interactive ratings */
+.rating--interactive .rating__star:focus {
+    @apply outline-none;
+    @apply ring-2 ring-calico-500 ring-offset-2 ring-offset-coarseWool-900;
+    @apply rounded;
+}
+
+/* ============================================
+   RESPONSIVE BEHAVIOR
+============================================= */
+
+@media (max-width: 640px) {
+    /* Stack rating on mobile for better readability */
+    .rating--responsive {
+        @apply flex-col items-start gap-2;
+
+        .rating__value {
+            @apply ml-0;
+        }
+    }
+
+    /* Reduce star size on mobile */
+    .rating--lg {
+        .rating__star {
+            @apply text-xl;
+        }
+    }
+
+    .rating--xl {
+        .rating__star {
+            @apply text-3xl;
+        }
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+============================================= */
+
+/* Margin utilities for ratings */
+.rating-mt {
+    @apply mt-4;
+}
+
+.rating-mb {
+    @apply mb-4;
+}
+
+/* ============================================
+   USAGE EXAMPLES IN COMMENTS:
+
+   1. Basic Rating:
+   <div class="rating">
+       <div class="rating__stars">
+           <span class="rating__star rating__star--filled">★</span>
+           <span class="rating__star rating__star--filled">★</span>
+           <span class="rating__star rating__star--filled">★</span>
+           <span class="rating__star rating__star--filled">★</span>
+           <span class="rating__star rating__star--half">★</span>
+       </div>
+       <span class="rating__value">4.5</span>
+       <span class="rating__count">(284 reviews)</span>
+   </div>
+
+   2. Large Centered Rating:
+   <div class="rating rating--lg rating--centered">
+       <div class="rating__stars">
+           <!-- stars here -->
+       </div>
+       <span class="rating__value">4.9</span>
+       <span class="rating__count">Based on 284 reviews</span>
+   </div>
+
+   3. Interactive Rating (for forms):
+   <div class="rating rating--interactive" role="radiogroup" aria-label="Rate this dish">
+       <button class="rating__star" role="radio" aria-label="1 star">★</button>
+       <button class="rating__star" role="radio" aria-label="2 stars">★</button>
+       <!-- ... -->
+   </div>
+
+   4. Rating Breakdown:
+   <div class="rating-breakdown">
+       <div class="rating-breakdown__item">
+           <span class="rating-breakdown__label">5 stars</span>
+           <div class="rating-breakdown__bar">
+               <div class="rating-breakdown__fill" style="width: 75%"></div>
+           </div>
+           <span class="rating-breakdown__value">75%</span>
+       </div>
+       <!-- more items -->
+   </div>
+
+   5. Rating Summary Card:
+   <div class="rating-summary">
+       <div class="rating-summary__header">
+           <div class="rating-summary__score">4.9</div>
+           <p class="rating-summary__label">Average Rating</p>
+           <div class="rating-summary__stars">
+               <!-- rating component -->
+           </div>
+           <p class="rating-summary__count">Based on 284 reviews</p>
+       </div>
+       <div class="rating-summary__breakdown">
+           <!-- rating breakdown -->
+       </div>
+   </div>
+
+============================================= */

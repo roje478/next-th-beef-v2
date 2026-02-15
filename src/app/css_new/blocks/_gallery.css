@@ -1,0 +1,90 @@
+/* ==========================
+    Item Gallery
+    Simplified hover: image scale + icon reveal only
+=========================== */
+.gallery-block__item {
+	@apply relative;
+
+	&-image {
+		@apply !max-h-min !min-h-min !h-[200px] lg:!h-[360px] lg:!max-h-[360px] lg:!min-h-[360px] overflow-hidden relative;
+		img {
+			@apply w-full h-full object-cover object-center transition-transform duration-300 ease-in-out;
+		}
+	}
+	&-info {
+		@apply flex flex-col justify-center items-center text-center component-padding-small;
+
+		h3 {
+			@apply !text-title-5 font-barlow-condensed mb-0 font-normal transition-colors duration-300 ease-in-out;
+		}
+		p {
+			@apply text-calico-500 text-caption w-full font-sorts-mill-goudy font-normal mb-0 italic;
+		}
+	}
+	&-icon {
+		@apply absolute inset-3 flex justify-center items-center bg-calico-500/80 text-2xl text-coarseWool-500 opacity-0 z-50 transition-opacity duration-300 ease-in-out;
+	}
+	&:hover,
+	&:focus-within {
+		@apply cursor-pointer;
+
+		.gallery-block__item-icon {
+			@apply opacity-100;
+		}
+		.gallery-block__item-image img {
+			@apply scale-105;
+		}
+		.gallery-block__item-info h4 {
+			@apply text-calico-500;
+		}
+	}
+	&:focus-within {
+		@apply focus-ring;
+	}
+}
+
+.gallery-block__small{
+	@apply !pt-6;
+}
+
+/* ==========================
+    Gallery Block
+=========================== */
+.gallery-block {
+	@apply flex overflow-x-hidden flex-col  pt-9 md:pt-16 xl:pt-24 pb-6;
+
+	&__container {
+		@apply container mx-auto flex flex-col flex-wrap justify-start items-center relative z-20 w-full;
+	}
+
+	&__list {
+		@apply grid grid-cols-2 sm:grid-cols-4 gap-6 mt-0 px-4;
+	}
+}
+
+/* ==========================
+    Lazy Loading States
+=========================== */
+.gallery-block__item-image img {
+	/* Default: blurred placeholder */
+	&[data-src] {
+		@apply blur-sm;
+		background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+	}
+
+	/* Loading state */
+	&.lazy-loading {
+		@apply opacity-75;
+	}
+
+	/* Loaded state */
+	&.lazy-loaded {
+		@apply blur-0 opacity-100;
+		transition: filter 0.3s ease-out, opacity 0.3s ease-out;
+	}
+
+	/* Error state */
+	&.lazy-error {
+		@apply blur-0 opacity-50;
+	}
+}

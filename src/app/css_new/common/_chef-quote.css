@@ -1,0 +1,35 @@
+/* ===================================
+    Chef Quote Block Component
+    Used for: Chef philosophy and storytelling
+====================================== */
+
+.chef-quote {
+    @apply relative pt-36 pb-0 lg:pb-6 xl:pt-36 xl:pb-0 ;
+
+    &__container {
+        @apply max-w-content-lg mx-auto px-4;
+    }
+
+    &__marks {
+        @apply text-calico-500 opacity-20 text-6xl lg:text-8xl font-serif mb-4;
+        @apply absolute top-20 lg:top-12 left-1/2 transform -translate-x-1/2;
+    }
+
+    &__text {
+        @apply relative z-10 text-coarseWool-100 !text-title-5 lg:!text-title-2;
+        @apply font-sorts-mill-goudy italic leading-relaxed text-center;
+        @apply mb-6;
+    }
+
+    &__attribution {
+        @apply text-center;
+
+        .name {
+            @apply text-calico-500 text-subtitle-2 font-barlow-condensed block;
+        }
+
+        .title {
+            @apply text-coarseWool-300 text-caption block mt-1;
+        }
+    }
+}

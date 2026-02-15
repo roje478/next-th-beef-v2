@@ -1,0 +1,182 @@
+/*==================================================
+    Title Utilities
+    Title styling patterns and decorative borders
+==================================================*/
+
+/* ===================================
+    Title with Horizontal Borders
+====================================== */
+.title-bordered {
+    @apply border-t border-b border-solid border-calico-500 py-4;
+}
+
+/* Thickness Variants */
+.title-bordered--thin {
+    @apply border-t border-b py-3;
+}
+
+.title-bordered--thick {
+    @apply border-t-2 border-b-2 pt-5 pb-6;
+}
+
+/* Spacing Variants */
+.title-bordered--compact {
+    @apply py-3;
+}
+
+.title-bordered--spacious {
+    @apply py-6;
+}
+
+/* Color Variants */
+.title-bordered--primary {
+    @apply border-t-calico-500 border-b-calico-500;
+}
+
+.title-bordered--secondary {
+    @apply border-t-coarseWool-300 border-b-coarseWool-300;
+}
+
+.title-bordered--tertiary {
+    @apply border-t-coarseWool-400 border-b-coarseWool-400;
+}
+
+/* ===================================
+    Title with Top Border Only
+====================================== */
+.title-border-top {
+    @apply border-t border-solid border-calico-500 pt-4;
+}
+
+.title-border-top--thick {
+    @apply border-t-2 pt-5;
+}
+
+/* ===================================
+    Title with Bottom Border Only
+====================================== */
+.title-border-bottom {
+    @apply border-b border-solid border-calico-500 pb-4;
+}
+
+.title-border-bottom--thick {
+    @apply border-b-2 pb-5;
+}
+
+/* ===================================
+    Title with Left Accent
+====================================== */
+.title-accent-left {
+    @apply border-l-4 border-solid border-calico-500 pl-4;
+}
+
+.title-accent-left--thick {
+    @apply border-l-8 pl-6;
+}
+
+/* ===================================
+    Title with Underline Effect
+====================================== */
+.title-underline {
+    @apply relative pb-4;
+
+    &::after {
+        content: '';
+        @apply absolute bottom-0 left-0 h-px w-16 bg-calico-500;
+    }
+}
+
+.title-underline--center {
+    &::after {
+        @apply left-1/2 -translate-x-1/2;
+    }
+}
+
+.title-underline--full {
+    &::after {
+        @apply w-full;
+    }
+}
+
+.title-underline--thick {
+    &::after {
+        @apply h-1;
+    }
+}
+
+/* ===================================
+    Title with Background
+====================================== */
+.title-bg {
+    @apply bg-coarseWool-800 px-4 py-3;
+}
+
+.title-bg--accent {
+    @apply bg-calico-500 text-coarseWool-900;
+}
+
+.title-bg--bordered {
+    @apply border border-solid border-calico-500;
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- Event title with horizontal borders -->
+    <h3 class="title-bordered">
+        Special Event
+    </h3>
+
+    <!-- Location title with thick borders -->
+    <h4 class="title-bordered title-bordered--thick">
+        Our Locations
+    </h4>
+
+    <!-- Compact bordered title -->
+    <h5 class="title-bordered title-bordered--compact title-bordered--secondary">
+        Opening Hours
+    </h5>
+
+    <!-- Title with bottom border only -->
+    <h3 class="title-border-bottom">
+        Menu Categories
+    </h3>
+
+    <!-- Title with left accent -->
+    <h2 class="title-accent-left heading heading--lg">
+        About Us
+    </h2>
+
+    <!-- Title with centered underline -->
+    <h2 class="title-underline title-underline--center heading heading--responsive-lg">
+        Our Services
+    </h2>
+
+    <!-- Title with full-width thick underline -->
+    <h3 class="title-underline title-underline--full title-underline--thick">
+        Featured Dishes
+    </h3>
+
+    <!-- Title with background -->
+    <h4 class="title-bg">
+        Newsletter
+    </h4>
+
+    <!-- Title with accent background -->
+    <h3 class="title-bg title-bg--accent">
+        Special Offer
+    </h3>
+
+    <!-- Combined with heading utilities -->
+    <h2 class="heading heading--responsive-lg title-bordered title-bordered--thick">
+        Welcome to Beef Restaurant
+    </h2>
+
+    <!-- Combined with typography utilities -->
+    <h3 class="heading heading--md title-accent-left">
+        Our Story
+    </h3>
+    <p class="text-decorative text-decorative--accent text-decorative--md">
+        Since 1995
+    </p>
+====================================== */

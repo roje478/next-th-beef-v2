@@ -1,0 +1,213 @@
+/* ===================================
+    Social Icons Component
+    Enhanced with variants for different contexts
+====================================== */
+.social_icons {
+    @apply flex flex-wrap items-center justify-start gap-6 px-0 py-2 m-0;
+
+    li {
+        @apply flex flex-wrap items-center;
+
+        a {
+            @apply text-base text-calico-500 transition-colors duration-200 ease-out;
+
+            &:hover {
+                @apply text-calico-700;
+            }
+
+            &:focus-visible {
+                @apply focus-ring rounded-sm;
+            }
+
+            &:active {
+                @apply text-calico-800;
+            }
+        }
+    }
+}
+
+/* ===================================
+    Size Variants
+====================================== */
+.social_icons--sm {
+    @apply gap-4;
+
+    li a {
+        @apply text-sm;
+    }
+}
+
+.social_icons--lg {
+    @apply gap-8;
+
+    li a {
+        @apply text-lg;
+    }
+}
+
+.social_icons--xl {
+    @apply gap-10;
+
+    li a {
+        @apply text-xl;
+    }
+}
+
+/* ===================================
+    Alignment Variants
+====================================== */
+.social_icons--center {
+    @apply justify-center;
+}
+
+.social_icons--end {
+    @apply justify-end;
+}
+
+/* ===================================
+    Color Variants
+====================================== */
+.social_icons--dark {
+    li a {
+        @apply text-coarseWool-100;
+
+        &:hover {
+            @apply text-calico-500;
+        }
+    }
+}
+
+.social_icons--light {
+    li a {
+        @apply text-white;
+
+        &:hover {
+            @apply text-calico-300;
+        }
+    }
+}
+
+.social_icons--muted {
+    li a {
+        @apply text-coarseWool-400;
+
+        &:hover {
+            @apply text-calico-500;
+        }
+    }
+}
+
+/* ===================================
+    Style Variants
+====================================== */
+.social_icons--outlined {
+    li a {
+        @apply w-10 h-10 flex items-center justify-center rounded-full
+               border-2 border-calico-500 transition-all duration-200 ease-out;
+
+        &:hover {
+            @apply bg-calico-500 text-coarseWool-900 border-calico-500;
+        }
+
+        &:active {
+            @apply bg-calico-600 border-calico-600 scale-95;
+        }
+    }
+}
+
+.social_icons--filled {
+    li a {
+        @apply w-10 h-10 flex items-center justify-center rounded-full
+               bg-calico-500 text-coarseWool-900 transition-all duration-200 ease-out;
+
+        &:hover {
+            @apply bg-calico-600;
+        }
+
+        &:active {
+            @apply bg-calico-700 scale-95;
+        }
+    }
+}
+
+.social_icons--squared {
+    li a {
+        @apply w-10 h-10 flex items-center justify-center rounded-lg
+               border-2 border-calico-500 transition-all duration-200 ease-out;
+
+        &:hover {
+            @apply bg-calico-500 text-coarseWool-900;
+        }
+
+        &:active {
+            @apply bg-calico-600 border-calico-600 scale-95;
+        }
+    }
+}
+
+/* ===================================
+    Overlay Style (for team cards)
+====================================== */
+.social_icons--overlay {
+    @apply gap-4;
+
+    li a {
+        @apply w-8 h-8 flex items-center justify-center rounded-full
+               bg-coarseWool-900 text-calico-500 text-sm transition-all duration-200 ease-out;
+
+        &:hover {
+            @apply bg-calico-500 text-coarseWool-900;
+        }
+
+        &:active {
+            @apply bg-calico-600 scale-95;
+        }
+    }
+}
+
+/* ===================================
+    Vertical Layout
+====================================== */
+.social_icons--vertical {
+    @apply flex-col items-start gap-3;
+}
+
+/* ===================================
+    Usage Examples:
+
+    <!-- Default social icons -->
+    <ul class="social_icons">
+        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+    </ul>
+
+    <!-- Large centered -->
+    <ul class="social_icons social_icons--lg social_icons--center">
+        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+    </ul>
+
+    <!-- Outlined style -->
+    <ul class="social_icons social_icons--outlined">
+        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+    </ul>
+
+    <!-- Filled style -->
+    <ul class="social_icons social_icons--filled">
+        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+    </ul>
+
+    <!-- Dark variant for light backgrounds -->
+    <ul class="social_icons social_icons--dark">
+        <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+
+    <!-- Overlay style (team cards) -->
+    <ul class="social_icons social_icons--overlay">
+        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+    </ul>
+
+    <!-- Vertical layout -->
+    <ul class="social_icons social_icons--vertical">
+        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+    </ul>
+====================================== */
