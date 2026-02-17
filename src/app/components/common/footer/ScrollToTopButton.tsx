@@ -37,7 +37,7 @@ const ScrollToTopButton: React.FC = () => {
 
     return (
         <button
-            className="btn-to-top"
+            className="btn-scroll-top"
             onClick={handleScrollToTop}
             aria-label={InfoGeneralData.scrollToTopLabel}
             title={InfoGeneralData.scrollToTopLabel}
