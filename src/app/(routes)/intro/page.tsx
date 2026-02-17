@@ -5,6 +5,7 @@ import { homepagesListData } from '@/app/hooks/data-homepages';
 import InnersPagesBlock from '@/app/blocks/innerspages/innerspages';
 import { innerspagesListData } from '@/app/hooks/data-innerspages';
 import ServicesList from '@/app/blocks/services/variants/servicesList/ServicesList';
+import BannerInnerPages from '@/app/blocks/innerspages/BannerInnerPages';
 
 import { FeaturesCardListData } from '@/app/hooks/data-features';
 import Cta from '@/app/blocks/cta/variants/ctaOne/ctaOne';
@@ -22,39 +23,26 @@ const PageIntro = () => {
                 <HomePagesBlock {...homepagesListData} />
                 {/* / Home Pages */}
 
-                {/* banner */}
-                <div className="z-50 sections bg-coarseWool-900">
-                    <div className="sections__container">
-                        {/* Section title */}
-                        <div className="pb-0 section-title section-title__center">
-                            <p className="mb-0 text-center">
-                                Not only the home page, we have designed many beautiful individual
-                                pages to meet your different needs.
-                            </p>
-                        </div>
-                        {/*/ Section title */}
-                    </div>
-                </div>
-                {/*/ banner */}
+                {/* Banner */}
+                <BannerInnerPages />
+                {/* / Banner */}
 
-                {/* Home Pages */}
+                {/* Inner Pages */}
                 <InnersPagesBlock {...innerspagesListData} />
-                {/* / Home Pages */}
+                {/* / Inner Pages */}
             </div>
 
-            {/* banner */}
-            <div className="sections">
+            {/* Banner */}
+            <section className="sections bg-coarseWool-900">
                 <div className="sections__container">
-                    {/* Section title */}
                     <div className="pb-0 section-title section-title__center">
                         <h3 className="mb-0 text-calico-500 text-center">
                             You are in the right place now
                         </h3>
                     </div>
-                    {/*/ Section title */}
                 </div>
-            </div>
-            {/*/ banner */}
+            </section>
+            {/* / Banner */}
 
             {/* Illustrations Card - List - Block */}
             <ServicesList {...FeaturesCardListData} />

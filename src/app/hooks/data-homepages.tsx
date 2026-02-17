@@ -1,7 +1,6 @@
 export const homepagesListData = {
 	emptyMessage: "No home pages available at the moment.",
 	defaultAltText: "Home page",
-	carouselAriaLabel: "Our home pages",
 	subtitle: "Home pages",
 	title: "take a look at the home pages",
 	divider: true,
@@ -9,17 +8,17 @@ export const homepagesListData = {
 	items: [
 		{
 			id: 1,
-			image: "/sections/home-classic.webp",
-			altText: "Homer Classic",
-			link: "/home-classic",
-			caption: "Home Classic",
+			image: "/sections/home-creative.webp",
+			altText: "Creative homepage layout preview",
+			link: "/home-creative",
+			caption: "Creative",
 		},
 		{
 			id: 2,
-			image: "/sections/home-creative.webp",
-			altText: "Homer Creative",
-			link: "/home-creative",
-			caption: "Home Creative",
+			image: "/sections/home-classic.webp",
+			altText: "Classic homepage layout preview",
+			link: "/home-classic",
+			caption: "Classic",
 		},
 	],
 };

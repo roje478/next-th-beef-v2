@@ -12,16 +12,16 @@ const ServicesListTwo = ({
 	// Improved data validation check
 	if (!items || items.length === 0) {
 		return (
-			<div className="services-ilustrations services-ilustrations--empty">
+			<div className="services-illustrations services-illustrations--empty">
 				<p>{emptyMessage}</p>
 			</div>
 		);
 	}
 
 	return (
-		<div className="services-ilustrations-2">
-			<div className="services-ilustrations-2__container">
-				<div className="services-ilustrations-2__content">
+		<div className="services-illustrations-2">
+			<div className="services-illustrations-2__container">
+				<div className="services-illustrations-2__content">
 					{items.map((item) => (
 						<ServiceCard
 							id={item.id}
