@@ -82,6 +82,16 @@ export const sliderHeroIntroData = {
     ],
 };
 
+export const heroBasicClassicData = {
+    image: '/hero/hero-1.webp',
+    altText: 'Gourmet steak dinner with wine at candlelit table',
+    subtitle: 'Welcome to our restaurant',
+    title: 'French Restaurants of the 19th century',
+    description: "The restaurant is an organic space reflective of nature inspired cuisine. The interplay of textures and colour brings life and a vibrance that embraces the restaurant's place in the dress circle.",
+    buttonText: 'See Our Menu',
+    buttonLink: '/menu',
+};
+
 export const heroBasicIntroData = {
     image: '/hero/hero-1.webp',
     altText: 'Gourmet steak dinner with wine at candlelit table',
