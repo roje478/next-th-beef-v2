@@ -10,9 +10,7 @@ const OpeningHours: React.FC<OpeningHoursProps> = ({ title, schedule }) => {
 
 	return (
 		<div className="opening-hours">
-			<div className="opening-hours__header">
-				<h3>{title}</h3>
-			</div>
+			<h3>{title}</h3>
 			<div className="opening-hours__body">
 				{schedule.map((item) => (
 					<OpeningHoursItem

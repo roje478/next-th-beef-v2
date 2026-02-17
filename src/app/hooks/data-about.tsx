@@ -5,12 +5,7 @@ export const aboutData = {
 	altText:
 		"Elegant interior of the main restaurant dining room with set tables",
 	subtitle: "About us",
-	title: "Discover Lorem From Flavors Within Wines.",
-	divider: false,
-	align: "left" as const,
-	priorityImage: false,
-	buttonLink: "/menu",
-	buttonText: "Our menu",
+	title: "Discover Lorem From <br>Flavors Within Wines.",
 	showOpeningHours: true,
 	openingHours: {
 		title: "Opening Hours",
@@ -28,9 +23,8 @@ export const aboutData = {
 		]
 	},
 	descriptionParagraphs: [
-		"Our restaurant is a celebration of nature-inspired cuisine, where every dish tells a story. Through a vibrant blend of textures, colors, and seasonal ingredients, we create an environment that feels both elegant and alive.",
-		"We believe in the art of culinary innovation. Our chefs experiment daily, crafting bold flavors and unforgettable experiences that surprise and delight every guest who walks through our doors.",
-		"Warm hospitality is at the heart of everything we do. From the first greeting to the last bite, we strive to make every guest feel welcome, comfortable, and truly at home.",
+		"An organic space reflective of nature inspired cuisine. A vibrant environment of flavors, textures and colors. Different preparations, various ingredients, each plate an unique art piece that coexists in perfect harmony.",
+		"A space to delight, to enjoy, to celebrate and to dream. Welcome to a new culinary experience.",
 	],
 	descriptionParagraphsTwo: [
 		"Beef Restourant Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words.",

@@ -1,27 +1,18 @@
 "use client";
 import Image from "next/image";
-import React from "react";
-import BlockTitle from "@/app/components/common/block-title/block-title";
+import { motion } from "framer-motion";
 import OpeningHours from "@/app/components/common/opening-hours/opening-hours";
 
-import { AboutBlockProps, Alignment } from "@/app/types/common.types";
+import { AboutBlockProps } from "@/app/types/common.types";
 
 const AboutClassicBlock = ({
 	imageUrl,
 	altText,
 	descriptionParagraphs,
-	onImageClick,
 	imageWidth,
 	imageHeight,
-	priorityImage,
-	imageQuality,
-	imageFill,
-	onImageLoad,
-	imageClassName,
 	subtitle,
 	title,
-	divider,
-	align,
 	showOpeningHours,
 	openingHours,
 }: AboutBlockProps) => {
@@ -39,59 +30,52 @@ const AboutClassicBlock = ({
 	}
 
 	return (
-		<div
-			className="about__image-info"
-			role="region"
-			aria-label="About Image Info"
-			aria-describedby="about-description"
-		>
+		<section className="about__image-info">
 			<div className="about-content">
-				<div
-					className={`about-content__image`}
-					onClick={onImageClick}
-					role={onImageClick ? "button" : undefined}
-					tabIndex={onImageClick ? 0 : undefined}
-				>
+				{/* About image */}
+				<div className="about-content__image">
 					<Image
 						src={imageUrl}
 						alt={altText}
 						width={imageWidth || 809}
 						height={imageHeight || 1011}
-						priority={priorityImage}
-						quality={imageQuality || 75}
-						fill={imageFill}
-						onLoad={onImageLoad}
-						className={`about-content__image-img ${
-							imageClassName || ""
-						}`}
 						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
 					/>
 				</div>
-				<div
-					className={`about-content__info`}
-					id="about-description"
+				{/* /About image */}
+				{/* About info */}
+				<motion.div
+					className="about-content__info"
+					initial={{ opacity: 0, x: 30 }}
+					whileInView={{ opacity: 1, x: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.5 }}
 				>
-					<BlockTitle
-						subtitle={subtitle}
-						title={title || ""}
-						divider={divider}
-						align={align as Alignment}
-						aria-level="2"
-					/>
+					{/* Info title */}
+					<div className="section-title">
+						{subtitle && <p className="section-title__subtitle">{subtitle}</p>}
+						{title && <h2 className="section-title__title" dangerouslySetInnerHTML={{ __html: title }} />}
+					</div>
+					{/* /Info title */}
+					{/* Info description */}
 					<div className="about-content__description">
 						{descriptionParagraphs.map((paragraph, index) => (
 							<p key={index}>{paragraph}</p>
 						))}
 					</div>
+					{/* /Info description */}
+					{/* Opening hours */}
 					{showOpeningHours && openingHours && (
 						<OpeningHours
 							title={openingHours.title}
 							schedule={openingHours.schedule}
 						/>
 					)}
-				</div>
+					{/* /Opening hours */}
+				</motion.div>
+				{/* /About info */}
 			</div>
-		</div>
+		</section>
 	);
 };
 
