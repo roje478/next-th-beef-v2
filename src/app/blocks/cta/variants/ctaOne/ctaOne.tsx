@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { memo } from "react";
 
 // interface
 import { CtaProps } from "@/app/types/common.types";
 
 const CtaOne = ({ title, description, link, linkText, className }: CtaProps) => {
+	const isExternal = link?.startsWith("http");
 
 	return (
-		<div className={`cta ${className || ''}`}>
+		<section className={`cta ${className || ''}`}>
 			<div className="cta__overlayer"></div>
 			<div className="cta__container">
 				<div className="cta__content">
@@ -18,13 +18,19 @@ const CtaOne = ({ title, description, link, linkText, className }: CtaProps) => 
 						<p>{description}</p>
 					</div>
 					<div className="cta__footer">
-						<Link href={link || '#'} className="btn btn__default">
-							{linkText}
-						</Link>
+						{isExternal ? (
+							<a href={link} className="btn" target="_blank" rel="noopener noreferrer">
+								{linkText}
+							</a>
+						) : (
+							<Link href={link || '#'} className="btn">
+								{linkText}
+							</Link>
+						)}
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 
