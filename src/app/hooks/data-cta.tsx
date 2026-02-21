@@ -10,8 +10,8 @@ export const ctaTwoData = {
 	title: "Coffee Products",
 	description:
 		"The public dining room that came ultimately to be known as the restaurant originated in France.",
-	link: "/page-menu.html",
-	linkText: "View Our Menu",
+	link: "#",
+	linkText: "View More",
 };
 
 export const ctaIntroData = {

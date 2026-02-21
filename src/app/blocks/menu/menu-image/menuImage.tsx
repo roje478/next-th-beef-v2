@@ -1,5 +1,6 @@
+"use client";
 import React from "react";
-import BlockTitle from "@/app/components/common/block-title/block-title";
+import { motion } from "framer-motion";
 import CardMenuImage from "./cardMenuImage";
 
 // Interfaces
@@ -9,9 +10,7 @@ const MenuImageBlock = ({
 	subtitle,
 	title,
 	phrase,
-	divider,
 	items,
-	className,
 	emptyMessage = "No offers available at the moment.",
 }: MenuImageBlockProps) => {
 	// Improved data validation check
@@ -24,26 +23,35 @@ const MenuImageBlock = ({
 	}
 
 	return (
-		<div className="menu">
-			<div className={`${className || ""}`}>
-				{/* Info title */}
-				<BlockTitle
-					subtitle={subtitle}
-					title={title}
-					phrase={phrase}
-					divider={divider}
+		<section className="menu">
+			<div className="menu__container">
+				{/* Section title */}
+				<div className="section-title section-title__no-divider section-title__center">
+					{subtitle && <p className="section-title__subtitle">{subtitle}</p>}
+					{title && <h2 className="section-title__title">{title}</h2>}
+					{phrase && <p>{phrase}</p>}
+				</div>
+				{/* /Section title */}
+
+				{/* Divider */}
+				<motion.div
+					className="divider div-transparent div-arrow-down"
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.5, delay: 0.7 }}
 				/>
-				{/* Info title */}
+				{/* /Divider */}
 
 				{/* Iterate over the 'items' prop */}
 				{items.map((item) => (
 					<CardMenuImage {...item} key={item.id} />
 				))}
 			</div>
-		</div>
+		</section>
 	);
 };
 
 MenuImageBlock.displayName = "MenuImageBlock";
 
-export default MenuImageBlock; 
+export default MenuImageBlock;
