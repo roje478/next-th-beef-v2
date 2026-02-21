@@ -10,23 +10,23 @@ const HeroInnerBlock: React.FC<HeroInnerBlockProps> = ({
 	breadcrumbs,
 }) => {
 	return (
-		<div className="hero-inner">
+		<section className="hero-inner">
 			{/* Background */}
 			<div className="hero-inner__background">
-				<Image src={image} alt={altText} width={1620} height={880} />
+				<Image src={image} alt={altText} width={1620} height={560} />
 			</div>
-			{/* Background */}
+			{/* /Background */}
 			{/* Content */}
 			<div className="hero-inner__container">
 				<div className="hero-inner__content">
 					<h1 className="hero-inner__title">{title}</h1>
-					<div className="hero-inner__breadcrumbs">
+					<nav className="hero-inner__breadcrumbs" aria-label="Breadcrumb">
 						<Breadcrumbs items={breadcrumbs} />
-					</div>
+					</nav>
 				</div>
 			</div>
-			{/* Content */}
-		</div>
+			{/* /Content */}
+		</section>
 	);
 };
 

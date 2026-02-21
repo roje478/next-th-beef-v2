@@ -1,9 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import BlockTitle from "@/app/components/common/block-title/block-title";
-
-// interface
+import { motion } from "framer-motion";
 import { AboutBlockProps } from "@/app/types/common.types";
 
 const AboutModernBlock = ({
@@ -13,10 +11,8 @@ const AboutModernBlock = ({
 	descriptionParagraphs,
 	subtitle,
 	title,
-	divider,
-	align,
 	buttonLink,
-	buttonText
+	buttonText,
 }: AboutBlockProps) => {
 	if (
 		!imageLeftUrl ||
@@ -26,62 +22,85 @@ const AboutModernBlock = ({
 		descriptionParagraphs.length === 0
 	) {
 		return (
-			<div className={`about-s2 about-s2--empty`}>
+			<div className="about-s2 about-s2--empty">
 				<p>No data available.</p>
 			</div>
 		);
 	}
 
 	return (
-		<div className={`about-s2 `} aria-label="About Us">
+		<section className="about-s2">
 			<div className="about-s2__container-fluid">
 				<div className="about-s2__content">
-					{/* About Left Image */}
-					<div className={`about-s2__image `}>
+					{/* Image */}
+					<motion.div
+						className="about-s2__image"
+						initial={{ opacity: 0, x: -30 }}
+						whileInView={{ opacity: 1, x: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.5 }}
+					>
 						<Image
 							src={imageLeftUrl}
-							alt={altText}
-							width={809}
-							height={1011}
-							className="about-s2__image-img"
+							alt="Wine selection and fine dining table setting"
+							width={568}
+							height={880}
+							loading="lazy"
+							sizes="(min-width: 1024px) 33vw, 100vw"
 						/>
-					</div>
-					{/* Text Content */}
-					<div className={`about-s2__text`}>
-						<BlockTitle
-							subtitle={subtitle}
-							title={title || ""}
-							divider={divider}
-							align={align || "left"}
-						/>
-						<div className="about-content__description">
-							{descriptionParagraphs.map(
-								(paragraph, index) => (
-									<p key={index}>{paragraph}</p>
-								)
-							)}
+					</motion.div>
+					{/* /Image */}
+					{/* Text */}
+					<div className="about-s2__text">
+						{/* Section title */}
+						<div className="section-title">
+							{subtitle && <p className="section-title__subtitle">{subtitle}</p>}
+							{title && <h2 className="section-title__title">{title}</h2>}
+							<p>The first restaurant proprietor is believed to have been one A. Boulanger, a soup vendor, who opened his business in 1765.</p>
 						</div>
-						<Link
-							href={buttonLink || "#"}
-							className="btn btn__link"
-							aria-label={buttonText}
-						>
+						{/* /Section title */}
+						{/* Divider */}
+						<motion.div
+							className="divider div-transparent div-arrow-down"
+							initial={{ opacity: 0, y: 30 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+							transition={{ duration: 0.5 }}
+						/>
+						{/* /Divider */}
+						{/* Content */}
+						<div className="about-content__description">
+							{descriptionParagraphs.map((paragraph, index) => (
+								<p key={index}>{paragraph}</p>
+							))}
+						</div>
+						{/* /Content */}
+						<Link href={buttonLink || "#"} className="btn-link">
 							{buttonText}
 						</Link>
 					</div>
-					{/* About Right Image */}
-					<div className={`about-s2__image`}>
+					{/* /Text */}
+					{/* Image */}
+					<motion.div
+						className="about-s2__image"
+						initial={{ opacity: 0, x: 30 }}
+						whileInView={{ opacity: 1, x: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.5 }}
+					>
 						<Image
 							src={imageRightUrl}
-							alt={altText}
-							width={809}
-							height={1011}
-							className="about-s2__image-img"
+							alt="Restaurant interior with elegant dining atmosphere"
+							width={568}
+							height={880}
+							loading="lazy"
+							sizes="(min-width: 1024px) 33vw, 100vw"
 						/>
-					</div>
+					</motion.div>
+					{/* /Image */}
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

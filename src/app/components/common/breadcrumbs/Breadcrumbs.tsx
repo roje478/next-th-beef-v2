@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { BreadcrumbsProps, Breadcrumb } from "@/app/types/common.types";
+import { BreadcrumbsProps } from "@/app/types/common.types";
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
 	if (!items || items.length === 0) {
@@ -8,27 +8,21 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
 	}
 
 	return (
-		<nav aria-label="Breadcrumb" className="breadcrumbs">
-			<ol className="breadcrumbs__list">
-				{items.map((item, index) => (
-					<li key={item.id} className="breadcrumbs__item">
-						<Link href={item.link} className="breadcrumbs__link">
-							{item.title}
-						</Link>
-						{index < items.length - 1 && (
-							<span
-								className="breadcrumbs__separator"
-								aria-hidden="true"
-							>
-								{" "}
-								-{" "}
-							</span>
-						)}
+		<ol className="breadcrumb__list">
+			{items.map((item, index) => {
+				const isLast = index === items.length - 1;
+				return (
+					<li
+						key={item.id}
+						className="breadcrumb__item"
+						{...(isLast ? { "aria-current": "page" as const } : {})}
+					>
+						{isLast ? item.title : <Link href={item.link}>{item.title}</Link>}
 					</li>
-				))}
-			</ol>
-		</nav>
+				);
+			})}
+		</ol>
 	);
 };
 
-export default Breadcrumbs; 
+export default Breadcrumbs;

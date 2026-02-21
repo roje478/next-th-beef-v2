@@ -70,3 +70,9 @@ export const galleryData = {
 		},
 	],
 };
+
+export const galleryAboutData = {
+	emptyMessage: "No gallery items available at the moment.",
+	lightboxOpenLabel: "Open lightbox",
+	items: galleryData.items.slice(4, 8),
+};

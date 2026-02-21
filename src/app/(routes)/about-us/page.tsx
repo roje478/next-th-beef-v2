@@ -1,22 +1,18 @@
-import {
-	AboutClassic,
-	AboutModern,
-	AboutTwoCols,
-} from "@/app/blocks/about";
+import { AboutModern, AboutTwoCols } from "@/app/blocks/about";
 import ContactBlock from "@/app/blocks/contact/contact";
 import { TeamTwoBlock } from "@/app/blocks/team";
 import { TestimonialsBlock } from "@/app/blocks/testimonials/";
 import HeroInnerBlock from "@/app/components/common/hero-inner/Hero-inner";
-import { MasonryGallery } from "@/app/blocks/gallery";
+import { GalleryGrid } from "@/app/blocks/gallery";
 import BadgesList from "@/app/blocks/badges/BadgesList";
 
 // Import Data
 import { HeroInnerAboutData } from "@/app/hooks/data";
 import { testimonialsData } from "@/app/hooks/data-testimonials";
 import { badgesListData } from "@/app/hooks/data-brands";
-import { aboutData, aboutTwoData } from "@/app/hooks/data-about";
+import { aboutTwoData } from "@/app/hooks/data-about";
 import { contactData } from "@/app/hooks/data-contact";
-import { galleryData } from "@/app/hooks/data-gallery";
+import { galleryAboutData } from "@/app/hooks/data-gallery";
 
 const AboutPage = () => {
 	return (
@@ -30,33 +26,33 @@ const AboutPage = () => {
 			/>
 			{/* / Hero Inner - Block */}
 
-			{/* About Classic - Block */}
-			<AboutClassic {...aboutData} />
-			{/* / About Classic - Block */}
+			{/* About S2 - Block */}
+			<AboutModern {...aboutTwoData} />
+			{/* / About S2 - Block */}
 
-			{/* About Modern - Block */}
+			{/* Text Cols - Block */}
 			<AboutTwoCols {...aboutTwoData} />
-			{/* / About Modern - Block */}
+			{/* / Text Cols - Block */}
 
-			{/* Badges Block */}
+			{/* Badges - Block */}
 			<BadgesList {...badgesListData} />
-			{/* / Badges Block */}
+			{/* / Badges - Block */}
 
-			{/* Testimonials Block */}
+			{/* Testimonials - Block */}
 			<TestimonialsBlock {...testimonialsData} />
-			{/* / Testimonials Block */}
+			{/* / Testimonials - Block */}
 
-			{/* Team Two Block */}
+			{/* Team - Block */}
 			<TeamTwoBlock />
-			{/* / Team Two Block */}
+			{/* / Team - Block */}
 
-			{/* Contact Block */}
+			{/* Contact - Block */}
 			<ContactBlock {...contactData} />
-			{/* / Contact Block */}
+			{/* / Contact - Block */}
 
-			{/* Masonry Gallery */}
-			<MasonryGallery {...galleryData} />
-			{/* / Masonry Gallery */}
+			{/* Gallery - Block */}
+			<GalleryGrid {...galleryAboutData} variant="small" />
+			{/* / Gallery - Block */}
 		</>
 	);
 };

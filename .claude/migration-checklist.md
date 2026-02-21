@@ -31,8 +31,8 @@
 | 8 | Divider | `components/common/divider/divider.tsx` | [ ] |
 | 9 | DishItem | `components/common/dish/DishItem.tsx` | [ ] |
 | 10 | OpeningHours | `components/common/opening-hours/opening-hours.tsx` | [ ] |
-| 11 | Breadcrumbs | `components/common/breadcrumbs/Breadcrumbs.tsx` | [ ] |
-| 12 | HeroInnerBlock | `components/common/hero-inner/Hero-inner.tsx` | [ ] |
+| 11 | Breadcrumbs | `components/common/breadcrumbs/Breadcrumbs.tsx` | [x] |
+| 12 | HeroInnerBlock | `components/common/hero-inner/Hero-inner.tsx` | [x] |
 | 13 | LightBox | `components/common/lightbox/LightBox.tsx` | [ ] |
 | 14 | SubscriptionForm | `components/common/forms/SubscriptionForm.tsx` | [ ] |
 | 15 | StatusPage | `components/common/status-page/StatusPage.tsx` | [ ] |
@@ -86,13 +86,28 @@
 
 ---
 
+## Página: `/about-us`
+
+| # | Componente | Ruta | Estado |
+|---|-----------|------|--------|
+| 12 | HeroInnerBlock | *(mismo #12)* | [x] |
+| 32 | AboutModern | *(mismo #32)* | [x] |
+| 33 | AboutTwoCols | *(mismo #33)* | [x] |
+| 26 | BadgesList | *(mismo #26)* | [x] |
+| 56 | TestimonialsBlock | *(mismo #56)* | [x] |
+| 55 | TeamTwoBlock | *(mismo #55)* | [x] |
+| 42 | ContactBlock | *(mismo #42)* | [x] |
+| 58 | GalleryGrid (small) | `blocks/gallery/variants/grid/GalleryGrid.tsx` | [x] |
+
+---
+
 ## Bloques adicionales (usados en otras páginas/rutas)
 
 ### About
 | # | Componente | Ruta | Estado |
 |---|-----------|------|--------|
-| 32 | AboutModern | `blocks/about/variants/modern/about-modern.tsx` | [ ] |
-| 33 | AboutTwoCols | `blocks/about/variants/twocols/about-twocols.tsx` | [ ] |
+| 32 | AboutModern | `blocks/about/variants/modern/about-modern.tsx` | [x] |
+| 33 | AboutTwoCols | `blocks/about/variants/twocols/about-twocols.tsx` | [x] |
 
 ### Blog
 | # | Componente | Ruta | Estado |
@@ -109,7 +124,7 @@
 ### Contact
 | # | Componente | Ruta | Estado |
 |---|-----------|------|--------|
-| 42 | ContactBlock | `blocks/contact/contact.tsx` | [ ] |
+| 42 | ContactBlock | `blocks/contact/contact.tsx` | [x] |
 
 ### CTA
 | # | Componente | Ruta | Estado |
@@ -162,7 +177,7 @@
 ### Team
 | # | Componente | Ruta | Estado |
 |---|-----------|------|--------|
-| 55 | TeamTwoBlock | `blocks/team/variants/teamTwo/teamTwo.tsx` | [ ] |
+| 55 | TeamTwoBlock | `blocks/team/variants/teamTwo/teamTwo.tsx` | [x] |
 
 ### Newsletter
 | # | Componente | Ruta | Estado |
@@ -172,7 +187,7 @@
 ### Testimonials
 | # | Componente | Ruta | Estado |
 |---|-----------|------|--------|
-| 56 | TestimonialsBlock | `blocks/testimonials/variants/testimonials.tsx` | [ ] |
+| 56 | TestimonialsBlock | `blocks/testimonials/variants/testimonials.tsx` | [x] |
 
 ---
 
@@ -181,13 +196,15 @@
 | Categoría | Total | Migrados | Pendientes |
 |-----------|-------|----------|------------|
 | Globales (Layout) | 6 | 1 | 5 |
-| Compartidos | 10 | 0 | 10 |
+| Compartidos | 10 | 2 | 8 |
 | Página `/intro` | 6 | 3 | 3 |
 | Página `/home-classic` | 8 | 8 | 0 |
 | Página `/home-creative` | 10 | 10 | 0 |
-| Bloques adicionales | 26 | 5 | 21 |
-| **TOTAL (únicos)** | **56** | **13** | **43** |
+| Página `/about-us` | 8 | 8 | 0 |
+| Bloques adicionales | 26 | 11 | 15 |
+| **TOTAL (únicos)** | **58** | **21** | **37** |
 
 > Nota: Componentes compartidos entre páginas se cuentan una sola vez en el total.
 > BadgesList fue removido de /home-classic pero migrado para /home-creative.
 > NewsletterBlock (#57) es nuevo, creado para /home-creative.
+> GalleryGrid (#58) soporta variant="small" para galería sin título (about-us).

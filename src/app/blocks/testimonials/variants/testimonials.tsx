@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
-import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
+import { Navigation, A11y, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
 	TestimonialsBlockProps,
@@ -16,60 +16,87 @@ const TestimonialsBlock = (props: TestimonialsBlockProps) => {
 		comments = testimonialsData.comments as TestimonialItem[],
 		prevButtonAriaLabel = testimonialsData.prevButtonAriaLabel,
 		nextButtonAriaLabel = testimonialsData.nextButtonAriaLabel,
-		paginationBulletAriaLabel = testimonialsData.paginationBulletAriaLabel,
 	} = props;
 
-	// If there are no comments, don't render the component
+	const prevRef = useRef<HTMLButtonElement>(null);
+	const nextRef = useRef<HTMLButtonElement>(null);
+
 	if (!comments || comments.length === 0) {
 		return null;
 	}
 
 	return (
-		<div className="testimonials">
-			{/* Background - Use data from props */}
-			<div className="testimonials__background">
-				<Image src={bgImage} alt={bgImageAlt} fill priority />
-			</div>
+		<section className="testimonials" aria-label="Customer testimonials">
 			{/* Background */}
+			<div className="overlayer"></div>
+			<Image
+				src={bgImage}
+				alt={bgImageAlt}
+				fill
+				sizes="100vw"
+				loading="lazy"
+				style={{ objectFit: "cover", zIndex: 0 }}
+			/>
+			{/* /Background */}
 			<div className="testimonials__container">
-				<Swiper
-					className="testimonials__slider"
-					slidesPerView={1}
-					pagination={{ clickable: true }}
-					navigation={true}
-					modules={[Navigation, Pagination, A11y, Autoplay]}
-					loop={true}
-					autoplay={{
-						delay: 5000,
-						disableOnInteraction: false,
-						pauseOnMouseEnter: true,
-					}}
-					a11y={{
-						prevSlideMessage: prevButtonAriaLabel,
-						nextSlideMessage: nextButtonAriaLabel,
-						paginationBulletMessage: paginationBulletAriaLabel.replace(
-							"{index}",
-							"{{index}}"
-						),
-					}}
-				>
-					{/* Map over comments from props data */}
-					{comments.map((item) => (
-						<SwiperSlide key={item.id}>
-							<div className="testimonials__slider__item">
-								<div className="testimonials__slider__item-comment">
-									<p>{item.description}</p>
+				{/* Testimonials */}
+				<div className="testimonials__swiper">
+					<Swiper
+						slidesPerView={1}
+						navigation={{
+							prevEl: prevRef.current,
+							nextEl: nextRef.current,
+						}}
+						onBeforeInit={(swiper) => {
+							if (swiper.params.navigation && typeof swiper.params.navigation !== "boolean") {
+								swiper.params.navigation.prevEl = prevRef.current;
+								swiper.params.navigation.nextEl = nextRef.current;
+							}
+						}}
+						modules={[Navigation, A11y, Autoplay]}
+						loop={true}
+						autoplay={{
+							delay: 5000,
+							disableOnInteraction: false,
+							pauseOnMouseEnter: true,
+						}}
+						a11y={{
+							prevSlideMessage: prevButtonAriaLabel,
+							nextSlideMessage: nextButtonAriaLabel,
+						}}
+					>
+						{comments.map((item) => (
+							<SwiperSlide key={item.id}>
+								<div className="testimonials__item">
+									<div className="testimonials__item-comment">
+										&ldquo;{item.description}&rdquo;
+									</div>
+									<div className="testimonials__item-author">
+										<h3>{item.name}</h3>
+										<p>{item.position}</p>
+									</div>
 								</div>
-								<div className="testimonials__slider__item-author">
-									<strong>{item.name}</strong>
-									<p>{item.position}</p>
-								</div>
-							</div>
-						</SwiperSlide>
-					))}
-				</Swiper>
+							</SwiperSlide>
+						))}
+					</Swiper>
+					{/* Arrows */}
+					<div className="splide__arrows">
+						<button
+							ref={prevRef}
+							className="splide__arrow splide__arrow--prev"
+							aria-label={prevButtonAriaLabel}
+						/>
+						<button
+							ref={nextRef}
+							className="splide__arrow splide__arrow--next"
+							aria-label={nextButtonAriaLabel}
+						/>
+					</div>
+					{/* /Arrows */}
+				</div>
+				{/* /Testimonials */}
 			</div>
-		</div>
+		</section>
 	);
 };
 

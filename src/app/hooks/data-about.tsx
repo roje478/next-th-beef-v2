@@ -38,8 +38,8 @@ export const aboutData = {
 
 export const aboutTwoData = {
 	imageUrl: "/about/about-1.webp",
-	imageLeftUrl: "/about/about-left.webp",
-	imageRightUrl: "/about/about-right.webp",
+	imageLeftUrl: "/about/about-3.webp",
+	imageRightUrl: "/about/about-2.webp",
 	altText:
 		"Elegant interior of the main restaurant dining room with set tables",
 	subtitle: "About us",
