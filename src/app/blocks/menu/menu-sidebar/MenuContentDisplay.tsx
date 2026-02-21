@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import BlockTitle from "@/app/components/common/block-title/block-title";
+import { motion } from "framer-motion";
 import DishItem from "@/app/components/common/dish/DishItem";
 
 import {
@@ -21,38 +21,64 @@ const MenuContentDisplay: React.FC<MenuContentDisplayProps> = ({
 	return (
 		<div className="navmenu-content">
 			{categories.map((categoryItem: MenuCategory, categoryIndex: number) => (
-				<React.Fragment key={categoryIndex}>
-					<div id={categoryItem.anchor || ''} className="menu__category">
-						<div className="menu__category-dishes">
-							<BlockTitle
-								title={categoryItem.title}
-								phrase={categoryItem.phrase}
-								divider={true}
+				<div
+					key={categoryItem.id ?? categoryIndex}
+					id={categoryItem.anchor || ""}
+					className="menu__category"
+				>
+					{/* Category dishes */}
+					<div className="menu__category-dishes">
+						{/* Section title */}
+						<div className="section-title">
+							<h2 className="section-title__title">
+								{categoryItem.title}
+							</h2>
+							{categoryItem.phrase && <p>{categoryItem.phrase}</p>}
+							{/* Divider */}
+							<motion.div
+								className="divider div-transparent div-arrow-down"
+								initial={{ opacity: 0, y: 30 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true }}
+								transition={{ duration: 0.5 }}
 							/>
-							{categoryItem.dishesList.map(
-								(dish: DishItemType, dishIndex: number) => (
-									<DishItem
-										key={dish.id ?? `dish-${categoryIndex}-${dishIndex}`}
-										title={dish.title}
-										price={dish.price}
-										description={dish.description}
-									/>
-								)
-							)}
+							{/* /Divider */}
 						</div>
-						<div className="menu__category-image">
-							<Image
-								src={categoryItem.image}
-								alt={categoryItem.altText || ""}
-								width={568}
-								height={880}
-							/>
-						</div>
+						{/* /Section title */}
+						{categoryItem.dishesList.map(
+							(dish: DishItemType, dishIndex: number) => (
+								<DishItem
+									key={dish.id ?? `dish-${categoryIndex}-${dishIndex}`}
+									title={dish.title}
+									price={dish.price}
+									description={dish.description}
+								/>
+							)
+						)}
 					</div>
-				</React.Fragment>
+					{/* /Category dishes */}
+					{/* Category image */}
+					<motion.div
+						className="menu__category-image"
+						initial={{ opacity: 0, y: 30 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.5 }}
+					>
+						<Image
+							src={categoryItem.image}
+							alt={categoryItem.altText || ""}
+							width={568}
+							height={880}
+							loading="lazy"
+							sizes="(min-width: 768px) 50vw, 100vw"
+						/>
+					</motion.div>
+					{/* /Category image */}
+				</div>
 			))}
 		</div>
 	);
 };
 
-export default MenuContentDisplay; 
+export default MenuContentDisplay;
