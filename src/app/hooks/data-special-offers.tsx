@@ -2,8 +2,6 @@ export const specialOffersData = {
 	subtitle: "Special Offers",
 	title: "Try our Special Offers",
 	phrase: "The first restaurant proprietor is believed to have been one A. Boulanger, a soup vendor, who opened his business in 1765.",
-	divider: false,
-	align: "center" as const,
 	emptyMessage: "No offers available at the moment.",
 	carouselAriaLabel: "Special offers carousel",
 	prevButtonAriaLabel: "Previous special offer",
@@ -15,7 +13,7 @@ export const specialOffersData = {
 			tag: "Specialty",
 			title: "Four cheese garlic bread",
 			price: "$32.00",
-			image: "/special-offers/special-offers-5.webp",
+			image: "/special-offers/special-offers-1.webp",
 			altText: "Four cheese garlic bread",
 			description_primary:
 				"Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit.",
@@ -29,7 +27,7 @@ export const specialOffersData = {
 			tag: "Specialty",
 			title: "Nduja Pork Chicken Terrine",
 			price: "$41.00",
-			image: "/special-offers/special-offers-6.webp",
+			image: "/special-offers/special-offers-2.webp",
 			altText: "Nduja Pork Chicken Terrine",
 			description_primary:
 				"Nam nec tellus a odio tincidunt auctor aornare odio. Sed non mauris vitae eratconsequat auctor eu in elit.",
@@ -43,7 +41,7 @@ export const specialOffersData = {
 			tag: "Specialty",
 			title: "Crab With Curry Sources",
 			price: "$18.00",
-			image: "/special-offers/special-offers-7.webp",
+			image: "/special-offers/special-offers-3.webp",
 			altText: "Crab With Curry Sources",
 			description_primary:
 				"Nam nec tellus a odio tincidunt auctor aornare odio. Sed non mauris vitae eratconsequat auctor eu in elit.",

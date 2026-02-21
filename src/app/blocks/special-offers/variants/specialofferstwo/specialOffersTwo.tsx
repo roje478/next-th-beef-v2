@@ -1,24 +1,16 @@
 "use client";
-import React, { useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
-import {
-	EffectFade, Navigation,
-	Pagination,
-	Scrollbar,
-	A11y,
-} from "swiper/modules";
-import BlockTitle from "@/app/components/common/block-title/block-title";
+import { Navigation, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 
 // Interface
 import { SpecialOffersBlockProps } from "@/app/types/common.types";
 import { specialOffersData } from "@/app/hooks/data-special-offers";
 
-
 const SpecialOffersTwoBlock = ({
-	subtitle = specialOffersData.subtitle,
 	title = specialOffersData.title,
 	phrase = specialOffersData.phrase,
 	items = specialOffersData.items,
@@ -27,7 +19,8 @@ const SpecialOffersTwoBlock = ({
 	prevButtonAriaLabel = specialOffersData.prevButtonAriaLabel,
 	nextButtonAriaLabel = specialOffersData.nextButtonAriaLabel,
 }: SpecialOffersBlockProps) => {
-	const [activeSlide, setActiveSlide] = useState(0);
+	const prevRef = useRef<HTMLButtonElement>(null);
+	const nextRef = useRef<HTMLButtonElement>(null);
 
 	// Improved data validation check
 	if (!items || items.length === 0) {
@@ -39,75 +32,98 @@ const SpecialOffersTwoBlock = ({
 	}
 
 	return (
-		<section id="special-offers-two" className={`special-offers-two bg-background`}>
-			<div className="special-offers-two__container">
-				{/* Info title */}
-				<BlockTitle subtitle={subtitle} title={title ?? ''} phrase={phrase} />
-				{/* Info title */}
+		<motion.section
+			className="special-offers bg-coarseWool-800"
+			initial={{ opacity: 0, y: 30 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true }}
+			transition={{ duration: 0.5, delay: 0.3 }}
+		>
+			<div className="special-offers__container">
+				{/* Title Section */}
+				<div className="section-title section-title__center">
+					<h2 className="section-title__title">{title}</h2>
+					{phrase && <p>{phrase}</p>}
+				</div>
+				{/* /Title Section */}
 
-				{/* Slider Special Offers */}
-				<Swiper
-					className="special-offers-two__slider"
-					breakpoints={{
-						320: { slidesPerView: 1 },
-						768: { slidesPerView: 1 },
-						1024: { slidesPerView: 1 },
-					}}
-					effect={"fade"}
-					navigation={true}
-					modules={[EffectFade, Navigation, A11y]}
-					loop={false}
-					onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
-					a11y={{
-						enabled: true,
-						prevSlideMessage: prevButtonAriaLabel,
-						nextSlideMessage: nextButtonAriaLabel,
-						containerMessage: carouselAriaLabel,
-					}}
-				>
-					{items.map((item, index) => (
-						<SwiperSlide key={item.id} className={index === activeSlide ? "swiper-slide-active" : ""}>
-							<div className="special-offers-two__slider__item">
-								<div className="special-offers-two__slider__image">
-									<Image
-										src={item.image}
-										alt={item.altText}
-										layout="fill"
-										objectFit="cover"
-									/>
+				{/* Swiper - Special Offers */}
+				<div className="special-offers__swiper">
+					<Swiper
+						breakpoints={{
+							320: { slidesPerView: 1 },
+							768: { slidesPerView: 1 },
+							1024: { slidesPerView: 1 },
+						}}
+						navigation={{
+							prevEl: prevRef.current,
+							nextEl: nextRef.current,
+						}}
+						onBeforeInit={(swiper) => {
+							if (swiper.params.navigation && typeof swiper.params.navigation !== "boolean") {
+								swiper.params.navigation.prevEl = prevRef.current;
+								swiper.params.navigation.nextEl = nextRef.current;
+							}
+						}}
+						modules={[Navigation, A11y]}
+						loop={false}
+						a11y={{
+							enabled: true,
+							prevSlideMessage: prevButtonAriaLabel,
+							nextSlideMessage: nextButtonAriaLabel,
+							containerMessage: carouselAriaLabel,
+						}}
+					>
+						{items.map((item) => (
+							<SwiperSlide key={item.id}>
+								<div className="special-offers__item">
+									{/* image */}
+									<div className="special-offers__item-image">
+										<Image
+											src={item.image}
+											alt={item.altText}
+											width={678}
+											height={426}
+											loading="lazy"
+										/>
+									</div>
+									{/* /image */}
+									{/* info */}
+									<div className="special-offers__item-info">
+										<h3>
+											{item.title} <span>{item.price}</span>
+										</h3>
+										{item.description_primary && (
+											<p>{item.description_primary}</p>
+										)}
+										{item.description_secondary && (
+											<p>{item.description_secondary}</p>
+										)}
+										<Link href={item.link} className="btn-link">
+											{item.linkText || "add order"}
+										</Link>
+									</div>
+									{/* /info */}
 								</div>
-
-								<div
-									className={cn("special-offers-two__slider__info", {
-										active: index === activeSlide,
-									})}
-								>
-									<span className="tag">{item.tag}</span>
-									<h3 className="special-offers-two__slider__title">
-										{item.title} <span>{item.price}</span>
-									</h3>
-
-									<p className="special-offers-two__slider__primary">
-										{item.description_primary}
-									</p>
-									<p className="special-offers-two__slider__secondary">
-										{item.description_secondary}
-									</p>
-
-									<Link
-										href={item.link}
-										className="btn btn__link"
-									>
-										{item.linkText || "add order"}
-									</Link>
-								</div>
-							</div>
-						</SwiperSlide>
-					))}
-				</Swiper>
-				{/* Slider Special Offers */}
+							</SwiperSlide>
+						))}
+					</Swiper>
+					<div className="splide__arrows">
+						<button
+							ref={prevRef}
+							className="splide__arrow splide__arrow--prev"
+							aria-label={prevButtonAriaLabel}
+						/>
+						<button
+							ref={nextRef}
+							className="splide__arrow splide__arrow--next"
+							aria-label={nextButtonAriaLabel}
+						/>
+					</div>
+				</div>
+				{/* /Swiper - Special Offers */}
 			</div>
-		</section>
+		</motion.section>
 	);
 };
 
