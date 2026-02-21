@@ -12,7 +12,10 @@ const MenuImageBlock = ({
 	phrase,
 	items,
 	emptyMessage = "No offers available at the moment.",
+	variant = "default",
 }: MenuImageBlockProps) => {
+	const isFull = variant === "full";
+
 	// Improved data validation check
 	if (!items || items.length === 0) {
 		return (
@@ -24,7 +27,7 @@ const MenuImageBlock = ({
 
 	return (
 		<section className="menu">
-			<div className="menu__container">
+			<div className={isFull ? "menu__container__full" : "menu__container"}>
 				{/* Section title */}
 				<div className="section-title section-title__no-divider section-title__center">
 					{subtitle && <p className="section-title__subtitle">{subtitle}</p>}
@@ -44,8 +47,13 @@ const MenuImageBlock = ({
 				{/* /Divider */}
 
 				{/* Iterate over the 'items' prop */}
-				{items.map((item) => (
-					<CardMenuImage {...item} key={item.id} />
+				{items.map((item, index) => (
+					<CardMenuImage
+						{...item}
+						key={item.id}
+						variant={variant}
+						index={index}
+					/>
 				))}
 			</div>
 		</section>

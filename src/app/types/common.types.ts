@@ -95,6 +95,7 @@ export interface MenuImageBlockProps {
     divider: boolean;
     items: MenuCategory[];
     emptyMessage?: string;
+    variant?: "default" | "full";
 }
 
 export interface EventItem {

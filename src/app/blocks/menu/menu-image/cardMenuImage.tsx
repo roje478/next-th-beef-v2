@@ -5,6 +5,11 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 
+interface CardMenuImageProps extends MenuCategory {
+	variant?: "default" | "full";
+	index?: number;
+}
+
 const CardMenuImage = ({
 	image,
 	altText,
@@ -12,7 +17,17 @@ const CardMenuImage = ({
 	title,
 	phrase,
 	dishesList,
-}: MenuCategory) => {
+	variant = "default",
+	index = 0,
+}: CardMenuImageProps) => {
+	const isFull = variant === "full";
+	const initial = isFull
+		? { opacity: 0, x: index % 2 === 0 ? 30 : -30 }
+		: { opacity: 0, y: 30 };
+	const animate = isFull
+		? { opacity: 1, x: 0 }
+		: { opacity: 1, y: 0 };
+
 	return (
 		<div className="menu__category">
 			{/* Category image */}
@@ -30,8 +45,8 @@ const CardMenuImage = ({
 			{/* Category dishes */}
 			<motion.div
 				className="menu__category-dishes"
-				initial={{ opacity: 0, y: 30 }}
-				whileInView={{ opacity: 1, y: 0 }}
+				initial={initial}
+				whileInView={animate}
 				viewport={{ once: true }}
 				transition={{ duration: 0.5 }}
 			>

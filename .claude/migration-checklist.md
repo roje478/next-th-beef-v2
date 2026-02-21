@@ -114,6 +114,18 @@
 
 ---
 
+## Página: `/menu-full-width`
+
+| # | Componente | Ruta | Estado |
+|---|-----------|------|--------|
+| 12 | HeroInnerBlock | *(mismo #12)* | [x] |
+| 50 | MenuImageBlock (full) | *(mismo #50, variant="full")* | [x] |
+| 43 | CtaTwo | *(mismo #43)* | [x] |
+| 26 | BadgesList | *(mismo #26)* | [x] |
+| 58 | GalleryGrid (small) | *(mismo #58)* | [x] |
+
+---
+
 ## Bloques adicionales (usados en otras páginas/rutas)
 
 ### About
@@ -215,6 +227,7 @@
 | Página `/home-creative` | 10 | 10 | 0 |
 | Página `/about-us` | 8 | 8 | 0 |
 | Página `/menu` | 6 | 6 | 0 |
+| Página `/menu-full-width` | 5 | 5 | 0 |
 | Bloques adicionales | 26 | 13 | 13 |
 | **TOTAL (únicos)** | **58** | **23** | **35** |
 
