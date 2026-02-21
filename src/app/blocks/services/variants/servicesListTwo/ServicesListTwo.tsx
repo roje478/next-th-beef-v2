@@ -9,7 +9,6 @@ const ServicesListTwo = ({
 	items,
 	emptyMessage = "No services available at the moment.",
 }: ServicesListProps) => {
-	// Improved data validation check
 	if (!items || items.length === 0) {
 		return (
 			<div className="services-illustrations services-illustrations--empty">
@@ -19,9 +18,9 @@ const ServicesListTwo = ({
 	}
 
 	return (
-		<div className="services-illustrations-2">
-			<div className="services-illustrations-2__container">
-				<div className="services-illustrations-2__content">
+		<section className="services-illustrations">
+			<div className="services-illustrations__container">
+				<div className="services-illustrations__content">
 					{items.map((item) => (
 						<ServiceCard
 							id={item.id}
@@ -36,7 +35,7 @@ const ServicesListTwo = ({
 					))}
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

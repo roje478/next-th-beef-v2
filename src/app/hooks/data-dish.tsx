@@ -1,10 +1,10 @@
 export const menuWeekData = {
 	subtitle: "This week's specials",
-	title: "Delicious Dishes You Can't Miss",
+	title: "from our Menu",
 	phrase: "The first restaurant proprietor is believed to have been one A. Boulanger, a soup vendor, who opened his business in 1765.",
 	divider: true,
 	align: "center",
-	buttonText: "View Full Menu",
+	buttonText: "Book a Table",
 	buttonUrl: "/menu",
 	emptyMessage: "No week specials available at the moment.",
 	items: [

@@ -10,20 +10,18 @@ const SliderThumbnailItem = ({
 	onClick,
 }: SliderThumbnailItemProps) => {
 	return (
-		<li
+		<div
 			role="button"
 			onClick={onClick}
 			className={cn(
-				"slider-hero__thumbnail__item ",
-				itemActive === id
-					? "slider-hero__thumbnail__item__active"
-					: "slider-hero__thumbnail__item__no-active"
+				"slider-thumbnail__item",
+				itemActive === id && "is-active"
 			)}
 		>
-			<div className="slider-hero__thumbnail__image">
-				<Image src={image} alt={altText} width={150} height={200} />
+			<div className="slider-thumbnail__item-image">
+				<Image src={image} alt={altText} width={151} height={200} sizes="(min-width: 1024px) 33vw, 50vw" loading="lazy" />
 			</div>
-		</li>
+		</div>
 	);
 };
 

@@ -5,16 +5,16 @@ import { CardTeamProps } from "@/app/types/common.types";
 
 const CardTeam = ({ name, position, image, social }: CardTeamProps) => {
 	return (
-		<div className="card-team">
+		<article className="card-team">
 			<div className="card-team__image">
-				<Image src={image} alt={`Photo of ${name}`} width={424} height={468} />
+				<Image src={image} alt={`${name}, ${position}`} width={424} height={468} loading="lazy" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" />
 			</div>
 			<div className="card-team__info">
-				<h4 className="card-team__name">{name}</h4>
+				<h3 className="card-team__name">{name}</h3>
 				<p className="card-team__position">{position}</p>
 				<SocialIcons socials={social} />
 			</div>
-		</div>
+		</article>
 	);
 };
 

@@ -4,8 +4,8 @@ export const ServiceCardListData = {
 		{
 			id: 1,
 			title: "Dresh Products",
-			image: "/services/vector-1.webp",
-			image_hover: "/services/vector-1-hover.webp",
+			image: "/illustrations/vector-1.webp",
+			image_hover: "/illustrations/vector-1-hover.webp",
 			description:
 				"The restaurant is an organic space reflective of nature inspired cuisine.",
 			link_url: "/",
@@ -14,8 +14,8 @@ export const ServiceCardListData = {
 		{
 			id: 2,
 			title: "Slilled Chefs",
-			image: "/services/vector-2.webp",
-			image_hover: "/services/vector-2-hover.webp",
+			image: "/illustrations/vector-2.webp",
+			image_hover: "/illustrations/vector-2-hover.webp",
 			description:
 				"The restaurant is an organic space reflective of nature inspired cuisine.",
 			link_url: "/",
@@ -24,8 +24,8 @@ export const ServiceCardListData = {
 		{
 			id: 3,
 			title: "Best Bar",
-			image: "/services/vector-3.webp",
-			image_hover: "/services/vector-3-hover.webp",
+			image: "/illustrations/vector-3.webp",
+			image_hover: "/illustrations/vector-3-hover.webp",
 			description:
 				"The restaurant is an organic space reflective of nature inspired cuisine.",
 			link_url: "/",
@@ -34,8 +34,8 @@ export const ServiceCardListData = {
 		{
 			id: 4,
 			title: "Vegan Cuisine",
-			image: "/services/vector-4.webp",
-			image_hover: "/services/vector-4-hover.webp",
+			image: "/illustrations/vector-4.webp",
+			image_hover: "/illustrations/vector-4-hover.webp",
 			description:
 				"The restaurant is an organic space reflective of nature inspired cuisine.",
 			link_url: "/",

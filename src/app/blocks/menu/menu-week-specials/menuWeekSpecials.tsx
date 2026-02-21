@@ -1,15 +1,14 @@
+"use client";
 import React from "react";
-import BlockTitle from "@/app/components/common/block-title/block-title";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import DishItem from "@/app/components/common/dish/DishItem";
-import { WeekSpecialsProps, Alignment } from "@/app/types/common.types";
+import { WeekSpecialsProps } from "@/app/types/common.types";
 
 const MenuWeekSpecialsBlock = ({
 	subtitle,
 	title,
 	phrase,
-	align,
-	divider,
 	items,
 	buttonUrl,
 	buttonText,
@@ -24,44 +23,70 @@ const MenuWeekSpecialsBlock = ({
 		);
 	}
 
+	const midpoint = Math.ceil(items.length / 2);
+	const firstColumn = items.slice(0, midpoint);
+	const secondColumn = items.slice(midpoint);
+
 	return (
-		<div className="week-specials">
+		<section className="week-specials">
 			<div className="week-specials__overlayer"></div>
 			<div className="week-specials__container">
-				{/* block title */}
-				<BlockTitle
-					subtitle={subtitle}
-					title={title || ""}
-					phrase={phrase}
-					align={align as Alignment}
-					divider={divider}
-				/>
-				{/* / Section title */}
-
-				{/* Menu Block */}
-				<div className="week-specials__dishes">
-					{/* Dishes list  */}
-					{items.map((item) => (
-						<DishItem
-							key={item.id}
-							title={item.title}
-							price={item.price}
-							description={item.description}
-						/>
-					))}
-					{/* / Dishes list  */}
+				{/* Section title */}
+				<div className="section-title section-title__no-divider section-title__center">
+					{subtitle && <p className="section-title__subtitle">{subtitle}</p>}
+					{title && <h2 className="section-title__title">{title}</h2>}
+					{phrase && <p>{phrase}</p>}
 				</div>
-				{/* / Menu Block */}
+				{/* /Section title */}
+
+				{/* Divider */}
+				<motion.div
+					className="divider div-transparent div-arrow-down"
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.5, delay: 0.7 }}
+				/>
+				{/* /Divider */}
+
+				{/* Menu block */}
+				<div className="week-specials__dishes">
+					{/* Dishes list */}
+					<div className="dishes__list dishes__list--col">
+						{firstColumn.map((item) => (
+							<DishItem
+								key={item.id}
+								title={item.title}
+								price={item.price}
+								description={item.description}
+							/>
+						))}
+					</div>
+					{/* /Dishes list */}
+					{/* Dishes list */}
+					<div className="dishes__list dishes__list--col">
+						{secondColumn.map((item) => (
+							<DishItem
+								key={item.id}
+								title={item.title}
+								price={item.price}
+								description={item.description}
+							/>
+						))}
+					</div>
+					{/* /Dishes list */}
+				</div>
+				{/* /Menu block */}
 
 				{/* Link */}
 				{buttonUrl && (
-					<Link href={buttonUrl} className="btn btn__default">
+					<Link href={buttonUrl} className="btn">
 						{buttonText}
 					</Link>
 				)}
-				{/* / Link */}
+				{/* /Link */}
 			</div>
-		</div>
+		</section>
 	);
 };
 

@@ -1,7 +1,7 @@
 # Checklist de Migración — Beef Next.js v2
 
 > Registro de componentes migrados al HTML de referencia.
-> Actualizado: 2026-02-21
+> Actualizado: 2026-02-22
 
 ## Leyenda
 - [ ] Pendiente
@@ -59,13 +59,30 @@
 |---|-----------|------|--------|
 | 23 | HeroBasicBlock | *(mismo #17)* | [x] |
 | 24 | AboutClassic | `blocks/about/variants/classic/about-classic.tsx` | [x] |
-| 25 | SpecialOffersTwoBlock | `blocks/special-offers/variants/specialofferstwo/specialOffersTwo.tsx` | [ ] |
-| 26 | BadgesList | `blocks/badges/BadgesList.tsx` | [ ] |
-| 27 | WeekSpecials | `blocks/menu/menu-week-specials/menuWeekSpecials.tsx` | [ ] |
+| 25 | SpecialOffersTwoBlock | `blocks/special-offers/variants/specialofferstwo/specialOffersTwo.tsx` | [x] |
+| 26 | ~~BadgesList~~ | `blocks/badges/BadgesList.tsx` | N/A (no en esta página, migrado en /home-creative) |
+| 27 | WeekSpecials | `blocks/menu/menu-week-specials/menuWeekSpecials.tsx` | [x] |
 | 28 | ServicesList | *(mismo #21)* | [x] |
 | 29 | CtaOne | *(mismo #22)* | [x] |
-| 30 | MasonryGallery | `blocks/gallery/variants/masonry/MasonryGallery.tsx` | [ ] |
-| 31 | TeamOneBlock | `blocks/team/variants/teamOne/teamOne.tsx` | [ ] |
+| 30 | MasonryGallery | `blocks/gallery/variants/masonry/MasonryGallery.tsx` | [x] |
+| 31 | TeamOneBlock | `blocks/team/variants/teamOne/teamOne.tsx` | [x] |
+
+---
+
+## Página: `/home-creative`
+
+| # | Componente | Ruta | Estado |
+|---|-----------|------|--------|
+| 47 | HeroCreativeSliderBlock | `blocks/hero/hero-creative-slider/slider-hero.tsx` | [x] |
+| 24 | AboutClassic | *(mismo #24)* | [x] |
+| 54 | SpecialOffersBlock | `blocks/special-offers/variants/specialoffers/specialOffers.tsx` | [x] |
+| 26 | BadgesList | `blocks/badges/BadgesList.tsx` | [x] |
+| 27 | WeekSpecials | *(mismo #27)* | [x] |
+| 57 | NewsletterBlock | `blocks/newsletter/NewsletterBlock.tsx` | [x] |
+| 53 | ServicesListTwo | `blocks/services/variants/servicesListTwo/ServicesListTwo.tsx` | [x] |
+| 22 | CtaOne | *(mismo #22)* | [x] |
+| 30 | MasonryGallery | *(mismo #30)* | [x] |
+| 31 | TeamOneBlock | *(mismo #31)* | [x] |
 
 ---
 
@@ -113,7 +130,7 @@
 ### Hero
 | # | Componente | Ruta | Estado |
 |---|-----------|------|--------|
-| 47 | HeroCreativeSliderBlock | `blocks/hero/hero-creative-slider/slider-hero.tsx` | [ ] |
+| 47 | HeroCreativeSliderBlock | `blocks/hero/hero-creative-slider/slider-hero.tsx` | [x] |
 
 ### History
 | # | Componente | Ruta | Estado |
@@ -135,17 +152,22 @@
 ### Services
 | # | Componente | Ruta | Estado |
 |---|-----------|------|--------|
-| 53 | ServicesListTwo | `blocks/services/variants/servicesListTwo/ServicesListTwo.tsx` | [ ] |
+| 53 | ServicesListTwo | `blocks/services/variants/servicesListTwo/ServicesListTwo.tsx` | [x] |
 
 ### Special Offers
 | # | Componente | Ruta | Estado |
 |---|-----------|------|--------|
-| 54 | SpecialOffersBlock | `blocks/special-offers/variants/specialoffers/specialOffers.tsx` | [ ] |
+| 54 | SpecialOffersBlock | `blocks/special-offers/variants/specialoffers/specialOffers.tsx` | [x] |
 
 ### Team
 | # | Componente | Ruta | Estado |
 |---|-----------|------|--------|
 | 55 | TeamTwoBlock | `blocks/team/variants/teamTwo/teamTwo.tsx` | [ ] |
+
+### Newsletter
+| # | Componente | Ruta | Estado |
+|---|-----------|------|--------|
+| 57 | NewsletterBlock | `blocks/newsletter/NewsletterBlock.tsx` | [x] |
 
 ### Testimonials
 | # | Componente | Ruta | Estado |
@@ -161,9 +183,11 @@
 | Globales (Layout) | 6 | 1 | 5 |
 | Compartidos | 10 | 0 | 10 |
 | Página `/intro` | 6 | 3 | 3 |
-| Página `/home-classic` | 9 | 4 | 5 |
-| Bloques adicionales | 25 | 0 | 25 |
-| **TOTAL (únicos)** | **56** | **5** | **51** |
+| Página `/home-classic` | 8 | 8 | 0 |
+| Página `/home-creative` | 10 | 10 | 0 |
+| Bloques adicionales | 26 | 5 | 21 |
+| **TOTAL (únicos)** | **56** | **13** | **43** |
 
 > Nota: Componentes compartidos entre páginas se cuentan una sola vez en el total.
-> Los ya migrados (Footer, HeroBasic, ServicesList, CtaOne, AboutClassic) se basan en commits recientes del repo.
+> BadgesList fue removido de /home-classic pero migrado para /home-creative.
+> NewsletterBlock (#57) es nuevo, creado para /home-creative.

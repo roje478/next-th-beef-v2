@@ -355,6 +355,7 @@ export interface WeekSpecialsProps {
 
 export interface SliderItemProps extends HeroSlideItem {
     itemActive: number;
+    isFirst?: boolean;
 }
 
 export interface SliderThumbnailItemProps {

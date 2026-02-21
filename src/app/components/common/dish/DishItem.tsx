@@ -16,9 +16,9 @@ const DishItem: React.FC<DishItemProps> = ({ title, price, description }) => {
 			aria-labelledby={`dish-title-${id}`}
 		>
 			<div className="dish__content">
-				<h4 className="dish__title" id={`dish-title-${id}`}>
+				<h3 className="dish__title" id={`dish-title-${id}`}>
 					{title}
-				</h4>
+				</h3>
 				<span className="dish__price" aria-label={`Price: ${price}`}>
 					{price}
 				</span>

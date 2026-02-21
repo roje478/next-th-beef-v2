@@ -1,8 +1,10 @@
 "use client";
-import { useState, memo } from "react";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { A11y } from "swiper/modules";
 import SliderItem from "./slider-item";
 import SliderThumbnailItem from "./slider-thumbnail-item";
-import Dots from "./dots";
 
 // interface
 import { HeroClassicSliderProps } from "@/app/types/common.types";
@@ -11,96 +13,95 @@ const HeroCreativeSliderBlock = ({
 	items,
 	emptyMessage = "No hero available at the moment.",
 }: HeroClassicSliderProps) => {
-	// Initialize state before any conditional returns
 	const [itemActive, setItemActive] = useState<number>(
-		items?.[0]?.id ?? 1 // Use optional chaining for safety
+		items?.[0]?.id ?? 1
 	);
 
-	// Improved data validation check
 	if (!items || items.length === 0) {
 		return (
-			<div className="hero-classic hero-classic--empty">
+			<div className="hero-slider hero-slider--empty">
 				<p>{emptyMessage}</p>
 			</div>
 		);
 	}
 
-	const countItems = items.length;
-
-	// This check is redundant due to the improved check above, but kept for structure if needed later.
-	if (!items || items.length === 0) {
-		return (
-			<div className={`slider-hero slider-hero--empty`}>
-				<p>No data available.</p>
-			</div>
-		);
-	}
-
-	// Functions to handle previous/next navigation (currently unused in the template).
-	const onPrev = () => {
-		setItemActive((prev) =>
-			prev === items[0].id ? items[countItems - 1].id : prev - 1
-		);
-	};
-
-	const onNext = () => {
-		setItemActive((prev) =>
-			prev === items[countItems - 1].id ? items[0].id : prev + 1
-		);
-	};
-
 	return (
-		// Main container for the slider, enhanced with ARIA roles for accessibility.
-		<div
-			className={`slider-hero`}
-			role="region" 
-			aria-roledescription="carousel" 
-			aria-label="Slider principal de héroe" 
+		<section
+			className="hero-slider"
+			role="region"
+			aria-roledescription="carousel"
+			aria-label="Hero slider"
 		>
-			{/* List containing the main slide items. */}
-			<ul>
-				{items.map((item) => (
+			{/* Slider list */}
+			<div className="slider-hero" style={{ position: "relative", height: "100%" }}>
+				{items.map((item, index) => (
 					<SliderItem
-						key={item.id} 
+						key={item.id}
 						itemActive={itemActive}
 						id={item.id}
 						image={item.image}
 						subtitle={item.subtitle}
 						title={item.title}
-						altText={item.altText} 
+						altText={item.altText}
 						desc={item.desc}
 						link={item.link}
 						textLink={item.textLink}
+						isFirst={index === 0}
 					/>
 				))}
-			</ul>
 
-			{/* List containing the thumbnail navigation items. */}
-			<ul className={`slider-hero__thumbnail`}>
-				{items.map((item) => (
-					<SliderThumbnailItem
-						key={item.id} 
-						itemActive={itemActive}
-						id={item.id}
-						image={item.image}
-						altText={item.altText} 
-						onClick={() => setItemActive(item.id)}
-					/>
-				))}
-			</ul>
+				{/* Pagination dots */}
+				<div className="splide__pagination absolute z-50" role="tablist" aria-label="Slide navigation">
+					{items.map((item) => (
+						<button
+							key={item.id}
+							type="button"
+							role="tab"
+							aria-selected={itemActive === item.id}
+							aria-label={`Go to slide ${item.id}`}
+							className={cn(
+								"splide__pagination__page",
+								itemActive === item.id && "is-active"
+							)}
+							onClick={() => setItemActive(item.id)}
+						/>
+					))}
+				</div>
+				{/* /Pagination dots */}
+			</div>
+			{/* /Slider list */}
 
-			{/* List containing the dot navigation indicators. */}
-			<ul className={`slider-list-dots`}>
-				{items.map((item) => (
-					<Dots
-						key={item.id} 
-						itemActive={itemActive}
-						id={item.id}
-						onClick={() => setItemActive(item.id)}
-					/>
-				))}
-			</ul>
-		</div>
+			{/* Thumbnail list */}
+			<div className="thumbnail">
+				<Swiper
+					className="slider-thumbnail"
+					slidesPerView={2}
+					breakpoints={{
+						640: { slidesPerView: 2, spaceBetween: 10 },
+						1024: { slidesPerView: 3, spaceBetween: 15 },
+					}}
+					spaceBetween={10}
+					modules={[A11y]}
+					a11y={{
+						enabled: true,
+						containerMessage: "Hero thumbnail navigation",
+					}}
+				>
+					{items.map((item) => (
+						<SwiperSlide key={item.id}>
+							<SliderThumbnailItem
+								itemActive={itemActive}
+								id={item.id}
+								image={item.image}
+								altText={item.altText}
+								onClick={() => setItemActive(item.id)}
+							/>
+						</SwiperSlide>
+					))}
+				</Swiper>
+			</div>
+			{/* /Thumbnail list */}
+		</section>
 	);
 };
 

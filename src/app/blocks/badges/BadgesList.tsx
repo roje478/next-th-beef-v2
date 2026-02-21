@@ -14,14 +14,14 @@ const BadgesList = ({
 	// Improved data validation check
 	if (!items || items.length === 0) {
 		return (
-			<div className="badges badges--empty">
+			<section className="badges badges--empty">
 				<p>{emptyMessage}</p>
-			</div>
+			</section>
 		);
 	}
 
 	return (
-		<div className="badges">
+		<section className="badges bg-coarseWool-800">
 			{/* Badges list */}
 			<Swiper
 				className="badges__list"
@@ -60,12 +60,14 @@ const BadgesList = ({
 								alt={item.altText || defaultAltText}
 								width={180}
 								height={180}
+								sizes="180px"
+								loading="lazy"
 							/>
 						</div>
 					</SwiperSlide>
 				))}
 			</Swiper>
-		</div>
+		</section>
 	);
 };
 

@@ -8,7 +8,7 @@ const CardTeamDescription = ({
 	description,
 }: CardTeamDescriptionProps) => {
 	return (
-		<div className="team-block__description bg-surface-dark">
+		<div className="team-block__description bg-coarseWool-900">
 			<div className="team-block__icon">
 				<Image
 					src={urlImage}

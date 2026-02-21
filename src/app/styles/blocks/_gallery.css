@@ -34,7 +34,7 @@
 		.gallery-block__item-image img {
 			@apply scale-105;
 		}
-		.gallery-block__item-info h4 {
+		.gallery-block__item-info h3 {
 			@apply text-calico-500;
 		}
 	}

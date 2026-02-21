@@ -1,8 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
-import { Navigation, Pagination, A11y } from "swiper/modules";
+import { A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -14,105 +16,106 @@ const SpecialOffersBlock = ({
 	items = specialOffersData.items,
 	emptyMessage = specialOffersData.emptyMessage,
 	carouselAriaLabel = specialOffersData.carouselAriaLabel,
-	prevButtonAriaLabel = specialOffersData.prevButtonAriaLabel,
-	nextButtonAriaLabel = specialOffersData.nextButtonAriaLabel,
-	paginationBulletAriaLabel = specialOffersData.paginationBulletAriaLabel,
 }: SpecialOffersBlockProps) => {
 	const [activeSlide, setActiveSlide] = useState(0);
+	const swiperRef = useRef<SwiperType | null>(null);
 
-	// Improved data validation check
 	if (!items || items.length === 0) {
 		return (
-			<div className="special-offers special-offers--empty">
+			<div className="special-offers-2 special-offers-2--empty">
 				<p>{emptyMessage}</p>
 			</div>
 		);
 	}
 
 	return (
-		<section
-			id="special-offers"
-			className={`special-offers bg-background`}
+		<motion.section
+			className="special-offers-2 bg-coarseWool-800"
+			initial={{ opacity: 0, y: 30 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true }}
+			transition={{ duration: 0.5, delay: 0.2 }}
 		>
-			{/* Slider Special Offers */}
-			<Swiper
-				className="special-offers__slider"
-				breakpoints={{
-					320: {
-						slidesPerView: 1,
-					},
-					768: {
-						slidesPerView: 1,
-					},
-					1024: {
-						slidesPerView: 1,
-					},
-				}}
-				freeMode={true}
-				pagination={{ clickable: true }}
-				navigation={true}
-				modules={[Navigation, Pagination, A11y]}
-				loop={true}
-				onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
-				a11y={{
-					enabled: true,
-					prevSlideMessage: prevButtonAriaLabel,
-					nextSlideMessage: nextButtonAriaLabel,
-					paginationBulletMessage: paginationBulletAriaLabel.replace(
-						"{index}",
-						"{{index}}"
-					),
-					containerMessage: carouselAriaLabel,
-				}}
-			>
-				{items.map((item, index) => (
-					<SwiperSlide key={item.id}>
-						<div className="special-offers__slider__wrapper">
-							{/* Slider item -- image */}
-							<div className="special-offers__slider__image">
-								<div className="special-offers__slider__image-overlayer"></div>
-								<Image
-									src={item.image}
-									alt={item.altText}
-									width={1920}
-									height={1080}
-									priority={index === 0}
-								/>
-							</div>
-							{/* Slider item -- info */}
-							<motion.div
-								className={`special-offers__slider__info `}
-								initial={{ opacity: 0, scale: 1 }}
-								animate={
-									activeSlide === index
-										? { opacity: 1, scale: 1 }
-										: {}
-								}
-								transition={{ duration: 1 }}
-							>
-								<span className="tag">{item.tag}</span>
-								<h3 className="special-offers__slider__title">
-									{item.title} <span>{item.price}</span>
-								</h3>
-								<p className="special-offers__slider__primary">
-									{item.description_primary}
-								</p>
-								<p className="special-offers__slider__secondary">
-									{item.description_secondary}
-								</p>
-								<Link
-									href={item.link}
-									className="btn btn__link"
+			<div className="special-offers-2__container">
+				{/* Slider Special Offers */}
+				<Swiper
+					slidesPerView={1}
+					modules={[A11y]}
+					loop={true}
+					onSwiper={(swiper) => { swiperRef.current = swiper; }}
+					onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
+					a11y={{
+						enabled: true,
+						containerMessage: carouselAriaLabel,
+					}}
+				>
+					{items.map((item, index) => (
+						<SwiperSlide key={item.id}>
+							<div className="special-offers-2__item">
+								{/* image */}
+								<div className="special-offers-2__item-image">
+									<Image
+										src={item.image}
+										alt={item.altText}
+										width={1920}
+										height={1080}
+										priority={index === 0}
+									/>
+								</div>
+								{/* /image */}
+								{/* overlayer */}
+								<div className="overlayer"></div>
+								{/* /overlayer */}
+								{/* info */}
+								<motion.div
+									className="special-offers-2__item-info"
+									initial={{ opacity: 0 }}
+									animate={
+										activeSlide === index
+											? { opacity: 1 }
+											: {}
+									}
+									transition={{ duration: 1 }}
 								>
-									{item.linkText || "add order"}
-								</Link>
-							</motion.div>
-						</div>
-					</SwiperSlide>
-				))}
-			</Swiper>
-			{/* Slider Special Offers */}
-		</section>
+									<span className="tag">{item.tag}</span>
+									<h3>
+										{item.title} <span>{item.price}</span>
+									</h3>
+									{item.description_primary && (
+										<p>{item.description_primary}</p>
+									)}
+									{item.description_secondary && (
+										<p>{item.description_secondary}</p>
+									)}
+									<Link href={item.link} className="btn-link">
+										{item.linkText || "add order"}
+									</Link>
+								</motion.div>
+								{/* /info */}
+							</div>
+						</SwiperSlide>
+					))}
+				</Swiper>
+				{/* /Slider Special Offers */}
+
+				{/* Pagination dots */}
+				<div className="splide__pagination absolute bottom-12 left-0 right-0 z-10 justify-center">
+					{items.map((item, index) => (
+						<button
+							key={item.id}
+							type="button"
+							aria-label={`Go to slide ${index + 1}`}
+							className={cn(
+								"splide__pagination__page",
+								activeSlide === index && "is-active"
+							)}
+							onClick={() => swiperRef.current?.slideToLoop(index)}
+						/>
+					))}
+				</div>
+				{/* /Pagination dots */}
+			</div>
+		</motion.section>
 	);
 };
 

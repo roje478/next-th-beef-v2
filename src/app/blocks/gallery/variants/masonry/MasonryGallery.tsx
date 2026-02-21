@@ -1,37 +1,17 @@
 "use client";
-import React, {
-	useState,
-	useEffect,
-	useCallback,
-	useRef,
-	useMemo,
-} from "react";
-import BlockTitle from "../../../../components/common/block-title/block-title";
-import MasonryItemGallery from "./MasonryItemGallery";
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import { LightBox } from "../../../../components/common/lightbox";
-import {
-	MasonryGalleryProps,
-	GalleryItem,
-	Alignment,
-} from "@/app/types/common.types";
-import throttle from 'lodash.throttle';
+import { MasonryGalleryProps } from "@/app/types/common.types";
+import throttle from "lodash.throttle";
 
-const RESIZE_THROTTLE_LIMIT = 200; // Throttle limit in ms
+const RESIZE_THROTTLE_LIMIT = 200;
 
-/**
- * Renders a masonry-style photo gallery.
- * This component uses the 'masonry-layout' library to create a dynamic grid.
- * It also integrates with a LightBox component to display images in a modal view.
- *
- * @param {MasonryGalleryProps} props - The props for the component.
- * @returns {React.ReactElement | null} The rendered masonry gallery or null if no items are provided.
- */
 const MasonryGallery: React.FC<MasonryGalleryProps> = ({
 	subtitle,
 	title,
 	phrase,
-	align,
-	divider,
 	items = [],
 	emptyMessage = "No gallery items available.",
 	lightboxOpenLabel = "Open lightbox",
@@ -40,27 +20,15 @@ const MasonryGallery: React.FC<MasonryGalleryProps> = ({
 	const masonryRef = useRef<HTMLDivElement>(null);
 	const masonryInstance = useRef<any | null>(null);
 
-	/**
-	 * Opens the lightbox with the selected image's index.
-	 * @param {number} index - The index of the item to display.
-	 */
 	const handleOpenLightbox = (index: number) => {
 		setSelectedIndex(index);
 	};
 
-	/**
-	 * Closes the lightbox by resetting the selected index.
-	 */
 	const handleCloseLightbox = () => {
 		setSelectedIndex(null);
 	};
 
-	/**
-	 * Initializes the Masonry layout instance.
-	 * This effect runs once on mount. It dynamically imports Masonry,
-	 * creates an instance, and attaches it to the grid container.
-	 * It also handles cleaning up the instance on unmount.
-	 */
+	// Initialize masonry layout
 	useEffect(() => {
 		const initMasonry = async () => {
 			try {
@@ -72,23 +40,22 @@ const MasonryGallery: React.FC<MasonryGalleryProps> = ({
 						return 24;
 					};
 					masonryInstance.current = new Masonry(masonryRef.current, {
-						itemSelector: ".masonry-item",
-						columnWidth: ".masonry-grid-sizer",
+						itemSelector: ".gallery-block__masonry-item",
+						columnWidth: ".gallery-block__masonry-sizer",
 						percentPosition: true,
 						gutter: getGutter(),
 						transitionDuration: "0.3s",
 					});
+					masonryRef.current.classList.remove("is-loading");
+					masonryRef.current.classList.add("is-ready");
 				}
 			} catch (err) {
-				console.error("Failed to initialize Masonry", err);
+				// Masonry init failed silently
 			}
 		};
 
 		initMasonry();
 
-		/**
-		 * Cleanup function to destroy the Masonry instance when the component unmounts.
-		 */
 		return () => {
 			if (masonryInstance.current) {
 				masonryInstance.current.destroy();
@@ -97,19 +64,14 @@ const MasonryGallery: React.FC<MasonryGalleryProps> = ({
 		};
 	}, []);
 
-	/**
-	 * A callback that re-layouts the masonry grid.
-	 * This is passed to each gallery item and called when an image finishes loading.
-	 */
+	// Re-layout on image load
 	const handleImageLoad = useCallback(() => {
 		if (masonryInstance.current) {
 			masonryInstance.current.layout();
 		}
 	}, []);
 
-	/**
-	 * Handles window resize events to re-calculate gutter and re-layout the grid.
-	 */
+	// Handle resize
 	useEffect(() => {
 		const handleResize = () => {
 			if (masonryInstance.current?.options) {
@@ -124,59 +86,87 @@ const MasonryGallery: React.FC<MasonryGalleryProps> = ({
 		};
 
 		const throttledResizeHandler = throttle(handleResize, RESIZE_THROTTLE_LIMIT);
-
 		window.addEventListener("resize", throttledResizeHandler);
 		return () => window.removeEventListener("resize", throttledResizeHandler);
 	}, []);
 
-	/**
-	 * Memoized list of gallery items.
-	 * This prevents re-rendering of all items if the props don't change.
-	 */
-	const galleryItems = useMemo(
-		() =>
-			items.map((item, index) => (
-				<MasonryItemGallery
-					key={item.id}
-					id={item.id}
-					title={item.title}
-					subtitle={item.subtitle}
-					image={item.image}
-					onClick={() => handleOpenLightbox(index)}
-					onLoad={handleImageLoad}
-					lightboxOpenLabel={lightboxOpenLabel}
-				/>
-			)),
-		[items, handleImageLoad, lightboxOpenLabel]
-	);
-
 	if (items.length === 0) {
 		return (
-			<div className="special-offers special-offers--empty">
+			<div className="gallery-block gallery-block--empty">
 				<p>{emptyMessage}</p>
 			</div>
 		);
 	}
 
 	return (
-		<div className={`masonry-gallery-block w-full`}>
-			<div className="masonry-gallery-block__container w-full max-w-[1920px] mx-auto px-4">
-				<BlockTitle
-					subtitle={subtitle}
-					title={title || ""}
-					phrase={phrase}
-					align={align as Alignment}
-					divider={divider}
+		<section className="gallery-block gallery-block--masonry">
+			<div className="gallery-block__masonry-container">
+				{/* Section title */}
+				<div className="section-title section-title__no-divider section-title__center">
+					{subtitle && <p className="section-title__subtitle">{subtitle}</p>}
+					{title && <h2 className="section-title__title">{title}</h2>}
+					{phrase && <p>{phrase}</p>}
+				</div>
+				{/* /Section title */}
+
+				{/* Divider */}
+				<motion.div
+					className="divider div-transparent div-arrow-down"
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.5, delay: 0.7 }}
 				/>
+				{/* /Divider */}
+
 				<div
-					className={`masonry-gallery-wrapper`}
+					className="gallery-block__masonry-grid is-loading"
 					ref={masonryRef}
 					role="list"
-					aria-label="Masonry gallery"
+					aria-label="Gallery"
 				>
-					<div className="masonry-grid-sizer"></div>
-					{galleryItems}
+					<div className="gallery-block__masonry-sizer"></div>
+					{items.map((item, index) => (
+						<motion.div
+							key={item.id}
+							className="gallery-block__masonry-item"
+							initial={{ opacity: 0, y: 30 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+							transition={{ duration: 0.5, delay: 0.2 + index * 0.2 }}
+						>
+							<div
+								className="gallery-block__item"
+								onClick={() => handleOpenLightbox(index)}
+								role="button"
+								tabIndex={0}
+								aria-label={lightboxOpenLabel}
+								onKeyDown={(e) => {
+									if (e.key === "Enter" || e.key === " ") {
+										handleOpenLightbox(index);
+									}
+								}}
+							>
+								<div className="gallery-block__item-image">
+									<Image
+										src={item.image}
+										alt={item.title}
+										width={400}
+										height={400}
+										loading="lazy"
+										onLoad={handleImageLoad}
+										sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+									/>
+								</div>
+								<div className="gallery-block__item-info">
+									<h4>{item.title}</h4>
+									<p>{item.subtitle}</p>
+								</div>
+							</div>
+						</motion.div>
+					))}
 				</div>
+
 				{selectedIndex !== null && (
 					<LightBox
 						items={items}
@@ -185,7 +175,7 @@ const MasonryGallery: React.FC<MasonryGalleryProps> = ({
 					/>
 				)}
 			</div>
-		</div>
+		</section>
 	);
 };
 

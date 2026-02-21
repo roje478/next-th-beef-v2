@@ -19,7 +19,7 @@ export const sliderHeroData = {
         },
         {
             id: 2,
-            image: '/hero/hero-2.webp',
+            image: '/hero/img2.webp',
             altText: 'hero-2',
             subtitle: 'The most delicious',
             title: 'check out our gourmet menu',
@@ -29,7 +29,7 @@ export const sliderHeroData = {
         },
         {
             id: 3,
-            image: '/hero/hero-3.webp',
+            image: '/hero/img3.webp',
             altText: 'hero-3',
             subtitle: 'Flavors that Spark Emotion',
             title: 'An Exceptional Journey of Taste',
@@ -39,7 +39,7 @@ export const sliderHeroData = {
         },
         {
             id: 4,
-            image: '/hero/hero-4.webp',
+            image: '/hero/img4.webp',
             altText: 'hero-4',
             subtitle: 'Specialists in Premium Meats',
             title: 'The Best Cuts, The Best Flavor',
@@ -49,7 +49,7 @@ export const sliderHeroData = {
         },
         {
             id: 5,
-            image: '/hero/hero-5.webp',
+            image: '/hero/img5.webp',
             altText: 'hero-5',
             subtitle: 'Fusion of Textures and Flavors',
             title: 'Your New Culinary Paradise',
