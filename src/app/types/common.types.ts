@@ -436,6 +436,7 @@ export interface TabPanelProps {
     index: number;
     activeTab: number;
     items?: DishItem[];
+    phrase?: string;
     emptyMessage?: string;
     id: string;
     ariaLabelledBy: string;

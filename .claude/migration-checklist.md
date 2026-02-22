@@ -126,6 +126,19 @@
 
 ---
 
+## Página: `/menu-tabs`
+
+| # | Componente | Ruta | Estado |
+|---|-----------|------|--------|
+| 12 | HeroInnerBlock | *(mismo #12)* | [x] |
+| 51 | MenuTabsBlock | *(mismo #51)* | [x] |
+| 25 | SpecialOffersTwoBlock | *(mismo #25)* | [x] |
+| 43 | CtaTwo | *(mismo #43)* | [x] |
+| 26 | BadgesList | *(mismo #26)* | [x] |
+| 58 | GalleryGrid (small) | *(mismo #58)* | [x] |
+
+---
+
 ## Página: `/menu-sidebar`
 
 | # | Componente | Ruta | Estado |
@@ -198,7 +211,7 @@
 | # | Componente | Ruta | Estado |
 |---|-----------|------|--------|
 | 50 | MenuImageBlock | `blocks/menu/menu-image/menuImage.tsx` | [x] |
-| 51 | MenuTabsBlock | `blocks/menu/menu-tabs/menuTabs.tsx` | [ ] |
+| 51 | MenuTabsBlock | `blocks/menu/menu-tabs/menuTabs.tsx` | [x] |
 | 52 | MenuSidebar | `blocks/menu/menu-sidebar/MenuSidebar.tsx` | [x] |
 
 ### Services
@@ -240,9 +253,10 @@
 | Página `/about-us` | 8 | 8 | 0 |
 | Página `/menu` | 6 | 6 | 0 |
 | Página `/menu-full-width` | 5 | 5 | 0 |
+| Página `/menu-tabs` | 6 | 6 | 0 |
 | Página `/menu-sidebar` | 5 | 5 | 0 |
-| Bloques adicionales | 26 | 14 | 12 |
-| **TOTAL (únicos)** | **58** | **24** | **34** |
+| Bloques adicionales | 26 | 15 | 11 |
+| **TOTAL (únicos)** | **58** | **25** | **33** |
 
 > Nota: Componentes compartidos entre páginas se cuentan una sola vez en el total.
 > BadgesList fue removido de /home-classic pero migrado para /home-creative.

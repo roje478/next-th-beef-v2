@@ -23,12 +23,13 @@ const MenuTabsBlock = ({
 	}
 
 	return (
-		<div className="menu">
+		<section className="menu">
 			<div className="menu__container">
+				{/* Tabs */}
 				<div className="tabs">
 					{items.map((item, index) => (
 						<TabButton
-							key={index}
+							key={item.id ?? index}
 							item={item}
 							index={index}
 							activeTab={activeTab}
@@ -36,21 +37,25 @@ const MenuTabsBlock = ({
 						/>
 					))}
 				</div>
+				{/* /Tabs */}
 
+				{/* Tab panels */}
 				<div className="tabs-content">
 					{items.map((item, index) => (
 						<TabPanel
-							key={index}
+							key={item.id ?? index}
 							index={index}
 							activeTab={activeTab}
 							items={item.dishesList}
+							phrase={item.phrase}
 							id={`tabpanel-${index}`}
 							ariaLabelledBy={`tab-button-${index}`}
 						/>
 					))}
 				</div>
+				{/* /Tab panels */}
 			</div>
-		</div>
+		</section>
 	);
 };
 
