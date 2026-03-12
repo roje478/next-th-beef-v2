@@ -1,29 +1,24 @@
 import Image from "next/image";
-import React from "react";
 
 // interface
 import { EventItem } from "@/app/types/common.types";
 
 const CardEvent = ({ image, title, subtitle, pharse }: EventItem) => {
 	return (
-		<>
-			{/* Events Item  */}
-			<div className="card-event">
-				{/* className=  */}
-				<div className="card-event-image">
-					<Image src={image} alt={title} width={500} height={500} />
-				</div>
-				{/*/ className=  */}
-				{/* Info  */}
-				<div className="card-event-info">
-					<h6 className="card-event-info__subtitle">{subtitle}</h6>
-					<h5 className="card-event-info__title">{title}</h5>
-					<p>{pharse}</p>
-				</div>
-				{/*/ Info  */}
+		<div className="events-block__item">
+			{/* Image */}
+			<div className="events-block__item-image">
+				<Image src={image} alt={title} width={500} height={500} loading="lazy" />
 			</div>
-			{/* Events Item  */}
-		</>
+			{/* /Image */}
+			{/* Info */}
+			<div className="events-block__item-info">
+				<h3 className="events-block__item-info__subtitle">{subtitle}</h3>
+				<h4 className="events-block__item-info__title">{title}</h4>
+				<p>{pharse}</p>
+			</div>
+			{/* /Info */}
+		</div>
 	);
 };
 

@@ -136,7 +136,7 @@ export const HeroInnerAboutData = {
 };
 
 export const HeroInnerServicesData = {
-    title: 'Services',
+    title: 'our services',
     breadcrumbs: [
         {
             id: 1,
@@ -154,7 +154,7 @@ export const HeroInnerServicesData = {
 };
 
 export const HeroInnerChefsData = {
-    title: 'Our Chefs',
+    title: "Our chef's",
     breadcrumbs: [
         {
             id: 1,
@@ -163,12 +163,12 @@ export const HeroInnerChefsData = {
         },
         {
             id: 2,
-            title: 'Our Chefs',
+            title: 'Team',
             link: '',
         },
     ],
-    image: '/bg/bg-chefs.webp',
-    altText: 'Our Chefs',
+    image: '/bg/bg-team.webp',
+    altText: 'Our culinary team',
 };
 
 export const HeroInnerHistoryData = {

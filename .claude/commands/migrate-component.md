@@ -6,17 +6,53 @@ description: Migra los componentes de una página completa para que coincidan co
 
 ## Flujo de trabajo
 
-El usuario abre el `page.tsx` de la ruta que quiere migrar y pega el HTML completo de referencia de esa página.
+El usuario indica qué página quiere migrar (por nombre o ruta). El HTML de referencia se encuentra en la carpeta `html/` del proyecto.
 
-Si no ha proporcionado el HTML, solicítalo:
+### Mapeo de páginas HTML → Rutas Next.js
 
-> "Pega el HTML completo de referencia de la página que quieres migrar."
+| HTML de referencia | Ruta Next.js |
+|-------------------|--------------|
+| `index.html` | `/intro` |
+| `page-home-classic.html` | `/home-classic` |
+| `page-home-creative.html` | `/home-creative` |
+| `page-about.html` | `/about-us` |
+| `page-history.html` | `/history` |
+| `page-team.html` | `/chefs` |
+| `page-services.html` | `/services` |
+| `page-chefs-table.html` | `/chefs-table` |
+| `page-testimonials.html` | `/testimonials` |
+| `page-menu.html` | `/menu` |
+| `page-menu-tabs.html` | `/menu-tabs` |
+| `page-menu-full-width.html` | `/menu-full-width` |
+| `page-menu-sidebar.html` | `/menu-sidebar` |
+| `page-menu-category.html` | `/menu-category` |
+| `page-menu-single.html` | `/menu-single` |
+| `blog-standard.html` | `/blog` |
+| `blog-sidebar-right.html` | `/blog-sidebar` |
+| `blog-details.html` | `/blog/[slug]` |
+| `blog-category.html` | `/blog/category/[slug]` |
+| `page-contact.html` | `/contact-us` |
+| `page-events-private-dining.html` | `/events` |
+| `page-pricing.html` | `/pricing` |
+| `page-faq.html` | `/faq` |
+| `page-privacy.html` | `/privacy` |
+| `page-terms.html` | `/terms` |
+| `page-search-results.html` | `/search` |
+| `page-confirmation.html` | `/confirmation` |
+| `coming-soon.html` | `/coming-soon` |
+| `404.html` | `/not-found` |
+
+### Cómo obtener el HTML de referencia
+
+1. Identifica qué archivo HTML corresponde a la página solicitada usando el mapeo anterior
+2. Lee el archivo directamente desde `html/{nombre-archivo}.html`
+3. Si la ruta Next.js no existe aún en `src/app/(routes)/`, créala
 
 ---
 
 ## Paso 0: Checklist de migración
 
-Lee el archivo `.claude/migration-checklist.md` del proyecto para conocer el estado actual de migración de todos los componentes. Este archivo es la fuente de verdad.
+Lee el checklist de migración en la memoria persistente (`memory/migration-checklist.md`) para conocer el estado actual de migración de todas las páginas. Este archivo es la fuente de verdad.
 
 ---
 
@@ -127,11 +163,10 @@ Aplica los cambios siguiendo estas reglas:
 
 Después de migrar cada componente:
 
-1. Marca el componente como `[x]` en `.claude/migration-checklist.md` (proyecto)
-2. Marca el componente como `[x]` en la memoria persistente (`memory/migration-checklist.md`)
-3. Si es un componente nuevo, agrégalo al checklist en la sección correspondiente ya marcado como `[x]`
-4. Actualiza la tabla de "Resumen de Progreso" con los nuevos conteos
-5. Informa al usuario: `✅ BadgesList migrado y registrado en checklist (6/56)`
+1. Marca la página como `[x] Migrada` en la memoria persistente (`memory/migration-checklist.md`)
+2. Si es una página nueva (no estaba en el checklist), agrégala en la sección correspondiente ya marcada como `[x]`
+3. Actualiza la tabla de "Resumen de Progreso" con los nuevos conteos
+4. Informa al usuario: `✅ /history migrada y registrada en checklist (8/29)`
 
 ---
 

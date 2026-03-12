@@ -25,7 +25,7 @@ const TeamTwoBlock = memo((props: TeamBlockProps) => {
 		<section className="team-block-2">
 			<div className="team-block-2__container">
 				{/* Section title */}
-				<div className="section-title">
+				<div className="section-title section-title__no-divider">
 					{subtitle && <p className="section-title__subtitle">{subtitle}</p>}
 					{title && <h2 className="section-title__title">{title}</h2>}
 					{description && <p>{description}</p>}

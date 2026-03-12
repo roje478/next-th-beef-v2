@@ -27,7 +27,7 @@ Pasos a seguir:
 4. Genera el mensaje de commit siguiendo el formato
 5. Muestra: el mensaje generado, los archivos que se incluirán, y los archivos excluidos (si los hay) con su razón
 6. Pregunta al usuario: "¿Confirmar commit? (s/e/n)" donde s=confirmar, e=editar, n=cancelar
-7. Si confirma, ejecuta `git add` SOLO de los archivos relevantes (no uses `git add -A` si hay exclusiones) y luego `git commit -m "mensaje"`
+7. Si confirma, ejecuta `git add` SOLO de los archivos relevantes (no uses `git add -A` si hay exclusiones) y luego `git commit -m "mensaje"`. IMPORTANTE: NO agregues "Co-Authored-By" ni ningún trailer al mensaje de commit
 8. Si elige editar, pide el nuevo mensaje y vuelve a pedir confirmación
 9. Si cancela, no hagas nada
 10. Después de un commit exitoso, pregunta al usuario: "¿Hacer push? (s/n)". Si confirma, ejecuta git push origin <rama-actual>. Si no, simplemente termina.
