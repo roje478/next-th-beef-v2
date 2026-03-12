@@ -26,11 +26,12 @@ const NewsletterBlock = ({
 					</p>
 				</div>
 
-				<div className="max-w-content mx-auto">
+				<div className="max-w-content mx-auto" suppressHydrationWarning>
 					<form
 						className="newsletter-form newsletter-form--hero"
 						action="#"
 						method="post"
+						suppressHydrationWarning
 					>
 						<div className="newsletter-form__wrapper">
 							<input
