@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import { AboutClassic } from "@/app/blocks/about";
 import BadgesList from "@/app/blocks/badges/BadgesList";
 import Cta from "@/app/blocks/cta/variants/ctaOne/ctaOne";
+
+export const metadata: Metadata = {
+	title: "Home Creative",
+	description:
+		"A creative homepage design with full-screen hero slider, special offers, masonry gallery, and team showcase. Built with Next.js and Framer Motion animations.",
+};
 import { MasonryGallery } from "@/app/blocks/gallery";
 import ServicesListTwo from "@/app/blocks/services/variants/servicesListTwo/ServicesListTwo";
 import { HeroCreativeSliderBlock } from "@/app/blocks/hero";

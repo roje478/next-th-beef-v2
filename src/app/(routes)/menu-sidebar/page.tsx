@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import HeroInner from "@/app/components/common/hero-inner/Hero-inner";
 import MenuSidebar from "@/app/blocks/menu/menu-sidebar/MenuSidebar";
 import BadgesList from "@/app/blocks/badges/BadgesList";
+
+export const metadata: Metadata = {
+	title: "Menu Sidebar",
+	description:
+		"A sidebar navigation menu layout with sticky category list, smooth scrolling, and organized dish sections. Great for easy menu browsing.",
+};
 import { CtaTwo } from "@/app/blocks/cta";
 import { GalleryGrid } from "@/app/blocks/gallery";
 

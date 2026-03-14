@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import HeroInnerBlock from "@/app/components/common/hero-inner/Hero-inner";
 import { TeamTwoBlock } from "@/app/blocks/team";
 import BadgesList from "@/app/blocks/badges/BadgesList";
+
+export const metadata: Metadata = {
+	title: "Our Chefs",
+	description:
+		"Meet the talented chefs behind our cuisine. Passionate culinary artists dedicated to crafting unforgettable dining experiences.",
+};
 import { TestimonialsBlock } from "@/app/blocks/testimonials/";
 import { GalleryGrid } from "@/app/blocks/gallery";
 

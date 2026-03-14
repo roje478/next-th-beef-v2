@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import BadgesList from "@/app/blocks/badges/BadgesList";
 import { CtaTwo } from "@/app/blocks/cta";
 import { GalleryGrid } from "@/app/blocks/gallery";
+
+export const metadata: Metadata = {
+	title: "Menu Full Width",
+	description:
+		"A full-width menu layout showcasing dishes in an expansive grid with images, prices, and descriptions. Ideal for restaurants with extensive menus.",
+};
 import MenuImageBlock from "@/app/blocks/menu/menu-image/menuImage";
 import HeroInnerBlock from "@/app/components/common/hero-inner/Hero-inner";
 // Data

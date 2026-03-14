@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import HeroInnerBlock from "@/app/components/common/hero-inner/Hero-inner";
 import { FaqBlock } from "@/app/blocks/faq";
 import { CtaTwo } from "@/app/blocks/cta";
+
+export const metadata: Metadata = {
+	title: "FAQ",
+	description:
+		"Find answers to frequently asked questions about reservations, dietary accommodations, private events, dress code, and more.",
+};
 
 // Data
 import {

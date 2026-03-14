@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import HeroInnerBlock from "@/app/components/common/hero-inner/Hero-inner";
 import {
 	PricingIntro,
@@ -7,6 +8,12 @@ import {
 	PricingCta,
 } from "@/app/blocks/pricing";
 import { GalleryGrid } from "@/app/blocks/gallery";
+
+export const metadata: Metadata = {
+	title: "Pricing",
+	description:
+		"View our pricing plans for events, private dining, and catering services. Flexible packages for every budget and occasion.",
+};
 
 // Data
 import {

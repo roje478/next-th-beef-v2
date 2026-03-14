@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import HeroInnerBlock from "@/app/components/common/hero-inner/Hero-inner";
 import ServicesListTwo from "@/app/blocks/services/variants/servicesListTwo/ServicesListTwo";
 import { EventsBlock } from "@/app/blocks/events";
+
+export const metadata: Metadata = {
+	title: "Services",
+	description:
+		"Discover our restaurant services including private dining, catering, event hosting, and special celebrations. Tailored experiences for every occasion.",
+};
 import BadgesList from "@/app/blocks/badges/BadgesList";
 import { TestimonialsBlock } from "@/app/blocks/testimonials/";
 

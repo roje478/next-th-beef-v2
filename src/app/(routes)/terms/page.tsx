@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import HeroInnerBlock from "@/app/components/common/hero-inner/Hero-inner";
 import { LegalContent } from "@/app/blocks/legal";
 import { HeroInnerTermsData } from "@/app/hooks/data-terms";
+
+export const metadata: Metadata = {
+	title: "Terms & Conditions",
+	description:
+		"Read our terms and conditions for using our website, services, reservations, and dining policies.",
+};
 
 const TermsPage = () => {
 	return (

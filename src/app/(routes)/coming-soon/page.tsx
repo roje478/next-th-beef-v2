@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+	title: "Coming Soon",
+	description:
+		"We are working on something exciting. Stay tuned for updates and be the first to know when we launch.",
+};
 
 const ComingSoonPage = () => {
 	return (

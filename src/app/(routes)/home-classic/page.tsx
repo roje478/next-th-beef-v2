@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import { AboutClassic } from "@/app/blocks/about";
 import Cta from "@/app/blocks/cta/variants/ctaOne/ctaOne";
 import { SpecialOffersTwoBlock } from "@/app/blocks/special-offers";
+
+export const metadata: Metadata = {
+	title: "Home Classic",
+	description:
+		"An elegant classic homepage layout with hero section, about block, weekly specials, service highlights, gallery grid, and team members.",
+};
 import { TeamOneBlock as TeamBlock } from "@/app/blocks/team";
 import WeekSpecials from "@/app/blocks/menu/menu-week-specials/menuWeekSpecials";
 import { HeroBasicBlock } from "@/app/blocks/hero";

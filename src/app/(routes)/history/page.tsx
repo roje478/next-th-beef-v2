@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import HeroInnerBlock from "@/app/components/common/hero-inner/Hero-inner";
 import HistoryBlock from "@/app/blocks/history/variants/history";
 import BadgesList from "@/app/blocks/badges/BadgesList";
+
+export const metadata: Metadata = {
+	title: "Our History",
+	description:
+		"Discover the journey of our restaurant through the years. A timeline of milestones, traditions, and the evolution of our culinary vision.",
+};
 import { GalleryGrid } from "@/app/blocks/gallery";
 
 // Data

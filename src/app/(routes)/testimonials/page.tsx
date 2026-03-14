@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import HeroInnerBlock from "@/app/components/common/hero-inner/Hero-inner";
 import {
 	TestimonialsStatsBlock,
@@ -5,6 +6,12 @@ import {
 	TestimonialsCtaBlock,
 } from "@/app/blocks/testimonials";
 import { GalleryGrid } from "@/app/blocks/gallery";
+
+export const metadata: Metadata = {
+	title: "Testimonials",
+	description:
+		"Read what our guests say about their dining experience. Real reviews, ratings, and stories from satisfied customers.",
+};
 
 // Data
 import { HeroInnerTestimonialsData } from "@/app/hooks/data-testimonials-page";

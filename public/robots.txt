@@ -1,0 +1,12 @@
+# Beef Restaurant - Next.js Template
+# https://beef-restaurant.vercel.app
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://beef-restaurant.vercel.app/sitemap.xml
+
+# Disallow admin and API routes
+Disallow: /api/
+Disallow: /_next/

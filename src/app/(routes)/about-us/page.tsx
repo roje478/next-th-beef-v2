@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import { AboutModern, AboutTwoCols } from "@/app/blocks/about";
 import ContactBlock from "@/app/blocks/contact/contact";
 import { TeamTwoBlock } from "@/app/blocks/team";
+
+export const metadata: Metadata = {
+	title: "About Us",
+	description:
+		"Learn about our restaurant story, philosophy, and the passionate team behind every dish. Featuring our chefs, values, and commitment to quality.",
+};
 import { TestimonialsBlock } from "@/app/blocks/testimonials/";
 import HeroInnerBlock from "@/app/components/common/hero-inner/Hero-inner";
 import { GalleryGrid } from "@/app/blocks/gallery";

@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import HeroInnerBlock from "@/app/components/common/hero-inner/Hero-inner";
 import { LegalContent } from "@/app/blocks/legal";
 import { HeroInnerPrivacyData } from "@/app/hooks/data-privacy";
+
+export const metadata: Metadata = {
+	title: "Privacy Policy",
+	description:
+		"Learn how we collect, use, and protect your personal data. Our commitment to your privacy and data security.",
+};
 
 const PrivacyPage = () => {
 	return (

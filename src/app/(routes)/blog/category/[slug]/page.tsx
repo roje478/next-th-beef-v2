@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import HeroInnerBlock from "@/app/components/common/hero-inner/Hero-inner";
 import { BlogGrid, BlogSidebar } from "@/app/blocks/blog";
+
+export const metadata: Metadata = {
+	title: "Blog Category",
+	description:
+		"Browse articles filtered by category. Find posts about food, recipes, restaurant tips, and more.",
+};
 
 // Data
 import {

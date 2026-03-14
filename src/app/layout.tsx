@@ -33,7 +33,10 @@ const mulish = Mulish({
 });
 
 export const metadata: Metadata = {
-	title: "Beef - Premium Restaurant & Steakhouse HTML Template | Tailwind CSS",
+	title: {
+		default: "Beef - Premium Restaurant & Steakhouse Next.js Template",
+		template: "%s | Beef Restaurant",
+	},
 	description:
 		"Beef is a premium restaurant HTML template perfect for steakhouses, fine dining, and upscale eateries. Built with Tailwind CSS, fully responsive, 30+ pages, modern design.",
 	keywords:
@@ -41,37 +44,28 @@ export const metadata: Metadata = {
 	authors: [{ name: "jrtemplate", url: "https://jrstudio.com.co" }],
 	creator: "JRTemplate",
 	publisher: "JRTemplate",
-	metadataBase: new URL("https://yourwebsite.com"),
+	metadataBase: new URL("https://beef-restaurant.vercel.app"),
 	alternates: {
 		canonical: "/",
 	},
 	openGraph: {
 		type: "website",
-		url: "https://yourwebsite.com/",
-		title: "Beef - Premium Restaurant & Steakhouse HTML Template",
+		url: "https://beef-restaurant.vercel.app/",
+		title: "Beef - Premium Restaurant & Steakhouse Next.js Template",
 		description:
-			"Premium restaurant HTML template with 30+ pages, modern design, and Tailwind CSS. Perfect for steakhouses and fine dining establishments.",
+			"Premium restaurant Next.js template with 28+ pages, modern design, and Tailwind CSS. Perfect for steakhouses and fine dining establishments.",
 		siteName: "Beef Restaurant",
 		locale: "en_US",
-		images: [
-			{
-				url: "/images/og-image.webp",
-				width: 1200,
-				height: 630,
-				alt: "Beef Restaurant - Premium Steakhouse HTML Template",
-			},
-		],
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Beef - Premium Restaurant & Steakhouse HTML Template",
+		title: "Beef - Premium Restaurant & Steakhouse Next.js Template",
 		description:
-			"Premium restaurant HTML template with 30+ pages, modern design, and Tailwind CSS.",
-		images: ["/images/og-image.webp"],
+			"Premium restaurant Next.js template with 28+ pages, modern design, and Tailwind CSS.",
 		site: "@BeefRestaurant",
 	},
 	icons: {
-		icon: "/images/favicon.webp",
+		icon: "/favicon.webp",
 	},
 };
 
@@ -87,7 +81,7 @@ const jsonLd = {
 	"@context": "https://schema.org",
 	"@type": "Restaurant",
 	name: "Beef Steakhouse",
-	image: "https://yourwebsite.com/images/restaurant-exterior.webp",
+	image: "https://beef-restaurant.vercel.app/images/restaurant-exterior.webp",
 	description:
 		"Premium steakhouse specializing in dry-aged beef, fine wines, and exceptional service. Located in the heart of London, offering an unforgettable dining experience.",
 	address: {
@@ -105,7 +99,7 @@ const jsonLd = {
 	},
 	telephone: "+1-123-456-7890",
 	email: "booking@restaurant.com",
-	url: "https://yourwebsite.com",
+	url: "https://beef-restaurant.vercel.app",
 	priceRange: "$$$",
 	servesCuisine: ["Steakhouse", "American", "Fine Dining", "Contemporary"],
 	acceptsReservations: "True",
@@ -129,7 +123,7 @@ const jsonLd = {
 			closes: "21:00",
 		},
 	],
-	menu: "https://yourwebsite.com/menu",
+	menu: "https://beef-restaurant.vercel.app/menu",
 	aggregateRating: {
 		"@type": "AggregateRating",
 		ratingValue: "4.8",

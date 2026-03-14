@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import HeroInnerBlock from "@/app/components/common/hero-inner/Hero-inner";
 import { BlogGrid, BlogSidebar } from "@/app/blocks/blog";
+
+export const metadata: Metadata = {
+	title: "Blog with Sidebar",
+	description:
+		"Browse our blog articles with a sidebar featuring categories, tags, recent posts, and search. A classic blog layout for content-rich sites.",
+};
 
 // Data
 import {

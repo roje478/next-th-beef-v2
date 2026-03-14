@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import HeroInner from "@/app/components/common/hero-inner/Hero-inner";
 import { HeroInnerMenuData } from "@/app/hooks/data";
 import { SpecialOffersTwoBlock } from "@/app/blocks/special-offers";
+
+export const metadata: Metadata = {
+	title: "Menu",
+	description:
+		"Explore our restaurant menu featuring premium steaks, appetizers, desserts, and curated wine selections. Beautifully designed with image cards.",
+};
 import { specialOffersData } from "@/app/hooks/data-special-offers";
 import MenuImageBlock from "@/app/blocks/menu/menu-image/menuImage";
 import { categoryDishesData } from "@/app/hooks/data-dish";

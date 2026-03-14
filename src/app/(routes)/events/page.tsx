@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import HeroInnerBlock from "@/app/components/common/hero-inner/Hero-inner";
 import {
 	EventsBlock,
@@ -6,6 +7,12 @@ import {
 	EventsServicesBlock,
 	EventsContactBlock,
 } from "@/app/blocks/events";
+
+export const metadata: Metadata = {
+	title: "Events",
+	description:
+		"Host your next event at our restaurant. Explore venue spaces, catering services, and event packages for weddings, corporate events, and celebrations.",
+};
 
 // Data
 import {

@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import HeroInnerBlock from "@/app/components/common/hero-inner/Hero-inner";
 import ContactBlock from "@/app/blocks/contact/contact";
 import LocationsBlock from "@/app/blocks/locations/locations";
+
+export const metadata: Metadata = {
+	title: "Contact Us",
+	description:
+		"Get in touch with us for reservations, inquiries, or feedback. Find our locations, hours, and contact information.",
+};
 import BadgesList from "@/app/blocks/badges/BadgesList";
 import { GalleryGrid } from "@/app/blocks/gallery";
 

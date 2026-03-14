@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import HeroInnerBlock from "@/app/components/common/hero-inner/Hero-inner";
 import { BlogDetails, BlogSidebar } from "@/app/blocks/blog";
+
+export const metadata: Metadata = {
+	title: "Blog Post",
+	description:
+		"Read the full article with rich content, images, social sharing, comments, and related posts.",
+};
 
 // Data
 import {

@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import HeroInnerBlock from "@/app/components/common/hero-inner/Hero-inner";
 import { BlogGrid } from "@/app/blocks/blog";
+
+export const metadata: Metadata = {
+	title: "Blog",
+	description:
+		"Read our latest articles about food, cooking techniques, restaurant news, and culinary trends. Stay updated with our blog.",
+};
 
 // Data
 import { HeroInnerBlogData } from "@/app/hooks/data";

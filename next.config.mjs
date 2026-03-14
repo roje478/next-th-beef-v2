@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	// Desactivar Turbopack temporalmente por compatibilidad con CSS complejo
-	turbo: undefined,
-
 	// Optimizaciones de imágenes
 	images: {
 		formats: ['image/avif', 'image/webp'],
