@@ -3,14 +3,14 @@
     Refined version for premium experiences
 ===========================*/
 .testimonials-v2{
-    @apply bg-coarseWool-700 relative overflow-hidden py-20 lg:py-28;
+    @apply bg-coarseWool-700 relative py-20 lg:py-28;
 
     &__container{
         @apply w-full mx-auto px-4 lg:px-0 flex flex-col items-center justify-center relative z-20;
     }
 
     &__swiper{
-        @apply w-full max-w-screen-xl sm:px-6;
+        @apply w-full max-w-screen-xl px-16 lg:px-24 relative;
     }
 
     .splide{
@@ -67,46 +67,46 @@
 
     /* Navigation arrows styling */
     .splide__arrows{
-        @apply relative;
+        @apply !flex !items-center !justify-between !p-0 !gap-0;
+        position: absolute !important;
+        top: 50% !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: translateY(-50%) !important;
+        pointer-events: none;
+        z-index: 10;
     }
 
     .splide__arrow{
-        @apply absolute top-1/2 -translate-y-1/2 z-10;
-        @apply bg-coarseWool-800 border-2 border-coarseWool-600;
-        @apply w-12 h-12 rounded-full;
-        @apply flex items-center justify-center;
-        @apply transition-all duration-300;
-        @apply opacity-100 cursor-pointer;
+        @apply !relative !bg-coarseWool-800/80 !border-2 !border-coarseWool-500;
+        @apply !w-11 !h-11 !rounded-full;
+        @apply !flex !items-center !justify-center;
+        @apply !transition-all !duration-300;
+        @apply !opacity-100 !cursor-pointer;
+        pointer-events: auto;
+        backdrop-filter: blur(4px);
+
+        &::before{
+            @apply !hidden;
+        }
 
         &:hover{
-            @apply bg-calico-500 border-calico-500 scale-110;
+            @apply !bg-calico-500 !border-calico-500;
 
             svg{
                 @apply text-coarseWool-900;
             }
         }
 
-        &:active{
-            @apply scale-95;
-        }
-
         &:disabled{
-            @apply opacity-30 cursor-not-allowed;
+            @apply !opacity-30 !cursor-not-allowed;
             &:hover{
-                @apply scale-100 bg-coarseWool-800 border-coarseWool-600;
+                @apply !bg-coarseWool-800 !border-coarseWool-600;
             }
         }
 
         svg{
             @apply w-6 h-6 text-coarseWool-100 transition-colors duration-300;
-        }
-
-        &--prev{
-            @apply -left-6 lg:-left-16;
-        }
-
-        &--next{
-            @apply -right-6 lg:-right-16;
         }
     }
 

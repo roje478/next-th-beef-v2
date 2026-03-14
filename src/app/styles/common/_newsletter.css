@@ -63,7 +63,7 @@
 .newsletter-form__privacy {
     @apply flex items-center justify-center gap-2;
     @apply text-coarseWool-300 text-sm;
-    @apply mt-3;
+    @apply mt-6;
 
     i {
         @apply text-calico-500;
@@ -259,7 +259,7 @@
     }
 
     &::before {
-        content: '⚠';
+        content: "⚠";
         @apply inline-block text-red-400 flex-shrink-0;
     }
 }
@@ -347,7 +347,7 @@
     @apply opacity-50 pointer-events-none;
 
     &::after {
-        content: '';
+        content: "";
         @apply inline-block w-4 h-4 ml-2;
         @apply border-2 border-coarseWool-900 border-t-transparent;
         @apply rounded-full;

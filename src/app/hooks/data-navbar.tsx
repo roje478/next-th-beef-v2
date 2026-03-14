@@ -97,7 +97,7 @@ export const itemsNavbar = [
             {
                 id: 38,
                 title: 'Events / Private',
-                link: '/events-private-dining',
+                link: '/events',
             },
             {
                 id: 39,
@@ -119,7 +119,7 @@ export const itemsNavbar = [
             {
                 id: 42,
                 title: 'Blog + sidebar',
-                link: '/blog-sidebar-right',
+                link: '/blog-sidebar',
             },
             {
                 id: 43,

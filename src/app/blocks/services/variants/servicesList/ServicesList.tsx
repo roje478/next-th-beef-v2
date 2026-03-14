@@ -18,7 +18,7 @@ const ServicesList = ({
 		);
 	}
 	return (
-		<section className="services-illustrations services-box services-icons bg-coarseWool-800">
+		<section className="services-illustrations services-box bg-coarseWool-800">
 			<div className="services-illustrations__container">
 				<div className="services-illustrations__content">
 						{items.map((item) => (

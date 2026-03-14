@@ -2,26 +2,30 @@
     Divider
 ===========================*/
 .divider {
-	@apply w-full max-w-lg relative mb-16 h-px mx-auto;
+    @apply w-full max-w-lg relative mt-5 mb-16 h-px mx-auto;
 
-	@media screen and (max-width: 480px) {
-		@apply max-w-[50%];
-	}
+    @media screen and (max-width: 480px) {
+        @apply max-w-[50%];
+    }
 }
 
 .div-transparent:before {
-	content: "";
-	@apply absolute top-0 left-[5%] right-[5%] w-[90%] h-px;
-	background-image: linear-gradient(to right, transparent, theme('colors.calico.500'), transparent);
+    content: "";
+    @apply absolute top-0 left-[5%] right-[5%] w-[90%] h-px;
+    background-image: linear-gradient(
+        to right,
+        transparent,
+        theme("colors.calico.500"),
+        transparent
+    );
 }
 
 .div-arrow-down:after {
-	content: "";
-	@apply absolute z-10 -top-2 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rotate-45 bg-coarseWool-800 border-b border-r border-solid border-calico-500;
+    content: "";
+    @apply absolute z-10 -top-2 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rotate-45 bg-coarseWool-800 border-b border-r border-solid border-calico-500;
 }
 
 .div-stopper:after {
-	content: "";
-	@apply absolute z-10 -top-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3 bg-coarseWool-800 border-l border-r border-solid border-calico-500;
+    content: "";
+    @apply absolute z-10 -top-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3 bg-coarseWool-800 border-l border-r border-solid border-calico-500;
 }
-

@@ -4,7 +4,7 @@
 .services-illustrations {
     @apply section-spacing-lg;
     &__container {
-        @apply container mx-auto container-padding-compact ;
+        @apply container mx-auto container-padding-compact;
     }
     &__content {
         @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6;
@@ -15,7 +15,7 @@
         transform-style: preserve-3d;
         backface-visibility: hidden;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        
+
         &-illustration {
             @apply text-6xl text-coarseWool-100 flex flex-col justify-center items-center gap-0 w-32 h-32 relative z-50;
             transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -32,7 +32,7 @@
                 @apply text-coarseWool-100 text-center mb-0;
             }
         }
-        &:hover{
+        &:hover {
             transform: translateY(-8px) rotateX(4deg);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
         }
@@ -55,36 +55,34 @@
     }
 }
 
-
 /*==========================
     Services - box
 ===========================*/
-.services-box{
+.services-box {
     @apply container-padding-2xl section-spacing;
-    .services-illustrations__content{
+    .services-illustrations__content {
         @apply grid-cols-1 sm:grid-cols-2 gap-6;
     }
-    .services-illustrations__card-info{
+    .services-illustrations__card-info {
         @apply md:px-4 lg:px-8 xl:px-24;
-        .btn{
+        .btn {
             @apply mt-0;
         }
     }
 }
 
-
 /*==========================
     Services - Icons
 ===========================*/
-.services-icons{
-    .services-illustrations__card{
-        @apply px-4 py-6;
+.services-icons {
+    .services-illustrations__card {
+        @apply px-4 py-12 md:py-16;
     }
-    .services-illustrations__card-illustration{
+    .services-illustrations__card-illustration {
         @apply w-10 h-10 mb-4;
     }
-    .services-illustrations__card-info{
-        h5{
+    .services-illustrations__card-info {
+        h5 {
             @apply text-coarseWool-100 !font-normal text-center mb-0;
         }
     }

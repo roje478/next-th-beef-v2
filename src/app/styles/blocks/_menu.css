@@ -2,158 +2,156 @@
     Menu Page 
 ===========================*/
 .menu {
-	@apply flex flex-col items-center justify-center section-spacing-top relative overflow-hidden;
-	&:after {
-		@apply absolute top-0 right-0 hidden lg:block w-[140px] h-auto bottom-0 bg-contain bg-repeat-y bg-right;
-		content: "";
-		background-image: url("/img/right.png");
-	}
-	&:before {
-		@apply absolute top-0 hidden lg:block left-0 w-[140px] h-auto bottom-0 bg-contain bg-repeat-y bg-right;
-		content: "";
-		background-image: url("/img/left.png");
-	}
-	&__container {
-		@apply container mx-auto ;
-		.section-title {
-			@apply max-w-content-lg text-center mx-auto mb-8;
-			p {
-				@apply max-w-content mx-auto;
-				&:last-of-type {
-					@apply mb-0;
-				}
-			}
-		}
-	}
-	&__container__full {
-		@apply w-full mx-auto;
-		.menu__category:nth-child(even){
-			.menu__category-dishes {
-				@apply !px-0 md:!px-8 lg:!px-16 xl:!px-24;
-			}
-		}
-	}
+    @apply flex flex-col items-center justify-center section-spacing-top relative overflow-hidden;
+    &:after {
+        @apply absolute top-0 right-0 hidden lg:block w-[140px] h-auto bottom-0 bg-contain bg-repeat-y bg-right;
+        content: "";
+        background-image: url("/img/right.png");
+    }
+    &:before {
+        @apply absolute top-0 hidden lg:block left-0 w-[140px] h-auto bottom-0 bg-contain bg-repeat-y bg-left;
+        content: "";
+        background-image: url("/img/left.png");
+    }
+    &__container {
+        @apply container mx-auto;
+        .section-title {
+            @apply max-w-content-lg text-center mx-auto mb-8;
+            p {
+                @apply max-w-content mx-auto;
+                &:last-of-type {
+                    @apply mb-0;
+                }
+            }
+        }
+    }
+    &__container__full {
+        @apply w-full mx-auto;
+        .menu__category:nth-child(even) {
+            .menu__category-dishes {
+                @apply !px-0 md:!px-8 lg:!px-16 xl:!px-24;
+            }
+        }
+    }
 }
 
 /*==========================
     Menu tabs
 ===========================*/
 
-.menu-tabs .menu{
-	&:after,
-	&:before {
-		@apply !bg-cover !bg-no-repeat;
-	}
+.menu-tabs .menu {
+    &:after,
+    &:before {
+        @apply !bg-cover !bg-no-repeat;
+    }
 }
-
 
 /*==========================
     Menu dish
 ===========================*/
 .dish {
-	@apply flex flex-col justify-start items-start w-full mb-6;
-	&__content {
-		@apply flex flex-wrap justify-between items-center w-full border-b border-solid border-coarseWool-400 pb-3 mb-3;
-	}
-	&__title {
-		@apply !text-title-5 font-barlow-condensed font-normal mb-0 capitalize;
-	}
-	&__price {
-		@apply text-title-5 font-barlow-condensed font-normal text-calico-500 mb-0;
-	}
-	&__description {
-		@apply w-full text-coarseWool-200 font-sorts-mill-goudy italic text-sm mb-0;
-	}
+    @apply flex flex-col justify-start items-start w-full mb-6;
+    &__content {
+        @apply flex flex-wrap justify-between items-center w-full border-b border-solid border-coarseWool-400 pb-3 mb-3;
+    }
+    &__title {
+        @apply !text-title-5 font-barlow-condensed font-normal mb-0 capitalize;
+    }
+    &__price {
+        @apply text-title-5 font-barlow-condensed font-normal text-calico-500 mb-0;
+    }
+    &__description {
+        @apply w-full text-coarseWool-200 font-sorts-mill-goudy italic text-sm mb-0;
+    }
 }
 
 /*==========================
     Menu dishes list
 ===========================*/
 .menu__dishes-list {
-	@apply flex flex-col items-start justify-start;
+    @apply flex flex-col items-start justify-start;
 }
 
 .menu__dishes-col {
-	@apply col-span-1;
+    @apply col-span-1;
 }
 
 /*==========================
     Block Menu - two columns 
 ===========================*/
 .menu-block {
-	@apply bg-center bg-cover relative bg-no-repeat overflow-hidden border-none;
-	background-image: url("/images/bg/bg-menu.webp");
-	@screen md {
-		background-attachment: fixed;
-		background-position: center 100%;
-	}
-	&__container {
-		@apply container mx-auto section-spacing flex flex-col flex-wrap justify-start items-center relative z-20;
-	}
-	&__overlayer {
-		@apply absolute top-0 bottom-0 left-0 right-0 z-10 w-full h-full bg-coarseWool-900 opacity-90;
-	}
+    @apply bg-center bg-cover relative bg-no-repeat overflow-hidden border-none;
+    background-image: url("/images/bg/bg-menu.webp");
+    @screen md {
+        background-attachment: fixed;
+        background-position: center 100%;
+    }
+    &__container {
+        @apply container mx-auto section-spacing flex flex-col flex-wrap justify-start items-center relative z-20;
+    }
+    &__overlayer {
+        @apply absolute top-0 bottom-0 left-0 right-0 z-10 w-full h-full bg-coarseWool-900 opacity-90;
+    }
 
-	&__dishes {
-		@apply grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-6 lg:gap-10 xl:gap-16 w-full px-0 md:px-4 xl:px-16 xl:pt-4 md:pb-10;
-	}
-	.btn {
-		@apply mt-6 md:mt-0;
-	}
+    &__dishes {
+        @apply grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-6 lg:gap-10 xl:gap-16 w-full px-0 md:px-4 xl:px-16 xl:pt-4 md:pb-10;
+    }
+    .btn {
+        @apply mt-6 md:mt-0;
+    }
 }
 
 /*==========================
     Block Menu - category
 ===========================*/
 .menu__category {
-	@apply grid grid-cols-12  w-full px-0 md:px-4 xl:pt-0 mx-auto relative z-50 h-auto;
-	&-image {
-		@apply col-span-12 md:col-span-4 lg:col-span-6 h-full max-h-[320px] sm:max-h-[480px] md:max-h-full ;
-		img {
-			@apply w-full h-full object-cover object-center;
-		}
-	}
-	&-dishes {
-		@apply col-span-12 md:col-span-8 lg:col-span-6 section-spacing-compact px-0 md:pl-8 md:pr-0 lg:pl-16 xl:pl-24 h-full flex-col items-center justify-center;
-		.section-title {
-			@apply text-left px-0 mb-8 max-w-none;
-			&__title {
-				@apply !text-title-3 mb-4 w-full font-barlow-condensed font-normal capitalize;
-			}
-			p {
-				@apply p-0;
-			}
-		}
-		.dish:last-of-type {
-			@apply mb-0;
-		}
-	}
-	/* Alternating layout and 40-60 split handled by card--split-horizontal utility */
-		&:nth-child(even) {
-			
-		.menu__category-image {
-			@apply order-1 md:order-2;
-		}
-		.menu__category-dishes {
-			@apply order-2 md:order-1 !pl-0 md:pr-8 lg:pr-16 xl:pr-24;
-		}
-	}
+    @apply grid grid-cols-12  w-full px-0 md:px-4 xl:pt-0 mx-auto relative z-50 h-auto;
+    &-image {
+        @apply col-span-12 md:col-span-4 lg:col-span-6 h-full max-h-[320px] sm:max-h-[480px] md:max-h-full;
+        img {
+            @apply w-full h-full object-cover object-center;
+        }
+    }
+    &-dishes {
+        @apply col-span-12 md:col-span-8 lg:col-span-6 section-spacing-compact px-0 md:pl-8 md:pr-0 lg:pl-16 xl:pl-24 h-full flex-col items-center justify-center;
+        .section-title {
+            @apply text-left px-0 mb-8 max-w-none;
+            &__title {
+                @apply !text-title-3 mb-4 w-full font-barlow-condensed font-normal capitalize;
+            }
+            p {
+                @apply p-0;
+            }
+        }
+        .dish:last-of-type {
+            @apply mb-0;
+        }
+    }
+    /* Alternating layout and 40-60 split handled by card--split-horizontal utility */
+    &:nth-child(even) {
+        .menu__category-image {
+            @apply order-1 md:order-2;
+        }
+        .menu__category-dishes {
+            @apply order-2 md:order-1 !pl-0 md:pr-8 lg:pr-16 xl:pr-24;
+        }
+    }
 }
 
 .menu__container__full {
-	.section-title {
-		@apply !mb-4 !px-6;
-	}
-	.menu__category {
-		@apply w-full px-0;
-		&-dishes {
-			@apply !px-4 sm:!px-8 md:!px-16 lg:!px-16 xl:!px-28;
-			.section-title {
-				@apply mb-16 !px-0;
-			}
-		}
-		/* card__media and card__body column spans handled by card--split-horizontal */
-	}
+    .section-title {
+        @apply !mb-4 !px-6;
+    }
+    .menu__category {
+        @apply w-full px-0;
+        &-dishes {
+            @apply !px-4 sm:!px-8 md:!px-16 lg:!px-16 xl:!px-28;
+            .section-title {
+                @apply mb-16 !px-0;
+            }
+        }
+        /* card__media and card__body column spans handled by card--split-horizontal */
+    }
 }
 
 /*==========================
@@ -163,111 +161,111 @@
 /* Justification: Follows existing patterns from blog and menu modules */
 
 .menu-item__meta {
-	@apply relative flex flex-col items-start justify-start pl-4 border-l-4 border-solid border-coarseWool-300 gap-2 mb-8 py-6;
-	&-price {
-		@apply relative sm:absolute top-0 sm:top-3 right-0 mt-4 sm:mt-0;
-	}
+    @apply relative flex flex-col items-start justify-start pl-4 border-l-4 border-solid border-coarseWool-300 gap-2 mb-8 py-6;
+    &-price {
+        @apply relative sm:absolute top-0 sm:top-3 right-0 mt-4 sm:mt-0;
+    }
 }
 
 .menu-item__price-value {
-	@apply inline-flex items-baseline gap-1 px-6 pt-3 pb-1 bg-calico-500/10 border-2 border-calico-500 rounded-lg text-title-4 sm:text-title-2 font-josefin-sans font-normal text-calico-500 leading-none;
+    @apply inline-flex items-baseline gap-1 px-6 pt-3 pb-1 bg-calico-500/10 border-2 border-calico-500 rounded-lg text-title-4 sm:text-title-2 font-josefin-sans font-normal text-calico-500 leading-none;
 }
 
 .menu-item__action {
-	@apply w-full flex flex-col items-center justify-center gap-6 mb-8 pt-6 pb-6;
-	.btn {
-		@apply w-full sm:w-auto min-w-[280px] text-center;
-	}
-	.social_icons {
-		@apply justify-center gap-6;
-		li a {
-			@apply w-12 h-12 flex items-center justify-center;
-		}
-	}
+    @apply w-full flex flex-col items-center justify-center gap-6 mb-8 pt-6 pb-6;
+    .btn {
+        @apply w-full sm:w-auto min-w-[280px] text-center;
+    }
+    .social_icons {
+        @apply justify-center gap-6;
+        li a {
+            @apply w-12 h-12 flex items-center justify-center;
+        }
+    }
 }
 
 /* Menu Item Specifications */
 /* Extension: Table-like spec display for dish details */
 /* Justification: Reusable pattern for nutritional/technical info across menu items */
 .menu-item__specs {
-	@apply flex flex-col gap-4;
+    @apply flex flex-col gap-4;
 }
 
 .menu-item__specs-row {
-	@apply flex justify-between border-b border-coarseWool-500 pb-2;
+    @apply flex justify-between border-b border-coarseWool-500 pb-2;
 }
 
 .menu-item__specs-label {
-	@apply text-coarseWool-300;
+    @apply text-coarseWool-300;
 }
 
 .menu-item__specs-value {
-	@apply text-calico-500 font-medium;
+    @apply text-calico-500 font-medium;
 }
 
 /* Menu Item Ingredients List */
 /* Extension: Styled list for ingredients/preparation steps */
 /* Justification: Maintains consistency with existing list patterns, reusable for recipe details */
 .menu-item__ingredients-list {
-	@apply list-disc pl-6 space-y-2 text-coarseWool-300;
+    @apply list-disc pl-6 space-y-2 text-coarseWool-300;
 }
 
 /* Review Stars */
 /* Extension: Star rating display component */
 /* Justification: Reusable pattern for ratings across reviews and testimonials */
 .review-stars {
-	@apply text-calico-500;
+    @apply text-calico-500;
 }
 
 /* Quick Info Widget Items */
 /* Extension: Icon + text info display for sidebar widgets */
 /* Justification: Pattern reusable for feature lists, info cards, spec highlights */
 .quick-info-list {
-	@apply flex flex-col gap-3 text-sm;
+    @apply flex flex-col gap-3 text-sm;
 }
 
 .quick-info-item {
-	@apply flex items-center gap-2;
-	i {
-		@apply text-calico-500;
-	}
-	span {
-		@apply text-coarseWool-300;
-	}
+    @apply flex items-center gap-2;
+    i {
+        @apply text-calico-500;
+    }
+    span {
+        @apply text-coarseWool-300;
+    }
 }
 
 /* Sidebar Price Display */
 /* Extension: Price display for sidebar related items */
 /* Justification: Consistent pricing display across widgets, related products */
 .sidebar-price {
-	@apply text-calico-500 font-medium;
-	&:before{
-		@apply hidden;
-	}
+    @apply text-calico-500 font-medium;
+    &:before {
+        @apply hidden;
+    }
 }
 
 /*==========================
     Block Menu - Week Specials (migrated from legacy WeekSpecial.css)
 ===========================*/
 .week-specials {
-	@apply bg-center bg-cover relative bg-no-repeat overflow-hidden border-none;
-	background-image: url("/bg/bg-menu.webp");
-	@screen md {
-		background-attachment: fixed;
-		background-position: center 100%;
-	}
-	&__container {
-		@apply container mx-auto py-16 md:py-20 xl:py-28 flex flex-col flex-wrap justify-start items-center relative z-20;
-	}
+    @apply bg-center bg-cover relative bg-no-repeat overflow-hidden border-none;
+    background-image: url("/bg/bg-menu.webp");
+    @screen md {
+        background-attachment: fixed;
+        background-position: center 100%;
+    }
+    &__container {
+        @apply container mx-auto py-16 md:py-20 xl:py-28 flex flex-col flex-wrap justify-start items-center relative z-20;
+    }
 
-	&__overlayer {
-		@apply absolute top-0 bottom-0 left-0 right-0 z-10 w-full h-full bg-surface-dark opacity-90;
-	}
+    &__overlayer {
+        @apply absolute top-0 bottom-0 left-0 right-0 z-10 w-full h-full bg-surface-dark opacity-90;
+    }
 
-	&__dishes {
-		@apply grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-x-6 lg:gap-x-10 xl:gap-x-16 w-full px-0 md:px-4 xl:px-16 xl:pt-4 md:pb-10;
-	}
-	.btn {
-		@apply mt-6 md:mt-0;
-	}
+    &__dishes {
+        @apply grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-x-6 lg:gap-x-10 xl:gap-x-16 w-full px-0 md:px-4 xl:px-16 xl:pt-4 md:pb-10;
+    }
+    .btn {
+        @apply mt-6 md:mt-0;
+    }
 }

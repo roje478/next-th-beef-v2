@@ -1,18 +1,16 @@
-
-.landing-page__content{
+.landing-page__content {
     @apply flex flex-col items-center justify-center relative overflow-hidden;
-	&:after {
-		@apply absolute top-0 right-0 hidden lg:block md:w-[120px] xl:w-[260px] bottom-0 bg-contain bg-no-repeat bg-right z-10;
-		content: "";
-		background-image: url("/img/right.png");
-	}
-	&:before {
-		@apply absolute top-0 hidden lg:block left-0 md:w-[120px] xl:w-[260px] bottom-0 bg-contain bg-no-repeat bg-left z-20;
-		content: "";
-		background-image: url("/img/left.png");
-	}
+    &:after {
+        @apply absolute top-0 right-0 hidden lg:block md:w-[120px] xl:w-[260px] bottom-0 bg-contain bg-no-repeat bg-right z-10;
+        content: "";
+        background-image: url("/img/right.png");
+    }
+    &:before {
+        @apply absolute top-0 hidden lg:block left-0 md:w-[120px] xl:w-[260px] bottom-0 bg-contain bg-no-repeat bg-left z-20;
+        content: "";
+        background-image: url("/img/left.png");
+    }
 }
-
 
 /*==========================
     Pages
@@ -29,13 +27,13 @@
         @apply w-full !text-title-6 text-center text-coarseWool-100 py-6 font-josefin-sans;
     }
     &__item {
-        @apply flex col-span-2 sm:col-span-1 relative flex-col items-center justify-start ;
-        a{
+        @apply flex col-span-2 sm:col-span-1 relative flex-col items-center justify-start;
+        a {
             @apply transition-all duration-200 ease-out rounded-lg;
-            &:focus-visible{
+            &:focus-visible {
                 @apply outline-none ring-2 ring-calico-500 ring-offset-2 ring-offset-coarseWool-700;
             }
-            &:active{
+            &:active {
                 @apply scale-[0.98];
             }
         }
@@ -64,21 +62,21 @@
         @apply container mx-auto section-spacing;
     }
     &__content {
-        @apply grid grid-cols-12 gap-6 container-padding pt-8;
+        @apply grid grid-cols-12 gap-6 container-padding pt-8 !px-0;
     }
     &__item {
         @apply col-span-12 sm:col-span-6 md:col-span-4 relative transition-all duration-200 ease-out rounded-lg;
-        &:focus-visible{
+        &:focus-visible {
             @apply outline-none ring-2 ring-calico-500 ring-offset-2 ring-offset-coarseWool-700;
         }
-        &:active{
+        &:active {
             @apply scale-[0.98];
         }
     }
     &__title {
         @apply w-full !text-title-6 text-center text-coarseWool-100 py-4 md:py-8 font-josefin-sans mb-3 md:mb-6 pointer-events-none;
     }
-    &__tag-new{
+    &__tag-new {
         @apply absolute -top-2 -right-2 bg-calico-500 text-coarseWool-900 text-body font-bold px-2 py-2 rounded-tr-lg rounded-bl-lg z-[99] shadow-elevated pointer-events-none;
     }
     &__image {
