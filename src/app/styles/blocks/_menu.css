@@ -4,12 +4,12 @@
 .menu {
     @apply flex flex-col items-center justify-center section-spacing-top relative overflow-hidden;
     &:after {
-        @apply absolute top-0 right-0 hidden lg:block w-[140px] h-auto bottom-0 bg-contain bg-repeat-y bg-right;
+        @apply absolute top-0 right-0 hidden lg:block w-[140px] 2xl:w-[140px] h-auto bottom-0 bg-cover bg-repeat-y bg-right;
         content: "";
         background-image: url("/img/right.png");
     }
     &:before {
-        @apply absolute top-0 hidden lg:block left-0 w-[140px] h-auto bottom-0 bg-contain bg-repeat-y bg-left;
+        @apply absolute top-0 hidden lg:block left-0 w-[140px] 2xl:w-[140px] h-auto bottom-0 bg-cover bg-repeat-y bg-left;
         content: "";
         background-image: url("/img/left.png");
     }

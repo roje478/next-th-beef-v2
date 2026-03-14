@@ -592,6 +592,7 @@ export interface HomepageItem {
     link: string;
     caption: string;
     tag?: string;
+    group?: string;
 }
 export interface HomePagesListProps {
     items: HomepageItem[];

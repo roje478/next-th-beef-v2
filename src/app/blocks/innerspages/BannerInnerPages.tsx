@@ -13,8 +13,8 @@ const BannerInnerPages = () => {
 					transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
 				>
 					<p className="mb-0">
-						Not only the home page, we have designed many beautiful individual
-						pages to meet your different needs.
+						Beyond the homepage — we&apos;ve designed a complete set of inner
+						pages, each crafted to meet real restaurant website needs.
 					</p>
 				</motion.div>
 			</div>

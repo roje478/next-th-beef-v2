@@ -7,7 +7,7 @@ export const FeaturesCardListData = {
 			image: "/illustrations/pencil.webp",
 			image_hover: "/illustrations/pencil-hover.webp",
 			description:
-				"Pixel perfect and fully responsive design as per latest web design trends.",
+				"Pixel-perfect, fully responsive design with Framer Motion and GSAP animations across every page.",
 		},
 		{
 			id: 2,
@@ -15,15 +15,15 @@ export const FeaturesCardListData = {
 			image: "/illustrations/timer.webp",
 			image_hover: "/illustrations/timer-hover.webp",
 			description:
-				"Best practice in design and coding to make the page load fast and SEO ready.",
+				"Next.js Image optimization, automatic code splitting, Server Components and SSR for blazing-fast load times.",
 		},
 		{
 			id: 3,
-			title: "Highly professional coding standard",
+			title: "Clean TypeScript codebase",
 			image: "/illustrations/check.webp",
 			image_hover: "/illustrations/check-hover.webp",
 			description:
-				"Well commented and structured, easy to understand and customizable code.",
+				"TypeScript strict mode, App Router architecture, well-structured components — easy to understand and customize.",
 		},
 		{
 			id: 4,
@@ -31,7 +31,7 @@ export const FeaturesCardListData = {
 			image: "/illustrations/comment.webp",
 			image_hover: "/illustrations/comment-hover.webp",
 			description:
-				"Detailed and technical documentation as well as best rated professional support.",
+				"Comprehensive documentation covering setup, customization and deployment, plus dedicated professional support.",
 		},
 	],
 };

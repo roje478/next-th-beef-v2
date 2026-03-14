@@ -17,7 +17,7 @@ export const ctaTwoData = {
 export const ctaIntroData = {
 	title: "Beef - Restaurant",
 	description:
-		"Made using only the finest coding & design practices there are, Beef - Elegant Restaurant is sure to make a perfect main ingredient for creating an irresistible your restaurant website.",
+		"Built with Next.js 14 App Router, TypeScript strict mode, and Tailwind CSS. Server Components by default, optimized images, and smooth Framer Motion animations — everything you need to launch a stunning restaurant website.",
 	link: "https://themeforest.net/item/beef-restaurant-react-nextjs-template/58512774",
 	linkText: "Purchase Now",
 };

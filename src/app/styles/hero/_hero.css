@@ -2,13 +2,13 @@
     Hero - Carousel - Front
 ==================================================*/
 .hero-slider {
-    @apply relative h-screen md:max-h-screen overflow-hidden;
+    @apply relative h-screen sm:min-h-screen xl:min-h-[1080px] 2xl:min-h-[1170px] xl:max-h-[1080px] 2xl:max-h-[1170px] overflow-hidden;
     &__images {
         @apply relative z-0 w-full h-full;
     }
     .slider-hero {
         &__item {
-            @apply relative z-0 h-screen md:max-h-screen overflow-hidden;
+            @apply relative z-0 h-screen sm:min-h-screen xl:min-h-[1080px] 2xl:min-h-[1170pxpx] xl:max-h-[1080px] 2xl:max-h-[1170px] overflow-hidden;
             img {
                 @apply object-cover object-center w-full h-full scale-105;
             }
@@ -28,7 +28,7 @@
                 @apply text-subtitle-1 text-calico-500 mb-0 font-sorts-mill-goudy capitalize;
             }
             .title {
-                @apply text-coarseWool-0 mb-2 uppercase !text-title-2 md:!text-display-2 lg:!text-display-1 xl:!text-display font-barlow-condensed;
+                @apply text-coarseWool-0 mb-2 uppercase !text-title-2 md:!text-display-2 lg:!text-display-1 xl:!text-display font-barlow-condensed px-9;
             }
             p {
                 @apply text-lead text-coarseWool-100 mb-6;
@@ -101,7 +101,7 @@
     Hero - Basic - Front
 ==================================================*/
 .hero-basic {
-    @apply flex flex-wrap items-center justify-center h-screen sm:min-h-screen md:min-h-screen bg-coarseWool-900 overflow-hidden relative;
+    @apply flex flex-wrap items-center justify-center h-screen sm:min-h-screen xl:min-h-[1080px] 2xl:min-h-[1170px] xl:max-h-[1080px] 2xl:max-h-[1170px] bg-coarseWool-900 overflow-hidden relative;
 
     &__background {
         @apply absolute top-0 bottom-0 left-0 right-0 z-0 block w-full h-full;
@@ -118,13 +118,13 @@
         );
     }
     &__content {
-        @apply col-span-11 sm:col-span-10 md:col-span-8 xl:col-span-6 flex flex-col items-start justify-center w-full h-full;
+        @apply col-span-11 sm:col-span-10 md:col-span-8 xl:col-span-6 2xl:col-span-7 flex flex-col items-start justify-center w-full h-full md:px-4 xl:pr-6 2xl:pr-9;
     }
     &__subtitle {
         @apply mb-0 italic capitalize font-sorts-mill-goudy text-subtitle-1 text-calico-500;
     }
     &__title {
-        @apply !text-title-2 md:!text-title-1 xl:!text-display-1 uppercase mb-4 text-white;
+        @apply !text-title-2 md:!text-title-1 lg:!text-display-1 2xl:!text-display-special uppercase mb-4 text-white;
     }
     &__description {
         @apply flex flex-col flex-wrap items-start justify-start mb-6 text-coarseWool-0 w-10/12;

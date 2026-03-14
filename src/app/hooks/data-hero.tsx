@@ -87,7 +87,8 @@ export const heroBasicClassicData = {
     altText: 'Gourmet steak dinner with wine at candlelit table',
     subtitle: 'Welcome to our restaurant',
     title: 'French Restaurants of the 19th century',
-    description: "The restaurant is an organic space reflective of nature inspired cuisine. The interplay of textures and colour brings life and a vibrance that embraces the restaurant's place in the dress circle.",
+    description:
+        "The restaurant is an organic space reflective of nature inspired cuisine. The interplay of textures and colour brings life and a vibrance that embraces the restaurant's place in the dress circle.",
     buttonText: 'See Our Menu',
     buttonLink: '/menu',
 };
@@ -95,9 +96,13 @@ export const heroBasicClassicData = {
 export const heroBasicIntroData = {
     image: '/hero/hero-1.webp',
     altText: 'Gourmet steak dinner with wine at candlelit table',
-    subtitle: 'Welcome to our restaurant',
-    title: 'Beef - Restaurant Template',
-    description: 'Made using only the finest coding & design practices there are, Beef - Restaurant is sure to make a perfect main ingredient for creating an irresistible your restaurant website.',
-    buttonText: 'Buy Now',
-    buttonLink: 'https://themeforest.net/item/beef-restaurant-react-nextjs-template/58512774',
+    subtitle: 'Premium Restaurant Theme',
+    title: 'Beef - Next.js Template',
+    description:
+        'A premium restaurant template built with Next.js 14, TypeScript and Tailwind CSS. Crafted with pixel-perfect design, smooth animations and clean code to create an irresistible restaurant website.',
+    buyText: 'Buy Now',
+    buyLink: 'https://themeforest.net/item/beef-restaurant-react-nextjs-template/58512774',
+    previewText: 'Live Preview',
+    previewLink: '/home-creative',
+    badges: ['Next.js 14', 'TypeScript', 'Tailwind CSS', '28+ Pages', 'App Router'],
 };
