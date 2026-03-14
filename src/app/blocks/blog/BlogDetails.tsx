@@ -66,7 +66,7 @@ const BlogDetails = ({ post }: BlogDetailsProps) => {
 						libero. Fusce feugiat, justo at mattis tincidunt, velit ante congue
 						ante, et lacinia metus ipsum a risus. Vivamus hendrerit porta libero
 						nec imperdiet. Praesent interdum nisl nec facilisis dapibus.{" "}
-						<a href="#">Suspendisse sed dignissim lorem</a>. In in interdum ex,
+						<span className="text-calico-500">Suspendisse sed dignissim lorem</span>. In in interdum ex,
 						vitae ultricies risus. Nullam semper venenatis sapien vitae gravida.
 						Nam in odio arcu.
 					</p>
@@ -91,7 +91,7 @@ const BlogDetails = ({ post }: BlogDetailsProps) => {
 						tempor dictum sed nec dui. Integer placerat vel tellus ut viverra. In
 						commodo nec lacus et pretium. Fusce quis elit neque. Vestibulum eu
 						est sit amet diam aliquam efficitur.{" "}
-						<a href="#">In faucibus dictum felis</a>, interdum malesuada tellus
+						<span className="text-calico-500">In faucibus dictum felis</span>, interdum malesuada tellus
 						viverra id. Vestibulum non libero eu nisl lacinia suscipit. Phasellus
 						posuere eleifend ex ut molestie. Suspendisse placerat lectus sit amet
 						diam sagittis, in bibendum metus tincidunt.

@@ -365,7 +365,7 @@ pnpm lint --fix
 | **Tailwind CSS** | 3.4.17 | Styling |
 | **Framer Motion** | 11.18.2 | Animations |
 | **GSAP** | 3.13.0 | Advanced animations |
-| **Swiper** | 11.2.6 | Carousels |
+| **Swiper** | 12.1.2 | Carousels |
 | **Radix UI** | Latest | Accessible components |
 | **Lucide Icons** | 0.441.0 | Icon library |
 
@@ -422,7 +422,7 @@ Full documentation is available in the `/docs` folder (if provided).
 - ✓ 2 home page designs
 - ✓ 4 menu layouts
 - ✓ Complete blog system
-- ✓ 13+ pages
+- ✓ 28+ pages
 - ✓ Fully responsive design
 - ✓ Next.js 14 with TypeScript
 - ✓ Tailwind CSS styling

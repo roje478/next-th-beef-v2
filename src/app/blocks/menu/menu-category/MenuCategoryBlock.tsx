@@ -184,9 +184,9 @@ const MenuCategoryBlock = (props: MenuCategoryBlockProps) => {
 							<h3 className="sidebar__widget-title">Dietary Options</h3>
 							<div className="sidebar__tags">
 								{sidebar.dietaryOptions.map((tag) => (
-									<a key={tag} href="#">
+									<span key={tag} className="sidebar__tag">
 										{tag}
-									</a>
+									</span>
 								))}
 							</div>
 						</motion.div>
@@ -201,12 +201,12 @@ const MenuCategoryBlock = (props: MenuCategoryBlockProps) => {
 							<h3 className="sidebar__widget-title">Price Range</h3>
 							<div className="sidebar__categories">
 								{sidebar.priceRanges.map((range) => (
-									<a key={range.id} href="#">
+									<span key={range.id} className="sidebar__category">
 										<span>
 											{range.label}
 											<span className="number-posts">({range.count})</span>
 										</span>
-									</a>
+									</span>
 								))}
 							</div>
 						</motion.div>

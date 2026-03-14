@@ -18,7 +18,7 @@ const MasonryGallery: React.FC<MasonryGalleryProps> = ({
 }) => {
 	const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 	const masonryRef = useRef<HTMLDivElement>(null);
-	const masonryInstance = useRef<any | null>(null);
+	const masonryInstance = useRef<{ layout?: () => void; destroy?: () => void; options?: Record<string, unknown> } | null>(null);
 
 	const handleOpenLightbox = (index: number) => {
 		setSelectedIndex(index);
@@ -58,7 +58,7 @@ const MasonryGallery: React.FC<MasonryGalleryProps> = ({
 
 		return () => {
 			if (masonryInstance.current) {
-				masonryInstance.current.destroy();
+				masonryInstance.current.destroy?.();
 				masonryInstance.current = null;
 			}
 		};
@@ -66,9 +66,7 @@ const MasonryGallery: React.FC<MasonryGalleryProps> = ({
 
 	// Re-layout on image load
 	const handleImageLoad = useCallback(() => {
-		if (masonryInstance.current) {
-			masonryInstance.current.layout();
-		}
+		masonryInstance.current?.layout?.();
 	}, []);
 
 	// Handle resize
@@ -80,8 +78,8 @@ const MasonryGallery: React.FC<MasonryGalleryProps> = ({
 					if (window.innerWidth < 1024) return 20;
 					return 24;
 				};
-				masonryInstance.current.options.gutter = getGutter();
-				masonryInstance.current.layout();
+				masonryInstance.current.options!.gutter = getGutter();
+				masonryInstance.current.layout?.();
 			}
 		};
 

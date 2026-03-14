@@ -19,7 +19,7 @@ export const menuSingleData = {
 	description: [
 		"Our signature Grilled Black Angus Sirloin Steak is a masterpiece of culinary craftsmanship. We source only the finest Black Angus beef, aged to perfection for 28 days to ensure maximum tenderness and flavor development. The marbling throughout creates an exceptionally juicy and flavorful experience.",
 		'Each steak is carefully hand-cut to ensure consistent thickness and optimal cooking. Our expert chefs <strong>grill each steak to your exact specification</strong>, whether you prefer rare, medium-rare, medium, or well-done. The high-heat grilling process creates a beautiful caramelized crust while sealing in the natural juices.',
-		'The steak is seasoned with our proprietary blend of sea salt, cracked black pepper, and aromatic herbs. This simple yet effective seasoning allows the natural beef flavor to shine through while enhancing the overall taste profile. <a href="#">View our full preparation process</a> in our behind-the-scenes kitchen tour.',
+		'The steak is seasoned with our proprietary blend of sea salt, cracked black pepper, and aromatic herbs. This simple yet effective seasoning allows the natural beef flavor to shine through while enhancing the overall taste profile. <span class="text-calico-500">View our full preparation process</span> in our behind-the-scenes kitchen tour.',
 	],
 	contentImage: "/blog/blog-1.webp",
 	contentImageAlt: "Grilled Black Angus Sirloin Steak",

@@ -41,7 +41,7 @@ const MenuSingleBlock = () => {
 								))}
 							</div>
 							<h2 className="post__author">
-								By Chef: <a href="#">{data.chef}</a>
+								By Chef: <span className="text-calico-500">{data.chef}</span>
 							</h2>
 							<div className="menu-item__meta-price">
 								<span className="menu-item__price-value">{data.price}</span>
@@ -102,9 +102,9 @@ const MenuSingleBlock = () => {
 
 						{/* Action + Social */}
 						<div className="menu-item__action">
-							<a href="#" className="btn">
+							<button type="button" className="btn">
 								Add to Order
-							</a>
+							</button>
 							<ul className="social_icons">
 								{data.chefInfo.social.map((s, i) => (
 									<li key={i}>
@@ -330,9 +330,9 @@ const MenuSingleBlock = () => {
 							<h3 className="sidebar__widget-title">Dietary Tags</h3>
 							<div className="sidebar__tags">
 								{sidebar.dietaryTags.map((tag) => (
-									<a key={tag} href="#">
+									<span key={tag} className="sidebar__tag">
 										{tag}
-									</a>
+									</span>
 								))}
 							</div>
 						</motion.div>
