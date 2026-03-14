@@ -62,6 +62,7 @@ const TeamOneBlock = memo((props: Omit<TeamBlockProps, 'urlImage' | 'altImage'>)
 							alt={teamBlockData.altImage || ""}
 							width={54}
 							height={54}
+							sizes="54px"
 							loading="lazy"
 						/>
 					</div>

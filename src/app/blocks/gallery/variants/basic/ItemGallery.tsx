@@ -24,6 +24,8 @@ const ItemGallery = ({
 						alt={altText ?? ""}
 						width={382}
 						height={360}
+						sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+						loading="lazy"
 					/>
 					{/* / Image */}
 

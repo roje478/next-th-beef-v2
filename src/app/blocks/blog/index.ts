@@ -6,4 +6,5 @@ export { default as SocialShare } from './SocialShare';
 export { default as CommentsList } from './CommentsList';
 export { default as CommentItem } from './CommentItem';
 export { default as CommentForm } from './CommentForm';
+export { default as BlogDetails } from './BlogDetails';
 export { default as CardPost } from './BlogCard';

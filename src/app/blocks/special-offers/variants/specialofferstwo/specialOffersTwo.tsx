@@ -84,6 +84,7 @@ const SpecialOffersTwoBlock = ({
 											alt={item.altText}
 											width={678}
 											height={426}
+											sizes="(min-width: 768px) 50vw, 100vw"
 											loading="lazy"
 										/>
 									</div>

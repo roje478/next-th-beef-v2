@@ -190,7 +190,7 @@ export const HeroInnerHistoryData = {
 };
 
 export const HeroInnerBlogData = {
-    title: 'Blog',
+    title: 'Blog Standard',
     breadcrumbs: [
         {
             id: 1,
@@ -199,10 +199,10 @@ export const HeroInnerBlogData = {
         },
         {
             id: 2,
-            title: 'Blog',
+            title: 'Blog Standard',
             link: '',
         },
     ],
-    image: '/bg/bg-cta.webp',
-    altText: 'Blog',
+    image: '/bg/bg-blog.webp',
+    altText: 'Fresh ingredients and cooking utensils on kitchen workspace',
 };

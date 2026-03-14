@@ -21,23 +21,24 @@ export const LocationItem = ({
 					alt={imageAltText || `Image of the ${name} location`}
 					width={500}
 					height={300}
+					sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+					loading="lazy"
 				/>
 			</div>
-			{/*/ image */}
-
+			{/* /image */}
 			{/* content */}
 			<div className="location__item-content">
 				<h3 className="location__item-title">{name}</h3>
-				<address className="location__item-address not-italic">
+				<p>
 					{addressLine1}
 					<br />
 					{addressLine2}
 					<br />
 					<a href={`tel:${phone.replace(/\s/g, "")}`}>{phone}</a>,{" "}
 					<a href={`mailto:${email}`}>{email}</a>
-				</address>
+				</p>
 				<a
-					className="btn btn__link"
+					className="btn-link"
 					href={directionLink}
 					target="_blank"
 					rel="noopener noreferrer"
@@ -45,7 +46,7 @@ export const LocationItem = ({
 					{directionButtonText || "get direction"}
 				</a>
 			</div>
-			{/*/ content */}
+			{/* /content */}
 		</div>
 	);
 };

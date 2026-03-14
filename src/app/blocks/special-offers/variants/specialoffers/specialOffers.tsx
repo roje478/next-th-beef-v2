@@ -59,6 +59,7 @@ const SpecialOffersBlock = ({
 										alt={item.altText}
 										width={1920}
 										height={1080}
+										sizes="100vw"
 										priority={index === 0}
 									/>
 								</div>

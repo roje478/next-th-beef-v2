@@ -1,8 +1,8 @@
 export const innerspagesListData = {
 	emptyMessage: "No inner pages available at the moment.",
 	defaultAltText: "Inner page",
-	subtitle: "Inners pages",
-	title: "take a look at the inner pages",
+	subtitle: "Inner pages",
+	title: "take a look at the Inner pages",
 	divider: true,
 	align: "center" as const,
 	items: [

@@ -1,0 +1,85 @@
+/* ===================================
+    Legal Content Styles
+    Para páginas Privacy Policy, Terms & Conditions
+    Reutiliza: section-title + typography del sistema
+====================================== */
+
+.legal-content {
+    @apply relative py-16 md:py-20 lg:py-24 bg-coarseWool-900;
+
+    &__container {
+        @apply container mx-auto px-4;
+        max-width: 900px;
+    }
+
+    &__text {
+        @apply mt-8 md:mt-12;
+
+        /* Lead paragraph */
+        .lead {
+            @apply text-lead text-coarseWool-100 leading-relaxed mb-8;
+        }
+
+        /* Headings */
+        h3 {
+            @apply font-barlow-condensed font-normal text-title-4 text-calico-500 mt-10 mb-4;
+        }
+
+        /* Paragraphs */
+        p {
+            @apply text-body text-coarseWool-200 leading-relaxed mb-4;
+
+            &:last-child {
+                @apply mb-0;
+            }
+        }
+
+        /* Lists */
+        ul {
+            @apply list-disc pl-6 mb-6 space-y-2;
+
+            li {
+                @apply text-body text-coarseWool-200 leading-relaxed;
+
+                strong {
+                    @apply text-coarseWool-0;
+                }
+            }
+        }
+
+        /* Alert box */
+        .alert {
+            @apply rounded-lg p-6 mb-8 border border-solid;
+
+            &--info {
+                @apply bg-coarseWool-800 border-calico-500/30 text-coarseWool-200;
+
+                strong {
+                    @apply text-calico-500;
+                }
+            }
+        }
+
+        /* Contact info block */
+        .contact-info {
+            @apply bg-coarseWool-800 rounded-lg p-6 my-6;
+
+            p {
+                @apply mb-4;
+
+                &:last-child {
+                    @apply mb-0;
+                }
+            }
+
+            a {
+                @apply text-calico-500 hover:text-calico-400 transition-colors duration-300;
+            }
+        }
+
+        /* Text muted */
+        .text-muted {
+            @apply text-coarseWool-400;
+        }
+    }
+}

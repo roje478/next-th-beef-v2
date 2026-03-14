@@ -1,5 +1,3 @@
-import { title } from "process";
-
 export const HeroInnerContactData = {
 	title: "contact us",
 	breadcrumbs: [
@@ -10,43 +8,20 @@ export const HeroInnerContactData = {
 		},
 		{
 			id: 2,
-			title: "Contact us",
+			title: "Contact",
 			link: "",
 		},
 	],
 	image: "/bg/bg-cta.webp",
-  altText: "Contact us",
+	altText: "Contact us",
 };
 
 export const contactData = {
 	subtitle: "Reservation",
 	title: "Book a Table on Time",
-  align: "center",
-	phrase: `The first restaurant proprietor is believed to have
-            been one A. Boulanger, a soup vendor, who opened his
-            business in 1765.`,
+	phrase:
+		"The first restaurant proprietor is believed to have been one A. Boulanger, a soup vendor, who opened his business in 1765.",
 	formAction: "/ruta-de-envio",
-	className: "",
-	formContent: {
-		nameLabel: "Name:",
-		namePlaceholder: "Name",
-		phoneLabel: "Phone:",
-		phonePlaceholder: "Phone",
-		emailLabel: "Email:",
-		emailPlaceholder: "Email",
-		personsLabel: "Persons:",
-		personsPlaceholder: "0",
-		dateLabel: "Date:",
-		timeLabel: "Hours:",
-		messageLabel: "Message:",
-		messagePlaceholder: "Comments",
-		submitButtonText: "Book a Table",
-	},
-};
-
-export const titleLocationsData = {
-	title: "Our locations",
-	align: "left",
 };
 
 // Extract location data into an array

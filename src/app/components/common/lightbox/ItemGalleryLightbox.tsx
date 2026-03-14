@@ -15,6 +15,7 @@ const ItemGalleryLightbox: React.FC<ItemGalleryLightboxProps> = ({
 			alt={title}
 			width={624}
 			height={390}
+			sizes="(min-width: 768px) 80vw, 100vw"
 		/>
 	);
 };

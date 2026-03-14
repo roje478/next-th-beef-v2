@@ -8,7 +8,7 @@ const CardEvent = ({ image, title, subtitle, pharse }: EventItem) => {
 		<div className="events-block__item">
 			{/* Image */}
 			<div className="events-block__item-image">
-				<Image src={image} alt={title} width={500} height={500} loading="lazy" />
+				<Image src={image} alt={title} width={500} height={500} sizes="(min-width: 768px) 33vw, 100vw" loading="lazy" />
 			</div>
 			{/* /Image */}
 			{/* Info */}

@@ -49,6 +49,7 @@ const HistoryBlock = ({
 										alt={item.title}
 										width={361}
 										height={541}
+										sizes="(min-width: 768px) 33vw, 100vw"
 										loading="lazy"
 									/>
 								</div>

@@ -38,6 +38,7 @@ const RelatedPosts: React.FC<RelatedPostsProps> = ({
 									alt={post.title}
 									width={400}
 									height={300}
+									sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
 									className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
 								/>
 							</Link>

@@ -36,8 +36,8 @@ const ContactBlock = ({
 				/>
 				{/* /Divider */}
 				{/* Form */}
-				<div className="contact__form">
-					<form className="form" action={formAction} method="post">
+				<div className="contact__form" suppressHydrationWarning>
+					<form className="form" action={formAction} method="post" suppressHydrationWarning>
 						<div className="form__body">
 							<div className="form_row">
 								<div className="form_field form_field__name">
