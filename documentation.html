@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beef - Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://rsms.me/inter/inter.css');
+        html {
+            font-family: 'Inter', sans-serif;
+        }
+        .section-card {
+            @apply bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl shadow-2xl;
+        }
+        .section-heading {
+            @apply text-4xl font-bold text-white mb-8 pb-4 border-b border-slate-700 flex flex-wrap items-center gap-4;
+        }
+        .sub-heading {
+            @apply text-2xl font-bold text-indigo-400 mt-8 mb-4 tracking-wide border-l-4 border-indigo-500 pl-4;
+        }
+        .code-block {
+            @apply bg-slate-900/50 border border-slate-700 text-slate-300 p-4 rounded-lg overflow-x-auto text-sm my-4 shadow-inner;
+        }
+        .inline-code {
+            @apply bg-slate-700 text-indigo-300 px-1.5 py-0.5 rounded text-sm;
+        }
+        .badge {
+            @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-300">
+
+    <!-- Header -->
+    <header class="bg-slate-800/80 backdrop-blur-sm shadow-lg sticky top-0 z-10 border-b border-slate-700">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold">
+                <span class="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Beef - Documentation</span>
+            </h1>
+            <nav class="hidden md:flex space-x-6 text-slate-300">
+                <a href="#introduction" class="hover:text-indigo-400 transition-colors duration-200">Introduction</a>
+                <a href="#getting-started" class="hover:text-indigo-400 transition-colors duration-200">Getting Started</a>
+                <a href="#structure" class="hover:text-indigo-400 transition-colors duration-200">Structure</a>
+                <a href="#pages" class="hover:text-indigo-400 transition-colors duration-200">Pages</a>
+                <a href="#customization" class="hover:text-indigo-400 transition-colors duration-200">Customization</a>
+                <a href="#deployment" class="hover:text-indigo-400 transition-colors duration-200">Deployment</a>
+                <a href="#credits" class="hover:text-indigo-400 transition-colors duration-200">Credits</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <div class="space-y-20">
+
+            <!-- Introduction Section -->
+            <section id="introduction" class="section-card p-8">
+                <h2 class="section-heading">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span class="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Introduction</span>
+                </h2>
+                <p class="text-lg leading-relaxed mb-6">
+                    Thank you for purchasing <strong class="text-white">Beef</strong> &mdash; a premium restaurant template built with Next.js 14, TypeScript, and Tailwind CSS. This documentation provides all the information you need to get your site up and running.
+                </p>
+
+                <h3 class="sub-heading">Tech Stack</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mt-4">
+                    <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-4 text-center">
+                        <p class="text-white font-semibold">Next.js</p>
+                        <p class="text-slate-400 text-sm">v14.2</p>
+                    </div>
+                    <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-4 text-center">
+                        <p class="text-white font-semibold">React</p>
+                        <p class="text-slate-400 text-sm">v18</p>
+                    </div>
+                    <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-4 text-center">
+                        <p class="text-white font-semibold">TypeScript</p>
+                        <p class="text-slate-400 text-sm">v5</p>
+                    </div>
+                    <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-4 text-center">
+                        <p class="text-white font-semibold">Tailwind CSS</p>
+                        <p class="text-slate-400 text-sm">v3.4</p>
+                    </div>
+                    <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-4 text-center">
+                        <p class="text-white font-semibold">Framer Motion</p>
+                        <p class="text-slate-400 text-sm">v11</p>
+                    </div>
+                    <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-4 text-center">
+                        <p class="text-white font-semibold">Swiper</p>
+                        <p class="text-slate-400 text-sm">v12.1</p>
+                    </div>
+                </div>
+
+                <h3 class="sub-heading">Key Features</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+                    <div class="flex items-start gap-3 bg-slate-900/30 p-3 rounded-lg">
+                        <span class="text-green-400 mt-0.5">&#10003;</span>
+                        <span><strong class="text-white">28+ Pages</strong> &mdash; Homepages, menus, blog, about, contact, events, and more</span>
+                    </div>
+                    <div class="flex items-start gap-3 bg-slate-900/30 p-3 rounded-lg">
+                        <span class="text-green-400 mt-0.5">&#10003;</span>
+                        <span><strong class="text-white">2 Homepage Designs</strong> &mdash; Creative (slider) and Classic layouts</span>
+                    </div>
+                    <div class="flex items-start gap-3 bg-slate-900/30 p-3 rounded-lg">
+                        <span class="text-green-400 mt-0.5">&#10003;</span>
+                        <span><strong class="text-white">4 Menu Layouts</strong> &mdash; Standard, tabs, full-width, and sidebar</span>
+                    </div>
+                    <div class="flex items-start gap-3 bg-slate-900/30 p-3 rounded-lg">
+                        <span class="text-green-400 mt-0.5">&#10003;</span>
+                        <span><strong class="text-white">Full Blog System</strong> &mdash; Categories, tags, authors, search, comments</span>
+                    </div>
+                    <div class="flex items-start gap-3 bg-slate-900/30 p-3 rounded-lg">
+                        <span class="text-green-400 mt-0.5">&#10003;</span>
+                        <span><strong class="text-white">Smooth Animations</strong> &mdash; Framer Motion + GSAP scroll effects</span>
+                    </div>
+                    <div class="flex items-start gap-3 bg-slate-900/30 p-3 rounded-lg">
+                        <span class="text-green-400 mt-0.5">&#10003;</span>
+                        <span><strong class="text-white">Fully Responsive</strong> &mdash; Mobile-first design across all breakpoints</span>
+                    </div>
+                    <div class="flex items-start gap-3 bg-slate-900/30 p-3 rounded-lg">
+                        <span class="text-green-400 mt-0.5">&#10003;</span>
+                        <span><strong class="text-white">SEO Optimized</strong> &mdash; Page metadata, sitemap, robots.txt, JSON-LD schema</span>
+                    </div>
+                    <div class="flex items-start gap-3 bg-slate-900/30 p-3 rounded-lg">
+                        <span class="text-green-400 mt-0.5">&#10003;</span>
+                        <span><strong class="text-white">TypeScript Strict</strong> &mdash; Zero errors, fully typed components</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Getting Started Section -->
+            <section id="getting-started" class="section-card p-8">
+                <h2 class="section-heading">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    <span class="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Getting Started</span>
+                </h2>
+
+                <h3 class="sub-heading">Prerequisites</h3>
+                <p class="mb-4">Before you begin, ensure you have the following installed:</p>
+                <ul class="list-disc list-inside mb-4 bg-slate-900/50 p-4 rounded-lg border border-slate-700 space-y-1">
+                    <li><a href="https://nodejs.org/" target="_blank" class="text-indigo-400 hover:underline">Node.js</a> v18 or later</li>
+                    <li><a href="https://pnpm.io/installation" target="_blank" class="text-indigo-400 hover:underline">pnpm</a> package manager (recommended) or npm</li>
+                </ul>
+
+                <h3 class="sub-heading">Installation</h3>
+                <p class="mb-2">Follow these steps to set up your project:</p>
+                <ol class="list-decimal list-inside space-y-4">
+                    <li>Unzip the package and open the project folder in your code editor.</li>
+                    <li>Open a terminal in the root of the project folder.</li>
+                    <li>Install dependencies:
+                        <pre class="code-block"><code>pnpm install</code></pre>
+                    </li>
+                    <li>Start the development server:
+                        <pre class="code-block"><code>pnpm dev</code></pre>
+                    </li>
+                </ol>
+                <p class="mt-4">Your site is now running at <a href="http://localhost:4000" target="_blank" class="text-indigo-400 hover:underline">http://localhost:4000</a>.</p>
+
+                <h3 class="sub-heading">Available Scripts</h3>
+                <div class="overflow-x-auto mt-4">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-700">
+                                <th class="py-3 px-4 text-white">Command</th>
+                                <th class="py-3 px-4 text-white">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-300">
+                            <tr class="border-b border-slate-700/50">
+                                <td class="py-3 px-4"><code class="inline-code">pnpm dev</code></td>
+                                <td class="py-3 px-4">Start development server on port 4000</td>
+                            </tr>
+                            <tr class="border-b border-slate-700/50">
+                                <td class="py-3 px-4"><code class="inline-code">pnpm build</code></td>
+                                <td class="py-3 px-4">Create optimized production build</td>
+                            </tr>
+                            <tr class="border-b border-slate-700/50">
+                                <td class="py-3 px-4"><code class="inline-code">pnpm start</code></td>
+                                <td class="py-3 px-4">Start production server</td>
+                            </tr>
+                            <tr class="border-b border-slate-700/50">
+                                <td class="py-3 px-4"><code class="inline-code">pnpm lint</code></td>
+                                <td class="py-3 px-4">Run ESLint checks</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4"><code class="inline-code">pnpm lint:fix</code></td>
+                                <td class="py-3 px-4">Auto-fix ESLint issues</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Project Structure Section -->
+            <section id="structure" class="section-card p-8">
+                <h2 class="section-heading">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4M4 7l8 5 8-5" /></svg>
+                    <span class="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Project Structure</span>
+                </h2>
+                <p class="mb-4">The project uses the Next.js 14 App Router structure:</p>
+                <pre class="code-block"><code>/
+&#x251C;&#x2500;&#x2500; public/              <span class="text-slate-500"># Static assets (images, fonts, favicon)</span>
+&#x2502;   &#x251C;&#x2500;&#x2500; hero/            <span class="text-slate-500"># Hero section images</span>
+&#x2502;   &#x251C;&#x2500;&#x2500; menu/            <span class="text-slate-500"># Menu dish images</span>
+&#x2502;   &#x251C;&#x2500;&#x2500; blog/            <span class="text-slate-500"># Blog post images</span>
+&#x2502;   &#x251C;&#x2500;&#x2500; team/            <span class="text-slate-500"># Chef/team photos</span>
+&#x2502;   &#x251C;&#x2500;&#x2500; gallery/         <span class="text-slate-500"># Gallery images</span>
+&#x2502;   &#x2514;&#x2500;&#x2500; bg/              <span class="text-slate-500"># Background images</span>
+&#x251C;&#x2500;&#x2500; src/
+&#x2502;   &#x2514;&#x2500;&#x2500; app/
+&#x2502;       &#x251C;&#x2500;&#x2500; (routes)/        <span class="text-slate-500"># All page routes</span>
+&#x2502;       &#x2502;   &#x251C;&#x2500;&#x2500; home-creative/ <span class="text-slate-500"># Creative homepage</span>
+&#x2502;       &#x2502;   &#x251C;&#x2500;&#x2500; home-classic/  <span class="text-slate-500"># Classic homepage</span>
+&#x2502;       &#x2502;   &#x251C;&#x2500;&#x2500; menu/          <span class="text-slate-500"># Menu pages</span>
+&#x2502;       &#x2502;   &#x251C;&#x2500;&#x2500; blog/          <span class="text-slate-500"># Blog system</span>
+&#x2502;       &#x2502;   &#x2514;&#x2500;&#x2500; ...            <span class="text-slate-500"># Other pages</span>
+&#x2502;       &#x251C;&#x2500;&#x2500; blocks/          <span class="text-slate-500"># Reusable page sections</span>
+&#x2502;       &#x251C;&#x2500;&#x2500; components/      <span class="text-slate-500"># Common UI components</span>
+&#x2502;       &#x251C;&#x2500;&#x2500; hooks/           <span class="text-slate-500"># Data files (content)</span>
+&#x2502;       &#x251C;&#x2500;&#x2500; styles/          <span class="text-slate-500"># CSS files</span>
+&#x2502;       &#x251C;&#x2500;&#x2500; types/           <span class="text-slate-500"># TypeScript definitions</span>
+&#x2502;       &#x251C;&#x2500;&#x2500; layout.tsx       <span class="text-slate-500"># Root layout (fonts, metadata)</span>
+&#x2502;       &#x251C;&#x2500;&#x2500; globals.css      <span class="text-slate-500"># Global styles</span>
+&#x2502;       &#x2514;&#x2500;&#x2500; sitemap.ts       <span class="text-slate-500"># Auto-generated sitemap</span>
+&#x251C;&#x2500;&#x2500; tailwind.config.ts   <span class="text-slate-500"># Tailwind configuration</span>
+&#x251C;&#x2500;&#x2500; tsconfig.json        <span class="text-slate-500"># TypeScript configuration</span>
+&#x2514;&#x2500;&#x2500; next.config.mjs      <span class="text-slate-500"># Next.js configuration</span></code></pre>
+            </section>
+
+            <!-- Pages Section -->
+            <section id="pages" class="section-card p-8">
+                <h2 class="section-heading">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                    <span class="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Pages Included</span>
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Homepages -->
+                    <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-5">
+                        <h4 class="text-white font-semibold text-lg mb-3 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
+                            Homepages
+                        </h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex justify-between"><span>Home Creative</span> <code class="text-slate-500">/home-creative</code></li>
+                            <li class="flex justify-between"><span>Home Classic</span> <code class="text-slate-500">/home-classic</code></li>
+                        </ul>
+                    </div>
+
+                    <!-- Restaurant -->
+                    <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-5">
+                        <h4 class="text-white font-semibold text-lg mb-3 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-amber-400 rounded-full"></span>
+                            Restaurant
+                        </h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex justify-between"><span>Menu</span> <code class="text-slate-500">/menu</code></li>
+                            <li class="flex justify-between"><span>Menu Tabs</span> <code class="text-slate-500">/menu-tabs</code></li>
+                            <li class="flex justify-between"><span>Menu Full Width</span> <code class="text-slate-500">/menu-full-width</code></li>
+                            <li class="flex justify-between"><span>Menu Sidebar</span> <code class="text-slate-500">/menu-sidebar</code></li>
+                            <li class="flex justify-between"><span>Menu Category</span> <code class="text-slate-500">/menu-category</code></li>
+                            <li class="flex justify-between"><span>Dish Details</span> <code class="text-slate-500">/menu-single</code></li>
+                        </ul>
+                    </div>
+
+                    <!-- About -->
+                    <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-5">
+                        <h4 class="text-white font-semibold text-lg mb-3 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-emerald-400 rounded-full"></span>
+                            About
+                        </h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex justify-between"><span>About Us</span> <code class="text-slate-500">/about-us</code></li>
+                            <li class="flex justify-between"><span>Our History</span> <code class="text-slate-500">/history</code></li>
+                            <li class="flex justify-between"><span>Our Chefs</span> <code class="text-slate-500">/chefs</code></li>
+                            <li class="flex justify-between"><span>Chef's Table</span> <code class="text-slate-500">/chefs-table</code></li>
+                            <li class="flex justify-between"><span>Services</span> <code class="text-slate-500">/services</code></li>
+                            <li class="flex justify-between"><span>Contact</span> <code class="text-slate-500">/contact-us</code></li>
+                            <li class="flex justify-between"><span>Events</span> <code class="text-slate-500">/events</code></li>
+                            <li class="flex justify-between"><span>Testimonials</span> <code class="text-slate-500">/testimonials</code></li>
+                        </ul>
+                    </div>
+
+                    <!-- Blog -->
+                    <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-5">
+                        <h4 class="text-white font-semibold text-lg mb-3 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
+                            Blog
+                        </h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex justify-between"><span>Blog Grid</span> <code class="text-slate-500">/blog</code></li>
+                            <li class="flex justify-between"><span>Blog Sidebar</span> <code class="text-slate-500">/blog-sidebar</code></li>
+                            <li class="flex justify-between"><span>Blog Post</span> <code class="text-slate-500">/blog/[slug]</code></li>
+                            <li class="flex justify-between"><span>Blog Category</span> <code class="text-slate-500">/blog/category/[slug]</code></li>
+                            <li class="flex justify-between"><span>Search Results</span> <code class="text-slate-500">/search</code></li>
+                        </ul>
+                    </div>
+
+                    <!-- Utility -->
+                    <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-5">
+                        <h4 class="text-white font-semibold text-lg mb-3 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-purple-400 rounded-full"></span>
+                            Utility
+                        </h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex justify-between"><span>FAQ</span> <code class="text-slate-500">/faq</code></li>
+                            <li class="flex justify-between"><span>Pricing</span> <code class="text-slate-500">/pricing</code></li>
+                            <li class="flex justify-between"><span>Terms</span> <code class="text-slate-500">/terms</code></li>
+                            <li class="flex justify-between"><span>Privacy Policy</span> <code class="text-slate-500">/privacy</code></li>
+                            <li class="flex justify-between"><span>Coming Soon</span> <code class="text-slate-500">/coming-soon</code></li>
+                            <li class="flex justify-between"><span>Confirmation</span> <code class="text-slate-500">/confirmation</code></li>
+                            <li class="flex justify-between"><span>404 Error</span> <code class="text-slate-500">/404</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Customization Section -->
+            <section id="customization" class="section-card p-8">
+                <h2 class="section-heading">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    <span class="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Customization</span>
+                </h2>
+
+                <h3 class="sub-heading">Changing Images</h3>
+                <p class="mb-4">
+                    All images are in <code class="inline-code">public/</code>, organized by content type (e.g., <code class="inline-code">public/hero/</code>, <code class="inline-code">public/menu/</code>, <code class="inline-code">public/team/</code>). Replace files with your own, keeping the same filename for a quick update. If you use a new filename, update the path in the corresponding data file inside <code class="inline-code">src/app/hooks/</code>.
+                </p>
+
+                <h3 class="sub-heading">Managing Content</h3>
+                <p class="mb-4">
+                    All template content is centralized in the <code class="inline-code">src/app/hooks/</code> directory. Each file manages data for a specific part of the site, making content updates simple and predictable.
+                </p>
+                <div class="overflow-x-auto mt-4 mb-6">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="border-b border-slate-700">
+                                <th class="py-3 px-4 text-white">File</th>
+                                <th class="py-3 px-4 text-white">Content</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-300">
+                            <tr class="border-b border-slate-700/50">
+                                <td class="py-2 px-4"><code class="inline-code">data-hero.tsx</code></td>
+                                <td class="py-2 px-4">Hero sections (titles, descriptions, images)</td>
+                            </tr>
+                            <tr class="border-b border-slate-700/50">
+                                <td class="py-2 px-4"><code class="inline-code">data-dish.tsx</code></td>
+                                <td class="py-2 px-4">Menu dishes (names, prices, descriptions)</td>
+                            </tr>
+                            <tr class="border-b border-slate-700/50">
+                                <td class="py-2 px-4"><code class="inline-code">data-team.tsx</code></td>
+                                <td class="py-2 px-4">Chef/team member profiles</td>
+                            </tr>
+                            <tr class="border-b border-slate-700/50">
+                                <td class="py-2 px-4"><code class="inline-code">data-blog.tsx</code></td>
+                                <td class="py-2 px-4">Blog posts, categories, tags</td>
+                            </tr>
+                            <tr class="border-b border-slate-700/50">
+                                <td class="py-2 px-4"><code class="inline-code">data-gallery.tsx</code></td>
+                                <td class="py-2 px-4">Gallery images</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4"><code class="inline-code">data.tsx</code></td>
+                                <td class="py-2 px-4">General site data (inner page heroes, etc.)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong class="text-white">Example</strong> from <code class="inline-code">data-dish.tsx</code>:</p>
+                <pre class="code-block"><code><span class="text-purple-400">export const</span> menuWeekData = {
+    <span class="text-green-400">subtitle:</span> <span class="text-yellow-400">"This week's specials"</span>,
+    <span class="text-green-400">title:</span> <span class="text-yellow-400">"Delicious Dishes You Can't Miss"</span>,
+    <span class="text-green-400">items:</span> [
+        {
+            <span class="text-green-400">id:</span> <span class="text-red-400">1</span>,
+            <span class="text-green-400">title:</span> <span class="text-yellow-400">"pan seared scallops"</span>,
+            <span class="text-green-400">price:</span> <span class="text-yellow-400">"$29.00"</span>,
+            <span class="text-green-400">description:</span> <span class="text-yellow-400">"Saffron, celeriac puree..."</span>,
+        },
+        <span class="text-slate-500">// ... more items</span>
+    ],
+};</code></pre>
+                <p class="mt-4">Simply edit the values in these files to change the site's content. All changes are reflected automatically.</p>
+
+                <h3 class="sub-heading">Colors &amp; Fonts</h3>
+                <p class="mb-4">
+                    The design tokens are configured in <code class="inline-code">tailwind.config.ts</code>. The project uses two main color scales:
+                </p>
+                <ul class="list-disc list-inside mb-4 bg-slate-900/50 p-4 rounded-lg border border-slate-700 space-y-1">
+                    <li><code class="inline-code">calico</code> &mdash; Gold/bronze accent colors (buttons, highlights, decorative elements)</li>
+                    <li><code class="inline-code">coarseWool</code> &mdash; Dark background shades (surfaces, cards, sections)</li>
+                </ul>
+                <p class="mb-4">Four Google Fonts are loaded via <code class="inline-code">next/font</code> in <code class="inline-code">src/app/layout.tsx</code>:</p>
+                <ul class="list-disc list-inside bg-slate-900/50 p-4 rounded-lg border border-slate-700 space-y-1">
+                    <li><strong class="text-white">Josefin Sans</strong> &mdash; Navigation, subtitles</li>
+                    <li><strong class="text-white">Barlow Condensed</strong> &mdash; Headings, titles</li>
+                    <li><strong class="text-white">Sorts Mill Goudy</strong> &mdash; Decorative text, numbers</li>
+                    <li><strong class="text-white">Mulish</strong> &mdash; Body text, labels</li>
+                </ul>
+
+                <h3 class="sub-heading">Adding New Pages</h3>
+                <ol class="list-decimal list-inside space-y-2 mt-4">
+                    <li>Create a new folder inside <code class="inline-code">src/app/(routes)/</code></li>
+                    <li>Add a <code class="inline-code">page.tsx</code> file with your component</li>
+                    <li>Add a <code class="inline-code">metadata</code> export for SEO</li>
+                    <li>Next.js will automatically create the route</li>
+                </ol>
+                <pre class="code-block"><code><span class="text-slate-500">// src/app/(routes)/reservations/page.tsx</span>
+<span class="text-purple-400">import type</span> { Metadata } <span class="text-purple-400">from</span> <span class="text-yellow-400">"next"</span>;
+
+<span class="text-purple-400">export const</span> metadata: Metadata = {
+    title: <span class="text-yellow-400">"Reservations"</span>,
+    description: <span class="text-yellow-400">"Book your table online."</span>,
+};
+
+<span class="text-purple-400">export default function</span> <span class="text-cyan-400">ReservationsPage</span>() {
+    <span class="text-purple-400">return</span> &lt;div&gt;Your content here&lt;/div&gt;;
+}
+<span class="text-slate-500">// Available at: /reservations</span></code></pre>
+            </section>
+
+            <!-- Deployment Section -->
+            <section id="deployment" class="section-card p-8">
+                <h2 class="section-heading">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" /></svg>
+                    <span class="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Deployment</span>
+                </h2>
+
+                <h3 class="sub-heading">Building for Production</h3>
+                <p class="mb-4">Create an optimized production build:</p>
+                <pre class="code-block"><code>pnpm build</code></pre>
+                <p class="mb-4">The output will be located in the <code class="inline-code">.next</code> directory. All pages are statically generated for maximum performance.</p>
+
+                <h3 class="sub-heading">Deploy to Vercel (Recommended)</h3>
+                <p class="mb-4">The easiest way to deploy a Next.js application is with <a href="https://vercel.com" target="_blank" class="text-indigo-400 hover:underline">Vercel</a>:</p>
+                <ol class="list-decimal list-inside space-y-2 mb-4">
+                    <li>Push your project code to a Git repository (GitHub, GitLab, or Bitbucket).</li>
+                    <li>Sign up for a Vercel account and connect your Git provider.</li>
+                    <li>Import your repository &mdash; Vercel auto-detects Next.js.</li>
+                    <li>Click <strong class="text-white">"Deploy"</strong>. Your site will be live in minutes.</li>
+                </ol>
+                <p>Future pushes to your main branch will trigger automatic redeployments.</p>
+
+                <h3 class="sub-heading">Self-Hosting</h3>
+                <p class="mb-2">To host the application on your own server:</p>
+                <pre class="code-block"><code><span class="text-slate-500"># Build the project</span>
+pnpm build
+
+<span class="text-slate-500"># Start the production server</span>
+pnpm start</code></pre>
+                <p class="mt-4">Use a process manager like <code class="inline-code">pm2</code> to keep your application running:</p>
+                <pre class="code-block"><code>pm2 start "pnpm start" --name beef-restaurant</code></pre>
+            </section>
+
+            <!-- Credits Section -->
+            <section id="credits" class="section-card p-8">
+                <h2 class="section-heading">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                    <span class="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Credits</span>
+                </h2>
+                <p class="mb-4">This template is built with the following open-source technologies:</p>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <a href="https://nextjs.org/" target="_blank" class="bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-center hover:border-indigo-500/50 transition-colors">Next.js</a>
+                    <a href="https://react.dev/" target="_blank" class="bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-center hover:border-indigo-500/50 transition-colors">React</a>
+                    <a href="https://tailwindcss.com/" target="_blank" class="bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-center hover:border-indigo-500/50 transition-colors">Tailwind CSS</a>
+                    <a href="https://www.framer.com/motion/" target="_blank" class="bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-center hover:border-indigo-500/50 transition-colors">Framer Motion</a>
+                    <a href="https://gsap.com/" target="_blank" class="bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-center hover:border-indigo-500/50 transition-colors">GSAP</a>
+                    <a href="https://swiperjs.com/" target="_blank" class="bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-center hover:border-indigo-500/50 transition-colors">Swiper</a>
+                    <a href="https://lucide.dev/" target="_blank" class="bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-center hover:border-indigo-500/50 transition-colors">Lucide Icons</a>
+                    <a href="https://fontawesome.com/" target="_blank" class="bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-center hover:border-indigo-500/50 transition-colors">Font Awesome</a>
+                    <a href="https://fonts.google.com/" target="_blank" class="bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-center hover:border-indigo-500/50 transition-colors">Google Fonts</a>
+                </div>
+
+                <h3 class="sub-heading">Images</h3>
+                <p>
+                    Images used in the demo are for preview purposes only and are <strong class="text-white">not included</strong> in the download. Please replace with your own images. Recommended sources:
+                    <a href="https://unsplash.com/" target="_blank" class="text-indigo-400 hover:underline">Unsplash</a>,
+                    <a href="https://www.pexels.com/" target="_blank" class="text-indigo-400 hover:underline">Pexels</a>,
+                    <a href="https://picjumbo.com/" target="_blank" class="text-indigo-400 hover:underline">Picjumbo</a>.
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-700 mt-20">
+        <div class="container mx-auto px-6 py-6 text-center text-slate-400">
+            <p>&copy; 2026 Beef Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
